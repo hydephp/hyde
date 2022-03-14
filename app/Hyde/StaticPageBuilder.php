@@ -33,7 +33,7 @@ class StaticPageBuilder
      * @param string $location of the output file relative to _site/
      * @param string $contents to save to the file
      */
-    public function save(string $location, string $contents)
+    private function save(string $location, string $contents)
     {
         $path = base_path('./_site') . '/' . $location . '.html';
         file_put_contents($path, $contents);
@@ -43,7 +43,7 @@ class StaticPageBuilder
      * Compile the HTML using the Blade View
      * @return string
      */
-    public function compilePost(): string
+    private function compilePost(): string
     {
         return view('post')->with([
             'post' => $this->post
