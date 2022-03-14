@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\Hyde\MarkdownPost;
 use App\Hyde\MarkdownPostParser;
+use App\Hyde\Models\MarkdownPost;
 use PHPUnit\Framework\TestCase;
 
 class MarkdownPostParserTest extends TestCase
@@ -53,7 +53,7 @@ EOF
 	public function testCanParseMarkdownFile()
 	{
 		$this->createWorkingFile();
-		
+
 		$post = (new MarkdownPostParser('test-parser'))->get();
 		$this->assertInstanceOf(MarkdownPost::class, $post);
 		$this->assertCount(4, ($post->matter));

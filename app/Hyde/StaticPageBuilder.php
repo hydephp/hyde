@@ -2,6 +2,8 @@
 
 namespace App\Hyde;
 
+use App\Hyde\Models\MarkdownPost;
+
 /**
  * Generates a static HTML page and saves it.
  * Currently, only supports the Post model but will
@@ -37,7 +39,11 @@ class StaticPageBuilder
         file_put_contents($path, $contents);
     }
 
-    public function compilePost()
+    /**
+     * Compile the HTML using the Blade View
+     * @return string
+     */
+    public function compilePost(): string
     {
         return view('post')->with([
             'post' => $this->post

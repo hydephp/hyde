@@ -2,6 +2,7 @@
 
 namespace App\Hyde;
 
+use App\Hyde\Models\MarkdownPost;
 use Exception;
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\NoReturn;

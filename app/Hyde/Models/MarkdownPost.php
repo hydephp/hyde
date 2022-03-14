@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Hyde;
+namespace App\Hyde\Models;
 
 /**
  * A simple class that contains the Front Matter and Markdown text of a post.
