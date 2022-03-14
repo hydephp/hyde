@@ -9,7 +9,7 @@ use JetBrains\PhpStorm\Pure;
 
 /**
  * Parses a Markdown file into an object with support for Front Matter.
- * 
+ *
  * Note that it does not convert it to HTML.
  */
 class MarkdownPostParser
@@ -120,7 +120,7 @@ class MarkdownPostParser
     {
         $matter = [];
         foreach ($lines as $line) {
-            $array = (explode(':', $line, 2));
+            $array = (explode(': ', $line, 2));
             $matter[$array[0]] = $array[1];
         }
         return $matter;
