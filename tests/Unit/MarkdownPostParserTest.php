@@ -58,7 +58,9 @@ EOF
 		$this->assertInstanceOf(MarkdownPost::class, $post);
 		$this->assertCount(4, ($post->matter));
 		$this->assertIsString($post->body);
+		$this->assertIsString($post->slug);
 		$this->assertTrue(strlen($post->body) > 64);
+		$this->assertTrue(strlen($post->slug) > 8);
 		$this->cleanUp();
 	}
 }
