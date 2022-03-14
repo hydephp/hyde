@@ -37,7 +37,7 @@ class MakePostCommand extends Command
         $title = $this->ask('What is the title of the post?') ?? 'My New Post';
 
         $this->line('Tip: You can just hit return to use the defaults.');
-        $description = $this->ask('Want to write a short post description?');
+        $description = $this->ask('Write a short post excerpt/description');
         $author      = $this->ask('What is your (the author\'s) name?');
         $category    = $this->ask('What is the primary category of the post?');
 
@@ -74,6 +74,7 @@ class MakePostCommand extends Command
             $this->warn($exception->getMessage());
             if ($exception->getCode() === 409) {
                 $this->comment('If you want to overwrite the file supply the --force flag.');
+                return 409;
             }
             return 1;
         }
