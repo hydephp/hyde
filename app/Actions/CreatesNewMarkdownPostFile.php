@@ -41,6 +41,8 @@ class CreatesNewMarkdownPostFile
 
     /**
      * Save the class object to a Markdown file.
+     * 
+     * @todo Remove the slug key from the generated front matter as it is not parsed
      *
      * @param bool $force Should the file be created even if a file with the same path already exists?
      * @return string|false Returns the path to the file if successful, or false if the file could not be saved.
