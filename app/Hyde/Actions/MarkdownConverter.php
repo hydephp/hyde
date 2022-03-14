@@ -22,7 +22,10 @@ class MarkdownConverter
         $converter = new CommonMarkConverter();
 
         $converter->getEnvironment()->addExtension(new GithubFlavoredMarkdownExtension());
+        if (config('torchlight.token') !== null) {
+            $converter->getEnvironment()->addExtension(new TorchlightExtension());
+        }
 
-        return  $converter->convert($markdown);
+        return $converter->convert($markdown);
     }
 }
