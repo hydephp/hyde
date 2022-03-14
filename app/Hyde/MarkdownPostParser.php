@@ -133,6 +133,6 @@ class MarkdownPostParser
     #[Pure]
     public function get(): MarkdownPost
     {
-        return new MarkdownPost($this->matter, $this->body);
+        return new MarkdownPost($this->matter, $this->body, $this->slug);
     }
 }
