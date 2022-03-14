@@ -48,7 +48,7 @@ class CreatesNewMarkdownPostFile
      */
     public function save(bool $force = false): string|false
     {
-        $path = realpath('./_posts') . '' . DIRECTORY_SEPARATOR . "$this->slug.md";
+        $path = realpath('./_posts') . DIRECTORY_SEPARATOR . "$this->slug.md";
 
         if ($force !== true && file_exists($path)) {
             throw new Exception("File at $path already exists! ", 409);
