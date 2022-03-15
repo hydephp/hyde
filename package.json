@@ -1,0 +1,29 @@
+{
+  "name": "hydefront",
+  "version": "0.0.0",
+  "description": "Frontend assets for HydePHP",
+  "main": "index.html",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "php hyde test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caendesilva/hyde.git"
+  },
+  "keywords": [
+    "hydephp",
+    "hyde",
+    "static",
+    "laravel",
+    "blog"
+  ],
+  "author": "Caen De Silva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caendesilva/hyde/issues"
+  },
+  "homepage": "https://github.com/caendesilva/hyde#readme"
+}
