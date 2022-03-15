@@ -2,13 +2,15 @@
   "name": "hydefront",
   "version": "0.0.0",
   "description": "Frontend assets for HydePHP",
-  "main": "index.html",
+  "main": "_site/index.html",
   "directories": {
     "test": "tests"
   },
   "scripts": {
     "test": "php hyde test",
-    "sync": "npx browser-sync _site -w"
+    "build": "php hyde build",
+    "livereload": "npx browser-sync _site -w",
+    "watch": "chokidar ./_posts/*.md -c \"npm run build\""
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,7 @@
   },
   "homepage": "https://github.com/caendesilva/hyde#readme",
   "devDependencies": {
-    "browser-sync": "^2.27.9"
+    "browser-sync": "^2.27.9",
+    "chokidar-cli": "^3.0.0"
   }
 }

@@ -10,16 +10,26 @@ The frontend uses a minimalist layout build with TailwindCSS which you can exten
 It's a breeze to get started. Simply clone the repository, write your Markdown posts and save them to the _posts directory and run the `php hyde build` command. You can scaffold post files using the `php hyde make:post` command.
 
 ## Previewing the site
-Hyde comes with support for Browsersync which starts a local web server and automatically refreshes your pages once they are changed. Support for automatically running the hyde build command is coming soon.
+Hyde comes with support for Browsersync which starts a local web server and automatically refreshes your pages once they are changed. 
 
-How to use Browsersync:
+> If it is the first time running the commands, remember to run `npm install` first!
+
+### Livereload using Browsersync:
 ```bash
-npm install
-npm run sync
+npm run livereload
 ```
 A browser page should automatically be opened. If not, just navigate to http://localhost:3000/.
 
+### Watch the files for changes:
+Hyde has experimental support for automatically running the hyde build command when source files change.
+Currently all pages are rebuilt, but in a future update only the affected files will be rebuilt.
 
+Start watching files using
+```bash
+npm run watch
+```
+
+It works great when combining with livereload!
 
 ### Requirements 
 > These requirements are for your local development environment. The static HTML can be hosted virtually anywhere, including on GitHub Pages.
