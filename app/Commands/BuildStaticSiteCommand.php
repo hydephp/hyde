@@ -55,6 +55,10 @@ class BuildStaticSiteCommand extends Command
 
         $this->newLine(2);
         $this->info('All done!');
+
+        $this->info('Congratulations! 🎉 Your static site has been built!');
+        $this->info('Your new homepage is stored here -> ' . base_path('_site'. DIRECTORY_SEPARATOR .'index.html'));
+
         return 0;
     }
 }
