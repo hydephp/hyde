@@ -1,0 +1,15 @@
+/**
+* Core Stylesheet for Hyde Zero
+*/
+
+#main-navigation {
+	ul {
+		float: right;
+		margin-top: 0;
+		margin-right: 1em;
+		li {
+			display: inline;
+			margin-left: 1em;
+		}
+	}
+}

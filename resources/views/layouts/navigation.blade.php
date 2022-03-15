@@ -1,4 +1,4 @@
-<nav aria-label="Primary Navigation Menu">
+<nav id="main-navigation" aria-label="Primary Navigation Menu">
 	<ul>
 		@foreach (App\Actions\GeneratesNavigationMenu::getNavigationLinks($currentPage) as $item)
 			<li>
