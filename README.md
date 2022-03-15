@@ -9,6 +9,18 @@ The frontend uses a minimalist layout build with TailwindCSS which you can exten
 ## Getting Started
 It's a breeze to get started. Simply clone the repository, write your Markdown posts and save them to the _posts directory and run the `php hyde build` command. You can scaffold post files using the `php hyde make:post` command.
 
+## Previewing the site
+Hyde comes with support for Browsersync which starts a local web server and automatically refreshes your pages once they are changed. Support for automatically running the hyde build command is coming soon.
+
+How to use Browsersync:
+```bash
+npm install
+npm run sync
+```
+A browser page should automatically be opened. If not, just navigate to http://localhost:3000/.
+
+
+
 ### Requirements 
 > These requirements are for your local development environment. The static HTML can be hosted virtually anywhere, including on GitHub Pages.
 Hyde uses Laravel 9 which requires PHP >= 8.0. You should also have Composer and NPM installed.

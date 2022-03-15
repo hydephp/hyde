@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "php hyde test"
+    "test": "php hyde test",
+    "sync": "npx browser-sync _site -w"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/caendesilva/hyde/issues"
   },
-  "homepage": "https://github.com/caendesilva/hyde#readme"
+  "homepage": "https://github.com/caendesilva/hyde#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.9"
+  }
 }
