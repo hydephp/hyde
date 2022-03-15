@@ -6,7 +6,6 @@ use App\Actions\CreatesNewMarkdownPostFile;
 use LaravelZero\Framework\Commands\Command;
 use Exception;
 
-
 class MakePostCommand extends Command
 {
     /**

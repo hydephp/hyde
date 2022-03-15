@@ -24,24 +24,29 @@ class CreatesNewMarkdownPostFile
      * @param string|null $date
      * @param string|null $slug
      */
-    public function __construct( string $title,
-                                ?string $description,
-                                ?string $category,
-                                ?string $author,
-                                ?string $date = null,
-                                ?string $slug = null)
-    {
+    public function __construct(
+        string $title,
+        ?string $description,
+        ?string $category,
+        ?string $author,
+        ?string $date = null,
+        ?string $slug = null
+    ) {
         $this->title = $title ?? 'My Awesome Blog Post';
         $this->description = $description ?? 'A short description used in previews and SEO';
         $this->category = $category ?? 'blog';
         $this->author = $author ?? 'Mr. Hyde';
-        if ($date === null) $this->date = date('Y-m-d H:i');
-        if ($slug === null) $this->slug = Str::slug($title) ;
+        if ($date === null) {
+            $this->date = date('Y-m-d H:i');
+        }
+        if ($slug === null) {
+            $this->slug = Str::slug($title) ;
+        }
     }
 
     /**
      * Save the class object to a Markdown file.
-     * 
+     *
      * @todo Remove the slug key from the generated front matter as it is not parsed
      *
      * @param bool $force Should the file be created even if a file with the same path already exists?

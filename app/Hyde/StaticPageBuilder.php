@@ -64,13 +64,13 @@ class StaticPageBuilder
     * Compile a Page into HTML using the Blade View
     * @return string
     */
-   private function compilePage(): string
-   {
-       return view('page')->with([
+    private function compilePage(): string
+    {
+        return view('page')->with([
            'title' => $this->page->title,
            'pageContent' => $this->page->content
-       ])->render();
-   }
+        ])->render();
+    }
    
 
     /**

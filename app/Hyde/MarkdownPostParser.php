@@ -85,7 +85,7 @@ class MarkdownPostParser
             if (str_starts_with($lineContents, '---')) {
                 if (sizeof($matterSectionIndex) === 0) {
                     $matterSectionIndex['start'] = $lineNumber;
-                } else if (sizeof($matterSectionIndex) === 1) {
+                } elseif (sizeof($matterSectionIndex) === 1) {
                     $matterSectionIndex['end'] = $lineNumber;
                     break;
                 }
@@ -93,7 +93,8 @@ class MarkdownPostParser
         }
 
         // Construct the new line arrays
-        $matter = []; $markdown = [];
+        $matter = [];
+        $markdown = [];
         foreach ($lines as $lineNumber => $lineContents) {
             if ($lineNumber <= $matterSectionIndex['end']) {
                 $matter[] = $lineContents;
