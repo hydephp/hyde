@@ -1,13 +1,13 @@
 {
-    "name": "desilva/hyde-zero",
+    "name": "desilva/hyde",
     "description": "Static Markdown Site and Blog Generator for Developers using PHP",
     "keywords": ["framework", "laravel", "laravel hyde", "hyde", "php"],
     "homepage": "https://laravel-zero.com",
     "type": "project",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/caendesilva/hyde-zero/issues",
-        "source": "https://github.com/caendesilva/hyde-zero"
+        "issues": "https://github.com/caendesilva/hyde/issues",
+        "source": "https://github.com/caendesilva/hyde"
     },
     "authors": [
         {
@@ -48,5 +48,5 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "bin": ["hydezero"]
+    "bin": ["hyde"]
 }
