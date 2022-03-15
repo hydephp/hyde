@@ -2,6 +2,9 @@
 
 namespace App\Hyde\Models;
 
+use App\Hyde\MarkdownPostParser;
+use Illuminate\Support\Collection;
+
 /**
  * A simple class that contains the Front Matter and Markdown text of a post.
  */
@@ -37,5 +40,20 @@ class MarkdownPost
         $this->matter = $matter;
         $this->body = $body;
         $this->slug = $slug;
+    }
+
+    /**
+     * Get a Laravel Collection of all Posts as MarkdownPost objects.
+     * @return Collection
+     */
+    public static function getCollection(): Collection
+    {
+        $collection = new Collection();
+
+        foreach (glob(base_path('_posts/*.md')) as $filepath) {
+            $collection->push((new MarkdownPostParser(basename($filepath, '.md')))->get());
+        }
+
+        return $collection->sortByDesc('matter.desc');
     }
 }
