@@ -2,8 +2,9 @@
 
 namespace App\Hyde;
 
-use App\Hyde\Models\BladePage;
 use App\Hyde\Models\MarkdownPost;
+use App\Hyde\Models\MarkdownPage;
+use App\Hyde\Models\BladePage;
 
 /**
  * Generates a static HTML page and saves it.
@@ -13,10 +14,10 @@ use App\Hyde\Models\MarkdownPost;
 class StaticPageBuilder
 {
     /**
-     * @param MarkdownPost|BladePage $page the Page to compile into HTML
+     * @param MarkdownPost|MarkdownPage|BladePage $page the Page to compile into HTML
      * @param bool $runAutomatically if set to true the class will invoke when constructed
      */
-    public function __construct(protected MarkdownPost|BladePage $page, bool $runAutomatically = false)
+    public function __construct(protected MarkdownPost|MarkdownPage|BladePage $page, bool $runAutomatically = false)
     {
         if ($runAutomatically) {
             $this->__invoke();
@@ -29,8 +30,12 @@ class StaticPageBuilder
             $this->save('posts/' . $this->page->slug, $this->compilePost());
         }
 
+        if ($this->page instanceof MarkdownPage) {
+            $this->save($this->page->slug, $this->compilePage());
+        }
+
         if ($this->page instanceof BladePage) {
-            $this->save('' . $this->page->view, $this->compileView());
+            $this->save($this->page->view, $this->compileView());
         }
     }
 
@@ -54,6 +59,19 @@ class StaticPageBuilder
             'post' => $this->page
         ])->render();
     }
+    
+    /**
+    * Compile a Page into HTML using the Blade View
+    * @return string
+    */
+   private function compilePage(): string
+   {
+       return view('page')->with([
+           'title' => $this->page->title,
+           'pageContent' => $this->page->content
+       ])->render();
+   }
+   
 
     /**
      * Compile a custom Blade View into HTML
