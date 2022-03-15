@@ -13,3 +13,16 @@
 		}
 	}
 }
+
+#post-article {
+	max-width: 960px;
+	#byline {
+		margin-bottom: 1em;
+		time, address, dl {
+			display: inline;
+			dt, dd {
+				display: inline;
+			}
+		}
+	}
+}

@@ -1,3 +1,1 @@
-<div>
-    <strong>Category:</strong> {{ $post->matter['category'] }}
-</div>
+in the category "{{ $post->matter['category'] }}"
