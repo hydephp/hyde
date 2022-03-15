@@ -56,10 +56,11 @@ class StaticPageBuilder
     private function compilePost(): string
     {
         return view('post')->with([
-            'post' => $this->page
+            'post' => $this->page,
+            'currentPage' => 'posts/' . $this->page->slug
         ])->render();
     }
-    
+
     /**
     * Compile a Page into HTML using the Blade View
     * @return string
@@ -67,11 +68,12 @@ class StaticPageBuilder
     private function compilePage(): string
     {
         return view('page')->with([
-           'title' => $this->page->title,
-           'pageContent' => $this->page->content
+            'title' => $this->page->title,
+            'pageContent' => $this->page->content,
+            'currentPage' => $this->page->slug
         ])->render();
     }
-   
+
 
     /**
      * Compile a custom Blade View into HTML
@@ -79,6 +81,8 @@ class StaticPageBuilder
      */
     private function compileView(): string
     {
-        return view('pages/' . $this->page->view)->render();
+        return view('pages/' . $this->page->view, [
+            'currentPage' => $this->page->view
+        ])->render();
     }
 }
