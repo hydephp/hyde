@@ -6,4 +6,4 @@ author: Mr. Hyde
 
 # My New Post
 
-I'm baby affogato iPhone narwhal selvage pitchfork forage.
+This is a post stub used in the automated tests

@@ -4,19 +4,19 @@
 | Torchlight
 |--------------------------------------------------------------------------
 |
-| Hyde comes with built in support for Torchlight.
-| 
+| Hyde comes with built-in support for Torchlight.
+|
 | All you need to do is supply your API token in the TORCHLIGHT_TOKEN .env
 | variable and the extension will be enabled automatically for you.
 | This config also comes with an extra option to automatically
 | inject an attribution badge on pages that use Torchlight.
-| 
+|
 | @see https://torchlight.dev/
 |
 */
 return [
 	// Should an attribution badge be automatically injected?
-	'attribution' => true, // Default: true 
+	'attribution' => true, // Default: true
 
 	// The Torchlight client caches highlighted code blocks. Here
     // you can define which cache driver you'd like to use. If
@@ -26,7 +26,7 @@ return [
     // Cache blocks for 30 days.
     'cache_seconds' => env('TORCHLIGHT_CACHE_TTL', 60 * 60 * 24 * 30),
 
-    // Which theme you want to use. You can find all of the themes at
+    // Which theme you want to use. You can find all the themes at
     // https://torchlight.dev/docs/themes.
     'theme' => env('TORCHLIGHT_THEME', 'material-theme-palenight'),
 

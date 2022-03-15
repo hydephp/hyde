@@ -2,6 +2,8 @@
 
 namespace App\Actions;
 
+use JetBrains\PhpStorm\Pure;
+
 class CreatesDefaultDirectories
 {
     protected array $requiredDirectories = [
@@ -20,7 +22,7 @@ class CreatesDefaultDirectories
         }
     }
 
-    public static function getRequiredDirectories(): array
+    #[Pure] public static function getRequiredDirectories(): array
     {
         return (new CreatesDefaultDirectories)->requiredDirectories;
     }

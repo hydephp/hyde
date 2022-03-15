@@ -2,14 +2,13 @@
 
 namespace App\Commands;
 
+use LaravelZero\Framework\Commands\Command;
 use App\Hyde\Actions\GetMarkdownPostList;
 use App\Hyde\MarkdownPostParser;
 use App\Hyde\MarkdownPageParser;
 use App\Hyde\Models\BladePage;
 use App\Hyde\Models\MarkdownPage;
 use App\Hyde\StaticPageBuilder;
-use Illuminate\Console\Scheduling\Schedule;
-use LaravelZero\Framework\Commands\Command;
 
 class BuildStaticSiteCommand extends Command
 {
