@@ -18,15 +18,16 @@ class MakePostCommandTest extends TestCase
 
     /**
      * Clean up after tests by removing the created file.
-     * 
      * @return void
      */
-    public function cleanUp(): void
+    protected function tearDown(): void
     {
         unlink($this->getPath());
+
+        parent::tearDown();
     }
 
-    public function test_command_has_expected_output()
+    public function test_command_has_expected_output_and_creates_valid_file()
     {
         // Assert that no old file exists which would cause issues
         $this->assertFileDoesNotExist($this->getPath());
@@ -36,20 +37,14 @@ class MakePostCommandTest extends TestCase
             ->expectsQuestion("Write a short post excerpt/description", 'A short description')
             ->expectsQuestion('What is your (the author\'s) name?', 'PHPUnit')
             ->expectsQuestion('What is the primary category of the post?', 'general')
-            
             ->expectsOutput('Creating post with the following details:')
-
             ->expectsConfirmation('Do you wish to continue?', 'yes')
+           
             ->assertExitCode(0);
-    }
 
-    public function testFileWasCreatedAndHasContent()
-    {
-        $this->assertFileExists($this->getPath());
-        $this->assertStringContainsString('title: Test Post',
-                file_get_contents($this->getPath()));
-
-        $this->cleanUp();
+            $this->assertFileExists($this->getPath());
+            $this->assertStringContainsString('title: Test Post',
+                    file_get_contents($this->getPath()));
     }
 
     public function test_that_files_are_not_overwritten_when_force_flag_is_not_set()
@@ -61,6 +56,7 @@ class MakePostCommandTest extends TestCase
             ->expectsQuestion('What is your (the author\'s) name?', 'PHPUnit')
             ->expectsQuestion('What is the primary category of the post?', 'general')
             ->expectsOutput('Creating post with the following details:')
+            
             ->expectsConfirmation('Do you wish to continue?', 'yes')
             ->expectsOutput('If you want to overwrite the file supply the --force flag.')
 
@@ -68,8 +64,6 @@ class MakePostCommandTest extends TestCase
 
         $this->assertStringContainsString('This should not be overwritten',
             file_get_contents($this->getPath()));
-
-        $this->cleanUp();
     }
     
     public function test_that_files_are_overwritten_when_force_flag_is_set()
@@ -89,6 +83,5 @@ class MakePostCommandTest extends TestCase
             file_get_contents($this->getPath()));
         $this->assertStringContainsString('title: Test Post',
             file_get_contents($this->getPath()));
-        $this->cleanUp();
     }
 }
