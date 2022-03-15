@@ -34,6 +34,8 @@ class BuildStaticSiteCommand extends Command
      */
     public function handle(): int
     {
+        $time_start = microtime(true);
+
         $this->title('Building your static site!');
 
         $this->line('Creating Markdown Posts...');
@@ -54,7 +56,10 @@ class BuildStaticSiteCommand extends Command
         });
 
         $this->newLine(2);
-        $this->info('All done!');
+
+        $time_end = microtime(true);
+        $execution_time = ($time_end - $time_start);
+        $this->info('All done! Finished in ' . number_format($execution_time, 2) .' seconds. (' . number_format(($execution_time * 1000), 2) . 'ms)');
 
         $this->info('Congratulations! 🎉 Your static site has been built!');
         $this->info('Your new homepage is stored here -> ' . base_path('_site'. DIRECTORY_SEPARATOR .'index.html'));
