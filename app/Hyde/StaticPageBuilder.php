@@ -2,6 +2,7 @@
 
 namespace App\Hyde;
 
+use App\Hyde\Models\BladePage;
 use App\Hyde\Models\MarkdownPost;
 
 /**
@@ -12,10 +13,10 @@ use App\Hyde\Models\MarkdownPost;
 class StaticPageBuilder
 {
     /**
-     * @param MarkdownPost $post the Post to compile into HTML
+     * @param MarkdownPost|BladePage $page the Page to compile into HTML
      * @param bool $runAutomatically if set to true the class will invoke when constructed
      */
-    public function __construct(protected MarkdownPost $post, bool $runAutomatically = false)
+    public function __construct(protected MarkdownPost|BladePage $page, bool $runAutomatically = false)
     {
         if ($runAutomatically) {
             $this->__invoke();
@@ -24,8 +25,12 @@ class StaticPageBuilder
 
     public function __invoke()
     {
-        if ($this->post instanceof MarkdownPost) {
-            $this->save('posts/' . $this->post->slug, $this->compilePost());
+        if ($this->page instanceof MarkdownPost) {
+            $this->save('posts/' . $this->page->slug, $this->compilePost());
+        }
+
+        if ($this->page instanceof BladePage) {
+            $this->save('' . $this->page->view, $this->compileView());
         }
     }
 
@@ -40,13 +45,22 @@ class StaticPageBuilder
     }
 
     /**
-     * Compile the HTML using the Blade View
+     * Compile a Post into HTML using the Blade View
      * @return string
      */
     private function compilePost(): string
     {
         return view('post')->with([
-            'post' => $this->post
+            'post' => $this->page
         ])->render();
+    }
+
+    /**
+     * Compile a custom Blade View into HTML
+     * @return string
+     */
+    private function compileView(): string
+    {
+        return view('pages/' . $this->page->view)->render();
     }
 }
