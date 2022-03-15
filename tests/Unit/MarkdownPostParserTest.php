@@ -8,25 +8,29 @@ use PHPUnit\Framework\TestCase;
 
 class MarkdownPostParserTest extends TestCase
 {
-	/**
-	 * Create a Markdown file to work with
-	 */
-	public function createWorkingFile()
-	{
+    /**
+     * Setup the test environment.
+     * @return void
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
 
-		file_put_contents($this->getPath(), <<<'EOF'
----
-title: My New Post
-category: blog
-author: Mr. Hyde
----
-
-# My New Post
-
-I'm baby affogato iPhone narwhal selvage pitchfork forage.
-EOF
-);
+		// Create a Markdown file to work with
+		copy(realpath('./tests') . '/_stubs/_posts/test-parser-post.md', $this->getPath());
 	}
+
+    /**
+     * Clean up the testing environment before the next test.
+     * @return void
+     */
+    protected function tearDown(): void
+    {
+		// Remove the published stub file
+        unlink($this->getPath());
+
+        parent::tearDown();
+    }
 
 	/**
      * Get the path of the test Markdown file.
@@ -35,32 +39,18 @@ EOF
      */
     public function getPath(): string
     {
-        return realpath('./_posts') . '/test-parser.md';
+        return realpath('./_posts') . '/test-parser-post.md';
     }
-
-    /**
-     * Clean up after tests by removing the created file.
-     *
-     * @return void
-     */
-    public function cleanUp(): void
-    {
-        unlink($this->getPath());
-    }
-
-	public $post;
 
 	public function testCanParseMarkdownFile()
 	{
-		$this->createWorkingFile();
+		$post = (new MarkdownPostParser('test-parser-post'))->get();
 
-		$post = (new MarkdownPostParser('test-parser'))->get();
 		$this->assertInstanceOf(MarkdownPost::class, $post);
 		$this->assertCount(4, ($post->matter));
 		$this->assertIsString($post->body);
 		$this->assertIsString($post->slug);
 		$this->assertTrue(strlen($post->body) > 64);
 		$this->assertTrue(strlen($post->slug) > 8);
-		$this->cleanUp();
 	}
 }
