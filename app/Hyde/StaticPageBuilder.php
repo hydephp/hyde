@@ -2,6 +2,7 @@
 
 namespace App\Hyde;
 
+use App\Hyde\Actions\MarkdownConverter;
 use App\Hyde\Models\MarkdownPost;
 use App\Hyde\Models\MarkdownPage;
 use App\Hyde\Models\BladePage;
@@ -57,6 +58,7 @@ class StaticPageBuilder
     {
         return view('post')->with([
             'post' => $this->page,
+            'markdown' => MarkdownConverter::parse($this->page->body),
             'currentPage' => 'posts/' . $this->page->slug
         ])->render();
     }

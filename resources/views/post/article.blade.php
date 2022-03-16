@@ -8,6 +8,6 @@
         </div>
     </header>
     <main itemprop="articleBody">
-        {!! $post->body !!}
+        {!! $markdown !!}
     </main>
 </article>
