@@ -10,7 +10,8 @@
     "test": "php hyde test",
     "build": "php hyde build",
     "livereload": "npx browser-sync _site -w",
-    "watch": "chokidar ./_posts/*.md ./resources/views/**/*.blade.php -c \"npm run build\""
+    "watch": "chokidar ./_posts/*.md ./resources/views/**/*.blade.php -c \"npm run build\"",
+    "watch-sass": "sass resources/sass/app.scss _site/media/app.css -w"
   },
   "repository": {
     "type": "git",
