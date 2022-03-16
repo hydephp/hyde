@@ -2,26 +2,18 @@
 @extends('layouts.app')
 @section('content')
 
-    <h1>{{ config('hyde.name') }}</h1>
+<main class="mx-auto max-w-7xl py-16 px-8 lg:mt-8">
+    <header class="lg:mb-12 xl:mb-16">
+        <h1
+        class="text-3xl text-left opacity-75 leading-10 tracking-tight font-extrabold sm:leading-none mb-8 md:mb-12 md:text-4xl md:text-center lg:text-5xl">
+        Latest Posts</h1>
+    </header>
 
-    <section>
-        <h2>Latest Posts</h2>
-        
+    <div class="max-w-3xl mx-auto">
         @foreach(\App\Hyde\Models\MarkdownPost::getCollection() as $post)
-        <article itemscope itemtype="https://schema.org/Article">
-            <header>
-                <h3 itemprop="headline">{{ $post->matter['title'] }}</h3>
-                @includeWhen(isset($post->matter['date']), 'post.datePublished')
-                @includeWhen(isset($post->matter['author']), 'post.author')
-                @includeWhen(isset($post->matter['category']), 'post.category')
-            </header>
-            @includeWhen(isset($post->matter['description']), 'post.description')
-            <footer>
-                <a href="posts/{{ $post->matter['slug'] }}.html" itemprop="url">Read Post</a>
-            </footer>
-        </article>
+        @include('components.article-excerpt')
         @endforeach
-
-    </section>
+    </div>
+</main>
 
 @endsection
