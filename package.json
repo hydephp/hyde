@@ -11,7 +11,8 @@
     "build": "php hyde build",
     "livereload": "npx browser-sync _site -w",
     "watch": "chokidar ./_posts/*.md ./resources/views/**/*.blade.php -c \"npm run build\"",
-    "watch-sass": "sass resources/sass/app.scss _site/media/app.css -w"
+    "watch-sass": "sass resources/sass/app.scss _site/media/app.css -w",
+    "watch-tailwind": "npx tailwindcss -i ./resources/sass/tailwind.scss -o ./_site/media/tailwind.css --watch"
   },
   "repository": {
     "type": "git",
@@ -31,7 +32,9 @@
   },
   "homepage": "https://github.com/caendesilva/hyde#readme",
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.2",
     "browser-sync": "^2.27.9",
-    "chokidar-cli": "^3.0.0"
+    "chokidar-cli": "^3.0.0",
+    "tailwindcss": "^3.0.23"
   }
 }
