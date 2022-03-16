@@ -3,6 +3,7 @@
 namespace App\Actions;
 
 use App\Hyde\Models\MarkdownPage;
+use Illuminate\Support\Str;
 
 /**
  * Generate the dynamic navigation menu.
@@ -50,13 +51,33 @@ class GeneratesNavigationMenu
 
         foreach ($this->getListOfCustomPages() as $slug) {
             $links[] = [
-                'title' => $slug, // Todo get the proper title from slug
+                'title' => $this->getTitleFromSlug($slug),
                 'route' => $this->getRelativeRoutePathForSlug($slug),
                 'current' => $this->currentPage == $slug,
+                'priority' => $slug == "index" ? 100 : 999,
             ];
         }
 
+        $columns = array_column($links, 'priority');
+        array_multisort($columns, SORT_ASC, $links);
+
         return $links;
+    }
+
+    /**
+     * Get the page title
+     *
+     * @todo fetch this from the front matter
+     *
+     * @param string $slug
+     * @return string
+     */
+    public function getTitleFromSlug(string $slug): string
+    {
+        if ($slug == "index") {
+            return "Home";
+        }
+        return Str::title(str_replace('-', ' ', $slug));
     }
 
     /**
