@@ -32,6 +32,22 @@ module.exports = {
                             'p::after': {
                                 content: 'unset',
                             },
+                        },
+                        code: {
+                            font: 'unset',
+                            backgroundColor: '#80808033',
+                            paddingLeft: '4px',
+                            paddingRight: '4px',
+                            marginLeft: '-2px',
+                            marginRight: '1px',
+                            borderRadius: '4px',
+                            whiteSpace: 'pre',
+                        },
+                        'code::before': {
+                            content: 'unset',
+                        },
+                        'code::after': {
+                            content: 'unset',
                         }
                     },
                 },
