@@ -13,23 +13,34 @@ class GeneratesDocumentationSidebar
 {
     /**
      * Create and get the array.
-     * 
-     * @todo read metadata from the markdown files to determine the order.
-     * 
+     *
      * @param string $current
      * @return array
      */
     public static function get(string $current = ""): array
     {
+        $orderArray = config('hyde.documentationPageOrder');
+
         $array = [];
 
         foreach (CollectionService::getSourceSlugsOfModels(DocumentationPage::class) as $slug) {
+            $order = array_search($slug, $orderArray);
+            if (!$order) {
+                $order = 999;
+            }
             $array[] = [
                 'slug' => $slug,
                 'title' => Str::title(str_replace('-', ' ', $slug)),
                 'active' => 'docs/' . $slug == $current,
+                'order' =>  $order,
             ];
         }
+
+        krsort($array);
+
+        usort($array, function($a, $b) {
+            return $a['order'] <=> $b['order'];
+        });
 
         return $array;
     }

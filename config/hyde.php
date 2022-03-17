@@ -30,4 +30,23 @@ return [
 
     'name' => 'HydePHP',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Documentation sidebar page order
+    |--------------------------------------------------------------------------
+    |
+    | In the generated Documentation pages the navigation links in the sidebar
+    | are sorted alphabetically by default. As this rarely makes sense, you
+    | can reorder the page slugs in the list and the links will be sorted
+    | in that order. Link items without an entry here will have fall
+    | back to the default priority of 999, putting them last.
+    |   
+    */
+
+    'documentationPageOrder' => [
+        'readme',
+        'installation',
+        'getting-started',
+    ]
+
 ];
