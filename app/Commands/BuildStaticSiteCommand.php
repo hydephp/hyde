@@ -10,6 +10,8 @@ use App\Hyde\MarkdownPageParser;
 use App\Hyde\Models\BladePage;
 use App\Hyde\Models\DocumentationPage;
 use App\Hyde\Models\MarkdownPage;
+use App\Hyde\Models\MarkdownPost;
+use App\Hyde\Services\CollectionService;
 use App\Hyde\StaticPageBuilder;
 
 class BuildStaticSiteCommand extends Command
@@ -41,26 +43,26 @@ class BuildStaticSiteCommand extends Command
         $this->title('Building your static site!');
 
         $this->line('Creating Markdown Posts...');
-        $this->withProgressBar((array_flip((new GetMarkdownPostList)->execute())), function ($post) {
-            (new StaticPageBuilder((new MarkdownPostParser($post))->get(), true));
+        $this->withProgressBar(CollectionService::getSourceSlugsOfModels(MarkdownPost::class), function ($slug) {
+            (new StaticPageBuilder((new MarkdownPostParser($slug))->get(), true));
         });
 
         $this->newLine(2);
         $this->line('Creating Markdown Pages...');
-        $this->withProgressBar(array_flip(MarkdownPage::allAsArray()), function ($page) {
-            (new StaticPageBuilder((new MarkdownPageParser($page))->get(), true));
+        $this->withProgressBar(CollectionService::getSourceSlugsOfModels(MarkdownPage::class), function ($slug) {
+            (new StaticPageBuilder((new MarkdownPageParser($slug))->get(), true));
         });
 
         $this->newLine(2);
         $this->line('Creating Documentation Pages...');
-        $this->withProgressBar(array_flip(DocumentationPage::allAsArray()), function ($page) {
-            (new StaticPageBuilder((new DocumentationPageParser($page))->get(), true));
+        $this->withProgressBar(CollectionService::getSourceSlugsOfModels(DocumentationPage::class), function ($slug) {
+            (new StaticPageBuilder((new DocumentationPageParser($slug))->get(), true));
         });
 
         $this->newLine(2);
         $this->line('Creating Blade Pages...');
-        $this->withProgressBar(glob(base_path('resources/views/pages/*.blade.php')), function ($filepath) {
-            (new StaticPageBuilder((new BladePage(basename($filepath, '.blade.php'))), true));
+        $this->withProgressBar(CollectionService::getSourceSlugsOfModels(BladePage::class), function ($slug) {
+            (new StaticPageBuilder((new BladePage($slug)), true));
         });
 
         $this->newLine(2);
