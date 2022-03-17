@@ -13,3 +13,4 @@ StormRunner.php
 # though you may want to commit them when using Hyde for your own projects.
 _posts/*
 csout
+_docs
