@@ -20,7 +20,7 @@ class BuildStaticSiteCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'build';
+    protected $signature = 'build {--pretty : Should the build files be prettified?}';
 
     /**
      * The description of the command.
@@ -78,6 +78,15 @@ class BuildStaticSiteCommand extends Command
         });
 
         $this->newLine(2);
+
+        if ($this->option('pretty')) {
+            $this->info('Prettifying code! This may take a second.');
+            try {
+                $this->line(shell_exec('npx prettier _site/ --write'));
+            } catch (\Throwable $th) {
+                $this->warn('Could not prettify code! Is NPM installed?');
+            }
+        }
 
         $time_end = microtime(true);
         $execution_time = ($time_end - $time_start);

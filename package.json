@@ -13,7 +13,8 @@
     "watch-livereload": "npx browser-sync _site -w",
     "watch-build": "chokidar ./_posts/*.md ./resources/views/**/*.blade.php -c \"npm run build\"",
     "watch-sass": "sass src/resources/sass/app.scss _site/media/app.css -w",
-    "watch-tailwind": "npx tailwindcss -i ./src/resources/sass/tailwind.scss -o ./_site/media/tailwind.css --watch"
+    "watch-tailwind": "npx tailwindcss -i ./src/resources/sass/tailwind.scss -o ./_site/media/tailwind.css --watch",
+    "prod": "php hyde build --no-ansi && sass src/resources/sass/app.scss _site/media/app.css --style=compressed && npx tailwindcss -i ./src/resources/sass/tailwind.scss -o ./_site/media/tailwind.css --minify"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "browser-sync": "^2.27.9",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^7.0.0",
+    "prettier": "2.6.0",
     "tailwindcss": "^3.0.23"
   }
 }
