@@ -22,5 +22,5 @@
 			@endisset
 		</p>
 		<a href="posts/{{ $post->matter['slug'] }}.html" class="text-indigo-500 hover:underline font-medium">Read more</a>
-	</div>
+	</div>	
 </article>
