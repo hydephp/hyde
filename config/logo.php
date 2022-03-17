@@ -39,7 +39,7 @@ return [
     */
 
     // 'font' => \LaravelZero\Framework\Components\Logo\FigletString::DEFAULT_FONT,
-    'font' => resource_path('fonts/smslant.flf'),
+    'font' => base_path('/src/resources/fonts/smslant.flf'),
 
     /*
     |--------------------------------------------------------------------------
