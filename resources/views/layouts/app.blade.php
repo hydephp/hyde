@@ -22,7 +22,7 @@
     @include('layouts.meta') 
 </head>
 <body id="app">
-    @include('layouts.navigation') 
+    @includeUnless($withoutNavigation ?? false, 'layouts.navigation') 
 
     <section id="content">
         @yield('content') 

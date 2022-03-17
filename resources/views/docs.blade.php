@@ -1,7 +1,7 @@
 {{-- The Documentation Page Layout based on Laradocgen --}}
 @extends('layouts.app')
 @section('content')
-
+@php($withoutNavigation = true)
 <aside id="documentation-sidebar" class="w-64 h-screen hidden md:flex flex-col fixed top-0 left-0 shadow-xl overflow-hidden">
 	@include('components.docs.sidebar')
 </aside>
