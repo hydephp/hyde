@@ -3,9 +3,9 @@
 namespace App\Hyde;
 
 use App\Hyde\Models\DocumentationPage;
-use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\NoReturn;
 use JetBrains\PhpStorm\Pure;
+use Illuminate\Support\Str;
 use Exception;
 
 /**
@@ -26,6 +26,8 @@ class DocumentationPageParser
      */
     public string $body;
 
+    public string $title;
+
     /**
      * @param string $slug of the Documentation file (without extension)
      * @throws Exception if the file cannot be found in _docs
@@ -38,7 +40,6 @@ class DocumentationPageParser
             throw new Exception("File _docs/$slug.md not found.", 404);
         }
 
-		$this->title = $slug;
 
         $this->execute();
     }
@@ -53,6 +54,16 @@ class DocumentationPageParser
         // Get the text stream from the markdown file
         $stream = file_get_contents($this->filepath);
 
+        // Get the title from the first h1 tag (# title)
+        try {
+            $firstLine = (strtok($stream, "\n"));
+            if (str_starts_with($firstLine, '# ')) {
+                $this->title = substr($firstLine, 2);
+            }
+        } catch (Exception) {
+		    $this->title = Str::title(str_replace('-', ' ', $this->slug));
+        }
+
         $this->body = $stream;
     }
 
@@ -60,6 +71,7 @@ class DocumentationPageParser
      * Get the Documentation Page Object.
      * @return DocumentationPage
      */
+    #[Pure]
     public function get(): DocumentationPage
     {
         return new DocumentationPage($this->slug, $this->title, $this->body);
