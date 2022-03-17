@@ -3,10 +3,10 @@
 namespace App\Hyde;
 
 use App\Hyde\Actions\MarkdownConverter;
+use App\Hyde\Models\DocumentationPage;
 use App\Hyde\Models\MarkdownPost;
 use App\Hyde\Models\MarkdownPage;
 use App\Hyde\Models\BladePage;
-use App\Hyde\Models\DocumentationPage;
 
 /**
  * Generates a static HTML page and saves it.
@@ -15,6 +15,10 @@ use App\Hyde\Models\DocumentationPage;
  */
 class StaticPageBuilder
 {
+
+    public null|int|false $createdFileSize;
+    public null|string $createdFilePath;
+
     /**
      * @param MarkdownPost|MarkdownPage|BladePage|DocumentationPage $page the Page to compile into HTML
      * @param bool $runAutomatically if set to true the class will invoke when constructed
@@ -22,27 +26,41 @@ class StaticPageBuilder
     public function __construct(protected MarkdownPost|MarkdownPage|BladePage|DocumentationPage $page, bool $runAutomatically = false)
     {
         if ($runAutomatically) {
-            $this->__invoke();
+            $this->createdFileSize = $this->__invoke();
         }
     }
 
     public function __invoke()
     {
         if ($this->page instanceof MarkdownPost) {
-            $this->save('posts/' . $this->page->slug, $this->compilePost());
+            return $this->save('posts/' . $this->page->slug, $this->compilePost());
         }
 
         if ($this->page instanceof MarkdownPage) {
-            $this->save($this->page->slug, $this->compilePage());
+            return $this->save($this->page->slug, $this->compilePage());
         }
 
         if ($this->page instanceof BladePage) {
-            $this->save($this->page->view, $this->compileView());
+            return $this->save($this->page->view, $this->compileView());
         }
 
         if ($this->page instanceof DocumentationPage) {
-            $this->save('docs/' . $this->page->slug, $this->compileDocs());
+            return $this->save('docs/' . $this->page->slug, $this->compileDocs());
         }
+    }
+
+    /**
+     * Get the debug data
+     * @return array
+     */
+    public function getDebugOutput(bool $relativeFilePath = true): array
+    {
+        return [
+            'createdFileSize' => $this->createdFileSize,
+            'createdFilePath' => $relativeFilePath 
+                ? str_replace(base_path(), '', $this->createdFilePath)
+                : $this->createdFilePath ,
+        ];
     }
 
     /**
@@ -52,7 +70,8 @@ class StaticPageBuilder
     private function save(string $location, string $contents)
     {
         $path = base_path('./_site') . '/' . $location . '.html';
-        file_put_contents($path, $contents);
+        $this->createdFilePath = $path;
+        return file_put_contents($path, $contents);
     }
 
     /**

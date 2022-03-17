@@ -3,16 +3,15 @@
 namespace App\Commands;
 
 use LaravelZero\Framework\Commands\Command;
-use App\Hyde\Actions\GetMarkdownPostList;
+use App\Hyde\Services\CollectionService;
 use App\Hyde\DocumentationPageParser;
 use App\Hyde\MarkdownPostParser;
 use App\Hyde\MarkdownPageParser;
+use App\Hyde\StaticPageBuilder;
 use App\Hyde\Models\BladePage;
-use App\Hyde\Models\DocumentationPage;
 use App\Hyde\Models\MarkdownPage;
 use App\Hyde\Models\MarkdownPost;
-use App\Hyde\Services\CollectionService;
-use App\Hyde\StaticPageBuilder;
+use App\Hyde\Models\DocumentationPage;
 
 class BuildStaticSiteCommand extends Command
 {
@@ -30,6 +29,15 @@ class BuildStaticSiteCommand extends Command
      */
     protected $description = 'Build the static site';
 
+
+    private function debug(array $output) {
+        if ($this->getOutput()->isVeryVerbose()) {
+            $this->newLine(1);
+            $this->line("<fg=gray>Created {$output['createdFileSize']} byte file {$output['createdFilePath']}</>");
+            $this->newLine(1);
+        }
+    }
+
     /**
      * Execute the console command.
      *
@@ -42,27 +50,31 @@ class BuildStaticSiteCommand extends Command
 
         $this->title('Building your static site!');
 
+        if ($this->getOutput()->isVeryVerbose()) {
+            $this->warn('Running with high verbosity');
+        }
+
         $this->line('Creating Markdown Posts...');
         $this->withProgressBar(CollectionService::getSourceSlugsOfModels(MarkdownPost::class), function ($slug) {
-            (new StaticPageBuilder((new MarkdownPostParser($slug))->get(), true));
+            $this->debug((new StaticPageBuilder((new MarkdownPostParser($slug))->get(), true))->getDebugOutput());
         });
 
         $this->newLine(2);
         $this->line('Creating Markdown Pages...');
         $this->withProgressBar(CollectionService::getSourceSlugsOfModels(MarkdownPage::class), function ($slug) {
-            (new StaticPageBuilder((new MarkdownPageParser($slug))->get(), true));
+            $this->debug((new StaticPageBuilder((new MarkdownPageParser($slug))->get(), true))->getDebugOutput());
         });
 
         $this->newLine(2);
         $this->line('Creating Documentation Pages...');
         $this->withProgressBar(CollectionService::getSourceSlugsOfModels(DocumentationPage::class), function ($slug) {
-            (new StaticPageBuilder((new DocumentationPageParser($slug))->get(), true));
+            $this->debug((new StaticPageBuilder((new DocumentationPageParser($slug))->get(), true))->getDebugOutput());
         });
 
         $this->newLine(2);
         $this->line('Creating Blade Pages...');
         $this->withProgressBar(CollectionService::getSourceSlugsOfModels(BladePage::class), function ($slug) {
-            (new StaticPageBuilder((new BladePage($slug)), true));
+            $this->debug((new StaticPageBuilder((new BladePage($slug)), true))->getDebugOutput());
         });
 
         $this->newLine(2);
