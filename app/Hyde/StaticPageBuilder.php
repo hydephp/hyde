@@ -6,6 +6,7 @@ use App\Hyde\Actions\MarkdownConverter;
 use App\Hyde\Models\MarkdownPost;
 use App\Hyde\Models\MarkdownPage;
 use App\Hyde\Models\BladePage;
+use App\Hyde\Models\DocumentationPage;
 
 /**
  * Generates a static HTML page and saves it.
@@ -15,10 +16,10 @@ use App\Hyde\Models\BladePage;
 class StaticPageBuilder
 {
     /**
-     * @param MarkdownPost|MarkdownPage|BladePage $page the Page to compile into HTML
+     * @param MarkdownPost|MarkdownPage|BladePage|DocumentationPage $page the Page to compile into HTML
      * @param bool $runAutomatically if set to true the class will invoke when constructed
      */
-    public function __construct(protected MarkdownPost|MarkdownPage|BladePage $page, bool $runAutomatically = false)
+    public function __construct(protected MarkdownPost|MarkdownPage|BladePage|DocumentationPage $page, bool $runAutomatically = false)
     {
         if ($runAutomatically) {
             $this->__invoke();
@@ -37,6 +38,10 @@ class StaticPageBuilder
 
         if ($this->page instanceof BladePage) {
             $this->save($this->page->view, $this->compileView());
+        }
+
+        if ($this->page instanceof DocumentationPage) {
+            $this->save('docs/' . $this->page->slug, $this->compileDocs());
         }
     }
 
@@ -60,6 +65,19 @@ class StaticPageBuilder
             'post' => $this->page,
             'markdown' => MarkdownConverter::parse($this->page->body),
             'currentPage' => 'posts/' . $this->page->slug
+        ])->render();
+    }
+
+    /**
+     * Compile a Documentation page into HTML using the Blade View
+     * @return string
+     */
+    private function compileDocs(): string
+    {
+        return view('docs')->with([
+            'docs' => $this->page,
+            'markdown' => MarkdownConverter::parse($this->page->content),
+            'currentPage' => 'docs/' . $this->page->slug
         ])->render();
     }
 

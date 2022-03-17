@@ -11,8 +11,10 @@ class CreatesDefaultDirectories
         '_pages',
         '_posts',
         '_site',
+        '_docs',
         '_site/posts',
         '_site/media',
+        '_site/docs',
     ];
 
     public function __invoke(): void
