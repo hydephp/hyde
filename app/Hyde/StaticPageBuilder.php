@@ -82,6 +82,7 @@ class StaticPageBuilder
     {
         return view('post')->with([
             'post' => $this->page,
+            'title' => $this->page->matter['title'],
             'markdown' => MarkdownConverter::parse($this->page->body),
             'currentPage' => 'posts/' . $this->page->slug
         ])->render();
@@ -95,6 +96,7 @@ class StaticPageBuilder
     {
         return view('docs')->with([
             'docs' => $this->page,
+            'title' => $this->page->title,
             'markdown' => MarkdownConverter::parse($this->page->content),
             'currentPage' => 'docs/' . $this->page->slug
         ])->render();

@@ -3,6 +3,7 @@
     If you want to use a custom index page a tip is to rename this file to `feed.blade.php`
     and you can customize this to your hearts desire!
 --}}
+@php($title = 'Latest Posts')
 @extends('layouts.app')
 @section('content')
 
