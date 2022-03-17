@@ -24,6 +24,9 @@ class GeneratesDocumentationSidebar
         $array = [];
 
         foreach (CollectionService::getSourceSlugsOfModels(DocumentationPage::class) as $slug) {
+            if ($slug == 'index') {
+                continue;
+            }
             $order = array_search($slug, $orderArray);
             if (!$order) {
                 $order = 999;
