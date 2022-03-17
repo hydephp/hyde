@@ -40,3 +40,30 @@
 		margin-top: 0;
 	}
 }
+
+#sidebar-navigation {
+	li.list-item-active {
+		span {
+			border-left: 4px solid rgb(99 102 241);
+			padding-left: calc(1rem - 4px);
+			margin-left: -1rem;
+			padding-top: 0.25rem;
+			padding-bottom: 0.25rem;
+		}
+	}
+}
+
+#documentation-content {
+    max-width: 100vw;
+    @media (min-width: 768px) {
+        max-width: calc(100vw - 20rem);
+    }
+
+    code {
+        max-width: 80vw;
+        overflow-x: auto;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
