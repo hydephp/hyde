@@ -7,9 +7,9 @@
 
     <title>
         @if (isset($title))
-        HydePHP - {{ $title }}
+        {{ config('hyde.name', 'HydePHP') }} - {{ $title }}
         @else
-        HydePHP
+        {{ config('hyde.name', 'HydePHP') }}
         @endif
     </title>
 
