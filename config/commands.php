@@ -76,7 +76,7 @@ return [
     */
 
     'remove' => [
-        // ..
+        Illuminate\Console\Scheduling\ScheduleRunCommand::class,
     ],
 
 ];

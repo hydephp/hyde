@@ -7,7 +7,8 @@
         "vendor"
     ],
     "files": [
-        "composer.json"
+        "composer.json",
+        "resources/fonts/smslant.flf"
     ],
     "exclude-composer-files": false,
     "compression": "GZ",
