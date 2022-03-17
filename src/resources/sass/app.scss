@@ -53,6 +53,12 @@
 	}
 }
 
+#documentation-sidebar {
+	@media (max-width: 360px) {
+		width: 100%;
+    }
+}
+
 #documentation-content {
     max-width: 100vw;
     @media (min-width: 768px) {
@@ -65,5 +71,34 @@
         display: inline-block;
         vertical-align: top;
     }
+
+	pre {
+		code {
+			display: block;
+			max-width: unset;
+		}
+	}
 }
 
+#sidebar-backdrop {
+	width: 100vw;
+	height: 100vh;
+	background: rgba(128, 128, 128, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+
+.sidebar-button-wrapper {
+	&.open {
+		button.close {
+			display: none;
+		}
+	}
+	&.closed {
+		button.open {
+			display: none;
+		}
+	}
+}

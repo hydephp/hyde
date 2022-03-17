@@ -21,7 +21,7 @@
 
     @include('layouts.meta') 
 </head>
-<body id="app">
+<body id="app" class="overflow-x-hidden">
     @includeUnless($withoutNavigation ?? false, 'layouts.navigation') 
 
     <section id="content">
