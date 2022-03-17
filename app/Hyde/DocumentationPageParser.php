@@ -40,7 +40,6 @@ class DocumentationPageParser
             throw new Exception("File _docs/$slug.md not found.", 404);
         }
 
-
         $this->execute();
     }
 
@@ -54,17 +53,25 @@ class DocumentationPageParser
         // Get the text stream from the markdown file
         $stream = file_get_contents($this->filepath);
 
-        // Get the title from the first h1 tag (# title)
-        try {
-            $firstLine = (strtok($stream, "\n"));
-            if (str_starts_with($firstLine, '# ')) {
-                $this->title = substr($firstLine, 2);
-            }
-        } catch (Exception) {
-		    $this->title = Str::title(str_replace('-', ' ', $this->slug));
-        }
+        $this->title = $this->findTitleTag($stream) ?? Str::title(str_replace('-', ' ', $this->slug));
 
         $this->body = $stream;
+    }
+
+    /**
+     * Attempt to find the title based on the first H1 tag
+     */
+    public function findTitleTag(string $stream): string|false
+    {
+        $lines = explode("\n", $stream);
+        
+        foreach ($lines as $line) {
+            if (str_starts_with($line, '# ')) {
+                return substr($line, 2);
+            }
+        }
+        
+        return false;
     }
 
     /**
