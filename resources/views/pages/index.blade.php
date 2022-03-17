@@ -1,4 +1,8 @@
-{{-- This is the default index.html file containing your latest blog posts --}}
+{{-- 
+    This is the default index.html file containing your latest blog posts.
+    If you want to use a custom index page a tip is to rename this file to `feed.blade.php`
+    and you can customize this to your hearts desire!
+--}}
 @extends('layouts.app')
 @section('content')
 
