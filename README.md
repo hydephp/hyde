@@ -27,7 +27,7 @@ Runs the `php hyde build` command, compiles the SASS and Tailwind and minifies t
 #### Watch: Watching files for changes
 
 Hyde has a realtime compiler that watches your files for changes and rebuilds the site on the fly.
-> Currently all pages are rebuilt, but in a future update only the affected files will be rebuilt.
+> Currently, all pages are rebuilt, but in a future update only the affected files will be rebuilt.
 
 The realtime viewer also uses Browsersync which starts a local web server and automatically refreshes your pages once they are changed. 
 
@@ -80,7 +80,7 @@ php hyde build
 ```
 
 Your site will then be saved in the _site directory, which you can then upload to your static web host.
-All links use relative paths so you can deploy to a subdirectory without problem.
+All links use relative paths, so you can deploy to a subdirectory without problem.
 The site also works great when browsing the HTML files locally.
 
 #### Live preview
@@ -120,7 +120,7 @@ Deleting Markdown posts does not delete the already compiled HTML files.
 In a future update (coming soon(tm)) the builder will remove
 unused files automatically.
 
-Currently only top level custom pages are supported. In the future nested pages will be supported.
+Currently, only top level custom pages are supported. In the future nested pages will be supported.
 For example, _site/directory/page.html
 
 ## Changelog

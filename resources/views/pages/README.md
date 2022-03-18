@@ -1,8 +1,8 @@
 # About the Pages directory
 
-If you want full control over a static page you can create blade views here and they will be compiled into static HTML.
+If you want full control over a static page you can create blade views here, and they will be compiled into static HTML.
 
-Currently only top level pages are supported. The filename of the generated file is based on the view filename.
+Currently, only top level pages are supported. The filename of the generated file is based on the view filename.
 For example, `resources\views\pages\custom-page.blade.php` gets saved as `_site\custom-page.html`.
 
 ## ⚠ Warning:
