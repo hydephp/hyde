@@ -3,7 +3,7 @@
 		@foreach (App\Actions\GeneratesNavigationMenu::getNavigationLinks($currentPage) as $item)
 			<li>
 				@if($item['current'])
-					<span aria-current="page">{{ $item['title'] }}</span>
+					<a href="{{ $item['route'] }}" aria-current="page" class="current">{{ $item['title'] }}</a>
 				@else
 					<a href="{{ $item['route'] }}">{{ $item['title'] }}</a>
 				@endif

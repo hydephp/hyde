@@ -8,7 +8,7 @@
 					'list-item-active' => $item['active']
 				])>
 				@if($item['active'])
-					<span aria-current="true" class="text-indigo-500">{{ $item['title'] }}</span>
+					<a href="{{ $item['slug'] }}.html" aria-current="true" class="text-indigo-500">{{ $item['title'] }}</a>
 				@else
 					<a href="{{ $item['slug'] }}.html" class="hover:text-indigo-500">{{ $item['title'] }}</a>
 				@endif

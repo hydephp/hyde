@@ -18,7 +18,7 @@
 		}
 		a {
 			opacity: 0.75;
-			&:hover {
+			&:hover, &.current {
 				opacity: 1;
 			}
 		}
@@ -43,7 +43,7 @@
 
 #sidebar-navigation {
 	li.list-item-active {
-		span {
+		a {
 			border-left: 4px solid rgb(99 102 241);
 			padding-left: calc(1rem - 4px);
 			margin-left: -1rem;
