@@ -1,4 +1,4 @@
-@include('components.docs.header')
+@include('components.docs.sidebar-header')
 <nav id="sidebar-navigation" class="p-4 overflow-y-auto" aria-label="Secondary Navigation Menu">
 	<ul>
 		@foreach (App\Actions\GeneratesDocumentationSidebar::get($currentPage) as $item)
@@ -16,4 +16,4 @@
 		@endforeach
 	</ul>
 </nav>
-@include('components.docs.footer')
+@include('components.docs.sidebar-footer')
