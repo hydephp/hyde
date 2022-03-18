@@ -8,8 +8,7 @@
         "src"
     ],
     "files": [
-        "composer.json",
-        "resources/fonts/smslant.flf"
+        "composer.json"
     ],
     "exclude-composer-files": false,
     "compression": "GZ",
