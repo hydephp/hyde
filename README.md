@@ -1,5 +1,7 @@
 # HydePHP - Static Blog Builder using Laravel Zero
 
+> Note: This repository contains the core code of the Hyde framework. If you want to build an application using Hyde, visit the main Hyde repository.
+
 HydePHP is a Static Site Builder focused on making Blog posts easy and fun. Under the hood it is powered by Laravel Zero which is a stripped down version of the robust Laravel Framework. Using Blade templates the site is intelligently compiled into static HTML. Content is created using Markdown, which supports YAML Front Matter.
 
 Hyde is inspired by JekyllRB and is created for Developers who are comfortable writing posts in Markdown. It requires virtually no configuration out of the box as it favours convention over configuration. Though you can easily modify settings in the config/hyde.php to personalize your site. You can also directly modify the Blade views to make it truly yours.
