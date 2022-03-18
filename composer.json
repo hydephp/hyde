@@ -2,12 +2,12 @@
     "name": "hyde/framework",
     "description": "The Hyde Framework",
     "keywords": ["framework", "hyde", "hyde framework"],
-    "homepage": "https://github.com/hydephp/framework",
+    "homepage": "https://github.com/hydephp/hyde",
     "type": "project",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/hydephp/framework/issues",
-        "source": "https://github.com/hydephp/framework"
+        "issues": "https://github.com/hydephp/hyde/issues",
+        "source": "https://github.com/hydephp/hyde"
     },
     "authors": [
         {

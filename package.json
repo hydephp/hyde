@@ -31,9 +31,9 @@
   "author": "Caen De Silva",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hyde/framework/issues"
+    "url": "https://github.com/hyde/hyde/issues"
   },
-  "homepage": "https://github.com/hyde/framework#readme",
+  "homepage": "https://github.com/hyde/hyde#readme",
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.2",
     "browser-sync": "^2.27.9",
