@@ -4,7 +4,9 @@ HydePHP is a Static Site Builder focused on making Blog posts easy and fun. Unde
 
 Hyde is inspired by JekyllRB and is created for Developers who are comfortable writing posts in Markdown. It requires virtually no configuration out of the box as it favours convention over configuration. Though you can easily modify settings in the config/hyde.php to personalize your site. You can also directly modify the Blade views to make it truly yours.
 
-The frontend uses a minimalist layout build with TailwindCSS which you can extend with the Blade components.
+The frontend uses a lightweight minimalist layout build with TailwindCSS which you can extend with the Blade components.
+
+Hyde is designed to be stupidly simple to get started with, while also remaining easily hackable and extendable.
 
 ## Getting Started
 It's a breeze to get started. Simply clone the repository, write your Markdown posts and save them to the _posts directory and run the `php hyde build` command. You can scaffold post files using the `php hyde make:post` command.
@@ -72,6 +74,8 @@ date: 2022-03-14 15:00
 
 > You can also create simple static pages by creating Markdown files in the _pages directory.
 
+> You can even create pages with full Blade support by creating files ending in .blade.php in the resources/views/pages directory.
+
 #### Building the static site
 
 Then to compile the site into static HTML all you have to do is execute the Hyde build command.
@@ -83,8 +87,15 @@ Your site will then be saved in the _site directory, which you can then upload t
 All links use relative paths, so you can deploy to a subdirectory without problem.
 The site also works great when browsing the HTML files locally.
 
+If it is the first time building the site or if you have updated the source SCSS you also need to run `npm install && npm run dev`.
+
+> `npm run dev` and `npm run prod` both first build the static site and compiles the styles. The latter command also minifies the CSS.
+
 #### Live preview
-> Coming soon
+Use `npm install && npm run watch` to watch the files for changes and start up a local dev server on port 3000 using Browsersync.
+
+### Hacking Hyde
+Hyde is designed to be easy to use and easy to hack. You can modify the source views and SCSS, customize the Tailwind config, and you can even create 100% custom HTML and Blade pages that get compiled into static HTML.
 
 ## Why static sites?
 ### Speed, scalability, simplicity
