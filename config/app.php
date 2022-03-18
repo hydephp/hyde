@@ -1,14 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| About this config
-|--------------------------------------------------------------------------
-|
-| This config file is for the Hyde Framework itself, most likely you want
-| to edit files in config/hyde.php.
-|
-*/
 return [
 
     /*
@@ -49,7 +40,7 @@ return [
     |
     */
 
-    'env' => 'production',
+    'env' => 'development',
 
     /*
     |--------------------------------------------------------------------------
