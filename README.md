@@ -10,55 +10,42 @@ The frontend uses a lightweight minimalist layout build with TailwindCSS which y
 
 Hyde is designed to be stupidly simple to get started with, while also remaining easily hackable and extendable.
 
-## Getting Started
-It's a breeze to get started. Simply clone the repository, write your Markdown posts and save them to the _posts directory and run the `php hyde build` command. You can scaffold post files using the `php hyde make:post` command.
+## Installation
+The reccomended method of installation is using Composer. However, if you want to run the latest version you can clone the Git repo.
 
-### NPM Commands
-To help in development the `package.json` comes with a few built in scripts. Make sure you have Node and NPM installed.
-> If it is the first time running a command, remember to run `npm install` first!
-
-The main commands are:
-- `npm run dev`
-- `npm run prod`
-- `npm run watch`
-
-#### Dev: Build the site for development
-Runs the `php hyde build` command, compiles the SASS and Tailwind
-
-#### Prod: Build the site for production
-Runs the `php hyde build` command, compiles the SASS and Tailwind and minifies the output.
-
-#### Watch: Watching files for changes
-
-Hyde has a realtime compiler that watches your files for changes and rebuilds the site on the fly.
-> Currently, all pages are rebuilt, but in a future update only the affected files will be rebuilt.
-
-The realtime viewer also uses Browsersync which starts a local web server and automatically refreshes your pages once they are changed. 
-
-**To start the preview run**
+### Using Composer (reccomended)
 ```bash
-npm run watch
+composer create-project hydephp/hyde
 ```
-A browser page should automatically be opened. If not, just navigate to http://localhost:3000/.
 
-### Directory structure
+### Using Git
 
-### Requirements 
-> These requirements are for your local development environment. The static HTML can be hosted virtually anywhere, including on GitHub Pages.
-Hyde uses Laravel 9 which requires PHP >= 8.0. You should also have Composer and NPM installed.
-### Installation
-#### Using Git
+#### Using the website
+Navigate to https://github.com/hydephp/hyde and press the green button with the text "Use this template" and follow the instructions.
+
+Remember to run `composer install` and `npm install && npm run dev`
+
+#### Using CLI
 ```bash
-git clone https://github.com/caendesilva/hyde.git
+git clone https://github.com/hydephp/hyde.git
 cd hyde
 composer install
 npm install && npm run dev
 ```
-#### Using Composer
-```bash
-Coming soon
-```
+
+### Requirements 
+> These requirements are for your local development environment. The static HTML can be hosted virtually anywhere, including on GitHub Pages.
+Hyde uses Laravel 9 which requires PHP >= 8.0. You should also have Composer and NPM installed.
+
+
+## Getting Started
+It's a breeze to get started. Simply clone the repository, write your Markdown posts and save them to the _posts directory and run the `php hyde build` command. You can scaffold post files using the `php hyde make:post` command.
+
+
+
 ### Usage
+
+
 #### Writing posts
 Posts are written in Markdown and saved in the _posts directory. Save your file as `kebab-case-slug.md`.
 Post metadata is added as YAML Front Matter
@@ -95,6 +82,36 @@ If it is the first time building the site or if you have updated the source SCSS
 
 #### Live preview
 Use `npm install && npm run watch` to watch the files for changes and start up a local dev server on port 3000 using Browsersync.
+
+
+### NPM Commands
+To help in development the `package.json` comes with a few built in scripts. Make sure you have Node and NPM installed.
+> If it is the first time running a command, remember to run `npm install` first!
+
+The main commands are:
+- `npm run dev`
+- `npm run prod`
+- `npm run watch`
+
+#### Dev: Build the site for development
+Runs the `php hyde build` command, compiles the SASS and Tailwind
+
+#### Prod: Build the site for production
+Runs the `php hyde build` command, compiles the SASS and Tailwind and minifies the output.
+
+#### Watch: Watching files for changes
+
+Hyde has a realtime compiler that watches your files for changes and rebuilds the site on the fly.
+> Currently, all pages are rebuilt, but in a future update only the affected files will be rebuilt.
+
+The realtime viewer also uses Browsersync which starts a local web server and automatically refreshes your pages once they are changed. 
+
+**To start the preview run**
+```bash
+npm run watch
+```
+A browser page should automatically be opened. If not, just navigate to http://localhost:3000/.
+
 
 ### Hacking Hyde
 Hyde is designed to be easy to use and easy to hack. You can modify the source views and SCSS, customize the Tailwind config, and you can even create 100% custom HTML and Blade pages that get compiled into static HTML.
