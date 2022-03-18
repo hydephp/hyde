@@ -4,7 +4,7 @@ namespace App\Hyde;
 
 /**
  * Allows features to be enabled and disabled in a simple object oriented manner.
- * 
+ *
  * Based entirely on Laravel Jetstream (License MIT)
  * @see https://jetstream.laravel.com/
  */
@@ -61,6 +61,7 @@ class Features
     {
         return static::enabled(static::documentationPages());
     }
+
 
 	/**
      * Enable the blog post feature.
