@@ -37,9 +37,6 @@ class Debug extends Command
             $this->line(" - $feature");
         }
 
-        $this->line('Environment check:');
-        $this->line(" - Is app installed? " . (Installer::isInstalled() ? 'True' : 'False'));
-
         return 0;
     }
 }
