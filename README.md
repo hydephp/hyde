@@ -9,27 +9,35 @@ The frontend uses a minimalist layout build with TailwindCSS which you can exten
 ## Getting Started
 It's a breeze to get started. Simply clone the repository, write your Markdown posts and save them to the _posts directory and run the `php hyde build` command. You can scaffold post files using the `php hyde make:post` command.
 
-## Previewing the site
-Hyde comes with support for Browsersync which starts a local web server and automatically refreshes your pages once they are changed. 
+### NPM Commands
+To help in development the `package.json` comes with a few built in scripts. Make sure you have Node and NPM installed.
+> If it is the first time running a command, remember to run `npm install` first!
 
-> If it is the first time running the commands, remember to run `npm install` first!
+The main commands are:
+- `npm run dev`
+- `npm run prod`
+- `npm run watch`
 
-### Livereload using Browsersync:
-```bash
-npm run livereload
-```
-A browser page should automatically be opened. If not, just navigate to http://localhost:3000/.
+#### Dev: Build the site for development
+Runs the `php hyde build` command, compiles the SASS and Tailwind
 
-### Watch the files for changes:
-Hyde has experimental support for automatically running the hyde build command when source files change.
-Currently all pages are rebuilt, but in a future update only the affected files will be rebuilt.
+#### Prod: Build the site for production
+Runs the `php hyde build` command, compiles the SASS and Tailwind and minifies the output.
 
-Start watching files using
+#### Watch: Watching files for changes
+
+Hyde has a realtime compiler that watches your files for changes and rebuilds the site on the fly.
+> Currently all pages are rebuilt, but in a future update only the affected files will be rebuilt.
+
+The realtime viewer also uses Browsersync which starts a local web server and automatically refreshes your pages once they are changed. 
+
+**To start the preview run**
 ```bash
 npm run watch
 ```
+A browser page should automatically be opened. If not, just navigate to http://localhost:3000/.
 
-It works great when combining with livereload!
+### Directory structure
 
 ### Requirements 
 > These requirements are for your local development environment. The static HTML can be hosted virtually anywhere, including on GitHub Pages.
@@ -111,6 +119,9 @@ Hyde will automatically enable the CommonMark extension.
 Deleting Markdown posts does not delete the already compiled HTML files.
 In a future update (coming soon(tm)) the builder will remove
 unused files automatically.
+
+Currently only top level custom pages are supported. In the future nested pages will be supported.
+For example, _site/directory/page.html
 
 ## Changelog
 
