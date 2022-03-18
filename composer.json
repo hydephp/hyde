@@ -3,7 +3,6 @@
     "description": "The Hyde Framework",
     "keywords": ["framework", "hyde", "hyde framework"],
     "homepage": "https://github.com/hydephp/framework",
-    "type": "project",
     "license": "MIT",
     "support": {
         "issues": "https://github.com/hydephp/framework/issues",
