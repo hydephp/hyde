@@ -6,6 +6,7 @@ use Exception;
 use LaravelZero\Framework\Commands\Command;
 use App\Hyde\Services\CollectionService;
 use App\Hyde\DocumentationPageParser;
+use App\Hyde\Features;
 use App\Hyde\MarkdownPostParser;
 use App\Hyde\MarkdownPageParser;
 use App\Hyde\StaticPageBuilder;
@@ -56,28 +57,36 @@ class BuildStaticSiteCommand extends Command
             $this->warn('Running with high verbosity');
         }
 
-        $this->line('Creating Markdown Posts...');
-        $this->withProgressBar(CollectionService::getSourceSlugsOfModels(MarkdownPost::class), function ($slug) {
-            $this->debug((new StaticPageBuilder((new MarkdownPostParser($slug))->get(), true))->getDebugOutput());
-        });
+        if (Features::hasBlogPosts()) {
+            $this->line('Creating Markdown Posts...');
+            $this->withProgressBar(CollectionService::getSourceSlugsOfModels(MarkdownPost::class), function ($slug) {
+                $this->debug((new StaticPageBuilder((new MarkdownPostParser($slug))->get(), true))->getDebugOutput());
+            });
+        }
 
-        $this->newLine(2);
-        $this->line('Creating Markdown Pages...');
-        $this->withProgressBar(CollectionService::getSourceSlugsOfModels(MarkdownPage::class), function ($slug) {
-            $this->debug((new StaticPageBuilder((new MarkdownPageParser($slug))->get(), true))->getDebugOutput());
-        });
+        if (Features::hasMarkdownPages()) {
+            $this->newLine(2);
+            $this->line('Creating Markdown Pages...');
+            $this->withProgressBar(CollectionService::getSourceSlugsOfModels(MarkdownPage::class), function ($slug) {
+                $this->debug((new StaticPageBuilder((new MarkdownPageParser($slug))->get(), true))->getDebugOutput());
+            });
+        }
 
-        $this->newLine(2);
-        $this->line('Creating Documentation Pages...');
-        $this->withProgressBar(CollectionService::getSourceSlugsOfModels(DocumentationPage::class), function ($slug) {
-            $this->debug((new StaticPageBuilder((new DocumentationPageParser($slug))->get(), true))->getDebugOutput());
-        });
+        if (Features::hasDocumentationPages()) {
+            $this->newLine(2);
+            $this->line('Creating Documentation Pages...');
+            $this->withProgressBar(CollectionService::getSourceSlugsOfModels(DocumentationPage::class), function ($slug) {
+                $this->debug((new StaticPageBuilder((new DocumentationPageParser($slug))->get(), true))->getDebugOutput());
+            });
+        }
 
-        $this->newLine(2);
-        $this->line('Creating Blade Pages...');
-        $this->withProgressBar(CollectionService::getSourceSlugsOfModels(BladePage::class), function ($slug) {
-            $this->debug((new StaticPageBuilder((new BladePage($slug)), true))->getDebugOutput());
-        });
+       if (Features::hasBladePages()) {
+            $this->newLine(2);
+            $this->line('Creating Blade Pages...');
+            $this->withProgressBar(CollectionService::getSourceSlugsOfModels(BladePage::class), function ($slug) {
+                $this->debug((new StaticPageBuilder((new BladePage($slug)), true))->getDebugOutput());
+            });
+       }
 
         $this->newLine(2);
 

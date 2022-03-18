@@ -16,6 +16,9 @@
 | change the options to personalize your site and make it your own!
 |
 */
+
+use App\Hyde\Features;
+
 return [
 
 	/*
@@ -29,6 +32,26 @@ return [
     */
 
     'name' => 'HydePHP',
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Features
+    |--------------------------------------------------------------------------
+    |
+    | Some of Hyde's features are optional. Feel free to disable the features
+    | you don't need by removing them from this array or by commenting them.
+    | This type of configuration is directly inspired by Laravel Jetstream.
+    |
+    */
+
+    'features' => [
+        Features::blogPosts(),
+        Features::bladePages(),
+        Features::markdownPages(),
+        Features::documentationPages(),
+    ],
+
 
     /*
     |--------------------------------------------------------------------------
