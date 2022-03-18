@@ -2,6 +2,7 @@
 
 namespace App\Commands;
 
+use Exception;
 use LaravelZero\Framework\Commands\Command;
 use App\Hyde\Services\CollectionService;
 use App\Hyde\DocumentationPageParser;
@@ -33,9 +34,9 @@ class BuildStaticSiteCommand extends Command
     private function debug(array $output)
     {
         if ($this->getOutput()->isVeryVerbose()) {
-            $this->newLine(1);
+            $this->newLine();
             $this->line("<fg=gray>Created {$output['createdFileSize']} byte file {$output['createdFilePath']}</>");
-            $this->newLine(1);
+            $this->newLine();
         }
     }
 
@@ -43,7 +44,7 @@ class BuildStaticSiteCommand extends Command
      * Execute the console command.
      *
      * @return int
-     * @throws \Exception
+     * @throws Exception
      */
     public function handle(): int
     {
@@ -84,17 +85,23 @@ class BuildStaticSiteCommand extends Command
             $this->info('Prettifying code! This may take a second.');
             try {
                 $this->line(shell_exec('npx prettier _site/ --write'));
-            } catch (\Throwable $th) {
+            } catch (Exception) {
                 $this->warn('Could not prettify code! Is NPM installed?');
             }
         }
 
         $time_end = microtime(true);
         $execution_time = ($time_end - $time_start);
-        $this->info('All done! Finished in ' . number_format($execution_time, 2) .' seconds. (' . number_format(($execution_time * 1000), 2) . 'ms)');
+        $this->info('All done! Finished in ' . number_format(
+            $execution_time,
+            2
+        ) .' seconds. (' . number_format(($execution_time * 1000), 2) . 'ms)');
 
         $this->info('Congratulations! 🎉 Your static site has been built!');
-        $this->info('Your new homepage is stored here -> ' . base_path('_site'. DIRECTORY_SEPARATOR .'index.html'));
+        $this->info(sprintf(
+            "Your new homepage is stored here -> %s",
+            base_path('_site' . DIRECTORY_SEPARATOR . 'index.html')
+        ));
 
         return 0;
     }

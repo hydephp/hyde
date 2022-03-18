@@ -23,8 +23,10 @@ class StaticPageBuilder
      * @param MarkdownPost|MarkdownPage|BladePage|DocumentationPage $page the Page to compile into HTML
      * @param bool $runAutomatically if set to true the class will invoke when constructed
      */
-    public function __construct(protected MarkdownPost|MarkdownPage|BladePage|DocumentationPage $page, bool $runAutomatically = false)
-    {
+    public function __construct(
+        protected MarkdownPost|MarkdownPage|BladePage|DocumentationPage $page,
+        bool $runAutomatically = false
+    ) {
         if ($runAutomatically) {
             $this->createdFileSize = $this->__invoke();
         }
