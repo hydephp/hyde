@@ -102,6 +102,10 @@ class BuildStaticSiteCommand extends Command
             "Your new homepage is stored here -> %s",
             base_path('_site' . DIRECTORY_SEPARATOR . 'index.html')
         ));
+        
+        if (!file_exists('_site/media/app.css')) {
+            $this->warn('Could not find the app stylesheet in the build directory. You may need to run `npm run dev`.');
+        }
 
         return 0;
     }
