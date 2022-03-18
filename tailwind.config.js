@@ -24,9 +24,11 @@ module.exports = {
                             textDecoration: 'none'
                         },
                         blockquote: {
-                            backgroundColor: '#f1f5f9',
+                            backgroundColor: '#f3f3f3',
                             borderLeftColor: '#d1d5db',
                             color: '#1f2937',
+                            fontWeight: 500,
+                            fontStyle: 'unset',
                             lineHeight: '1.25em',
                             paddingLeft: '0.75em',
                             paddingTop: '.25em',
