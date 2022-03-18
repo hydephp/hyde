@@ -105,7 +105,7 @@ class GeneratesNavigationMenu
         $nestCount = substr_count($this->currentPage, '/');
         $route = "";
         if ($nestCount > 0) {
-           $route .= str_repeat('../', $nestCount);
+            $route .= str_repeat('../', $nestCount);
         }
         $route .= $slug . '.html';
         return $route;

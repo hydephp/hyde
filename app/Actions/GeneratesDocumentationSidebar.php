@@ -41,7 +41,7 @@ class GeneratesDocumentationSidebar
 
         krsort($array);
 
-        usort($array, function($a, $b) {
+        usort($array, function ($a, $b) {
             return $a['order'] <=> $b['order'];
         });
 

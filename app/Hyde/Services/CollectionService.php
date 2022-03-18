@@ -99,5 +99,4 @@ class CollectionService
 
         return $array;
     }
-
 }

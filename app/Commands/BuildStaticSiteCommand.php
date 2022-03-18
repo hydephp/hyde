@@ -30,7 +30,8 @@ class BuildStaticSiteCommand extends Command
     protected $description = 'Build the static site';
 
 
-    private function debug(array $output) {
+    private function debug(array $output)
+    {
         if ($this->getOutput()->isVeryVerbose()) {
             $this->newLine(1);
             $this->line("<fg=gray>Created {$output['createdFileSize']} byte file {$output['createdFilePath']}</>");

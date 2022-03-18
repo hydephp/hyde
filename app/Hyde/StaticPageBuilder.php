@@ -57,7 +57,7 @@ class StaticPageBuilder
     {
         return [
             'createdFileSize' => $this->createdFileSize,
-            'createdFilePath' => $relativeFilePath 
+            'createdFilePath' => $relativeFilePath
                 ? str_replace(base_path(), '', $this->createdFilePath)
                 : $this->createdFilePath ,
         ];
