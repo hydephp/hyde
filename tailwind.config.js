@@ -24,8 +24,20 @@ module.exports = {
                             textDecoration: 'none'
                         },
                         blockquote: {
+                            backgroundColor: '#f1f5f9',
+                            borderLeftColor: '#d1d5db',
+                            color: '#1f2937',
                             lineHeight: '1.25em',
                             paddingLeft: '0.75em',
+                            paddingTop: '.25em',
+                            paddingBottom: '.25em',
+                            marginTop: '1em',
+                            marginBottom: '1em',
+                            p: {
+                                paddingRight: '.25em',
+                                marginTop: '.25em',
+                                marginBottom: '.25em',
+                            },
                             'p::before': {
                                 content: 'unset',
                             },
