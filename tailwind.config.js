@@ -48,6 +48,11 @@ module.exports = {
                         },
                         'code::after': {
                             content: 'unset',
+                        },
+                        pre: {
+                            code: {
+                                fontFamily: "'Fira Code Regular', Consolas, Monospace, 'Courier New'",
+                            }
                         }
                     },
                 },
