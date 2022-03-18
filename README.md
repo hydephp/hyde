@@ -134,6 +134,8 @@ unused files automatically.
 Currently, only top level custom pages are supported. In the future nested pages will be supported.
 For example, _site/directory/page.html
 
+Hyde also currently does not support images, but will soon as it already has the foundation in place to do so.
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
