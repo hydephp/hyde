@@ -92,6 +92,11 @@ class MarkdownPageParser
             }
         }
 
+         // If the start and end tags don't exist, the file probably does not have any front matter.
+        if (!isset($matterSectionIndex['start']) && !isset($matterSectionIndex['end'])) {
+            throw new Exception("File _pages/$this->slug.md is missing front matter.", 400);
+        }
+
         // Construct the new line arrays
         $matter = [];
         $markdown = [];
