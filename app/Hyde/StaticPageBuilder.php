@@ -2,6 +2,7 @@
 
 namespace App\Hyde;
 
+use JetBrains\PhpStorm\ArrayShape;
 use App\Hyde\Actions\MarkdownConverter;
 use App\Hyde\Models\DocumentationPage;
 use App\Hyde\Models\MarkdownPost;
@@ -10,16 +11,22 @@ use App\Hyde\Models\BladePage;
 
 /**
  * Generates a static HTML page and saves it.
- * Currently, only supports the Post model but will
- * support the upcoming Page model when that is implemented.
  */
 class StaticPageBuilder
 {
-
+    /**
+     * Debug output: The size of the created file
+     * @var int|bool|void|null
+     */
     public null|int|false $createdFileSize;
+    /**
+     * Debug output: The path of the created file
+     * @var string|null
+     */
     public null|string $createdFilePath;
 
     /**
+     * Construct the class.
      * @param MarkdownPost|MarkdownPage|BladePage|DocumentationPage $page the Page to compile into HTML
      * @param bool $runAutomatically if set to true the class will invoke when constructed
      */
@@ -32,6 +39,10 @@ class StaticPageBuilder
         }
     }
 
+    /**
+     * Run the page builder.
+     * @return bool|int|void
+     */
     public function __invoke()
     {
         if ($this->page instanceof MarkdownPost) {
@@ -52,9 +63,11 @@ class StaticPageBuilder
     }
 
     /**
-     * Get the debug data
+     * Get the debug data.
+     * @param bool $relativeFilePath should the returned filepath be relative instead of absolute?
      * @return array
      */
+    #[ArrayShape(['createdFileSize' => "mixed", 'createdFilePath' => "mixed"])]
     public function getDebugOutput(bool $relativeFilePath = true): array
     {
         return [
@@ -66,10 +79,11 @@ class StaticPageBuilder
     }
 
     /**
+     * Save the compiled HTML to file.
      * @param string $location of the output file relative to _site/
      * @param string $contents to save to the file
      */
-    private function save(string $location, string $contents)
+    private function save(string $location, string $contents): bool|int
     {
         $path = base_path('./_site') . '/' . $location . '.html';
         $this->createdFilePath = $path;
@@ -77,7 +91,7 @@ class StaticPageBuilder
     }
 
     /**
-     * Compile a Post into HTML using the Blade View
+     * Compile a Post into HTML using the Blade View.
      * @return string
      */
     private function compilePost(): string
@@ -91,7 +105,7 @@ class StaticPageBuilder
     }
 
     /**
-     * Compile a Documentation page into HTML using the Blade View
+     * Compile a Documentation page into HTML using the Blade View.
      * @return string
      */
     private function compileDocs(): string
@@ -105,7 +119,7 @@ class StaticPageBuilder
     }
 
     /**
-    * Compile a Page into HTML using the Blade View
+    * Compile a Markdown Page into HTML using the Blade View.
     * @return string
     */
     private function compilePage(): string
@@ -119,7 +133,7 @@ class StaticPageBuilder
 
 
     /**
-     * Compile a custom Blade View into HTML
+     * Compile a custom Blade View into HTML.
      * @return string
      */
     private function compileView(): string
