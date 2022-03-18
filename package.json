@@ -1,6 +1,6 @@
 {
   "name": "hydefront",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Frontend assets for HydePHP",
   "main": "_site/index.html",
   "directories": {
@@ -31,9 +31,9 @@
   "author": "Caen De Silva",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/caendesilva/hyde/issues"
+    "url": "https://github.com/hyde/framework/issues"
   },
-  "homepage": "https://github.com/caendesilva/hyde#readme",
+  "homepage": "https://github.com/hyde/framework#readme",
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.2",
     "browser-sync": "^2.27.9",
