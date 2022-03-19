@@ -37,7 +37,7 @@ class MakePostCommandTest extends TestCase
             ->expectsQuestion("Write a short post excerpt/description", 'A short description')
             ->expectsQuestion('What is your (the author\'s) name?', 'PHPUnit')
             ->expectsQuestion('What is the primary category of the post?', 'general')
-            ->expectsOutput('Creating post with the following details:')
+            ->expectsOutput('Creating a post with the following details:')
             ->expectsConfirmation('Do you wish to continue?', 'yes')
            
             ->assertExitCode(0);
@@ -55,7 +55,7 @@ class MakePostCommandTest extends TestCase
             ->expectsQuestion("Write a short post excerpt/description", 'A short description')
             ->expectsQuestion('What is your (the author\'s) name?', 'PHPUnit')
             ->expectsQuestion('What is the primary category of the post?', 'general')
-            ->expectsOutput('Creating post with the following details:')
+            ->expectsOutput('Creating a post with the following details:')
             
             ->expectsConfirmation('Do you wish to continue?', 'yes')
             ->expectsOutput('If you want to overwrite the file supply the --force flag.')
@@ -74,7 +74,7 @@ class MakePostCommandTest extends TestCase
             ->expectsQuestion("Write a short post excerpt/description", 'A short description')
             ->expectsQuestion('What is your (the author\'s) name?', 'PHPUnit')
             ->expectsQuestion('What is the primary category of the post?', 'general')
-            ->expectsOutput('Creating post with the following details:')
+            ->expectsOutput('Creating a post with the following details:')
             ->expectsConfirmation('Do you wish to continue?', 'yes')
 
             ->assertExitCode(0);
