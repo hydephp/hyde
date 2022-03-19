@@ -112,7 +112,7 @@ class BuildStaticSiteCommand extends Command
             base_path('_site' . DIRECTORY_SEPARATOR . 'index.html')
         ));
 
-        if (!file_exists('_site/media/app.css')) {
+        if (($this->option('no-ansi') && !file_exists('_site/media/app.css'))) {
             $this->warn('Could not find the app stylesheet in the build directory. You may need to run `npm run dev`.');
         }
 
