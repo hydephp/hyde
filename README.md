@@ -164,6 +164,8 @@ Hyde also currently does not support images, but will soon as it already has the
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Contributing
+Roadmap:
+Eventually I want to extract the source code into a seperate Framework package. However there needs to be some work done first to make sure the proper filepaths are used.
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
