@@ -1,6 +1,8 @@
 # HydePHP - Static Blog Builder using Laravel Zero
 
-> ⚠ Alpha Software Warning ⚠ This is a very new repo that has been made public to run furter tests before the initial release. Please wait until v1.0 for production use.
+## ⚠ Alpha Software Warning ⚠
+### This is a very new repo that has been made public to run furter tests before the initial release. Please wait until v1.0 for production use.
+---
 
 > This repo both contains the source code and serves as a template to get started quickly.
 
