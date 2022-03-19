@@ -61,7 +61,11 @@ class CreatesNewMarkdownPostFile
             throw new Exception("File at $path already exists! ", 409);
         }
 
-        $contents = (new ConvertsArrayToFrontMatter)->execute((array) $this) . "\n# $this->title\n\n";
+        $arrayWithoutSlug = ((array) $this);
+
+        unset($arrayWithoutSlug['slug']);
+
+        $contents = (new ConvertsArrayToFrontMatter)->execute($arrayWithoutSlug) . "\n## Write something awesome.\n\n";
 
         return file_put_contents($path, $contents) ? $path : false;
     }

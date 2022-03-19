@@ -40,7 +40,7 @@ class MakePostCommand extends Command
         $author      = $this->ask('What is your (the author\'s) name?');
         $category    = $this->ask('What is the primary category of the post?');
 
-        $this->info('Creating post with the following details:');
+        $this->info('Creating a post with the following details:');
         $creator = new CreatesNewMarkdownPostFile(
             title: $title,
             description: $description,
