@@ -1,5 +1,13 @@
 # HydePHP - Static Blog Builder using Laravel Zero
 
+<p>
+	<a href="https://packagist.org/packages/hyde/hyde"><img style="display: inline; margin: 4px 2px;" src="https://img.shields.io/packagist/v/hyde/hyde" alt="Latest Version on Packagist"></a>
+	<a href="https://packagist.org/packages/hyde/hyde"><img style="display: inline; margin: 4px 2px;" src="https://img.shields.io/packagist/dt/hyde/hyde" alt="Total Downloads"></a>
+	<a href="https://github.com/hydephp/hyde/blob/master/LICENSE.md"><img style="display: inline; margin: 4px 2px;" src="https://img.shields.io/github/license/hydephp/hyde" alt="License"></a>
+	<img style="display: inline; margin: 4px 2px;" src="https://github.com/hydephp/hyde/actions/workflows/tests.yml/badge.svg" alt="GitHub Actions">
+	<img style="display: inline; margin: 4px 2px;" src="https://github.com/hydephp/hyde/actions/workflows/codeql-analysis.yml/badge.svg" alt="GitHub Actions">
+</p>
+
 ## ⚠ Alpha Software Warning ⚠
 ### This is a very new repo that has been made public to run further tests before the initial release. Please wait until v1.0 for production use.
 ---
