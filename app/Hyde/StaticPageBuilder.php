@@ -126,7 +126,7 @@ class StaticPageBuilder
     {
         return view('page')->with([
             'title' => $this->page->title,
-            'pageContent' => $this->page->content,
+            'markdown' => MarkdownConverter::parse($this->page->content),
             'currentPage' => $this->page->slug
         ])->render();
     }
