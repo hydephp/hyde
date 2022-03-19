@@ -3,7 +3,7 @@
 @section('content')
 
 <main class="mx-auto max-w-7xl py-16 px-8 lg:mt-8">
-	<article class="prose mx-auto max-w-5xl">
+	<article @class(['mx-auto prose max-w-5xl', 'torchlight-enabled' => App\Hyde\Hyde::hasTorchlight()])>
 		{!! $markdown !!}
 	</article>
 </main>
