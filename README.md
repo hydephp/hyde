@@ -23,26 +23,13 @@ The frontend uses a lightweight minimalist layout built with TailwindCSS which y
 Hyde is designed to be stupidly simple to get started with, while also remaining easily hackable and extendable.
 
 ## Installation
+> Full installation guide is in the documentation at https://hydephp.github.io/docs/
+
 The recommended method of installation is using Composer. However, if you want to run the latest development version you can clone the Git repo.
 
 ### Using Composer (recommended)
 ```bash
 composer create-project hyde/hyde
-```
-
-### Using Git
-
-#### Using the website
-Navigate to https://github.com/hydephp/hyde and press the green button with the text "Use this template" and follow the instructions.
-
-Remember to run `composer install` and `npm install && npm run dev`
-
-#### Using CLI
-```bash
-git clone https://github.com/hydephp/hyde.git
-cd hyde
-composer install
-npm install && npm run dev
 ```
 
 ### Requirements 
@@ -53,29 +40,9 @@ Hyde uses Laravel 9 which requires PHP >= 8.0. You should also have Composer and
 ## Getting Started
 It's a breeze to get started. Simply clone the repository, write your Markdown posts and save them to the _posts directory and run the `php hyde build` command. You can scaffold post files using the `php hyde make:post` command.
 
-
-
 ### Usage
 
-
-#### Writing posts
-Posts are written in Markdown and saved in the _posts directory. Save your file as `kebab-case-slug.md`.
-Post metadata is added as YAML Front Matter
-```yaml
----
-title: My New Post
-description: A short description used in previews and SEO
-category: blog
-author: Mr. Hyde
-date: 2022-03-14 15:00
----
-
-# Write your Markdown here
-```
-
-> You can also create simple static pages by creating Markdown files in the _pages directory.
-
-> You can even create pages with full Blade support by creating files ending in .blade.php in the resources/views/pages directory.
+Full usage guide is in the documentation at https://hydephp.github.io/docs/
 
 #### Building the static site
 
@@ -88,65 +55,17 @@ Your site will then be saved in the _site directory, which you can then upload t
 All links use relative paths, so you can deploy to a subdirectory without any problems.
 The site also works great when browsing the HTML files locally.
 
-If it is the first time building the site or if you have updated the source SCSS you also need to run `npm install && npm run dev`.
+If it is the first time building the site or if you have updated the source SCSS you also need to run `npm install && npm run dev` to build the frontend assets.
 
-> `npm run dev` and `npm run prod` both first build the static site and compiles the styles. The latter command also minifies the CSS.
 
 #### Live preview
-Use `npm install && npm run watch` to watch the files for changes and start up a local dev server on port 3000 using Browsersync.
-
+Use ` npm run watch` to watch the files for changes and start up a local dev server on port 3000 using Browsersync.
 
 ### NPM Commands
-To help in developing the `package.json` comes with a few built-in scripts. Make sure you have Node and NPM installed.
-> If it is the first time running a command, remember to run `npm install` first!
-
-The main commands are:
-- `npm run dev`
-- `npm run prod`
-- `npm run watch`
-
-#### Dev: Build the site for development
-Runs the `php hyde build` command, compiles the SASS and Tailwind
-
-#### Prod: Build the site for production
-Runs the `php hyde build` command, compiles the SASS and Tailwind and minifies the output.
-
-#### Watch: Watching files for changes
-
-Hyde has a real-time compiler that watches your files for changes and rebuilds the site on the fly.
-> Currently, all pages are rebuilt, but in a future update, only the affected files will be rebuilt.
-
-The real-time viewer also uses Browsersync which starts a local web server and automatically refreshes your pages once they are changed. 
-
-**To start the preview run**
-```bash
-npm run watch
-```
-A browser page should automatically be opened. If not, just navigate to http://localhost:3000/.
-
+See all commands in the documentation [Console Commands](https://hydephp.github.io/docs/docs/console-commands.html)
 
 ### Hacking Hyde
 Hyde is designed to be easy to use and easy to hack. You can modify the source views and SCSS, customize the Tailwind config, and you can even create 100% custom HTML and Blade pages that get compiled into static HTML.
-
-## Why static sites?
-### Speed, scalability, simplicity
-With a static site, you don't need to worry about setting up databases.
-This makes the site so much faster as you don't need to wait for a database to process requests.
-By pre-compiling the sites you also don't need to waste time and processing power on server-side
-rendering which also speeds up your site. Furthermore, it makes your site incredibly scalable
-as you don't need to worry about keeping replica databases in sync.
-
-You can even serve the site from global CDNs on the Edge for amazing speed.
-
-### Security, stability, and cost
-You don't need to worry about keeping your database secure since there is no database.
-You can also rest easy knowing your site is stable and that you don't need to maintain
-a complex backend.
-
-You can also use create a Git powered CMS to collaborate on Markdown posts.
-
-Static web hosting has become incredibly cheap, to the point where dozens of companies offer
-free hosting.
 
 ## Extensions
 Hyde comes with built-in support for Torchlight Syntax Highlighting.
