@@ -14,8 +14,8 @@
     "watch-build": "chokidar ./_posts/*.md ./_docs/*.md ./resources/views/**/*.blade.php -c \"npm run build\"",
     "watch-sass": "sass src/resources/sass/app.scss _site/media/app.css -w",
     "watch-tailwind": "npx tailwindcss -i ./src/resources/sass/tailwind.scss -o ./_site/media/tailwind.css --watch",
-    "prod": "php hyde build --no-ansi && sass src/resources/sass/app.scss _site/media/app.css --style=compressed && npx tailwindcss -i ./src/resources/sass/tailwind.scss -o ./_site/media/tailwind.css --minify",
-    "dev": "php hyde build --pretty --no-ansi && sass src/resources/sass/app.scss _site/media/app.css && npx tailwindcss -i ./src/resources/sass/tailwind.scss -o ./_site/media/tailwind.css"
+    "prod": "sass src/resources/sass/app.scss _site/media/app.css --style=compressed && npx tailwindcss -i ./src/resources/sass/tailwind.scss -o ./_site/media/tailwind.css --minify",
+    "dev": " sass src/resources/sass/app.scss _site/media/app.css && npx tailwindcss -i ./src/resources/sass/tailwind.scss -o ./_site/media/tailwind.css"
   },
   "repository": {
     "type": "git",
