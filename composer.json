@@ -1,6 +1,6 @@
 {
     "name": "hyde/hyde",
-    "description": "The Hyde Framework",
+    "description": "Static Markdown Site and Blog Generator for Developers using PHP",
     "keywords": ["framework", "hyde", "hyde framework"],
     "homepage": "https://github.com/hydephp/hyde",
     "type": "project",
