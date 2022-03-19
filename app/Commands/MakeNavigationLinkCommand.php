@@ -7,6 +7,9 @@ use Exception;
 use LaravelZero\Framework\Commands\Command;
 use Illuminate\Support\Str;
 
+/**
+ * @deprecated see issue #16
+ */
 class MakeNavigationLinkCommand extends Command
 {
     /**
@@ -30,6 +33,8 @@ class MakeNavigationLinkCommand extends Command
      */
     public function handle(): int
     {
+        $this->warn('This command is deprecated and will be removed as it becomes unnecessary when issue #16 is implemented.');
+
         if (!Features::hasBladePages()) {
             $this->warn('This feature requires BladePages to be enabled in config/hyde.php');
             return 1;
