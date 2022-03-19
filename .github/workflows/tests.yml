@@ -17,7 +17,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-    - name: Directory Permissions
-      run: chmod -R 777 storage bootstrap/cache
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       run: php hyde test
