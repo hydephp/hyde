@@ -2,6 +2,7 @@
 
 namespace App\Commands;
 
+use App\Hyde\Features;
 use Exception;
 use LaravelZero\Framework\Commands\Command;
 use Illuminate\Support\Str;
@@ -29,6 +30,11 @@ class MakeNavigationLinkCommand extends Command
      */
     public function handle(): int
     {
+        if (!Features::hasBladePages()) {
+            $this->warn('This feature requires BladePages to be enabled in config/hyde.php');
+            return 1;
+        }
+
         $this->info('Creating a new navigation link!');
         $this->line('Tip: Navigation links are automatically created for Blade and Markdown pages!');
 
