@@ -111,9 +111,45 @@ class BuildStaticSiteCommand extends Command
             "Your new homepage is stored here -> %s",
             base_path('_site' . DIRECTORY_SEPARATOR . 'index.html')
         ));
-        
+
         if (!file_exists('_site/media/app.css')) {
             $this->warn('Could not find the app stylesheet in the build directory. You may need to run `npm run dev`.');
+        }
+
+        if (Features::hasDocumentationPages()) {
+            if (!file_exists('_docs/index.md') && !file_exists('_site/docs/index.html')) {
+                $this->newLine();
+                $docIndexMissingMessage = 'Could not find an index.md file in the _docs directory. ';
+                // @todo add case-sensitivity support to allow both readme.md and README.md on UNIX system
+                if (file_exists('_docs/readme.md')) {
+                    $docIndexMissingMessage .= 'However, a readme.md file was found.';
+                    $this->warn($docIndexMissingMessage);
+                        $this->line($this->option('no-interaction')
+                        ? 'You can re-run this command without the --no-interaction flag to copy it to index.md. '
+                        : 'Would you like to copy it to index.md?');
+                        if ($this->choice('Create _docs/index.md from _docs/readme.md?',
+                                ['Yes', 'No'],
+                                0) == 'Yes') {
+                            $this->line('Okay, creating the file!');
+                            try {
+                                copy('_docs/readme.md', '_docs/index.md');
+                                $this->debug((new StaticPageBuilder((new DocumentationPageParser('index'))->get(),
+                                    true))->getDebugOutput());
+                                $this->line('Created _docs/index.md and _site/docs/index.html!');
+                            } catch (Exception $exception) {
+                                $this->error('Something went wrong when trying to save the file!');
+                                $this->warn($exception->getMessage());
+                                return $exception->getCode() ?? 1;
+                            }
+                        } else {
+                            $this->line('Alright. You can always rerun this command or create it manually!');
+                        }
+
+                } else {
+                    $docIndexMissingMessage .= 'You may want to create one. ';
+                    $this->warn($docIndexMissingMessage);
+                }
+            }
         }
 
         return 0;
