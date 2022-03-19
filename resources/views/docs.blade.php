@@ -12,6 +12,51 @@
 	@include('components.docs.content')
 </main>
 
-<script defer src="../media/docs.js"></script>
+<script>
+	var sidebarOpen = screen.width >= 768;
+
+	const sidebar = document.getElementById("documentation-sidebar");
+	const main = document.getElementById("documentation-content");
+	const backdrop = document.getElementById("sidebar-backdrop");
+
+	const toggleButtons = document.querySelectorAll(".sidebar-button-wrapper");
+
+	function toggleSidebar() {
+		if (sidebarOpen) {
+			hideSidebar();
+		} else {
+			showSidebar();
+		}
+	}
+
+	function showSidebar() {
+		sidebar.classList.remove("hidden");
+		sidebar.classList.add("flex");
+		backdrop.classList.remove("hidden");
+		document.getElementById("app").style.overflow = "hidden";
+
+		toggleButtons.forEach((button) => {
+			button.classList.remove("open");
+			button.classList.add("closed");
+		});
+
+		sidebarOpen = true;
+	}
+
+	function hideSidebar() {
+		sidebar.classList.add("hidden");
+		sidebar.classList.remove("flex");
+		backdrop.classList.add("hidden");
+		document.getElementById("app").style.overflow = null;
+
+		toggleButtons.forEach((button) => {
+			button.classList.add("open");
+			button.classList.remove("closed");
+		});
+
+		sidebarOpen = false;
+	}
+
+</script>
 <div id="sidebar-backdrop" class="hidden" title="Click to close sidebar" onClick="hideSidebar()"></div>
 @endsection
