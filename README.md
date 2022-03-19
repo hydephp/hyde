@@ -11,11 +11,11 @@ The frontend uses a lightweight minimalist layout build with TailwindCSS which y
 Hyde is designed to be stupidly simple to get started with, while also remaining easily hackable and extendable.
 
 ## Installation
-The reccomended method of installation is using Composer. However, if you want to run the latest version you can clone the Git repo.
+The reccomended method of installation is using Composer. However, if you want to run the latest development version you can clone the Git repo.
 
 ### Using Composer (reccomended)
 ```bash
-composer create-project hydephp/hyde
+composer create-project hyde/hyde
 ```
 
 ### Using Git
