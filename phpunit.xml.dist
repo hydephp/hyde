@@ -15,10 +15,18 @@
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
+        <testsuite name="Validators">
+            <directory suffix="Test.php">./tests/Validators</directory>
+        </testsuite>
     </testsuites>
     <coverage processUncoveredFiles="true">
         <include>
             <directory suffix=".php">./app</directory>
         </include>
     </coverage>
+    <groups>
+        <exclude>
+            <group>validators</group>
+        </exclude>
+    </groups> 
 </phpunit>

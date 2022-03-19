@@ -43,3 +43,5 @@ function something()
 {
     // ..
 }
+
+uses()->group('validators')->in('validators');
