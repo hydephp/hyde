@@ -1,6 +1,6 @@
 <?php
 
-test('there are no conflicts between blade and markdown pages', function () {
+test('check for conflicts between blade and markdown pages', function () {
     $markdownPages = [];
     $bladePages = [];
 
@@ -13,5 +13,11 @@ test('there are no conflicts between blade and markdown pages', function () {
     }
 
     $conflicts = array_intersect($markdownPages, $bladePages);
-    expect($conflicts)->toBeEmpty();
+    
+    if (count($conflicts)) {
+        $this->addWarning('Found conflicts: ' . implode(', ', $conflicts)); 
+    } else {
+        expect($conflicts)->toBeEmpty();
+    }
+   
 })->group('validators');

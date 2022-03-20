@@ -13,7 +13,7 @@ beforeEach(function () {
 
 test('check that documentation pages have an index page', function () {
     if (!Features::hasDocumentationPages()) {
-        $this->markTestSkipped();
+        $this->markTestSkipped('Documentation page feature is disabled in config');
     }
 
     $indexFileExists = file_exists('_docs/index.md');
@@ -26,5 +26,7 @@ test('check that documentation pages have an index page', function () {
 
     if (!$indexFileExists) {
         $this->addWarning($message);  
+    } else {
+        $this->assertTrue($indexFileExists);
     }
 })->group('validators');
