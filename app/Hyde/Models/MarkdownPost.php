@@ -54,6 +54,6 @@ class MarkdownPost
             $collection->push((new MarkdownPostParser(basename($filepath, '.md')))->get());
         }
 
-        return $collection->sortByDesc('matter.desc');
+        return $collection->sortByDesc('matter.date');
     }
 }
