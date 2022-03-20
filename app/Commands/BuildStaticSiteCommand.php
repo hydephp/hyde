@@ -57,7 +57,17 @@ class BuildStaticSiteCommand extends Command
             $this->warn('Running with high verbosity');
         }
 
+        $this->line('Transferring Media Assets...');
+        $files = realpath('_media') . DIRECTORY_SEPARATOR . ("*.{png,svg,jpg,jpeg,gif,ico}");
+        $this->withProgressBar(glob($files, GLOB_BRACE), function ($filepath) {
+            if ($this->getOutput()->isVeryVerbose()) {
+                $this->line(' > Copying media file ' . basename($filepath) . ' to the output media directory');
+            }
+            copy($filepath, realpath('_site/media') . DIRECTORY_SEPARATOR . basename($filepath));
+        });
+
         if (Features::hasBlogPosts()) {
+            $this->newLine(2);
             $this->line('Creating Markdown Posts...');
             $this->withProgressBar(CollectionService::getSourceSlugsOfModels(MarkdownPost::class), function ($slug) {
                 $this->debug((new StaticPageBuilder((new MarkdownPostParser($slug))->get(), true))->getDebugOutput());

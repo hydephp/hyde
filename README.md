@@ -57,6 +57,13 @@ The site also works great when browsing the HTML files locally.
 
 If it is the first time building the site or if you have updated the source SCSS you also need to run `npm install && npm run dev` to build the frontend assets.
 
+#### Adding images
+All media files in the `_media` directory will get copied to the `_site/media` directory upon build.
+To reference an image in your Markdown, use the following syntax
+```markdown
+![Image Alt](../media/image.png "Image Title") # Note the relative path
+```
+Nested media directories are not yet supported.
 
 #### Live preview
 Use ` npm run watch` to watch the files for changes and start up a local dev server on port 3000 using Browsersync.

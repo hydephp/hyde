@@ -10,6 +10,7 @@ class CreatesDefaultDirectories
         '_drafts',
         '_pages',
         '_posts',
+        '_media',
         '_site',
         '_docs',
         '_site/posts',
