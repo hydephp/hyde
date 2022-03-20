@@ -1,11 +1,11 @@
 # HydePHP - Static Blog Builder using Laravel Zero
 
 <p>
-	<a href="https://packagist.org/packages/hyde/hyde"><img style="display: inline; margin: 4px 2px;" src="https://img.shields.io/packagist/v/hyde/hyde" alt="Latest Version on Packagist"></a>
-	<a href="https://packagist.org/packages/hyde/hyde"><img style="display: inline; margin: 4px 2px;" src="https://img.shields.io/packagist/dt/hyde/hyde" alt="Total Downloads"></a>
-	<a href="https://github.com/hydephp/hyde/blob/master/LICENSE.md"><img style="display: inline; margin: 4px 2px;" src="https://img.shields.io/github/license/hydephp/hyde" alt="License"></a>
-	<img style="display: inline; margin: 4px 2px;" src="https://github.com/hydephp/hyde/actions/workflows/tests.yml/badge.svg" alt="GitHub Actions">
-	<img style="display: inline; margin: 4px 2px;" src="https://github.com/hydephp/hyde/actions/workflows/codeql-analysis.yml/badge.svg" alt="GitHub Actions">
+    <a href="https://packagist.org/packages/hyde/hyde"><img style="display: inline; margin: 4px 2px;" src="https://img.shields.io/packagist/v/hyde/hyde" alt="Latest Version on Packagist"></a>
+    <a href="https://packagist.org/packages/hyde/hyde"><img style="display: inline; margin: 4px 2px;" src="https://img.shields.io/packagist/dt/hyde/hyde" alt="Total Downloads"></a>
+    <a href="https://github.com/hydephp/hyde/blob/master/LICENSE.md"><img style="display: inline; margin: 4px 2px;" src="https://img.shields.io/github/license/hydephp/hyde" alt="License"></a>
+    <img style="display: inline; margin: 4px 2px;" src="https://github.com/hydephp/hyde/actions/workflows/tests.yml/badge.svg" alt="GitHub Actions">
+    <img style="display: inline; margin: 4px 2px;" src="https://github.com/hydephp/hyde/actions/workflows/codeql-analysis.yml/badge.svg" alt="GitHub Actions">
 </p>
 
 ## ⚠ Alpha Software Warning ⚠
@@ -22,10 +22,13 @@ The frontend uses a lightweight minimalist layout built with TailwindCSS which y
 
 Hyde is designed to be stupidly simple to get started with, while also remaining easily hackable and extendable.
 
+## Live Demo
+The Hyde site (https://hydephp.github.io/docs/) is fully built with Hyde. That includes the homepage, the blog, and the [documentation](https://hydephp.github.io/docs/docs/index.html)!
+
 ## Installation
 > Full installation guide is in the documentation at https://hydephp.github.io/docs/
 
-The recommended method of installation is using Composer. However, if you want to run the latest development version you can clone the Git repo.
+The recommended method of installation is using Composer. However, if you want to run the latest development version you can clone the Git repo, see the [full docs](https://hydephp.github.io/docs/docs/installation.html) for instructions.
 
 ### Using Composer (recommended)
 ```bash
@@ -41,8 +44,11 @@ Hyde uses Laravel 9 which requires PHP >= 8.0. You should also have Composer and
 It's a breeze to get started. Simply clone the repository, write your Markdown posts and save them to the _posts directory and run the `php hyde build` command. You can scaffold post files using the `php hyde make:post` command.
 
 ### Usage
+Hyde scans the source directories prefixed with _underscores for Markdown files and intelligently compiles them into static HTML using Blade templates. The site is then saved in _docs.
 
-Full usage guide is in the documentation at https://hydephp.github.io/docs/
+Hyde is "blog and documentation aware" and has built-in templates for both blogging and for creating beautiful documentation pages based on Laradocgen. Since Hyde is modular you can of course disable the modules you don't need.
+
+The full usage guide is in the documentation at https://hydephp.github.io/docs/
 
 #### Building the static site
 
@@ -52,27 +58,20 @@ php hyde build
 ```
 
 Your site will then be saved in the _site directory, which you can then upload to your static web host.
-All links use relative paths, so you can deploy to a subdirectory without any problems.
-The site also works great when browsing the HTML files locally.
+All links use relative paths, so you can deploy to a subdirectory without any problems which also makes the site work great when browsing the HTML files locally even without a web server.
 
 If it is the first time building the site or if you have updated the source SCSS you also need to run `npm install && npm run dev` to build the frontend assets.
 
-#### Adding images
-All media files in the `_media` directory will get copied to the `_site/media` directory upon build.
-To reference an image in your Markdown, use the following syntax
-```markdown
-![Image Alt](../media/image.png "Image Title") # Note the relative path
-```
-Nested media directories are not yet supported.
-
-#### Live preview
+### Live preview
 Use ` npm run watch` to watch the files for changes and start up a local dev server on port 3000 using Browsersync.
 
 ### NPM Commands
 See all commands in the documentation [Console Commands](https://hydephp.github.io/docs/docs/console-commands.html)
 
-### Hacking Hyde
-Hyde is designed to be easy to use and easy to hack. You can modify the source views and SCSS, customize the Tailwind config, and you can even create 100% custom HTML and Blade pages that get compiled into static HTML.
+## Hacking Hyde
+Hyde is designed to be easy to use and easy to customize and hack. You can modify the source views and SCSS, customize the Tailwind config, and you can even create 100% custom HTML and Blade pages that get compiled into static HTML.
+
+While Hyde favours "convention over configuration" there are a few config options in the `config/hyde.php` file. All settings are prefilled with sensible defaults so you don't need to configure anything unless you want to!
 
 ## Extensions
 Hyde comes with built-in support for Torchlight Syntax Highlighting.
@@ -80,18 +79,15 @@ All you need to do is to set your API token in your .env file and
 Hyde will automatically enable the CommonMark extension.
 
 > Note that when using Torchlight the pages will take longer to generate as API calls need to be made.
-> However, Torchlight caches the response so this only affects the first time running the build, or 
-> if you update the page.
+> However, Torchlight caches the response so this only affects the first time running the build, or if you update the page.
 
 ## Known Issues
 Deleting Markdown posts does not delete the already compiled HTML files.
-In a future update (coming soon(tm)) the builder will remove unused files automatically.
+In a future update (coming soon™) the builder will remove unused files automatically.
 For now, you can manually delete the files and then run the build command.
 
 Currently, only top-level custom pages are supported. In the future, nested pages will be supported.
 For example, _site/directory/page.html
-
-Hyde also currently does not support images, but will soon as it already has the foundation in place to do so.
 
 ## Changelog
 
@@ -99,7 +95,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Contributing
 Roadmap:
-Eventually I want to extract the source code into a seperate Framework package. However there needs to be some work done first to make sure the proper filepaths are used.
+Eventually, I want to extract the source code into a separate Framework package. However, there needs to be some work done first to make sure the proper file paths are used.
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
