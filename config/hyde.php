@@ -53,6 +53,12 @@ return [
     ],
 
 
+    // Navigation menu blacklist
+    // There may be pages you want to exclude from the automatic navigation menu such as error pages. Add their slugs here and they will not be included.
+    'navigationMenuBlacklist' => [
+        '404'
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Documentation sidebar page order
