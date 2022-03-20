@@ -2,6 +2,7 @@
 
 namespace App\Actions;
 
+use App\Hyde\Features;
 use App\Hyde\Models\MarkdownPage;
 use Illuminate\Support\Str;
 
@@ -57,6 +58,31 @@ class GeneratesNavigationMenu
                 'priority' => $slug == "index" ? 100 : 999,
             ];
         }
+
+        // Add extra links
+
+        // If the documentation feature is enabled
+        if (Features::hasDocumentationPages()) {
+            // And there is no link to the docs
+            if (!in_array('Docs', array_column($links, 'title'))) {
+                // But a suitable file exists
+                if (file_exists('_docs/index.md') || file_exists('_docs/readme.md')) {
+                    // Then we can add a link
+                    $links[] = [
+                        'title' => 'Docs',
+                        'route' => $this->getRelativeRoutePathForSlug(
+                            file_exists('_docs/index.md') ? 'docs/index' : 'docs/readme'
+                        ),
+                        'current' => false,
+                        'priority' => 500,
+                    ];
+                }
+            }
+        }
+
+        // Remove config defined blacklisted links
+
+        // Sort
 
         $columns = array_column($links, 'priority');
         array_multisort($columns, SORT_ASC, $links);
