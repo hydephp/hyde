@@ -1,6 +1,17 @@
 <?php
 
-test('check that frontend assets exist', function () {
-    $this->assertTrue(file_exists('_site/media/app.css'), "\033[33mCould not find the app stylesheet in the build directory. You may need to run `npm run dev`.\033[0m");
-    $this->assertTrue(file_exists('_site/media/tailwind.css'), "\033[33mCould not find the tailwind stylesheet in the build directory. You may need to run `npm run dev`.\033[0m");
+test('check that app.css exist', function () {
+    if (!file_exists('_site/media/app.css')) {
+        $this->addWarning('Could not find the app stylesheet in the build directory. You may need to run `npm run dev`.');  
+    } else {
+        $this->assertTrue(file_exists('_site/media/app.css'));
+    }
+})->group('validators');
+
+test('check that tailwind.css exist', function () {
+    if (!file_exists('_site/media/tailwind.css')) {
+        $this->addWarning('Could not find the tailwind stylesheet in the build directory. You may need to run `npm run dev`.');  
+    } else {
+        $this->assertTrue(file_exists('_site/media/tailwind.css'));
+    }
 })->group('validators');
