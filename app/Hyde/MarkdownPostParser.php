@@ -122,8 +122,29 @@ class MarkdownPostParser
     {
         $matter = [];
         foreach ($lines as $line) {
+            if (!str_contains($line, ':')) {
+                continue; // The front matter is invalid, so we skip the line.
+            }
+
+            // Separate the key from the value
             $array = (explode(': ', $line, 2));
-            $matter[$array[0]] = $array[1];
+
+            // Assign the split values into variables so it's easier to keep track of them.
+            $key = $array[0];
+            $value = $array[1];
+
+            // Filter the value to ensure a predictable state
+
+            // Remove quotes while allowing quotes within the actual text
+            if (str_starts_with($value, '"') && str_ends_with($value, '"')) {
+                $value = substr($value, 1);
+                $value = substr($value, 0, -1);
+            }
+            
+            // Trim trailing whitespace
+            $value = trim($value, ' ');
+
+            $matter[$key] = $value;
         }
         return $matter;
     }
