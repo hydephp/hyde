@@ -2,6 +2,7 @@
 
 namespace App\Hyde\Actions;
 
+use App\Hyde\Hyde;
 use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
 use Torchlight\Commonmark\V2\TorchlightExtension;
@@ -22,10 +23,19 @@ class MarkdownConverter
         $converter = new CommonMarkConverter();
 
         $converter->getEnvironment()->addExtension(new GithubFlavoredMarkdownExtension());
-        if (config('torchlight.token') !== null) {
+
+        if (Hyde::hasTorchlight()) {
             $converter->getEnvironment()->addExtension(new TorchlightExtension());
         }
 
-        return $converter->convert($markdown);
+        $html = $converter->convert($markdown);
+
+        if (Hyde::hasTorchlight()
+            && config('torchlight.attribution', true)
+            && str_contains($html, 'Syntax highlighted by torchlight.dev')) {
+            $html .= file_get_contents(realpath('src/resources/stubs') . DIRECTORY_SEPARATOR . 'torchlight-badge.html');
+        }
+
+        return $html;
     }
 }
