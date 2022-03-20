@@ -21,16 +21,23 @@ class GeneratesDocumentationSidebar
     {
         $orderArray = config('hyde.documentationPageOrder');
 
+        foreach ($orderArray as $key => $value) {
+            $orderArray[$key] = Str::slug($value);
+        }
+
         $array = [];
 
         foreach (CollectionService::getSourceSlugsOfModels(DocumentationPage::class) as $slug) {
             if ($slug == 'index') {
                 continue;
             }
+
             $order = array_search($slug, $orderArray);
-            if (!$order) {
+
+            if ($order !== false) {
                 $order = 999;
             }
+            
             $array[] = [
                 'slug' => $slug,
                 'title' => Str::title(str_replace('-', ' ', $slug)),
