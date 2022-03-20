@@ -44,30 +44,38 @@ class GeneratesNavigationMenu
 
     /**
      * Create the link array
+     * 
+     * @todo Cache the base array and only update the 'current' attribute on each request.
+     * 
      * @return array
      */
     private function getLinks(): array
     {
-        $links = [];
+        $links = $this->getLinksFromConfig();
 
+        // Automatically add top level pages
         foreach ($this->getListOfCustomPages() as $slug) {
-            $links[] = [
-                'title' => $this->getTitleFromSlug($slug),
-                'route' => $this->getRelativeRoutePathForSlug($slug),
-                'current' => $this->currentPage == $slug,
-                'priority' => $slug == "index" ? 100 : 999,
-            ];
+            $title = $this->getTitleFromSlug($slug);
+            // Only add the automatic link if it is not present in the config array
+            if (!in_array($title, array_column($links, 'title'))) {
+                $links[] = [
+                    'title' => $title,
+                    'route' => $this->getRelativeRoutePathForSlug($slug),
+                    'current' => $this->currentPage == $slug,
+                    'priority' => $slug == "index" ? 100 : 999,
+                ];
+            }
         }
 
         // Add extra links
 
-        // If the documentation feature is enabled
+        // If the documentation feature is enabled...
         if (Features::hasDocumentationPages()) {
-            // And there is no link to the docs
+            // And there is no link to the docs...
             if (!in_array('Docs', array_column($links, 'title'))) {
-                // But a suitable file exists
+                // But a suitable file exists...
                 if (file_exists('_docs/index.md') || file_exists('_docs/readme.md')) {
-                    // Then we can add a link
+                    // Then we can add a link.
                     $links[] = [
                         'title' => 'Docs',
                         'route' => $this->getRelativeRoutePathForSlug(
@@ -91,6 +99,30 @@ class GeneratesNavigationMenu
 
         $columns = array_column($links, 'priority');
         array_multisort($columns, SORT_ASC, $links);
+
+        return $links;
+    }
+
+    /**
+     * Get the custom navigation links from the config, if there are any
+     * @return array
+     */
+    private function getLinksFromConfig(): array
+    {
+        $configLinks = config('hyde.navigationMenuLinks', []);
+
+        $links = [];
+
+        if (sizeof($configLinks) > 0) {
+            foreach ($configLinks as $link) {
+                $links[] = [
+                    'title' => $link['title'],
+                    'route' => $link['destination'] ?? $this->getRelativeRoutePathForSlug($link['slug']),
+                    'current' => isset($link['slug']) ? $this->currentPage == $link['slug'] : false,
+                    'priority' =>  $link['priority'] ?? 999,
+                ];
+            }
+        }
 
         return $links;
     }
