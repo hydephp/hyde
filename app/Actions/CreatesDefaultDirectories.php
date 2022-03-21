@@ -2,6 +2,7 @@
 
 namespace App\Actions;
 
+use App\Hyde\Hyde;
 use JetBrains\PhpStorm\Pure;
 
 class CreatesDefaultDirectories
@@ -22,7 +23,7 @@ class CreatesDefaultDirectories
     {
         foreach ($this->requiredDirectories as $directory) {
             // Does the directory exist?     // Otherwise, create it.
-            realpath("./$directory") || mkdir(realpath('.') . "/$directory");
+            is_dir(Hyde::path($directory)) || mkdir(Hyde::path($directory));
         }
     }
 

@@ -2,7 +2,7 @@
 
 namespace App\Commands;
 
-use Illuminate\Console\Scheduling\Schedule;
+use App\Hyde\Hyde;
 use LaravelZero\Framework\Commands\Command;
 
 class Validate extends Command
@@ -30,7 +30,7 @@ class Validate extends Command
     {
         $this->info('Running validation tests!');
 
-        $this->line(shell_exec(realpath('./vendor/bin/pest') . ' --group=validators'));
+        $this->line(shell_exec(Hyde::path('vendor/bin/pest') . ' --group=validators'));
 
         $this->info('All done!');
     }

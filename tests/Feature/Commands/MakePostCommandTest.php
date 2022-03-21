@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Commands;
 
+use App\Hyde\Hyde;
 use Tests\TestCase;
 
 class MakePostCommandTest extends TestCase
@@ -13,7 +14,7 @@ class MakePostCommandTest extends TestCase
      */
     public function getPath(): string
     {
-        return realpath('./_posts') . '/test-post.md';
+        return Hyde::path('_posts/test-post.md');
     }
 
     /**

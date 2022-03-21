@@ -3,6 +3,7 @@
 namespace App\Actions;
 
 use Exception;
+use App\Hyde\Hyde;
 use Illuminate\Support\Str;
 
 class CreatesNewMarkdownPostFile
@@ -47,15 +48,14 @@ class CreatesNewMarkdownPostFile
     /**
      * Save the class object to a Markdown file.
      *
-     * @todo Remove the slug key from the generated front matter as it is not parsed
-     *
      * @param bool $force Should the file be created even if a file with the same path already exists?
      * @return string|false Returns the path to the file if successful, or false if the file could not be saved.
      * @throws Exception if a file with the same slug already exists and the force flag is not set.
      */
     public function save(bool $force = false): string|false
     {
-        $path = realpath('./_posts') . DIRECTORY_SEPARATOR . "$this->slug.md";
+        
+        $path = Hyde::path("_posts/$this->slug.md");
 
         if ($force !== true && file_exists($path)) {
             throw new Exception("File at $path already exists! ", 409);
@@ -65,7 +65,8 @@ class CreatesNewMarkdownPostFile
 
         unset($arrayWithoutSlug['slug']);
 
-        $contents = (new ConvertsArrayToFrontMatter)->execute($arrayWithoutSlug) . "\n## Write something awesome.\n\n";
+        $contents = (new ConvertsArrayToFrontMatter)->execute($arrayWithoutSlug) . 
+            "\n## Write something awesome.\n\n";
 
         return file_put_contents($path, $contents) ? $path : false;
     }
