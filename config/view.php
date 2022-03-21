@@ -2,7 +2,7 @@
 
 return [
     'paths' => [
-        resource_path('views'),
+        App\Hyde\Hyde::viewPath(),
     ],
 
     'compiled' => env(

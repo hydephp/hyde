@@ -20,6 +20,15 @@ class Hyde
     }
 
     /**
+     * Return the path where the Blade views are located
+     * @return string
+     */
+    public static function viewPath()
+    {
+        return resource_path('views') ;
+    }
+
+    /**
      * Get an absolute path from a supplied relative path.
      *
      * The function returns the fully qualified path to your site's root directory.
