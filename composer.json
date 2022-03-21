@@ -45,8 +45,8 @@
     },
     "repositories": [
         {
-            "type": "path",
-            "url": "D:\\Dev\\Laravel\\ProjectHyde\\Framework"
+            "type": "vcs",
+            "url": "https://github.com/hydephp/framework"
         }
     ],
     "config": {

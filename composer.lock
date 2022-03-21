@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b56098a6c51c7853b9c4bffd5ea2c56f",
+    "content-hash": "9a4140c558107854c563f5b09efd4c7f",
     "packages": [
         {
             "name": "brick/math",
@@ -912,11 +912,18 @@
         {
             "name": "hyde/framework",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "D:/Dev/Laravel/ProjectHyde/Framework",
-                "reference": "3645428beb047127cae72c338792ba1323f9302e"
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hydephp/framework.git",
+                "reference": "b4124be6fc1175c716483a4b842d70f676aab8aa"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hydephp/framework/zipball/b4124be6fc1175c716483a4b842d70f676aab8aa",
+                "reference": "b4124be6fc1175c716483a4b842d70f676aab8aa",
+                "shasum": ""
+            },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -933,9 +940,11 @@
                 }
             ],
             "description": "The HydePHP Framework",
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "source": "https://github.com/hydephp/framework/tree/master",
+                "issues": "https://github.com/hydephp/framework/issues"
+            },
+            "time": "2022-03-21T21:45:35+00:00"
         },
         {
             "name": "illuminate/bus",
