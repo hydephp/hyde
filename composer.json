@@ -17,6 +17,7 @@
     ],
     "require": {
         "php": "^8.0",
+        "app/core": "dev-master",
         "illuminate/view": "^9.0",
         "laminas/laminas-text": "*",
         "laravel-zero/framework": "^9.0",
@@ -42,6 +43,12 @@
             "Tests\\": "tests/"
         }
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "D:\\Dev\\Laravel\\ProjectHyde\\Framework"
+        }
+    ],
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
