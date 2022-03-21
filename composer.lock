@@ -4,36 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f02b6ef5dda3991b326bd22dfae5105e",
+    "content-hash": "6db40cd5b91aa1dc793fe6200a3f06e9",
     "packages": [
-        {
-            "name": "app/core",
-            "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "D:/Dev/Laravel/ProjectHyde/Framework",
-                "reference": "c470d8d6ff019d08d8d58ba00a3ac3a5d9fa1ddc"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "App\\Core\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Caen De Silva",
-                    "email": "caen@desilva.se"
-                }
-            ],
-            "description": "The HydePHP Framework",
-            "transport-options": {
-                "relative": false
-            }
-        },
         {
             "name": "brick/math",
             "version": "0.9.3",
@@ -936,6 +908,34 @@
                 }
             ],
             "time": "2022-03-20T21:55:58+00:00"
+        },
+        {
+            "name": "hyde/core",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "D:/Dev/Laravel/ProjectHyde/Framework",
+                "reference": "816ad3a24e5f95dff5aa1f1cfd581764fd1a1389"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Hyde\\Core\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caen De Silva",
+                    "email": "caen@desilva.se"
+                }
+            ],
+            "description": "The HydePHP Framework",
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "illuminate/bus",
@@ -8330,7 +8330,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "app/core": 20
+        "hyde/core": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

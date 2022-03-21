@@ -3,7 +3,7 @@
 namespace App\Commands;
 
 use App\Actions\Installer\Installer;
-use App\Core\Hyde;
+use Hyde\Core\Hyde;
 use LaravelZero\Framework\Commands\Command;
 
 class Debug extends Command

@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "app/core": "dev-master",
+        "hyde/core": "dev-master",
         "illuminate/view": "^9.0",
         "laminas/laminas-text": "*",
         "laravel-zero/framework": "^9.0",

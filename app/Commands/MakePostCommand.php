@@ -2,7 +2,7 @@
 
 namespace App\Commands;
 
-use App\Core\Actions\CreatesNewMarkdownPostFile;
+use Hyde\Core\Actions\CreatesNewMarkdownPostFile;
 use Exception;
 use LaravelZero\Framework\Commands\Command;
 

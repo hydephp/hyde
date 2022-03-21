@@ -2,7 +2,7 @@
 
 namespace App\Commands;
 
-use App\Core\Hyde;
+use Hyde\Core\Hyde;
 use LaravelZero\Framework\Commands\Command;
 
 class Validate extends Command

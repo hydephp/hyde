@@ -1,6 +1,6 @@
 <?php
 
-use App\Core\Features;
+use Hyde\Core\Features;
 use Illuminate\Contracts\Console\Kernel;
 
 beforeEach(function () {
