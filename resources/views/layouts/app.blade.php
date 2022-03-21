@@ -28,6 +28,6 @@
         @yield('content') 
     </section>
 
-    @includeWhen(config('hyde.footer.enabled', true), 'layouts.footer') 
+    @includeUnless(config('hyde.footer.enabled', true) && ($withoutNavigation ?? false), 'layouts.footer') 
 </body>
 </html>
