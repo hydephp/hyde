@@ -22,7 +22,7 @@ class Features
     }
 
 
-	/**
+    /**
      * Determine if the site has blog posts enabled.
      *
      * @return bool
@@ -32,7 +32,7 @@ class Features
         return static::enabled(static::blogPosts());
     }
 
-	/**
+    /**
      * Determine if the site has custom Blade pages enabled.
      *
      * @return bool
@@ -42,7 +42,7 @@ class Features
         return static::enabled(static::bladePages());
     }
 
-	/**
+    /**
      * Determine if the site has custom Markdown pages enabled.
      *
      * @return bool
@@ -52,7 +52,7 @@ class Features
         return static::enabled(static::markdownPages());
     }
 
-	/**
+    /**
      * Determine if the site has Laradocgen enabled.
      *
      * @return bool
@@ -63,7 +63,7 @@ class Features
     }
 
 
-	/**
+    /**
      * Enable the blog post feature.
      *
      * @return string
@@ -73,7 +73,7 @@ class Features
         return 'blog-posts';
     }
 
-	/**
+    /**
      * Enable the Blade page feature.
      *
      * @return string
@@ -83,7 +83,7 @@ class Features
         return 'blade-pages';
     }
 
-	/**
+    /**
      * Enable the Markdown page feature.
      *
      * @return string
@@ -93,7 +93,7 @@ class Features
         return 'markdown-pages';
     }
 
-	/**
+    /**
      * Enable the documentation page feature.
      *
      * @return string
@@ -102,5 +102,4 @@ class Features
     {
         return 'documentation-pages';
     }
-
 }

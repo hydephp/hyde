@@ -12,7 +12,9 @@ class Publish404PageCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'publish:404 {--type= : The view to publish. Must be Blade or Markdown }  {--force : Overwrite existing files}';
+    protected $signature = 'publish:404 
+                                {--type= : The view to publish. Must be Blade or Markdown }
+                                {--force : Overwrite existing files}';
 
     /**
      * The description of the command.
@@ -61,5 +63,4 @@ class Publish404PageCommand extends Command
         $this->info("Created file $path!");
         return 0;
     }
-
 }

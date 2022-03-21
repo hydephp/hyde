@@ -59,45 +59,61 @@ class BuildStaticSiteCommand extends Command
         }
 
         $this->line('Transferring Media Assets...');
-        $this->withProgressBar(glob(Hyde::path('_media/*.{png,svg,jpg,jpeg,gif,ico}'), GLOB_BRACE), function ($filepath) {
-            if ($this->getOutput()->isVeryVerbose()) {
-                $this->line(' > Copying media file ' . basename($filepath) . ' to the output media directory');
-            }
+        $this->withProgressBar(
+            glob(Hyde::path('_media/*.{png,svg,jpg,jpeg,gif,ico}'), GLOB_BRACE),
+            function ($filepath) {
+                if ($this->getOutput()->isVeryVerbose()) {
+                    $this->line(' > Copying media file '
+                    . basename($filepath). ' to the output media directory');
+                }
             
-            copy($filepath, Hyde::path('_site/media/'. basename($filepath)));
-        });
+                copy($filepath, Hyde::path('_site/media/'. basename($filepath)));
+            }
+        );
 
         if (Features::hasBlogPosts()) {
             $this->newLine(2);
             $this->line('Creating Markdown Posts...');
-            $this->withProgressBar(CollectionService::getSourceSlugsOfModels(MarkdownPost::class), function ($slug) {
-                $this->debug((new StaticPageBuilder((new MarkdownPostParser($slug))->get(), true))->getDebugOutput());
-            });
+            $this->withProgressBar(
+                CollectionService::getSourceSlugsOfModels(MarkdownPost::class),
+                function ($slug) {
+                    $this->debug((new StaticPageBuilder((new MarkdownPostParser($slug))->get(), true))
+                    ->getDebugOutput());
+                }
+            );
         }
 
         if (Features::hasMarkdownPages()) {
             $this->newLine(2);
             $this->line('Creating Markdown Pages...');
-            $this->withProgressBar(CollectionService::getSourceSlugsOfModels(MarkdownPage::class), function ($slug) {
-                $this->debug((new StaticPageBuilder((new MarkdownPageParser($slug))->get(), true))->getDebugOutput());
-            });
+            $this->withProgressBar(
+                CollectionService::getSourceSlugsOfModels(MarkdownPage::class),
+                function ($slug) {
+                    $this->debug((new StaticPageBuilder((new MarkdownPageParser($slug))->get(), true))
+                        ->getDebugOutput());
+                }
+            );
         }
 
         if (Features::hasDocumentationPages()) {
             $this->newLine(2);
             $this->line('Creating Documentation Pages...');
-            $this->withProgressBar(CollectionService::getSourceSlugsOfModels(DocumentationPage::class), function ($slug) {
-                $this->debug((new StaticPageBuilder((new DocumentationPageParser($slug))->get(), true))->getDebugOutput());
-            });
+            $this->withProgressBar(
+                CollectionService::getSourceSlugsOfModels(DocumentationPage::class),
+                function ($slug) {
+                    $this->debug((new StaticPageBuilder((new DocumentationPageParser($slug))->get(), true))
+                    ->getDebugOutput());
+                }
+            );
         }
 
-       if (Features::hasBladePages()) {
+        if (Features::hasBladePages()) {
             $this->newLine(2);
             $this->line('Creating Blade Pages...');
             $this->withProgressBar(CollectionService::getSourceSlugsOfModels(BladePage::class), function ($slug) {
                 $this->debug((new StaticPageBuilder((new BladePage($slug)), true))->getDebugOutput());
             });
-       }
+        }
 
         $this->newLine(2);
 

@@ -45,9 +45,9 @@ class GeneratesNavigationMenu
 
     /**
      * Create the link array
-     * 
+     *
      * @todo Cache the base array and only update the 'current' attribute on each request.
-     * 
+     *
      * @return array
      */
     private function getLinks(): array

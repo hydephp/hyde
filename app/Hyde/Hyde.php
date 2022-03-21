@@ -23,7 +23,7 @@ class Hyde
      * Get an absolute path from a supplied relative path.
      *
      * The function returns the fully qualified path to your site's root directory.
-     * 
+     *
      * You may also use the function to generate a fully qualified path to a given file
      * relative to the project root directory when supplying the path argument.
      *

@@ -65,7 +65,7 @@ class CreatesNewMarkdownPostFile
 
         unset($arrayWithoutSlug['slug']);
 
-        $contents = (new ConvertsArrayToFrontMatter)->execute($arrayWithoutSlug) . 
+        $contents = (new ConvertsArrayToFrontMatter)->execute($arrayWithoutSlug) .
             "\n## Write something awesome.\n\n";
 
         return file_put_contents($path, $contents) ? $path : false;
