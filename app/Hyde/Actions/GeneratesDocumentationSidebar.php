@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Actions;
+namespace App\Hyde\Actions;
 
 use App\Hyde\Models\DocumentationPage;
 use App\Hyde\Services\CollectionService;
 use Illuminate\Support\Str;
+use function config;
 
 /**
  * Create the sidebar items for the documentation page.
@@ -37,7 +38,7 @@ class GeneratesDocumentationSidebar
             if ($order === false) {
                 $order = 999;
             }
-            
+
             $array[] = [
                 'slug' => $slug,
                 'title' => Str::title(str_replace('-', ' ', $slug)),

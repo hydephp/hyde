@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Actions;
+namespace App\Hyde\Actions;
 
 use Illuminate\Support\Str;
+use function config;
 
 class ConvertsFooterMarkdown
 {

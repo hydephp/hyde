@@ -2,18 +2,18 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
-use App\Actions\CreatesDefaultDirectories;
+use App\Hyde\Actions\CreatesDefaultDirectories;
 use App\Hyde\Hyde;
+use PHPUnit\Framework\TestCase;
 
 class CreatesDefaultDirectoriesTest extends TestCase
 {
     /**
      * Test if the directories are created.
-     * 
+     *
      * Note that the action is called by the Service Provider
      * when booting, so we don't call the action directly.
-     * 
+     *
      * To properly test that it works, you should first
      * remove the directories manually as the action
      * will not have anything to do otherwise.

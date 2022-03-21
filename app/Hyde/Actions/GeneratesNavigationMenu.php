@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Actions;
+namespace App\Hyde\Actions;
 
 use App\Hyde\Features;
 use App\Hyde\Hyde;
 use App\Hyde\Models\MarkdownPage;
 use Illuminate\Support\Str;
+use function config;
 
 /**
  * Generate the dynamic navigation menu.

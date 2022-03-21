@@ -2,9 +2,9 @@
 
 namespace App\Commands;
 
-use App\Actions\CreatesNewMarkdownPostFile;
-use LaravelZero\Framework\Commands\Command;
+use App\Hyde\Actions\CreatesNewMarkdownPostFile;
 use Exception;
+use LaravelZero\Framework\Commands\Command;
 
 class MakePostCommand extends Command
 {

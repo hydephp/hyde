@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Actions;
+namespace App\Hyde\Actions;
 
-use Exception;
 use App\Hyde\Hyde;
+use Exception;
 use Illuminate\Support\Str;
 
 class CreatesNewMarkdownPostFile
@@ -54,7 +54,7 @@ class CreatesNewMarkdownPostFile
      */
     public function save(bool $force = false): string|false
     {
-        
+
         $path = Hyde::path("_posts/$this->slug.md");
 
         if ($force !== true && file_exists($path)) {

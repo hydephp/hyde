@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace App\Hyde\Actions;
 
 use App\Hyde\Hyde;
 use JetBrains\PhpStorm\Pure;
