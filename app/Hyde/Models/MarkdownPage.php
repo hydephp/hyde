@@ -2,6 +2,8 @@
 
 namespace App\Hyde\Models;
 
+use App\Hyde\Hyde;
+
 /**
  * A simple class that contains the content of a basic Markdown Page.
  */
@@ -48,7 +50,7 @@ class MarkdownPage
     {
         $array = [];
 
-        foreach (glob(base_path('_pages/*.md')) as $filepath) {
+        foreach (glob(Hyde::path('_pages/*.md')) as $filepath) {
             $array[basename($filepath, '.md')] = $filepath;
         }
 

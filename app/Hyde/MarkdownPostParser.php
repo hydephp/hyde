@@ -2,11 +2,12 @@
 
 namespace App\Hyde;
 
+use App\Hyde\Hyde;
 use App\Hyde\Models\MarkdownPost;
-use Exception;
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\NoReturn;
 use JetBrains\PhpStorm\Pure;
+use Exception;
 
 /**
  * Parses a Markdown file into an object with support for Front Matter.
@@ -39,7 +40,7 @@ class MarkdownPostParser
      */
     public function __construct(protected string $slug)
     {
-        $this->filepath = realpath('./_posts') . "/$slug.md";
+        $this->filepath = Hyde::path("_posts/$slug.md");
         if (!file_exists($this->filepath)) {
             throw new Exception("File _posts/$slug.md not found.", 404);
         }

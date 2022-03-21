@@ -2,8 +2,9 @@
 
 namespace App\Commands;
 
+use App\Hyde\Hyde;
 use LaravelZero\Framework\Commands\Command;
-use Illuminate\Support\Str; 
+use Illuminate\Support\Str;
 
 class MakeValidatorCommand extends Command
 {
@@ -24,9 +25,9 @@ class MakeValidatorCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return int
      */
-    public function handle()
+    public function handle(): int
     {
         $this->info('Creating new Validation Test!');
         $name = $this->option('name') ?? $this->ask('What does the validator do?');
@@ -37,16 +38,16 @@ class MakeValidatorCommand extends Command
         "<?php
 
 test('{$testName}', function () {
-    // 
+    //
 })->group('validators');
 ";
 
-        $path = realpath('tests/Validators') . DIRECTORY_SEPARATOR . $slug;
+        $path = Hyde::path("tests/Validators/$slug");
 
         if (file_exists($path) && !$this->option('force')) {
             $this->error('Validator already exists!');
             return 409;
-        } 
+        }
 
 
         file_put_contents($path, $content);
