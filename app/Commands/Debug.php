@@ -3,6 +3,7 @@
 namespace App\Commands;
 
 use App\Actions\Installer\Installer;
+use App\Hyde\Hyde;
 use LaravelZero\Framework\Commands\Command;
 
 class Debug extends Command
@@ -29,6 +30,10 @@ class Debug extends Command
     public function handle(): int
     {
         $this->info('HydePHP Debug Screen');
+
+        $this->newLine();
+        $this->line('Project directory:');
+        $this->line(' > ' . Hyde::path());
 
         $this->newLine();
 

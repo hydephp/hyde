@@ -18,4 +18,26 @@ class Hyde
     {
         return (config('torchlight.token') !== null);
     }
+
+    /**
+     * Get an absolute path from a supplied relative path.
+     *
+     * The function returns the fully qualified path to your site's root directory.
+     * 
+     * You may also use the function to generate a fully qualified path to a given file
+     * relative to the project root directory when supplying the path argument.
+     *
+     * @param string $path
+     * @return string
+     */
+    public static function path(string $path = ''): string
+    {
+        if (empty($path)) {
+            return getcwd();
+        }
+
+        $path = trim($path, '/\\');
+
+        return getcwd() . DIRECTORY_SEPARATOR . $path;
+    }
 }
