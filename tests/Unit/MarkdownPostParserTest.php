@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use App\Hyde\Hyde;
-use App\Hyde\MarkdownPostParser;
-use App\Hyde\Models\MarkdownPost;
+use Hyde\Framework\Hyde;
+use Hyde\Framework\MarkdownPostParser;
+use Hyde\Framework\Models\MarkdownPost;
 use PHPUnit\Framework\TestCase;
 
 class MarkdownPostParserTest extends TestCase
@@ -54,7 +54,7 @@ class MarkdownPostParserTest extends TestCase
 		$this->assertTrue(strlen($post->body) > 32);
 		$this->assertTrue(strlen($post->slug) > 8);
 	}
-    
+
 	public function testParsedMarkdownPostContainsValidFrontMatter()
 	{
 		$post = (new MarkdownPostParser('test-parser-post'))->get();

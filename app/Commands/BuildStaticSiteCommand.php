@@ -4,17 +4,17 @@ namespace App\Commands;
 
 use Exception;
 use LaravelZero\Framework\Commands\Command;
-use App\Hyde\Services\CollectionService;
-use App\Hyde\DocumentationPageParser;
-use App\Hyde\Features;
-use App\Hyde\Hyde;
-use App\Hyde\MarkdownPostParser;
-use App\Hyde\MarkdownPageParser;
-use App\Hyde\StaticPageBuilder;
-use App\Hyde\Models\BladePage;
-use App\Hyde\Models\MarkdownPage;
-use App\Hyde\Models\MarkdownPost;
-use App\Hyde\Models\DocumentationPage;
+use Hyde\Framework\Services\CollectionService;
+use Hyde\Framework\DocumentationPageParser;
+use Hyde\Framework\Features;
+use Hyde\Framework\Hyde;
+use Hyde\Framework\MarkdownPostParser;
+use Hyde\Framework\MarkdownPageParser;
+use Hyde\Framework\StaticPageBuilder;
+use Hyde\Framework\Models\BladePage;
+use Hyde\Framework\Models\MarkdownPage;
+use Hyde\Framework\Models\MarkdownPost;
+use Hyde\Framework\Models\DocumentationPage;
 
 class BuildStaticSiteCommand extends Command
 {
@@ -66,7 +66,7 @@ class BuildStaticSiteCommand extends Command
                     $this->line(' > Copying media file '
                     . basename($filepath). ' to the output media directory');
                 }
-            
+
                 copy($filepath, Hyde::path('_site/media/'. basename($filepath)));
             }
         );

@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
+use Hyde\Framework\Actions\CreatesDefaultDirectories;
 use Illuminate\Support\ServiceProvider;
-use App\Actions\CreatesDefaultDirectories;
 
 class AppServiceProvider extends ServiceProvider
 {

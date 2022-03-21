@@ -1,6 +1,6 @@
 <?php
 
-use App\Hyde\Features;
+use Hyde\Framework\Features;
 use Illuminate\Contracts\Console\Kernel;
 
 beforeEach(function () {
@@ -25,7 +25,7 @@ test('check that documentation pages have an index page', function () {
     }
 
     if (!$indexFileExists) {
-        $this->addWarning($message);  
+        $this->addWarning($message);
     } else {
         $this->assertTrue($indexFileExists);
     }
