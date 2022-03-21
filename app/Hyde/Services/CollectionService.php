@@ -2,6 +2,7 @@
 
 namespace App\Hyde\Services;
 
+use App\Hyde\Hyde;
 use App\Hyde\Models\BladePage;
 use App\Hyde\Models\MarkdownPage;
 use App\Hyde\Models\MarkdownPost;
@@ -47,7 +48,7 @@ class CollectionService
     {
         $array = [];
 
-        foreach (glob(base_path('resources/views/pages/*.blade.php')) as $filepath) {
+        foreach (glob(Hyde::path('resources/views/pages/*.blade.php')) as $filepath) {
             $array[] = basename($filepath, '.blade.php');
         }
 
@@ -62,7 +63,7 @@ class CollectionService
     {
         $array = [];
 
-        foreach (glob(base_path('_pages/*.md')) as $filepath) {
+        foreach (glob(Hyde::path('_pages/*.md')) as $filepath) {
             $array[] = basename($filepath, '.md');
         }
 
@@ -77,7 +78,7 @@ class CollectionService
     {
         $array = [];
 
-        foreach (glob(base_path('_posts/*.md')) as $filepath) {
+        foreach (glob(Hyde::path('_posts/*.md')) as $filepath) {
             $array[] = basename($filepath, '.md');
         }
 
@@ -93,7 +94,7 @@ class CollectionService
     {
         $array = [];
 
-        foreach (glob(base_path('_docs/*.md')) as $filepath) {
+        foreach (glob(Hyde::path('_docs/*.md')) as $filepath) {
             $array[] = basename($filepath, '.md');
         }
 

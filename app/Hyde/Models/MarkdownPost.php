@@ -2,6 +2,7 @@
 
 namespace App\Hyde\Models;
 
+use App\Hyde\Hyde;
 use App\Hyde\MarkdownPostParser;
 use Illuminate\Support\Collection;
 
@@ -50,7 +51,7 @@ class MarkdownPost
     {
         $collection = new Collection();
 
-        foreach (glob(base_path('_posts/*.md')) as $filepath) {
+        foreach (glob(Hyde::path('_posts/*.md')) as $filepath) {
             $collection->push((new MarkdownPostParser(basename($filepath, '.md')))->get());
         }
 

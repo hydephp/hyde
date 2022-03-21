@@ -73,7 +73,7 @@ class StaticPageBuilder
         return [
             'createdFileSize' => $this->createdFileSize,
             'createdFilePath' => $relativeFilePath
-                ? str_replace(base_path(), '', $this->createdFilePath)
+                ? str_replace(Hyde::path(), '', $this->createdFilePath)
                 : $this->createdFilePath ,
         ];
     }
@@ -85,7 +85,7 @@ class StaticPageBuilder
      */
     private function save(string $location, string $contents): bool|int
     {
-        $path = base_path('./_site') . '/' . $location . '.html';
+        $path = Hyde::path("_site/$location.html");
         $this->createdFilePath = $path;
         return file_put_contents($path, $contents);
     }

@@ -3,6 +3,7 @@
 namespace App\Actions;
 
 use App\Hyde\Features;
+use App\Hyde\Hyde;
 use App\Hyde\Models\MarkdownPage;
 use Illuminate\Support\Str;
 
@@ -151,7 +152,7 @@ class GeneratesNavigationMenu
     {
         $array = [];
 
-        foreach (glob(base_path('resources/views/pages/*.blade.php')) as $path) {
+        foreach (glob(Hyde::path('resources/views/pages/*.blade.php')) as $path) {
             $array[] = basename($path, '.blade.php');
         }
 

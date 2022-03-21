@@ -2,6 +2,8 @@
 
 namespace App\Hyde\Models;
 
+use App\Hyde\Hyde;
+
 /**
  * A simple class that contains the content of a Documentation Page.
  */
@@ -47,7 +49,7 @@ class DocumentationPage
     {
         $array = [];
 
-        foreach (glob(base_path('_docs/*.md')) as $filepath) {
+        foreach (glob(Hyde::path('_docs/*.md')) as $filepath) {
             $array[basename($filepath, '.md')] = $filepath;
         }
 
