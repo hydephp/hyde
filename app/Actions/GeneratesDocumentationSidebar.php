@@ -34,7 +34,7 @@ class GeneratesDocumentationSidebar
 
             $order = array_search($slug, $orderArray);
 
-            if ($order !== false) {
+            if ($order === false) {
                 $order = 999;
             }
             
