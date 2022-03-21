@@ -9,9 +9,9 @@
 |        /___/                          
 |--------------------------------------------------------------------------
 |
-| Welcome to HydePHP! In this file you can customize your new Static Site!
+| Welcome to HydePHP! In this file, you can customize your new Static Site!
 |
-| HydePHP favors convention over configuration and as such requires virtually
+| HydePHP favours convention over configuration and as such requires virtually
 | no configuration out of the box to get started. Though, you may want to
 | change the options to personalize your site and make it your own!
 |
@@ -21,13 +21,13 @@ use App\Hyde\Features;
 
 return [
 
-	/*
+    /*
     |--------------------------------------------------------------------------
     | Site Name
     |--------------------------------------------------------------------------
     |
     | This value sets the name of your site and is, for example, used in
-    | the compiled page titles and more. Default value is "HydePHP".
+    | the compiled page titles and more. The default value is HydePHP.
     |
     */
 
@@ -40,8 +40,8 @@ return [
     |--------------------------------------------------------------------------
     |
     | Some of Hyde's features are optional. Feel free to disable the features
-    | you don't need by removing them from this array or by commenting them.
-    | This type of configuration is directly inspired by Laravel Jetstream.
+    | you don't need by removing or commenting them out from this array.
+    | This config concept is directly inspired by Laravel Jetstream.
     |
     */
 
@@ -50,6 +50,27 @@ return [
         Features::bladePages(),
         Features::markdownPages(),
         Features::documentationPages(),
+    ],
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Footer Text
+    |--------------------------------------------------------------------------
+    |
+    | Most websites have a footer with copyright details and contact information.
+    | You probably want to change the Markdown to include your information,
+    | though you are of course welcome to keep the attribution link! 
+    |
+    | You can also customize the blade view if you want a more complex footer.
+    | You can disable it completely by setting `enabled` to `false`.
+    |
+    */
+    
+    'footer' => [
+        'enabled' => true,
+        'markdown' => 'Site built with the Free and Open Source [HydePHP](https://github.com/hydephp/hyde).
+                       License [MIT](https://github.com/hydephp/hyde/blob/master/LICENSE.md).'
     ],
 
 
