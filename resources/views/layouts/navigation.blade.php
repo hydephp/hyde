@@ -1,5 +1,5 @@
 @php
-	$links = Hyde\Core\Actions\GeneratesNavigationMenu::getNavigationLinks($currentPage);
+	$links = Hyde\Framework\Actions\GeneratesNavigationMenu::getNavigationLinks($currentPage);
 	$homeRoute = ($links[array_search('Home', array_column($links, 'title'))])['route'] ?? 'index.html';
 @endphp
 

@@ -1,7 +1,7 @@
 @include('components.docs.sidebar-header')
 <nav id="sidebar-navigation" class="p-4 overflow-y-auto" aria-label="Secondary Navigation Menu">
 	<ul>
-		@foreach (Hyde\Core\Actions\GeneratesDocumentationSidebar::get($currentPage) as $item)
+		@foreach (Hyde\Framework\Actions\GeneratesDocumentationSidebar::get($currentPage) as $item)
 			<li @class([
 					'py-2',
 					'list-item',

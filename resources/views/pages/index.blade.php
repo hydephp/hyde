@@ -15,7 +15,7 @@
     </header>
 
     <div class="max-w-3xl mx-auto">
-        @foreach(\Hyde\Core\Models\MarkdownPost::getCollection() as $post)
+        @foreach(\Hyde\Framework\Models\MarkdownPost::getCollection() as $post)
         @include('components.article-excerpt')
         @endforeach
     </div>

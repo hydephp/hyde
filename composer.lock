@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6db40cd5b91aa1dc793fe6200a3f06e9",
+    "content-hash": "b56098a6c51c7853b9c4bffd5ea2c56f",
     "packages": [
         {
             "name": "brick/math",
@@ -910,17 +910,17 @@
             "time": "2022-03-20T21:55:58+00:00"
         },
         {
-            "name": "hyde/core",
+            "name": "hyde/framework",
             "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "D:/Dev/Laravel/ProjectHyde/Framework",
-                "reference": "816ad3a24e5f95dff5aa1f1cfd581764fd1a1389"
+                "reference": "3645428beb047127cae72c338792ba1323f9302e"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Hyde\\Core\\": "src/"
+                    "Hyde\\Framework\\": "src/"
                 }
             },
             "license": [
@@ -8330,7 +8330,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "hyde/core": 20
+        "hyde/framework": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

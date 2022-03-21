@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Commands;
 
-use Hyde\Core\Hyde;
+use Hyde\Framework\Hyde;
 use Tests\TestCase;
 
 class MakePostCommandTest extends TestCase

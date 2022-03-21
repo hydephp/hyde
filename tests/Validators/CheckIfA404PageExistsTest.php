@@ -1,6 +1,6 @@
 <?php
 
-use Hyde\Core\Hyde;
+use Hyde\Framework\Hyde;
 
 test('check if a 404 page exists', function () {
     $assertion = file_exists(Hyde::path('_pages/404.md'))

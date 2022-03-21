@@ -17,7 +17,7 @@
 |
 */
 
-use Hyde\Core\Features;
+use Hyde\Framework\Features;
 
 return [
 

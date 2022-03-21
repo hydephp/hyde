@@ -2,7 +2,7 @@
 
 // Unit test the Hyde::path() helper
 
-use Hyde\Core\Hyde;
+use Hyde\Framework\Hyde;
 
 test('method exists', function () {
     expect(method_exists(Hyde::class, 'path'))->toBeTrue();

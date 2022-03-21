@@ -1,6 +1,6 @@
 <?php
 
-use Hyde\Core\Hyde;
+use Hyde\Framework\Hyde;
 
 test('check that an index file exists', function () {
      $assertion = file_exists(Hyde::path('_pages/index.md'))

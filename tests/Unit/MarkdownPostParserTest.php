@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use Hyde\Core\Hyde;
-use Hyde\Core\MarkdownPostParser;
-use Hyde\Core\Models\MarkdownPost;
+use Hyde\Framework\Hyde;
+use Hyde\Framework\MarkdownPostParser;
+use Hyde\Framework\Models\MarkdownPost;
 use PHPUnit\Framework\TestCase;
 
 class MarkdownPostParserTest extends TestCase

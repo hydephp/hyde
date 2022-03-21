@@ -4,17 +4,17 @@ namespace App\Commands;
 
 use Exception;
 use LaravelZero\Framework\Commands\Command;
-use Hyde\Core\Services\CollectionService;
-use Hyde\Core\DocumentationPageParser;
-use Hyde\Core\Features;
-use Hyde\Core\Hyde;
-use Hyde\Core\MarkdownPostParser;
-use Hyde\Core\MarkdownPageParser;
-use Hyde\Core\StaticPageBuilder;
-use Hyde\Core\Models\BladePage;
-use Hyde\Core\Models\MarkdownPage;
-use Hyde\Core\Models\MarkdownPost;
-use Hyde\Core\Models\DocumentationPage;
+use Hyde\Framework\Services\CollectionService;
+use Hyde\Framework\DocumentationPageParser;
+use Hyde\Framework\Features;
+use Hyde\Framework\Hyde;
+use Hyde\Framework\MarkdownPostParser;
+use Hyde\Framework\MarkdownPageParser;
+use Hyde\Framework\StaticPageBuilder;
+use Hyde\Framework\Models\BladePage;
+use Hyde\Framework\Models\MarkdownPage;
+use Hyde\Framework\Models\MarkdownPost;
+use Hyde\Framework\Models\DocumentationPage;
 
 class BuildStaticSiteCommand extends Command
 {

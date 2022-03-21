@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Hyde\Core\Actions\CreatesDefaultDirectories;
-use Hyde\Core\Hyde;
+use Hyde\Framework\Actions\CreatesDefaultDirectories;
+use Hyde\Framework\Hyde;
 use PHPUnit\Framework\TestCase;
 
 class CreatesDefaultDirectoriesTest extends TestCase
