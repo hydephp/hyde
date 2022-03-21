@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Hyde\Models;
+namespace App\Core\Models;
 
 /**
  * A basic wrapper for the custom Blade View compiler.

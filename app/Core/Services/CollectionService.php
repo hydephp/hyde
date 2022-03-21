@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Hyde\Services;
+namespace App\Core\Services;
 
-use App\Hyde\Hyde;
-use App\Hyde\Models\BladePage;
-use App\Hyde\Models\MarkdownPage;
-use App\Hyde\Models\MarkdownPost;
-use App\Hyde\Models\DocumentationPage;
+use App\Core\Hyde;
+use App\Core\Models\BladePage;
+use App\Core\Models\MarkdownPage;
+use App\Core\Models\MarkdownPost;
+use App\Core\Models\DocumentationPage;
 
 /**
  * Contains service methods to return helpful collections of arrays and lists.

@@ -2,7 +2,7 @@
 
 return [
     'paths' => [
-        App\Hyde\Hyde::viewPath(),
+        App\Core\Hyde::viewPath(),
     ],
 
     'compiled' => env(

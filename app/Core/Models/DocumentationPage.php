@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Hyde\Models;
+namespace App\Core\Models;
 
-use App\Hyde\Hyde;
+use App\Core\Hyde;
 
 /**
  * A simple class that contains the content of a Documentation Page.

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Hyde;
+namespace App\Core;
 
-use App\Hyde\Hyde;
-use App\Hyde\Models\MarkdownPage;
+use App\Core\Hyde;
+use App\Core\Models\MarkdownPage;
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\NoReturn;
 use JetBrains\PhpStorm\Pure;

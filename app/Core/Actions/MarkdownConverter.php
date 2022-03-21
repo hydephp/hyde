@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Hyde\Actions;
+namespace App\Core\Actions;
 
-use App\Hyde\Hyde;
+use App\Core\Hyde;
 use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
 use Torchlight\Commonmark\V2\TorchlightExtension;
@@ -35,7 +35,7 @@ class MarkdownConverter
             && str_contains($html, 'Syntax highlighted by torchlight.dev')) {
             $html .= file_get_contents(Hyde::path('src/resources/stubs/torchlight-badge.html'));
         }
-        
+
         return $html;
     }
 }

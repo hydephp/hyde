@@ -1,5 +1,5 @@
 <article id="post-article" itemscope itemtype="https://schema.org/Article"
-    @class(['mx-auto prose', 'torchlight-enabled' => App\Hyde\Hyde::hasTorchlight()])>
+    @class(['mx-auto prose', 'torchlight-enabled' => App\Core\Hyde::hasTorchlight()])>
     <header>
         <h1 itemprop="headline" class="mb-4">{{ $post->matter['title'] ?? 'Blog Post' }}</h1>
 		<div id="byline">

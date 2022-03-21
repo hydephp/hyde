@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Hyde\Docgen;
+namespace App\Core\Docgen;
 
 /**
  * HydeDocgen Service Class
@@ -9,5 +9,5 @@ namespace App\Hyde\Docgen;
  */
 class HydeDocgen
 {
-    
+
 }

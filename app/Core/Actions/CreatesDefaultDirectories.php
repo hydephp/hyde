@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Hyde\Actions;
+namespace App\Core\Actions;
 
-use App\Hyde\Hyde;
+use App\Core\Hyde;
 use JetBrains\PhpStorm\Pure;
 
 class CreatesDefaultDirectories

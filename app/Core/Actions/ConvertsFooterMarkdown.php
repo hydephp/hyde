@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Hyde\Actions;
+namespace App\Core\Actions;
 
 use Illuminate\Support\Str;
 use function config;

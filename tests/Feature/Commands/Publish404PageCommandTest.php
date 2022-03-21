@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Commands;
 
-use App\Hyde\Hyde;
+use App\Core\Hyde;
 use Tests\TestCase;
 
 class Publish404PageCommandTest extends TestCase
@@ -14,7 +14,7 @@ class Publish404PageCommandTest extends TestCase
     protected function setUp(): void
     {
         $this->unlink();
-		
+
         parent::setUp();
     }
 
@@ -68,7 +68,7 @@ class Publish404PageCommandTest extends TestCase
 
 		$this->assertFileExists($path);
 	}
-	
+
 	public function test_command_creates_markdown_file()
 	{
 		$path = $this->getMarkdownPath();
@@ -103,7 +103,7 @@ class Publish404PageCommandTest extends TestCase
 
 		// Assert that the created file exists
 		$this->assertFileExists($path);
-		
+
 		$this->artisan('publish:404 --type="markdown" --no-interaction')
 			->expectsOutput("File $path already exists!")
 			->assertExitCode(409);
@@ -121,7 +121,7 @@ class Publish404PageCommandTest extends TestCase
 
 		// Assert that the created file exists
 		$this->assertFileExists($path);
-		
+
 		$this->artisan('publish:404 --type="markdown" --force --no-interaction')
 			->expectsOutput("Created file $path!")
 			->assertExitCode(0);

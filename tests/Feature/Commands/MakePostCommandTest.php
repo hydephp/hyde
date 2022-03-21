@@ -2,14 +2,14 @@
 
 namespace Tests\Feature\Commands;
 
-use App\Hyde\Hyde;
+use App\Core\Hyde;
 use Tests\TestCase;
 
 class MakePostCommandTest extends TestCase
 {
     /**
      * Get the path of the test Markdown file.
-     * 
+     *
      * @return string
      */
     public function getPath(): string
@@ -40,7 +40,7 @@ class MakePostCommandTest extends TestCase
             ->expectsQuestion('What is the primary category of the post?', 'general')
             ->expectsOutput('Creating a post with the following details:')
             ->expectsConfirmation('Do you wish to continue?', 'yes')
-           
+
             ->assertExitCode(0);
 
             $this->assertFileExists($this->getPath());
@@ -57,7 +57,7 @@ class MakePostCommandTest extends TestCase
             ->expectsQuestion('What is your (the author\'s) name?', 'PHPUnit')
             ->expectsQuestion('What is the primary category of the post?', 'general')
             ->expectsOutput('Creating a post with the following details:')
-            
+
             ->expectsConfirmation('Do you wish to continue?', 'yes')
             ->expectsOutput('If you want to overwrite the file supply the --force flag.')
 
@@ -66,7 +66,7 @@ class MakePostCommandTest extends TestCase
         $this->assertStringContainsString('This should not be overwritten',
             file_get_contents($this->getPath()));
     }
-    
+
     public function test_that_files_are_overwritten_when_force_flag_is_set()
     {
         file_put_contents($this->getPath(), 'This should be overwritten');

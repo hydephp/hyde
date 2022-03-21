@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Hyde;
+namespace App\Core;
 
 use JetBrains\PhpStorm\ArrayShape;
-use App\Hyde\Actions\MarkdownConverter;
-use App\Hyde\Models\DocumentationPage;
-use App\Hyde\Models\MarkdownPost;
-use App\Hyde\Models\MarkdownPage;
-use App\Hyde\Models\BladePage;
+use App\Core\Actions\MarkdownConverter;
+use App\Core\Models\DocumentationPage;
+use App\Core\Models\MarkdownPost;
+use App\Core\Models\MarkdownPage;
+use App\Core\Models\BladePage;
 
 /**
  * Generates a static HTML page and saves it.

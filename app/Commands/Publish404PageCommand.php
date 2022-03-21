@@ -2,7 +2,7 @@
 
 namespace App\Commands;
 
-use App\Hyde\Hyde;
+use App\Core\Hyde;
 use LaravelZero\Framework\Commands\Command;
 
 class Publish404PageCommand extends Command
@@ -12,7 +12,7 @@ class Publish404PageCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'publish:404 
+    protected $signature = 'publish:404
                                 {--type= : The view to publish. Must be Blade or Markdown }
                                 {--force : Overwrite existing files}';
 
@@ -42,7 +42,7 @@ class Publish404PageCommand extends Command
             $this->error('Type `'.$type.'` is not valid. It must be either `blade` or `markdown`');
             return 400;
         }
-        
+
         if ($type === 'blade') {
             $source = Hyde::path('src/resources/stubs/404.blade.php');
             $path = Hyde::path('resources/views/pages/404.blade.php');

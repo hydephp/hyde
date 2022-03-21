@@ -2,11 +2,11 @@
 
 /*
 |--------------------------------------------------------------------------
-|      __ __        __    ___  __ _____ 
+|      __ __        __    ___  __ _____
 |     / // /_ _____/ /__ / _ \/ // / _ \
 |    / _  / // / _  / -_) ___/ _  / ___/
-|   /_//_/\_, /\_,_/\__/_/  /_//_/_/    
-|        /___/                          
+|   /_//_/\_, /\_,_/\__/_/  /_//_/_/
+|        /___/
 |--------------------------------------------------------------------------
 |
 | Welcome to HydePHP! In this file, you can customize your new Static Site!
@@ -17,7 +17,7 @@
 |
 */
 
-use App\Hyde\Features;
+use App\Core\Features;
 
 return [
 
@@ -60,13 +60,13 @@ return [
     |
     | Most websites have a footer with copyright details and contact information.
     | You probably want to change the Markdown to include your information,
-    | though you are of course welcome to keep the attribution link! 
+    | though you are of course welcome to keep the attribution link!
     |
     | You can also customize the blade view if you want a more complex footer.
     | You can disable it completely by setting `enabled` to `false`.
     |
     */
-    
+
     'footer' => [
         'enabled' => true,
         'markdown' => 'Site built with the Free and Open Source [HydePHP](https://github.com/hydephp/hyde).
@@ -108,7 +108,7 @@ return [
     |--------------------------------------------------------------------------
     | There may be pages you want to exclude from the automatic navigation menu,
     | such as error pages. Add their slugs here and they will not be included.
-    |   
+    |
     */
 
     'navigationMenuBlacklist' => [
@@ -126,7 +126,7 @@ return [
     | can reorder the page slugs in the list and the links will be sorted
     | in that order. Link items without an entry here will have fall
     | back to the default priority of 999, putting them last.
-    |   
+    |
     */
 
     'documentationPageOrder' => [

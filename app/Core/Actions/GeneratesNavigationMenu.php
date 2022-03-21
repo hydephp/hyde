@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Hyde\Actions;
+namespace App\Core\Actions;
 
-use App\Hyde\Features;
-use App\Hyde\Hyde;
-use App\Hyde\Models\MarkdownPage;
+use App\Core\Features;
+use App\Core\Hyde;
+use App\Core\Models\MarkdownPage;
 use Illuminate\Support\Str;
 use function config;
 

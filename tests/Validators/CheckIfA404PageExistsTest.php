@@ -1,13 +1,13 @@
 <?php
 
-use App\Hyde\Hyde;
+use App\Core\Hyde;
 
 test('check if a 404 page exists', function () {
     $assertion = file_exists(Hyde::path('_pages/404.md'))
     || file_exists(Hyde::path('resources/views/pages/404.blade.php'));
 
     if (!$assertion) {
-    $this->addWarning('Could not find an 404.md or 404.blade.php file! You can scaffold one using `php hyde publish:404`'); 
+    $this->addWarning('Could not find an 404.md or 404.blade.php file! You can scaffold one using `php hyde publish:404`');
     } else {
     $this->assertTrue($assertion);
     }

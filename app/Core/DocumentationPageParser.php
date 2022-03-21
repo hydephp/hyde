@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Hyde;
+namespace App\Core;
 
-use App\Hyde\Hyde;
-use App\Hyde\Models\DocumentationPage;
+use App\Core\Hyde;
+use App\Core\Models\DocumentationPage;
 use JetBrains\PhpStorm\NoReturn;
 use JetBrains\PhpStorm\Pure;
 use Illuminate\Support\Str;
@@ -69,13 +69,13 @@ class DocumentationPageParser
     public function findTitleTag(string $stream): string|false
     {
         $lines = explode("\n", $stream);
-        
+
         foreach ($lines as $line) {
             if (str_starts_with($line, '# ')) {
                 return substr($line, 2);
             }
         }
-        
+
         return false;
     }
 

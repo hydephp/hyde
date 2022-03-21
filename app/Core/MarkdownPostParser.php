@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Hyde;
+namespace App\Core;
 
-use App\Hyde\Hyde;
-use App\Hyde\Models\MarkdownPost;
+use App\Core\Hyde;
+use App\Core\Models\MarkdownPost;
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\NoReturn;
 use JetBrains\PhpStorm\Pure;
@@ -141,7 +141,7 @@ class MarkdownPostParser
                 $value = substr($value, 1);
                 $value = substr($value, 0, -1);
             }
-            
+
             // Trim trailing whitespace
             $value = trim($value, ' ');
 

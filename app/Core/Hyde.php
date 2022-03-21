@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Hyde;
+namespace App\Core;
 
 /**
  * General interface for Hyde services

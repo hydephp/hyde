@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Hyde\Models;
+namespace App\Core\Models;
 
-use App\Hyde\Hyde;
-use App\Hyde\MarkdownPostParser;
+use App\Core\Hyde;
+use App\Core\MarkdownPostParser;
 use Illuminate\Support\Collection;
 
 /**

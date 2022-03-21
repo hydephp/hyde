@@ -1,4 +1,4 @@
-{{-- 
+{{--
     This is the default index.html file containing your latest blog posts.
     If you want to use a custom index page a tip is to rename this file to `feed.blade.php`
     and you can customize this to your hearts desire!
@@ -15,7 +15,7 @@
     </header>
 
     <div class="max-w-3xl mx-auto">
-        @foreach(\App\Hyde\Models\MarkdownPost::getCollection() as $post)
+        @foreach(\App\Core\Models\MarkdownPost::getCollection() as $post)
         @include('components.article-excerpt')
         @endforeach
     </div>
