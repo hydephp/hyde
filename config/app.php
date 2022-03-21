@@ -1,5 +1,16 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Application Config
+|--------------------------------------------------------------------------
+|
+| This configuration file is for the Hyde Core, which is useful if you
+| want to contribute to the source code. However, if you are looking
+| to customize your static site, you are probably looking for the
+| Hyde config located in `config/hyde.php`!
+|
+*/
 return [
 
     /*
@@ -37,6 +48,10 @@ return [
     | running in. This may determine how you prefer to configure various
     | services the application utilizes. This can be overridden using
     | the global command line "--env" option when calling commands.
+    |
+    | When using Hyde this setting should always be set to `production`.
+    | However, when developing the Hyde Core, set it to `development`
+    | in your .env to unlock the development commands.
     |
     */
 
