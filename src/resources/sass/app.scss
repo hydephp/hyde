@@ -5,12 +5,8 @@
 @use '_torchlight.scss';
 
 #main-navigation {
-	position: absolute;
-	top: 0;
-	right: 0;
 	ul {
 		float: right;
-		margin-top: 1em;
 		margin-right: 1em;
 		li {
 			display: inline;
@@ -41,7 +37,7 @@
 	}
 }
 
-#sidebar-navigation {
+#sidebar-navigation, #mobile-navigation {
 	li.list-item-active {
 		a {
 			border-left: 4px solid rgb(99 102 241);
