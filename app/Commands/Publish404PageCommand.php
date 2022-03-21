@@ -2,6 +2,7 @@
 
 namespace App\Commands;
 
+use App\Hyde\Hyde;
 use LaravelZero\Framework\Commands\Command;
 
 class Publish404PageCommand extends Command
@@ -41,13 +42,13 @@ class Publish404PageCommand extends Command
         }
         
         if ($type === 'blade') {
-            $source = realpath('src/resources/stubs') . DIRECTORY_SEPARATOR . '404.blade.php';
-            $path = realpath('resources/views/pages') . DIRECTORY_SEPARATOR . '404.blade.php';
+            $source = Hyde::path('src/resources/stubs/404.blade.php');
+            $path = Hyde::path('resources/views/pages/404.blade.php');
         }
 
         if ($type === 'markdown') {
-            $source = realpath('src/resources/stubs') . DIRECTORY_SEPARATOR . '404.md';
-            $path = realpath('_pages') . DIRECTORY_SEPARATOR . '404.md';
+            $source = Hyde::path('src/resources/stubs/404.md');
+            $path = Hyde::path('_pages/404.md');
         }
 
         if (file_exists($path) && !$this->option('force')) {

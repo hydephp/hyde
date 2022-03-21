@@ -7,6 +7,7 @@ use LaravelZero\Framework\Commands\Command;
 use App\Hyde\Services\CollectionService;
 use App\Hyde\DocumentationPageParser;
 use App\Hyde\Features;
+use App\Hyde\Hyde;
 use App\Hyde\MarkdownPostParser;
 use App\Hyde\MarkdownPageParser;
 use App\Hyde\StaticPageBuilder;
@@ -58,12 +59,12 @@ class BuildStaticSiteCommand extends Command
         }
 
         $this->line('Transferring Media Assets...');
-        $files = realpath('_media') . DIRECTORY_SEPARATOR . ("*.{png,svg,jpg,jpeg,gif,ico}");
-        $this->withProgressBar(glob($files, GLOB_BRACE), function ($filepath) {
+        $this->withProgressBar(glob(Hyde::path('_media/*.{png,svg,jpg,jpeg,gif,ico}'), GLOB_BRACE), function ($filepath) {
             if ($this->getOutput()->isVeryVerbose()) {
                 $this->line(' > Copying media file ' . basename($filepath) . ' to the output media directory');
             }
-            copy($filepath, realpath('_site/media') . DIRECTORY_SEPARATOR . basename($filepath));
+            
+            copy($filepath, Hyde::path('_site/media/'. basename($filepath)));
         });
 
         if (Features::hasBlogPosts()) {
@@ -119,7 +120,7 @@ class BuildStaticSiteCommand extends Command
         $this->info('Congratulations! 🎉 Your static site has been built!');
         $this->info(sprintf(
             "Your new homepage is stored here -> %s",
-            base_path('_site' . DIRECTORY_SEPARATOR . 'index.html')
+            Hyde::path('_site/index.html')
         ));
 
         return 0;

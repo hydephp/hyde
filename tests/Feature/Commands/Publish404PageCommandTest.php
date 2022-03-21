@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Commands;
 
+use App\Hyde\Hyde;
 use Tests\TestCase;
 
 class Publish404PageCommandTest extends TestCase
@@ -40,12 +41,12 @@ class Publish404PageCommandTest extends TestCase
 
 	private function getBladePath(): string
 	{
-		return realpath('resources/views/pages') . DIRECTORY_SEPARATOR . '404.blade.php';
+		return Hyde::path('resources/views/pages/404.blade.php');
 	}
 
 	private function getMarkdownPath(): string
 	{
-		return realpath('_pages') . DIRECTORY_SEPARATOR . '404.md';
+		return Hyde::path('_pages/404.md');
 	}
 
     public function test_command_exists()
