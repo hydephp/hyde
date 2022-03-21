@@ -7,7 +7,7 @@
 @extends('layouts.app')
 @section('content')
 
-<main class="mx-auto max-w-7xl py-16 px-8 lg:mt-8">
+<main class="mx-auto max-w-7xl py-12 px-8">
     <header class="lg:mb-12 xl:mb-16">
         <h1
         class="text-3xl text-left opacity-75 leading-10 tracking-tight font-extrabold sm:leading-none mb-8 md:mb-12 md:text-4xl md:text-center lg:text-5xl">
