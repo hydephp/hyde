@@ -2,7 +2,7 @@
 @extends('layouts.app')
 @section('content')
 
-<main class="mx-auto max-w-7xl py-16 px-8 lg:mt-8">
+<main class="mx-auto max-w-7xl py-16 px-8">
 	<article @class(['mx-auto prose max-w-5xl', 'torchlight-enabled' => App\Hyde\Hyde::hasTorchlight()])>
 		{!! $markdown !!}
 	</article>
