@@ -915,13 +915,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hydephp/framework.git",
-                "reference": "b4124be6fc1175c716483a4b842d70f676aab8aa"
+                "reference": "31e59b49c21acc7802ccc855fb3c6d7717ff3882"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hydephp/framework/zipball/b4124be6fc1175c716483a4b842d70f676aab8aa",
-                "reference": "b4124be6fc1175c716483a4b842d70f676aab8aa",
+                "url": "https://api.github.com/repos/hydephp/framework/zipball/31e59b49c21acc7802ccc855fb3c6d7717ff3882",
+                "reference": "31e59b49c21acc7802ccc855fb3c6d7717ff3882",
                 "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "suggest": {
+                "hyde/hyde": "The Framework package contains the Hyde Core. To create your site you should use the Hyde/Hyde project."
             },
             "default-branch": true,
             "type": "library",
@@ -944,7 +950,7 @@
                 "source": "https://github.com/hydephp/framework/tree/master",
                 "issues": "https://github.com/hydephp/framework/issues"
             },
-            "time": "2022-03-21T21:45:35+00:00"
+            "time": "2022-03-22T13:32:46+00:00"
         },
         {
             "name": "illuminate/bus",
