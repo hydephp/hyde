@@ -15,8 +15,17 @@
 |
 */
 return [
-	// Should an attribution badge be automatically injected?
-	'attribution' => true, // Default: true
+	// Should an attribution badge be automatically injected,
+    // and if so, what (Markdown) text should be used?
+	'attribution' => [
+        'enabled' => true,
+        'markdown' => '
+<p class="mt-8">
+    <i>
+        Syntax highlighting by <a href="https://torchlight.dev/" rel="noopener nofollow">Torchlight.dev</a>
+    </i>
+</p>'
+    ],
 
 	// The Torchlight client caches highlighted code blocks. Here
     // you can define which cache driver you'd like to use. If
