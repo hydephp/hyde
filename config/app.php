@@ -73,4 +73,8 @@ return [
         Hyde\Framework\HydeServiceProvider::class,
     ],
 
+    'aliases' => [
+        'Hyde' => Hyde\Framework\Hyde::class,
+    ],
+
 ];
