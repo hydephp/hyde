@@ -63,7 +63,7 @@ All links use relative paths, so you can deploy to a subdirectory without any pr
 If it is the first time building the site or if you have updated the source SCSS you also need to run `npm install && npm run dev` to build the frontend assets.
 
 ### Live preview
-Use ` npm run watch` to watch the files for changes and start up a local dev server on port 3000 using Browsersync.
+Use `npm run watch` to watch the files for changes and start up a local dev server on port 3000 using Browsersync.
 
 ### NPM Commands
 See all commands in the documentation [Console Commands](https://hydephp.github.io/docs/docs/console-commands.html)
@@ -82,9 +82,8 @@ Hyde will automatically enable the CommonMark extension.
 > However, Torchlight caches the response so this only affects the first time running the build, or if you update the page.
 
 ## Known Issues
-Deleting Markdown posts does not delete the already compiled HTML files.
-In a future update (coming soon™) the builder will remove unused files automatically.
-For now, you can manually delete the files and then run the build command.
+Hyde does not automatically delete compiled HTML files when the source files have been removed. 
+However, you can supply the `--clean` flag to remove all content in the `_site` directory when running the build command.
 
 Currently, only top-level custom pages are supported. In the future, nested pages will be supported.
 For example, _site/directory/page.html
