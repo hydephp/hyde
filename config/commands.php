@@ -45,7 +45,6 @@ return [
         Hyde\Framework\Commands\InspireCommand::class,
         Hyde\Framework\Commands\MakePostCommand::class,
         Hyde\Framework\Commands\MakeValidatorCommand::class,
-        Hyde\Framework\Commands\Publish404PageCommand::class,
         Hyde\Framework\Commands\HydePublishViewsCommand::class,
         Hyde\Framework\Commands\Validate::class,
     ],
