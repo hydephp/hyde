@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9a4140c558107854c563f5b09efd4c7f",
+    "content-hash": "cd91e80ec3131f867669a3099489f5a5",
     "packages": [
         {
             "name": "brick/math",
@@ -911,16 +911,16 @@
         },
         {
             "name": "hyde/framework",
-            "version": "dev-master",
+            "version": "v0.4.0-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hydephp/framework.git",
-                "reference": "1a8a4b3a0244cee3f8c86a99eae0df26f2e9dfaa"
+                "reference": "445fc758751acd1906bf7692e5c27723e6117495"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hydephp/framework/zipball/1a8a4b3a0244cee3f8c86a99eae0df26f2e9dfaa",
-                "reference": "1a8a4b3a0244cee3f8c86a99eae0df26f2e9dfaa",
+                "url": "https://api.github.com/repos/hydephp/framework/zipball/445fc758751acd1906bf7692e5c27723e6117495",
+                "reference": "445fc758751acd1906bf7692e5c27723e6117495",
                 "shasum": ""
             },
             "require": {
@@ -929,13 +929,13 @@
             "suggest": {
                 "hyde/hyde": "The Framework package contains the Hyde Core. To create your site you should use the Hyde/Hyde project."
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Hyde\\Framework\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -947,10 +947,10 @@
             ],
             "description": "The HydePHP Framework",
             "support": {
-                "source": "https://github.com/hydephp/framework/tree/master",
-                "issues": "https://github.com/hydephp/framework/issues"
+                "issues": "https://github.com/hydephp/framework/issues",
+                "source": "https://github.com/hydephp/framework/tree/v0.4.0-alpha"
             },
-            "time": "2022-03-22T16:20:39+00:00"
+            "time": "2022-03-22T18:47:45+00:00"
         },
         {
             "name": "illuminate/bus",
@@ -8344,9 +8344,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "hyde/framework": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

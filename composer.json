@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "hyde/framework": "dev-master",
+        "hyde/framework": "v0.4.0-alpha",
         "illuminate/view": "^9.0",
         "laminas/laminas-text": "*",
         "laravel-zero/framework": "^9.0",
@@ -40,12 +40,6 @@
             "Tests\\": "tests/"
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/hydephp/framework"
-        }
-    ],
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
