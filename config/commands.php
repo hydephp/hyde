@@ -40,7 +40,13 @@ return [
     */
 
     'add' => [
-        // ..
+        Hyde\Framework\Commands\BuildStaticSiteCommand::class,
+        Hyde\Framework\Commands\Debug::class,
+        Hyde\Framework\Commands\InspireCommand::class,
+        Hyde\Framework\Commands\MakePostCommand::class,
+        Hyde\Framework\Commands\MakeValidatorCommand::class,
+        Hyde\Framework\Commands\Publish404PageCommand::class,
+        Hyde\Framework\Commands\Validate::class,
     ],
 
     /*
@@ -62,8 +68,8 @@ return [
         Illuminate\Console\Scheduling\ScheduleListCommand::class,
         Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         LaravelZero\Framework\Commands\StubPublishCommand::class,
-        App\Commands\MakeValidatorCommand::class,
-        App\Commands\Debug::class,
+        Hyde\Framework\Commands\MakeValidatorCommand::class,
+        Hyde\Framework\Commands\Debug::class,
     ],
 
     /*
