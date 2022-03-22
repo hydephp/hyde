@@ -16,7 +16,7 @@ class Publish404PageCommandTest extends TestCase
         $this->unlink();
 
 		if (!is_dir('resources/views/pages')) {
-			mkdir('resources/views/pages');
+			mkdir('resources/views/pages', recursive: true);
 		}
 
         parent::setUp();
