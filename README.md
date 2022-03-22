@@ -117,5 +117,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 > Please see the respective authors' repositories for their license files
 
 - The Hyde core is built with [Laravel Zero](https://laravel-zero.com/) which is based on [Laravel](https://laravel.com/)
-- The frontend is built with [TailwindCSS](https://tailwindcss.com/) with components from [Flowbite](https://flowbite.com/docs/customize/dark-mode/).
-- The default favicon was created using [Favicon.io](https://favicon.io/) using an icon from the amazing open-source project [Twemoji](https://twemoji.twitter.com/). The graphics are copyright 2020 Twitter, Inc and other contributors and are licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- The frontend is built with [TailwindCSS](https://tailwindcss.com/).
