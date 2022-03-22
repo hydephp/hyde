@@ -32,7 +32,7 @@ The recommended method of installation is using Composer. However, if you want t
 
 ### Using Composer (recommended)
 ```bash
-composer create-project hyde/hyde
+composer create-project hyde/hyde --stability=dev
 ```
 
 ### Requirements 
