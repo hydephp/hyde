@@ -37,7 +37,7 @@ return [
     |
     */
 
-    'version' => app('git.version'),
+    'version' => Hyde\Framework\Hyde::version(),
 
     /*
     |--------------------------------------------------------------------------
