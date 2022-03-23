@@ -1,18 +1,10 @@
 /vendor
 /node_modules
+/builds
 /.idea
 /.vscode
 /.vagrant
 .phpunit.result.cache
-/_site
-StormRunner.php
 .env
-
-/builds
-
-# The following entries are for files that should not be commited to the project repo
-# though you may want to commit them when using Hyde for your own projects.
-_posts/*
+StormRunner.php
 csout
-_docs
-/app/.Core
