@@ -40,11 +40,12 @@
 #sidebar-navigation, #mobile-navigation {
 	li.list-item-active {
 		a {
-			border-left: 4px solid rgb(99 102 241);
+			border-left: 4px solid #5956eb;
 			padding-left: calc(1rem - 4px);
 			margin-left: -1rem;
 			padding-top: 0.25rem;
 			padding-bottom: 0.25rem;
+			color: #5956eb;
 		}
 	}
 }
@@ -97,4 +98,9 @@
 			display: none;
 		}
 	}
+}
+
+// Bump contrast of the primary link color
+.text-indigo-500, .hover\:text-indigo-500:hover {
+	color: #5956eb;
 }

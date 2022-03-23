@@ -17,9 +17,9 @@ module.exports = {
                             marginTop: '1.5em',
                         },
                         a: {
-                            color: '#6366f1',
+                            color: '#5956eb',
                             '&:hover': {
-                                color: '#4338ca',
+                                color: '#4f46e5',
                             },
                             textDecoration: 'none'
                         },
