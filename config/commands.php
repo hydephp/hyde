@@ -47,6 +47,7 @@ return [
         Hyde\Framework\Commands\MakeValidatorCommand::class,
         Hyde\Framework\Commands\HydePublishViewsCommand::class,
         Hyde\Framework\Commands\HydePublishConfigsCommand::class,
+        Hyde\Framework\Commands\HydePublishHomepageCommand::class,
         Hyde\Framework\Commands\Validate::class,
     ],
 

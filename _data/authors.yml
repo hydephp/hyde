@@ -1,0 +1,10 @@
+# In this file you can declare custom authors.
+
+# In the default example, `mr_hyde` is the username. 
+# When setting the author to mr_hyde in a blog post,
+# the data in the array will automatically be added.
+
+authors:
+  mr_hyde:
+    name: Mr Hyde
+    website: https://github.com/hydephp/hyde
