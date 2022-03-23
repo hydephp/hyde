@@ -36,6 +36,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Site URL
+    |--------------------------------------------------------------------------
+    |
+    | If you want, you can set your site's URL here or in the .env file.
+    |
+    | The URL will then be used in meta tags to create permalinks.
+    | If you are serving your site from a subdirectory, you will
+    | need to include that in the path without a trailing slash.
+    |
+    | Example: https://example.com/blog
+    |
+    */
+    'site_url' => env('SITE_URL', null),
+
+    /*
+    |--------------------------------------------------------------------------
     | Features
     |--------------------------------------------------------------------------
     |
