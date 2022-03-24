@@ -8,3 +8,4 @@
 .env
 StormRunner.php
 csout
+/.cache
