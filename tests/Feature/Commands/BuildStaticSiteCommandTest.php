@@ -2,20 +2,13 @@
 
 namespace Tests\Feature\Commands;
 
-use Hyde\Framework\Actions\CreatesDefaultDirectories;
 use Tests\TestCase;
 use Hyde\Framework\Hyde;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\File;
+use Tests\Traits\ResetsFileEnvironment;
 
 class BuildStaticSiteCommandTest extends TestCase
 {
-    private function resetFileEnvironment()
-    {
-        Artisan::call('stubs:publish --clean --force');
-        $this->assertTrue(File::deleteDirectory(Hyde::path('_site')), 'Could not delete directory _site.');
-        (new CreatesDefaultDirectories)->__invoke();
-    }
+    use ResetsFileEnvironment;
 
     public function test_file_environment_is_prepared()
     {
