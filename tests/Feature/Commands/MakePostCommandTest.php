@@ -44,8 +44,10 @@ class MakePostCommandTest extends TestCase
             ->assertExitCode(0);
 
             $this->assertFileExists($this->getPath());
-            $this->assertStringContainsString('title: Test Post',
-                    file_get_contents($this->getPath()));
+            $this->assertStringContainsString(
+                'title: Test Post',
+                file_get_contents($this->getPath())
+            );
     }
 
     public function test_that_files_are_not_overwritten_when_force_flag_is_not_set()
@@ -63,8 +65,10 @@ class MakePostCommandTest extends TestCase
 
             ->assertExitCode(409);
 
-        $this->assertStringContainsString('This should not be overwritten',
-            file_get_contents($this->getPath()));
+        $this->assertStringContainsString(
+            'This should not be overwritten',
+            file_get_contents($this->getPath())
+        );
     }
 
     public function test_that_files_are_overwritten_when_force_flag_is_set()
@@ -80,9 +84,13 @@ class MakePostCommandTest extends TestCase
 
             ->assertExitCode(0);
 
-        $this->assertStringNotContainsString('This should be overwritten',
-            file_get_contents($this->getPath()));
-        $this->assertStringContainsString('title: Test Post',
-            file_get_contents($this->getPath()));
+        $this->assertStringNotContainsString(
+            'This should be overwritten',
+            file_get_contents($this->getPath())
+        );
+        $this->assertStringContainsString(
+            'title: Test Post',
+            file_get_contents($this->getPath())
+        );
     }
 }

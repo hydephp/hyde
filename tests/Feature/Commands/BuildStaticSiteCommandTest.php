@@ -53,7 +53,8 @@ class BuildStaticSiteCommandTest extends TestCase
             ->expectsOutput("Your new homepage is stored here -> file://" . str_replace(
                 '\\',
                 '/',
-                realpath(Hyde::path('_site'))) . '/index.html')
+                realpath(Hyde::path('_site'))
+            ) . '/index.html')
             ->assertExitCode(0);
     }
 
@@ -102,16 +103,16 @@ class BuildStaticSiteCommandTest extends TestCase
 
     private function checkIfDirectoryIsEmpty(string $directory): bool
     {
-        $scan = scandir(Hyde::path($directory), SCANDIR_SORT_NONE); 
+        $scan = scandir(Hyde::path($directory), SCANDIR_SORT_NONE);
         if ($scan) {
             return !isset($scan[2]);
         }
-        return false; 
+        return false;
     }
 
     private function countItemsInDirectory(string $directory): int
     {
-        $scan = scandir(Hyde::path($directory), SCANDIR_SORT_NONE); 
+        $scan = scandir(Hyde::path($directory), SCANDIR_SORT_NONE);
         return count($scan) - 2;
     }
 }
