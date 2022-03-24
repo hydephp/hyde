@@ -4,11 +4,13 @@ namespace Tests\Feature\Commands;
 
 use Tests\TestCase;
 use Hyde\Framework\Hyde;
+use Tests\Setup\ResetsDefaultDirectories;
 use Tests\Setup\ResetsFileEnvironment;
 
 class BuildStaticSiteCommandTest extends TestCase
 {
     use ResetsFileEnvironment;
+    use ResetsDefaultDirectories;
 
     public function test_file_environment_is_prepared()
     {
@@ -17,6 +19,7 @@ class BuildStaticSiteCommandTest extends TestCase
         $this->assertFileExists(Hyde::path('_data/authors.yml'));
         $this->assertFileExists(Hyde::path('_posts/my-new-post.md'));
         $this->assertFileExists(Hyde::path('_posts/alice-in-wonderland.md'));
+        $this->assertFileExists(Hyde::path('_pages/markdown.md'));
 
         $this->assertFileDoesNotExist(Hyde::path('_site/index.html'));
         $this->assertFileDoesNotExist(Hyde::path('_site/404.html'));
@@ -26,7 +29,6 @@ class BuildStaticSiteCommandTest extends TestCase
         $directoriesExpectedToBeEmpty = [
             '_docs',
             '_drafts',
-            '_pages',
         ];
         
         foreach ($directoriesExpectedToBeEmpty as $directory) {
@@ -45,7 +47,6 @@ class BuildStaticSiteCommandTest extends TestCase
             ->expectsOutputToContain('Building your static site')
             ->expectsOutput('Transferring Media Assets...')
             ->expectsOutput('Creating Markdown Posts...')
-            ->expectsOutput('No Markdown Pages found. Skipping...')
             ->expectsOutput('No Documentation Pages found. Skipping...')
             ->expectsOutput('Creating Custom Blade Pages...')
             ->expectsOutputToContain('All done! Finished in')
@@ -99,6 +100,19 @@ class BuildStaticSiteCommandTest extends TestCase
     {
         $this->assertFileExists(Hyde::path('_site/posts/my-new-post.html'));
         $this->assertFileExists(Hyde::path('_site/posts/alice-in-wonderland.html'));
+    }
+
+    
+    public function test_progress_bars_are_skipped_when_source_files_are_empty()
+    {
+        $this->resetDefaultDirectories();
+        $this->artisan('build')
+            ->expectsOutput('No Media Assets found. Skipping...')
+            ->expectsOutput('No Markdown Posts found. Skipping...')
+            ->expectsOutput('No Markdown Pages found. Skipping...')
+            ->expectsOutput('No Documentation Pages found. Skipping...')
+            ->expectsOutput('No Blade Pages found. Skipping...')
+            ->assertExitCode(0);
     }
 
     private function checkIfDirectoryIsEmpty(string $directory): bool
