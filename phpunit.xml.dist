@@ -9,6 +9,10 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
+        <testsuite name="Setup" stopOnFailure="true">
+            <!-- Contains Smoke Tests -->
+            <directory suffix="Test.php">./tests/Setup</directory>
+        </testsuite>
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
@@ -21,7 +25,7 @@
     </testsuites>
     <coverage processUncoveredFiles="true">
         <include>
-            <directory suffix=".php">./app</directory>
+            <directory suffix=".php">./vendor/hyde/framework/src</directory>
         </include>
     </coverage>
     <groups>
@@ -29,4 +33,7 @@
             <group>validators</group>
         </exclude>
     </groups> 
+    <php>
+        <env name="ENV" value="testing"/>
+    </php>
 </phpunit>

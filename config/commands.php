@@ -42,11 +42,12 @@ return [
     'add' => [
         Hyde\Framework\Commands\BuildStaticSiteCommand::class,
         Hyde\Framework\Commands\Debug::class,
-        Hyde\Framework\Commands\InspireCommand::class,
         Hyde\Framework\Commands\MakePostCommand::class,
         Hyde\Framework\Commands\MakeValidatorCommand::class,
         Hyde\Framework\Commands\HydePublishViewsCommand::class,
         Hyde\Framework\Commands\HydePublishConfigsCommand::class,
+        Hyde\Framework\Commands\HydePublishHomepageCommand::class,
+        Hyde\Framework\Commands\HydeInstallerCommand::class,
         Hyde\Framework\Commands\Validate::class,
     ],
 
@@ -70,6 +71,7 @@ return [
         Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         LaravelZero\Framework\Commands\StubPublishCommand::class,
         Hyde\Framework\Commands\MakeValidatorCommand::class,
+        Hyde\Framework\Commands\PublishStubsCommand::class,
         Hyde\Framework\Commands\Debug::class,
     ],
 
