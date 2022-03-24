@@ -21,10 +21,11 @@ class BuildStaticSiteCommandTest extends TestCase
         $this->assertFileDoesNotExist(Hyde::path('_site/index.html'));
         $this->assertFileDoesNotExist(Hyde::path('_site/404.html'));
 
+        $this->assertEquals(5, $this->countItemsInDirectory('_media'));
+
         $directoriesExpectedToBeEmpty = [
             '_docs',
             '_drafts',
-            '_media',
             '_pages',
         ];
         
@@ -42,7 +43,7 @@ class BuildStaticSiteCommandTest extends TestCase
     {
         $this->artisan('build')
             ->expectsOutputToContain('Building your static site')
-            ->expectsOutput('No Media Assets found. Skipping...')
+            ->expectsOutput('Transferring Media Assets...')
             ->expectsOutput('Creating Markdown Posts...')
             ->expectsOutput('No Markdown Pages found. Skipping...')
             ->expectsOutput('No Documentation Pages found. Skipping...')
@@ -56,9 +57,16 @@ class BuildStaticSiteCommandTest extends TestCase
             ->assertExitCode(0);
     }
 
-    public function test_build_command_creates_files()
+    public function test_build_command_creates_html_files()
     {
         $this->assertFileExists(Hyde::path('_site/index.html'));
+        $this->assertFileExists(Hyde::path('_site/404.html'));
+        $this->assertFileExists(Hyde::path('_site/posts/my-new-post.html'));
+    }
+
+    public function test_build_command_transfers_media_asset_files()
+    {
+        $this->assertEquals(5, $this->countItemsInDirectory('_site/media'));
     }
 
     public function test_compiled_index_file_seems_valid()
@@ -99,5 +107,11 @@ class BuildStaticSiteCommandTest extends TestCase
             return !isset($scan[2]);
         }
         return false; 
+    }
+
+    private function countItemsInDirectory(string $directory): int
+    {
+        $scan = scandir(Hyde::path($directory), SCANDIR_SORT_NONE); 
+        return count($scan) - 2;
     }
 }
