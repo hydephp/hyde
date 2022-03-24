@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Traits;
+namespace Tests\Setup;
 
 use Hyde\Framework\Hyde;
 use Illuminate\Support\Facades\File;

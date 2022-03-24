@@ -4,7 +4,7 @@ namespace Tests\Feature\Commands;
 
 use Tests\TestCase;
 use Hyde\Framework\Hyde;
-use Tests\Traits\ResetsFileEnvironment;
+use Tests\Setup\ResetsFileEnvironment;
 
 class BuildStaticSiteCommandTest extends TestCase
 {
