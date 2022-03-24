@@ -90,6 +90,8 @@ return [
         Features::bladePages(),
         Features::markdownPages(),
         Features::documentationPages(),
+
+        Features::torchlight(),
     ],
 
 
