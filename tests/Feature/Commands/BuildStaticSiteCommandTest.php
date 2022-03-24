@@ -25,6 +25,9 @@ class BuildStaticSiteCommandTest extends TestCase
         $this->assertFileExists(Hyde::path('_posts/my-new-post.md'));
         $this->assertFileExists(Hyde::path('_posts/alice-in-wonderland.md'));
 
+        $this->assertFileDoesNotExist(Hyde::path('_site/index.html'));
+        $this->assertFileDoesNotExist(Hyde::path('_site/404.html'));
+
         $directoriesExpectedToBeEmpty = [
             '_docs',
             '_drafts',
@@ -60,7 +63,34 @@ class BuildStaticSiteCommandTest extends TestCase
             ->assertExitCode(0);
     }
 
-    
+    public function test_build_command_creates_files()
+    {
+        $this->assertFileExists(Hyde::path('_site/index.html'));
+    }
+
+    public function test_compiled_index_file_seems_valid()
+    {
+        $file = Hyde::path('_site/index.html');
+        $this->assertFileExists($file);
+        $this->assertGreaterThan(1024, filesize($file), 'Failed asserting that index.html is larger than one kilobyte');
+        $stream = file_get_contents($file);
+        $this->assertStringContainsStringIgnoringCase('<!DOCTYPE html>', $stream);
+        $this->assertStringContainsString('HydePHP', $stream);
+        $this->assertStringContainsString('tailwind', $stream);
+        unset($stream);
+    }
+
+    public function test_compiled_404_file_seems_valid()
+    {
+        $file = Hyde::path('_site/404.html');
+        $this->assertFileExists($file);
+        $this->assertGreaterThan(1024, filesize($file), 'Failed asserting that 404.html is larger than one kilobyte');
+        $stream = file_get_contents($file);
+        $this->assertStringContainsStringIgnoringCase('<!DOCTYPE html>', $stream);
+        $this->assertStringContainsString('<title>404 - Page not found</title>', $stream);
+        $this->assertStringContainsString('Sorry, the page you are looking for could not be found.', $stream);
+        unset($stream);
+    }
 
     private function checkIfDirectoryIsEmpty(string $directory): bool
     {
