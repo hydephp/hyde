@@ -91,6 +91,13 @@ class BuildStaticSiteCommandTest extends TestCase
         $this->assertStringContainsString('Sorry, the page you are looking for could not be found.', $stream);
         unset($stream);
     }
+    
+    // Full post validations will be in a separate feature test
+    public function test_blog_posts_were_created()
+    {
+        $this->assertFileExists(Hyde::path('_site/posts/my-new-post.html'));
+        $this->assertFileExists(Hyde::path('_site/posts/alice-in-wonderland.html'));
+    }
 
     private function checkIfDirectoryIsEmpty(string $directory): bool
     {
