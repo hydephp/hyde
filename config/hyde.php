@@ -31,7 +31,7 @@ return [
     |
     */
 
-    'name' => 'HydePHP',
+    'name' => env('SITE_NAME', 'HydePHP'),
 
 
     /*
@@ -45,7 +45,7 @@ return [
     | If you are serving your site from a subdirectory, you will
     | need to include that in the path without a trailing slash.
     |
-    | Example: https://example.com/blog
+    | Example: https://example.org/blog
     |
     */
     'site_url' => env('SITE_URL', null),
