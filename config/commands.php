@@ -42,7 +42,6 @@ return [
     'add' => [
         Hyde\Framework\Commands\BuildStaticSiteCommand::class,
         Hyde\Framework\Commands\Debug::class,
-        Hyde\Framework\Commands\InspireCommand::class,
         Hyde\Framework\Commands\MakePostCommand::class,
         Hyde\Framework\Commands\MakeValidatorCommand::class,
         Hyde\Framework\Commands\HydePublishViewsCommand::class,
