@@ -50,5 +50,8 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "bin": ["hyde"]
+    "bin": ["hyde"],
+    "suggest": {
+        "torchlight/torchlight-commonmark" : "Hyde has automatic support for the Torchlight syntax highlighting API which is highly reccomended if your site uses code snippets."
+    }
 }
