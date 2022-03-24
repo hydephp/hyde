@@ -4,7 +4,7 @@ namespace Tests\Setup;
 
 use PHPUnit\Framework\TestCase;
 
-class DebugTest extends TestCase
+class DebugCommandTest extends TestCase
 {
     public function test_print_debug_info()
     {
