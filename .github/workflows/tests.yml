@@ -23,3 +23,5 @@ jobs:
       run: echo "ENV=testing" > .env
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       run: vendor/bin/pest 
+      env: 
+        ENV: testing
