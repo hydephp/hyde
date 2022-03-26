@@ -18,4 +18,4 @@ jobs:
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
-      run: php hyde test
+      run: vendor\bin\pest 
