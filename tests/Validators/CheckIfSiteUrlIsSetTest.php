@@ -12,7 +12,7 @@ beforeEach(function () {
 
 test('check if site url is set', function () {
     $assertion = (bool) Hyde::uriPath();
-    if (!$assertion) {
+    if (! $assertion) {
         $this->addWarning('Did not find a Site URL in .env. Adding it may improve SEO.');
     } else {
         $this->assertTrue($assertion);

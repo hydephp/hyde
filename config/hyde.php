@@ -33,7 +33,6 @@ return [
 
     'name' => env('SITE_NAME', 'HydePHP'),
 
-
     /*
     |--------------------------------------------------------------------------
     | Site URL
@@ -50,7 +49,6 @@ return [
     */
     'site_url' => env('SITE_URL', null),
 
-    
     /*
     |--------------------------------------------------------------------------
     | Global Site Meta Tags
@@ -71,7 +69,7 @@ return [
         // 'author' => 'Mr. Hyde',
         // 'description' => 'My Hyde Blog',
         // 'keywords' => 'Static Sites, Blogs, Documentation',
-        'generator' => 'HydePHP ' . Hyde\Framework\Hyde::version(),
+        'generator' => 'HydePHP '.Hyde\Framework\Hyde::version(),
     ],
 
     /*
@@ -94,7 +92,6 @@ return [
         Features::torchlight(),
     ],
 
-
     /*
     |--------------------------------------------------------------------------
     | Footer Text
@@ -112,9 +109,8 @@ return [
     'footer' => [
         'enabled' => true,
         'markdown' => 'Site built with the Free and Open Source [HydePHP](https://github.com/hydephp/hyde).
-                       License [MIT](https://github.com/hydephp/hyde/blob/master/LICENSE.md).'
+                       License [MIT](https://github.com/hydephp/hyde/blob/master/LICENSE.md).',
     ],
-
 
     /*
     |--------------------------------------------------------------------------
@@ -143,7 +139,6 @@ return [
         // ]
     ],
 
-
     /*
     |--------------------------------------------------------------------------
     | Navigation Menu Blacklist
@@ -154,9 +149,8 @@ return [
     */
 
     'navigationMenuBlacklist' => [
-        '404'
+        '404',
     ],
-
 
     /*
     |--------------------------------------------------------------------------
@@ -185,8 +179,8 @@ return [
     | If you want to store the compiled documentation pages in a different
     | directory than the default 'docs' directory, for example to set the
     | specified version, you can specify the directory here.
-    | 
-    | Note that you need to take care as to not set it to something that 
+    |
+    | Note that you need to take care as to not set it to something that
     | may conflict with other parts, such as media or posts directories.
     |
     | The default value is 'docs'.

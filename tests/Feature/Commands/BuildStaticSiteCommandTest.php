@@ -2,10 +2,10 @@
 
 namespace Tests\Feature\Commands;
 
-use Tests\TestCase;
 use Hyde\Framework\Hyde;
 use Tests\Setup\ResetsDefaultDirectories;
 use Tests\Setup\ResetsFileEnvironment;
+use Tests\TestCase;
 
 class BuildStaticSiteCommandTest extends TestCase
 {
@@ -30,7 +30,7 @@ class BuildStaticSiteCommandTest extends TestCase
             '_docs',
             '_drafts',
         ];
-        
+
         foreach ($directoriesExpectedToBeEmpty as $directory) {
             $this->assertTrue($this->checkIfDirectoryIsEmpty($directory), "Directory $directory is not empty.");
         }
@@ -51,11 +51,11 @@ class BuildStaticSiteCommandTest extends TestCase
             ->expectsOutput('Creating Custom Blade Pages...')
             ->expectsOutputToContain('All done! Finished in')
             ->expectsOutput('Congratulations! 🎉 Your static site has been built!')
-            ->expectsOutput("Your new homepage is stored here -> file://" . str_replace(
+            ->expectsOutput('Your new homepage is stored here -> file://'.str_replace(
                 '\\',
                 '/',
                 realpath(Hyde::path('_site'))
-            ) . '/index.html')
+            ).'/index.html')
             ->assertExitCode(0);
     }
 
@@ -94,7 +94,7 @@ class BuildStaticSiteCommandTest extends TestCase
         $this->assertStringContainsString('Sorry, the page you are looking for could not be found.', $stream);
         unset($stream);
     }
-    
+
     // Full post validations will be in a separate feature test
     public function test_blog_posts_were_created()
     {
@@ -102,7 +102,6 @@ class BuildStaticSiteCommandTest extends TestCase
         $this->assertFileExists(Hyde::path('_site/posts/alice-in-wonderland.html'));
     }
 
-    
     public function test_progress_bars_are_skipped_when_source_files_are_empty()
     {
         $this->resetDefaultDirectories();
@@ -119,14 +118,16 @@ class BuildStaticSiteCommandTest extends TestCase
     {
         $scan = scandir(Hyde::path($directory), SCANDIR_SORT_NONE);
         if ($scan) {
-            return !isset($scan[2]);
+            return ! isset($scan[2]);
         }
+
         return false;
     }
 
     private function countItemsInDirectory(string $directory): int
     {
         $scan = scandir(Hyde::path($directory), SCANDIR_SORT_NONE);
+
         return count($scan) - 2;
     }
 }

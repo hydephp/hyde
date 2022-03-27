@@ -1,4 +1,5 @@
 <?php
+
  /*
 |--------------------------------------------------------------------------
 | Torchlight
@@ -15,19 +16,19 @@
 |
 */
 return [
-	// Should an attribution badge be automatically injected,
+    // Should an attribution badge be automatically injected,
     // and if so, what (Markdown) text should be used?
-	'attribution' => [
+    'attribution' => [
         'enabled' => true,
         'markdown' => '
 <p class="mt-8">
     <i>
         Syntax highlighting by <a href="https://torchlight.dev/" rel="noopener nofollow">Torchlight.dev</a>
     </i>
-</p>'
+</p>',
     ],
 
-	// The Torchlight client caches highlighted code blocks. Here
+    // The Torchlight client caches highlighted code blocks. Here
     // you can define which cache driver you'd like to use. If
     // leave this blank your default app cache will be used.
     'cache' => env('TORCHLIGHT_CACHE_DRIVER'),
@@ -66,7 +67,7 @@ return [
     // block, Torchlight will look for code snippets in the
     // following directories.
     'snippet_directories' => [
-        resource_path()
+        resource_path(),
     ],
 
     // Global options to control blocks-level settings.
@@ -88,5 +89,5 @@ return [
         // When lines are collapsed, this is the text that will
         // be shown to indicate that they can be expanded.
         // 'summaryCollapsedIndicator' => '...',
-    ]
+    ],
 ];

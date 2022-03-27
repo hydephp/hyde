@@ -7,6 +7,6 @@ test('validate command can run', function () {
 it('prints debug information', function () {
     $this->artisan('validate')
         ->expectsOutput('Running validation tests!')
-		->expectsOutput('All done!')
+        ->expectsOutput('All done!')
         ->assertExitCode(0);
 });

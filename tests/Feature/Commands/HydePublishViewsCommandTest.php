@@ -19,5 +19,4 @@ class HydePublishViewsCommandTest extends TestCase
             ->expectsQuestion('Which view categories (tags) would you like to publish?', 'Tag: hyde-components')
             ->assertExitCode(0);
     }
- 
 }
