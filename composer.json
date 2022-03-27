@@ -17,12 +17,11 @@
     ],
     "require": {
         "php": "^8.0",
-        "hyde/framework": "^0.5.2",
+        "hyde/framework": "dev-master",
         "illuminate/view": "^9.0",
         "laminas/laminas-text": "*",
         "laravel-zero/framework": "^9.0",
-        "nunomaduro/termwind": "^1.3",
-        "torchlight/torchlight-commonmark": "^0.5.5"
+        "nunomaduro/termwind": "^1.3"
     },
     "require-dev": {
         "mockery/mockery": "^1.4.4",
@@ -50,8 +49,5 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "bin": ["hyde"],
-    "suggest": {
-        "torchlight/torchlight-commonmark" : "Hyde has automatic support for the Torchlight syntax highlighting API which is highly reccomended if your site uses code snippets."
-    }
+    "bin": ["hyde"]
 }
