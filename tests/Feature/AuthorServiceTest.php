@@ -9,6 +9,19 @@ use PHPUnit\Framework\TestCase;
 
 class AuthorServiceTest extends TestCase
 {
+    public function testPublishFileCreatesFile()
+    {
+        $service = new AuthorService();
+        $path = $service->filepath;
+
+        if (file_exists($path)) {
+            unlink($path);
+        }
+
+        $service->publishFile();
+        $this->assertFileExists($path);
+    }
+    
     public function testGetAuthorsReturnsAuthorCollection()
     {
         $service = new AuthorService();
@@ -39,19 +52,6 @@ class AuthorServiceTest extends TestCase
         $this->assertEquals('mr_hyde', $author->username);
         $this->assertEquals('Mr Hyde', $author->name);
         $this->assertEquals('https://github.com/hydephp/hyde', $author->website);
-    }
-
-    public function testPublishFileCreatesFile()
-    {
-        $service = new AuthorService();
-        $path = $service->filepath;
-
-        if (file_exists($path)) {
-            unlink($path);
-        }
-
-        $service->publishFile();
-        $this->assertFileExists($path);
     }
 
     public function testGetYamlCanParseFile()
