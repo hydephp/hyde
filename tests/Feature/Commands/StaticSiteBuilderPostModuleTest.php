@@ -2,12 +2,12 @@
 
 namespace Tests\Feature\Commands;
 
-use Tests\TestCase;
 use Hyde\Framework\Hyde;
 use Tests\Setup\ResetsFileEnvironment;
+use Tests\TestCase;
 
 /**
- * Test the post creation module
+ * Test the post creation module.
  *
  * We will use the Alice in Wonderland example post
  * published in the ResetsFileEnvironment stub as
@@ -17,21 +17,21 @@ use Tests\Setup\ResetsFileEnvironment;
 class StaticSiteBuilderPostModuleTest extends TestCase
 {
     use ResetsFileEnvironment;
-    
+
     /**
-     * The filepath of the post
+     * The filepath of the post.
      *
      * @var string
      */
     protected string $file;
- 
+
     public function __construct()
     {
         parent::__construct();
 
         $this->file = Hyde::path('_site/posts/alice-in-wonderland.html');
     }
-    
+
     public function test_setup()
     {
         $this->resetFileEnvironment();
@@ -40,21 +40,21 @@ class StaticSiteBuilderPostModuleTest extends TestCase
 
         $this->assertTrue(true);
     }
+
     public function test_blog_post_exists()
     {
         $this->assertFileExists($this->file);
     }
-    
+
     public function test_created_post_contains_valid_html()
     {
         $this->assertGreaterThan(1024, filesize($this->file), 'Failed asserting that file is larger than one kilobyte');
-        
+
         $stream = file_get_contents($this->file);
         $this->assertStringContainsStringIgnoringCase('<!DOCTYPE html>', $stream);
         $this->assertStringContainsString('HydePHP', $stream);
         $this->assertStringContainsString('tailwind', $stream);
     }
-
 
     public function test_created_post_contains_expected_content()
     {
@@ -65,5 +65,4 @@ class StaticSiteBuilderPostModuleTest extends TestCase
         $this->assertStringContainsString('So she was considering in her own mind, (as well as she could, for the hot day made her feel very sleepy and stupid,) whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a white rabbit with pink eyes ran close by her.', $stream);
         $this->assertStringContainsString('<p><img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Alice_par_John_Tenniel_04.png" alt="Illustration d\'origine (1865), par John Tenniel" /></p>', $stream);
     }
-
 }

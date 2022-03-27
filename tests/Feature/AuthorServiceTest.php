@@ -21,7 +21,7 @@ class AuthorServiceTest extends TestCase
         $service->publishFile();
         $this->assertFileExists($path);
     }
-    
+
     public function testGetAuthorsReturnsAuthorCollection()
     {
         $service = new AuthorService();
@@ -68,9 +68,9 @@ class AuthorServiceTest extends TestCase
             'authors' => [
                 'mr_hyde' =>  [
                     'name' => 'Mr Hyde',
-                    'website' => 'https://github.com/hydephp/hyde'
-                ]
-            ]
+                    'website' => 'https://github.com/hydephp/hyde',
+                ],
+            ],
         ], $array);
     }
 }

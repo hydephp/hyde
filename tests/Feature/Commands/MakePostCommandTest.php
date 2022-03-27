@@ -19,6 +19,7 @@ class MakePostCommandTest extends TestCase
 
     /**
      * Clean up after tests by removing the created file.
+     *
      * @return void
      */
     protected function tearDown(): void
@@ -34,8 +35,8 @@ class MakePostCommandTest extends TestCase
         $this->assertFileDoesNotExist($this->getPath());
 
         $this->artisan('make:post')
-            ->expectsQuestion("What is the title of the post?", 'Test Post')
-            ->expectsQuestion("Write a short post excerpt/description", 'A short description')
+            ->expectsQuestion('What is the title of the post?', 'Test Post')
+            ->expectsQuestion('Write a short post excerpt/description', 'A short description')
             ->expectsQuestion('What is your (the author\'s) name?', 'PHPUnit')
             ->expectsQuestion('What is the primary category of the post?', 'general')
             ->expectsOutput('Creating a post with the following details:')
@@ -43,8 +44,8 @@ class MakePostCommandTest extends TestCase
 
             ->assertExitCode(0);
 
-            $this->assertFileExists($this->getPath());
-            $this->assertStringContainsString(
+        $this->assertFileExists($this->getPath());
+        $this->assertStringContainsString(
                 'title: Test Post',
                 file_get_contents($this->getPath())
             );
@@ -54,8 +55,8 @@ class MakePostCommandTest extends TestCase
     {
         file_put_contents($this->getPath(), 'This should not be overwritten');
         $this->artisan('make:post')
-            ->expectsQuestion("What is the title of the post?", 'Test Post')
-            ->expectsQuestion("Write a short post excerpt/description", 'A short description')
+            ->expectsQuestion('What is the title of the post?', 'Test Post')
+            ->expectsQuestion('Write a short post excerpt/description', 'A short description')
             ->expectsQuestion('What is your (the author\'s) name?', 'PHPUnit')
             ->expectsQuestion('What is the primary category of the post?', 'general')
             ->expectsOutput('Creating a post with the following details:')
@@ -75,8 +76,8 @@ class MakePostCommandTest extends TestCase
     {
         file_put_contents($this->getPath(), 'This should be overwritten');
         $this->artisan('make:post --force')
-            ->expectsQuestion("What is the title of the post?", 'Test Post')
-            ->expectsQuestion("Write a short post excerpt/description", 'A short description')
+            ->expectsQuestion('What is the title of the post?', 'Test Post')
+            ->expectsQuestion('Write a short post excerpt/description', 'A short description')
             ->expectsQuestion('What is your (the author\'s) name?', 'PHPUnit')
             ->expectsQuestion('What is the primary category of the post?', 'general')
             ->expectsOutput('Creating a post with the following details:')

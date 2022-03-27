@@ -2,10 +2,10 @@
 
 namespace Tests\Setup;
 
-use Hyde\Framework\Hyde;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Artisan;
 use Hyde\Framework\Actions\CreatesDefaultDirectories;
+use Hyde\Framework\Hyde;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
 
 trait ResetsFileEnvironment
 {

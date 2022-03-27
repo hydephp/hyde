@@ -36,5 +36,4 @@ class HydeServiceProviderTest extends TestCase
         $this->assertIsString(app('hyde.version'));
         $this->assertIsString(app('framework.version'));
     }
-
 }

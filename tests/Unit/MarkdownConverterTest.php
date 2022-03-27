@@ -14,11 +14,11 @@ class MarkdownConverterTest extends TestCase
 {
     public function testParse(): void
     {
-		$markdown = "# Hello World!";
+        $markdown = '# Hello World!';
 
         $html = MarkdownConverter::parse($markdown);
 
-		$this->assertIsString($html);
-		$this->assertEquals("<h1>Hello World!</h1>\n", $html);
+        $this->assertIsString($html);
+        $this->assertEquals("<h1>Hello World!</h1>\n", $html);
     }
 }

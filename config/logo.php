@@ -25,7 +25,7 @@ return [
     | value if the logo should be different to the app name.
     |
     */
-    'name' => ' ' . config('app.name'),
+    'name' => ' '.config('app.name'),
 
     /*
     |--------------------------------------------------------------------------
