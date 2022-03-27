@@ -1,6 +1,6 @@
 <?php
 
-namespace Services;
+namespace Tests\Feature;
 
 use Hyde\Framework\Models\Author;
 use Hyde\Framework\Services\AuthorService;
