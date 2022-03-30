@@ -2,7 +2,6 @@
 
 namespace Commands;
 
-use Hyde\Framework\Commands\HydeRebuildStaticSiteCommand;
 use Hyde\Framework\Hyde;
 use Tests\TestCase;
 
@@ -13,9 +12,9 @@ class HydeRebuildStaticSiteCommandTest extends TestCase
 
     public function testHandleIsSuccessfulWithValidPath()
     {
-        copy(Hyde::path(static::$stub),Hyde::path(static::$path));
+        copy(Hyde::path(static::$stub), Hyde::path(static::$path));
 
-        $this->artisan('rebuild ' . static::$path)
+        $this->artisan('rebuild '.static::$path)
             ->assertExitCode(0);
 
         $outputPath = '_site/test-07239181-403e-443b-94f3-f912a031f31a.html';
@@ -28,7 +27,7 @@ class HydeRebuildStaticSiteCommandTest extends TestCase
     public function testValidateCatchesBadSourceDirectory()
     {
         $this->artisan('rebuild foo/bar')
-            ->expectsOutput("Path [foo/bar] is not in a valid source directory.")
+            ->expectsOutput('Path [foo/bar] is not in a valid source directory.')
             ->assertExitCode(400);
     }
 
