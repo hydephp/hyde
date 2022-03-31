@@ -16,7 +16,7 @@ class BuildStaticSiteCommandTest extends TestCase
     {
         $this->resetFileEnvironment();
 
-        $this->assertFileExists(Hyde::path('_data/authors.yml'));
+        $this->assertFileExists(Hyde::path('config/authors.yml'));
         $this->assertFileExists(Hyde::path('_posts/my-new-post.md'));
         $this->assertFileExists(Hyde::path('_posts/alice-in-wonderland.md'));
         $this->assertFileExists(Hyde::path('_pages/markdown.md'));
