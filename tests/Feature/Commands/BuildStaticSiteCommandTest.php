@@ -28,7 +28,6 @@ class BuildStaticSiteCommandTest extends TestCase
 
         $directoriesExpectedToBeEmpty = [
             '_docs',
-            '_drafts',
         ];
 
         foreach ($directoriesExpectedToBeEmpty as $directory) {
