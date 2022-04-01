@@ -47,14 +47,14 @@ class CreatesNewPageSourceFileTest extends TestCase
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('The page type must be either "markdown" or "blade"');
 
-        (new CreatesNewPageSourceFile('682072b Test Page', 'invalid'))->createPage('invalid');
+        (new CreatesNewPageSourceFile('682072b Test Page', 'invalid'));
     }
 
     // Test that a Markdown file can be created
     public function test_that_a_markdown_file_can_be_created_and_contains_expected_content()
     {
         // Create the page
-        (new CreatesNewPageSourceFile('682072b Test Page'))->createMarkdownFile();
+        (new CreatesNewPageSourceFile('682072b Test Page'));
 
         // Check that the file exists
         $this->assertFileExists(
@@ -72,7 +72,7 @@ class CreatesNewPageSourceFileTest extends TestCase
     public function test_that_a_blade_file_can_be_created_and_contains_expected_content()
     {
         // Create the page
-        (new CreatesNewPageSourceFile('682072b Test Page', BladePage::class))->createBladeFile();
+        (new CreatesNewPageSourceFile('682072b Test Page', BladePage::class));
 
         // Check that the file exists
         $this->assertFileExists(
