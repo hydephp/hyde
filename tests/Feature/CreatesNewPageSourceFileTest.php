@@ -94,4 +94,18 @@ class CreatesNewPageSourceFileTest extends TestCase
 			$fileContent
 		);
 	}
+
+	// Test that the file path can be returned
+	public function test_that_the_file_path_can_be_returned()
+	{
+		$this->assertEquals(
+			Hyde::path('_pages/682072b-test-page.md'),
+			(new CreatesNewPageSourceFile('682072b Test Page'))->path
+		);
+
+		$this->assertEquals(
+			Hyde::path('resources/views/pages/682072b-test-page.blade.php'),
+			(new CreatesNewPageSourceFile('682072b Test Page', BladePage::class))->path
+		);
+	}
 }
