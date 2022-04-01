@@ -9,7 +9,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Setup" stopOnFailure="true">
+        <testsuite name="Setup">
             <!-- Contains Smoke Tests -->
             <directory suffix="Test.php">./tests/Setup</directory>
         </testsuite>
