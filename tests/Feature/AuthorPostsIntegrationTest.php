@@ -112,8 +112,43 @@ class AuthorPostsIntegrationTest extends TestCase
      */
     public function test_create_post_with_defined_author_with_website()
     {
-        // Todo: Implement
-        $this->markTestSkipped();
+        // Create a new post
+        (new CreatesNewMarkdownPostFile(
+            title: 'test-2dcbb2c-post-with-defined-author-with-name',
+            description: '',
+            category: '',
+            author: 'test_author_with_website'
+        ))->save(true);
+
+        // Check that the post was created
+        $this->assertFileExists(Hyde::path('_posts/test-2dcbb2c-post-with-defined-author-with-name.md'));
+
+        // Add the author to the authors.yml file
+        file_put_contents(Hyde::path('config/authors.yml'),
+"authors:
+  test_author_with_website:
+    name: Test Author
+    website: https://example.org
+");
+
+        // Check that the post was created
+        $this->assertFileExists(Hyde::path('_posts/test-2dcbb2c-post-with-defined-author-with-name.md'));
+        // Build the static page
+        $this->artisan('rebuild _posts/test-2dcbb2c-post-with-defined-author-with-name.md')->assertExitCode(0);
+        // Check that the file was created
+        $this->assertFileExists(Hyde::path('_site/posts/test-2dcbb2c-post-with-defined-author-with-name.html'));
+
+        // Check that the author is contains the set name in the DOM
+        $this->assertStringContainsString('<span itemprop="name" title=@test_author_with_website>Test Author</span>',
+            file_get_contents(Hyde::path('_site/posts/test-2dcbb2c-post-with-defined-author-with-name.html')));
+
+        // Check that the author is contains the set website in the DOM
+        $this->assertStringContainsString('<a href="https://example.org" rel="author" itemprop="url">',
+            file_get_contents(Hyde::path('_site/posts/test-2dcbb2c-post-with-defined-author-with-name.html')));
+
+        // Remove the test files
+        unlink(Hyde::path('_posts/test-2dcbb2c-post-with-defined-author-with-name.md'));
+        unlink(Hyde::path('_site/posts/test-2dcbb2c-post-with-defined-author-with-name.html'));
     }
 
     /**
