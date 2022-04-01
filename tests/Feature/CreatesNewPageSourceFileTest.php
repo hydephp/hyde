@@ -2,12 +2,12 @@
 
 namespace Tests\Feature;
 
-use Hyde\Framework\Actions\CreatesNewStaticPageSourceFile;
+use Hyde\Framework\Actions\CreatesNewPageSourceFile;
 use Hyde\Framework\Hyde;
 use Hyde\Framework\Models\BladePage;
 use PHPUnit\Framework\TestCase;
 
-class CreatesNewStaticPageSourceFileTest extends TestCase
+class CreatesNewPageSourceFileTest extends TestCase
 {
 	// Tear down the test
 	protected function tearDown(): void
@@ -27,8 +27,8 @@ class CreatesNewStaticPageSourceFileTest extends TestCase
 	public function test_class_can_be_instantiated()
 	{
 		$this->assertInstanceOf(
-			CreatesNewStaticPageSourceFile::class,
-			new CreatesNewStaticPageSourceFile('682072b Test Page')
+			CreatesNewPageSourceFile::class,
+			new CreatesNewPageSourceFile('682072b Test Page')
 		);
 	}
 
@@ -37,7 +37,7 @@ class CreatesNewStaticPageSourceFileTest extends TestCase
 	{
 		$this->assertEquals(
 			'682072b-test-page',
-			(new CreatesNewStaticPageSourceFile('682072b Test Page'))->slug
+			(new CreatesNewPageSourceFile('682072b Test Page'))->slug
 		);
 	}
 
@@ -47,14 +47,14 @@ class CreatesNewStaticPageSourceFileTest extends TestCase
 		$this->expectException(\Exception::class);
 		$this->expectExceptionMessage('The page type must be either "markdown" or "blade"');
 
-		(new CreatesNewStaticPageSourceFile('682072b Test Page', 'invalid'))->createPage('invalid');
+		(new CreatesNewPageSourceFile('682072b Test Page', 'invalid'))->createPage('invalid');
 	}
 
 	// Test that a Markdown file can be created
 	public function test_that_a_markdown_file_can_be_created_and_contains_expected_content()
 	{
 		// Create the page
-		(new CreatesNewStaticPageSourceFile('682072b Test Page'))->createMarkdownFile();
+		(new CreatesNewPageSourceFile('682072b Test Page'))->createMarkdownFile();
 
 		// Check that the file exists
 		$this->assertFileExists(
@@ -72,7 +72,7 @@ class CreatesNewStaticPageSourceFileTest extends TestCase
 	public function test_that_a_blade_file_can_be_created_and_contains_expected_content()
 	{
 		// Create the page
-		(new CreatesNewStaticPageSourceFile('682072b Test Page', BladePage::class))->createBladeFile();
+		(new CreatesNewPageSourceFile('682072b Test Page', BladePage::class))->createBladeFile();
 
 		// Check that the file exists
 		$this->assertFileExists(
