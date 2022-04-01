@@ -1,6 +1,6 @@
 {
   "name": "hydefront",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Frontend assets for HydePHP",
   "main": "_site/index.html",
   "directories": {
@@ -40,6 +40,7 @@
     "chokidar-cli": "^3.0.0",
     "concurrently": "^7.0.0",
     "prettier": "2.6.0",
+    "sass": "^1.49.10",
     "tailwindcss": "^3.0.23"
   }
 }
