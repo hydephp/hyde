@@ -83,4 +83,27 @@ class HydeMakePageCommandTest extends TestCase
 
 		$this->assertFileExists($this->bladePath);
 	}
+
+	// Assert the command fails if the file already exists
+	public function test_command_fails_if_file_already_exists()
+	{
+		file_put_contents($this->markdownPath, 'This should not be overwritten');
+
+		$this->expectException(Exception::class);
+		$this->expectExceptionMessage("File $this->markdownPath already exists!");
+		$this->expectExceptionCode(409);
+		$this->artisan('make:page "8450de2 test page"')->assertExitCode(409);
+
+		$this->assertEquals('This should not be overwritten', file_get_contents($this->markdownPath));
+	}
+
+	// Assert the command overwrites existing files when the force option is used
+	public function test_command_overwrites_existing_files_when_force_option_is_used()
+	{
+		file_put_contents($this->markdownPath, 'This should be overwritten');
+
+		$this->artisan('make:page "8450de2 test page" --force')->assertExitCode(0);
+
+		$this->assertNotEquals('This should be overwritten', file_get_contents($this->markdownPath));
+	}
 }
