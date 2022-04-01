@@ -52,10 +52,10 @@
                         
                     </p>
                     <p aria-label="Getting started" class="mt-4 md:mt-8 text-white flex flex-wrap justify-center">
-                        <a href="https://hydephp.github.io/docs/docs" class="uppercase font-bold text-sm flex text-center m-2 mx-3">
+                        <a href="https://hydephp.github.io/docs/master" class="uppercase font-bold text-sm flex text-center m-2 mx-3">
                             Documentation
                         </a>
-                        <a href="https://hydephp.github.io/docs/docs/getting-started.html" class="uppercase font-bold text-sm flex text-center m-2 mx-3">
+                        <a href="https://hydephp.github.io/docs/master/getting-started.html" class="uppercase font-bold text-sm flex text-center m-2 mx-3">
                             Getting Started
                         </a>
                         <a href="https://github.com/hydephp/hyde" class="uppercase font-bold text-sm flex text-center m-2 mx-3">
