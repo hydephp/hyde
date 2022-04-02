@@ -1,6 +1,6 @@
 <?php
 
-namespace Commands;
+namespace Tests\Feature\Commands;
 
 use Hyde\Framework\Hyde;
 use Tests\TestCase;
