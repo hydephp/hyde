@@ -58,7 +58,7 @@ class DocumentationPageTest extends TestCase
     /**
      * Test the Model.
      */
-    public function test_can_get_page_model_object()
+    public function test_can_get_page_model_object(): DocumentationPage
     {
         $parser = new DocumentationPageParser('phpunit-test');
         $object = $parser->get();

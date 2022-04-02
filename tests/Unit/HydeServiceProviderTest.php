@@ -7,7 +7,7 @@ use Tests\TestCase;
 
 class HydeServiceProviderTest extends TestCase
 {
-    protected $provider;
+    protected HydeServiceProvider $provider;
 
     public function setUp(): void
     {
