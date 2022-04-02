@@ -1,9 +1,13 @@
 // Handle the main navigation menu
 
 const mainNavigation = document.getElementById("main-navigation");
-const mobileNavigation = document.getElementById("mobile-navigation");
-var navigationOpen = false;
+const mainNavigationLinks = document.getElementById("main-navigation-links");
+const openMainNavigationMenuIcon = document.getElementById("open-main-navigation-menu-icon");
+const closeMainNavigationMenuIcon = document.getElementById("close-main-navigation-menu-icon");
 
+let navigationOpen = false;
+
+// Toggle the navigation menu visibility when the menu button is clicked
 function toggleNavigation() {
 	if (navigationOpen) {
 		hideNavigation();
@@ -12,17 +16,20 @@ function toggleNavigation() {
 	}
 }
 
+// Show the navigation menu items
 function showNavigation() {
-	mobileNavigation.classList.add("flex");
-	mobileNavigation.classList.remove("hidden");
-
+	mainNavigationLinks.classList.remove("hidden");
+	openMainNavigationMenuIcon.style.display = "none";
+	closeMainNavigationMenuIcon.style.display = "block";
+	 
 	navigationOpen = true;
 }
 
+// Hide the navigation menu items
 function hideNavigation() {
-	mobileNavigation.classList.remove("flex");
-	mobileNavigation.classList.add("hidden");
-
+	mainNavigationLinks.classList.add("hidden");
+	openMainNavigationMenuIcon.style.display = "block";
+	closeMainNavigationMenuIcon.style.display = "none";
 	navigationOpen = false;
 }
 
