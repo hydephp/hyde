@@ -60,8 +60,10 @@ class AuthorPostsIntegrationTest extends TestCase
         $this->assertFileExists(Hyde::path('_site/posts/test-2dcbb2c-post-with-undefined-author.html'));
 
         // Check that the author is rendered as is in the DOM
-        $this->assertStringContainsString('<span itemprop="name" >test_undefined_author</span>',
-            file_get_contents(Hyde::path('_site/posts/test-2dcbb2c-post-with-undefined-author.html')));
+        $this->assertStringContainsString(
+            '<span itemprop="name" >test_undefined_author</span>',
+            file_get_contents(Hyde::path('_site/posts/test-2dcbb2c-post-with-undefined-author.html'))
+        );
 
         // Remove the test files
         unlink(Hyde::path('_posts/test-2dcbb2c-post-with-undefined-author.md'));
@@ -85,10 +87,12 @@ class AuthorPostsIntegrationTest extends TestCase
         $this->assertFileExists(Hyde::path('_posts/test-2dcbb2c-post-with-defined-author-with-name.md'));
 
         // Add the author to the authors.yml file
-        file_put_contents(Hyde::path('config/authors.yml'),
-'authors:
+        file_put_contents(
+            Hyde::path('config/authors.yml'),
+            'authors:
   test_named_author:
-    name: Test Author');
+    name: Test Author'
+        );
 
         // Check that the post was created
         $this->assertFileExists(Hyde::path('_posts/test-2dcbb2c-post-with-defined-author-with-name.md'));
@@ -98,8 +102,10 @@ class AuthorPostsIntegrationTest extends TestCase
         $this->assertFileExists(Hyde::path('_site/posts/test-2dcbb2c-post-with-defined-author-with-name.html'));
 
         // Check that the author is contains the set name in the DOM
-        $this->assertStringContainsString('<span itemprop="name" title=@test_named_author>Test Author</span>',
-            file_get_contents(Hyde::path('_site/posts/test-2dcbb2c-post-with-defined-author-with-name.html')));
+        $this->assertStringContainsString(
+            '<span itemprop="name" title=@test_named_author>Test Author</span>',
+            file_get_contents(Hyde::path('_site/posts/test-2dcbb2c-post-with-defined-author-with-name.html'))
+        );
 
         // Remove the test files
         unlink(Hyde::path('_posts/test-2dcbb2c-post-with-defined-author-with-name.md'));
@@ -123,12 +129,14 @@ class AuthorPostsIntegrationTest extends TestCase
         $this->assertFileExists(Hyde::path('_posts/test-2dcbb2c-post-with-defined-author-with-name.md'));
 
         // Add the author to the authors.yml file
-        file_put_contents(Hyde::path('config/authors.yml'),
-'authors:
+        file_put_contents(
+            Hyde::path('config/authors.yml'),
+            'authors:
   test_author_with_website:
     name: Test Author
     website: https://example.org
-');
+'
+        );
 
         // Check that the post was created
         $this->assertFileExists(Hyde::path('_posts/test-2dcbb2c-post-with-defined-author-with-name.md'));
@@ -138,12 +146,16 @@ class AuthorPostsIntegrationTest extends TestCase
         $this->assertFileExists(Hyde::path('_site/posts/test-2dcbb2c-post-with-defined-author-with-name.html'));
 
         // Check that the author is contains the set name in the DOM
-        $this->assertStringContainsString('<span itemprop="name" title=@test_author_with_website>Test Author</span>',
-            file_get_contents(Hyde::path('_site/posts/test-2dcbb2c-post-with-defined-author-with-name.html')));
+        $this->assertStringContainsString(
+            '<span itemprop="name" title=@test_author_with_website>Test Author</span>',
+            file_get_contents(Hyde::path('_site/posts/test-2dcbb2c-post-with-defined-author-with-name.html'))
+        );
 
         // Check that the author is contains the set website in the DOM
-        $this->assertStringContainsString('<a href="https://example.org" rel="author" itemprop="url">',
-            file_get_contents(Hyde::path('_site/posts/test-2dcbb2c-post-with-defined-author-with-name.html')));
+        $this->assertStringContainsString(
+            '<a href="https://example.org" rel="author" itemprop="url">',
+            file_get_contents(Hyde::path('_site/posts/test-2dcbb2c-post-with-defined-author-with-name.html'))
+        );
 
         // Remove the test files
         unlink(Hyde::path('_posts/test-2dcbb2c-post-with-defined-author-with-name.md'));

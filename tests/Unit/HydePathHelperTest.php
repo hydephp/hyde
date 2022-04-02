@@ -12,7 +12,8 @@ test('string is returned', function () {
     expect(Hyde::path())->toBeString();
 });
 
-test('returned directory contains content expected to be in the project directory',
+test(
+    'returned directory contains content expected to be in the project directory',
     function () {
         expect(
             file_exists(Hyde::path().DIRECTORY_SEPARATOR.'hyde') &&

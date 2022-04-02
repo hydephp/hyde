@@ -104,9 +104,9 @@ class HydePublishHomepageCommandTest extends TestCase
 
         $stream = file_get_contents($this->file);
         $this->assertStringContainsString(
-                '<h1 class="text-center text-3xl font-bold">Hello World!</h1>',
-                $stream
-            );
+            '<h1 class="text-center text-3xl font-bold">Hello World!</h1>',
+            $stream
+        );
         $this->assertStringNotContainsString('Latest Posts', $stream);
         $this->assertStringNotContainsString('This is the default homepage stored as index.blade.php', $stream);
     }
@@ -121,9 +121,9 @@ class HydePublishHomepageCommandTest extends TestCase
 
         $stream = file_get_contents($this->file);
         $this->assertStringNotContainsString(
-                '<h1 class="text-center text-3xl font-bold">Hello World!</h1>',
-                $stream
-            );
+            '<h1 class="text-center text-3xl font-bold">Hello World!</h1>',
+            $stream
+        );
         $this->assertStringContainsString('Latest Posts', $stream);
         $this->assertStringNotContainsString('This is the default homepage stored as index.blade.php', $stream);
     }
@@ -138,9 +138,9 @@ class HydePublishHomepageCommandTest extends TestCase
 
         $stream = file_get_contents($this->file);
         $this->assertStringNotContainsString(
-                '<h1 class="text-center text-3xl font-bold">Hello World!</h1>',
-                $stream
-            );
+            '<h1 class="text-center text-3xl font-bold">Hello World!</h1>',
+            $stream
+        );
         $this->assertStringNotContainsString('Latest Posts', $stream);
         $this->assertStringContainsString('This is the default homepage stored as index.blade.php', $stream);
     }
