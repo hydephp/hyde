@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Exception;
 use Hyde\Framework\DocumentationPageParser;
 use Hyde\Framework\Hyde;
 use Hyde\Framework\Models\DocumentationPage;
@@ -29,7 +30,7 @@ class DocumentationPageTest extends TestCase
 
     public function test_exception_is_thrown_for_missing_slug()
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception::class);
         $this->expectExceptionMessage('File _docs/invalid-file.md not found.');
         new DocumentationPageParser('invalid-file');
     }
