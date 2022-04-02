@@ -27,7 +27,7 @@ class TestWithBackup extends Command
 
     /**
      * The directories to backup.
-     * 
+     *
      * @var array
      */
     protected $directories = [
@@ -83,14 +83,14 @@ class TestWithBackup extends Command
             static::restoreDirectory(Hyde::path($directory));
         }
     }
-    
+
     public static function backupDirectory(string $directory)
     {
         if (file_exists($directory)) {
             File::copyDirectory($directory, $directory.'-bak', true);
         }
     }
-    
+
     public static function restoreDirectory(string $directory)
     {
         if (file_exists($directory.'-bak')) {
@@ -98,5 +98,4 @@ class TestWithBackup extends Command
             File::deleteDirectory($directory.'-bak');
         }
     }
-    
 }
