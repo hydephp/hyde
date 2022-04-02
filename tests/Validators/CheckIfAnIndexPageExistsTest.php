@@ -9,6 +9,6 @@ test('check if a index page exists', function () {
     if (! $assertion) {
         $this->addWarning('Could not find an index.md or index.blade.php file! You can publish the default one using `php hyde publish:views`');
     } else {
-        $this->assertTrue($assertion);
+        $this->assertTrue(true);
     }
 })->group('validators');
