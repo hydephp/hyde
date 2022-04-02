@@ -46,9 +46,9 @@ class MakePostCommandTest extends TestCase
 
         $this->assertFileExists($this->getPath());
         $this->assertStringContainsString(
-                'title: Test Post',
-                file_get_contents($this->getPath())
-            );
+            'title: Test Post',
+            file_get_contents($this->getPath())
+        );
     }
 
     public function test_that_files_are_not_overwritten_when_force_flag_is_not_set()

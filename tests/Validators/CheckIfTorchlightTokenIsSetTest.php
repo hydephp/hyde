@@ -12,7 +12,7 @@ if (Features::hasTorchlight(true)) {
         if (! $assertion) {
             $this->addWarning('Torchlight is enabled in the config, but an API token could not be found in the dotenv file.');
         } else {
-            $this->assertTrue($assertion);
+            $this->assertTrue(true);
         }
     })->group('validators');
 }

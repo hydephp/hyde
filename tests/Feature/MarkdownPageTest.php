@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Exception;
 use Hyde\Framework\Hyde;
 use Hyde\Framework\MarkdownPageParser;
 use Hyde\Framework\Models\MarkdownPage;
@@ -29,7 +30,7 @@ class MarkdownPageTest extends TestCase
 
     public function test_exception_is_thrown_for_missing_slug()
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception::class);
         $this->expectExceptionMessage('File _pages/invalid-file.md not found.');
         new MarkdownPageParser('invalid-file');
     }
@@ -57,7 +58,7 @@ class MarkdownPageTest extends TestCase
     /**
      * Test the Model.
      */
-    public function test_can_get_page_model_object()
+    public function test_can_get_page_model_object(): MarkdownPage
     {
         $parser = new MarkdownPageParser('phpunit-test');
         $object = $parser->get();

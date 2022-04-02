@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Exception;
 use Hyde\Framework\Actions\CreatesNewPageSourceFile;
 use Hyde\Framework\Hyde;
 use Hyde\Framework\Models\BladePage;
@@ -44,7 +45,7 @@ class CreatesNewPageSourceFileTest extends TestCase
     // Test that an exception is thrown if the page type is not 'markdown' or 'blade'
     public function test_that_an_exception_is_thrown_if_the_page_type_is_not_markdown_or_blade()
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(Exception::class);
         $this->expectExceptionMessage('The page type must be either "markdown" or "blade"');
 
         (new CreatesNewPageSourceFile('682072b Test Page', 'invalid'));

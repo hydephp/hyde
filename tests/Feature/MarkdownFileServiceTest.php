@@ -56,8 +56,10 @@ class MarkdownFileServiceTest extends TestCase
             'author' => 'Mr. Hyde',
         ], $document->matter);
 
-        $this->assertEquals('# My New PostThis is a post stub used in the automated tests',
-            str_replace("\n", '', $document->body));
+        $this->assertEquals(
+            '# My New PostThis is a post stub used in the automated tests',
+            str_replace("\n", '', $document->body)
+        );
     }
 
     public function testParsedMarkdownPostContainsValidFrontMatter()

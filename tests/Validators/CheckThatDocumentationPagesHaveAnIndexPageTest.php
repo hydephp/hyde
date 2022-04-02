@@ -27,6 +27,6 @@ test('check that documentation pages have an index page', function () {
     if (! $indexFileExists) {
         $this->addWarning($message);
     } else {
-        $this->assertTrue($indexFileExists);
+        $this->assertTrue(true);
     }
 })->group('validators');

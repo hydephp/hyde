@@ -9,6 +9,6 @@ test('check if a 404 page exists', function () {
     if (! $assertion) {
         $this->addWarning('Could not find an 404.md or 404.blade.php file! You can publish the default one using `php hyde publish:views`');
     } else {
-        $this->assertTrue($assertion);
+        $this->assertTrue(true);
     }
 })->group('validators');

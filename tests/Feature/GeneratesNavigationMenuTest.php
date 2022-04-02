@@ -53,11 +53,11 @@ class GeneratesNavigationMenuTest extends TestCase
             'priority' => 800,
         ]);
 
-        $this->assertEquals($result[1], [
+        $this->assertEquals([
             'title' => 'GNMTestInt',
             'route' => '../foo/bar.html',
             'current' => true,
             'priority' => 999,
-        ]);
+        ], $result[1]);
     }
 }

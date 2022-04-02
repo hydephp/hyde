@@ -61,7 +61,8 @@ class BuildServiceTest extends TestCase
     public function testExecute()
     {
         $path = '_posts/test-f01cae99-29ca-481e-b977-6acf9ee364d3.md';
-        copy(Hyde::path('vendor/hyde/framework/tests/stubs/_posts/my-new-post.md'),
+        copy(
+            Hyde::path('vendor/hyde/framework/tests/stubs/_posts/my-new-post.md'),
             Hyde::path($path)
         );
         $service = new BuildService('_posts/test-f01cae99-29ca-481e-b977-6acf9ee364d3.md');
@@ -83,7 +84,8 @@ class BuildServiceTest extends TestCase
     private function runHandleTest(string $prefix, string $suffix = '.md')
     {
         $path = $prefix.'/test-f01cae99-29ca-481e-b977-6acf9ee364d3'.$suffix;
-        copy(Hyde::path('vendor/hyde/framework/tests/stubs/_posts/my-new-post.md'),
+        copy(
+            Hyde::path('vendor/hyde/framework/tests/stubs/_posts/my-new-post.md'),
             Hyde::path($path)
         );
         $service = new BuildService($path);

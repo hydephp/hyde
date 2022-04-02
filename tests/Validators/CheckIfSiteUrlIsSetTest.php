@@ -15,6 +15,6 @@ test('check if site url is set', function () {
     if (! $assertion) {
         $this->addWarning('Did not find a Site URL in .env. Adding it may improve SEO.');
     } else {
-        $this->assertTrue($assertion);
+        $this->assertTrue(true);
     }
 })->group('validators');
