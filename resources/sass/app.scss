@@ -4,23 +4,6 @@
 
 @use '_torchlight.scss';
 
-#main-navigation {
-	ul {
-		float: right;
-		margin-right: 1em;
-		li {
-			display: inline;
-			margin-left: 1em;
-		}
-		a {
-			opacity: 0.75;
-			&:hover, &.current {
-				opacity: 1;
-			}
-		}
-	}
-}
-
 #post-article {
 	max-width: 960px;
 	#byline {
@@ -37,7 +20,7 @@
 	}
 }
 
-#sidebar-navigation, #mobile-navigation {
+#sidebar-navigation {
 	li.list-item-active {
 		a {
 			border-left: 4px solid #5956eb;
