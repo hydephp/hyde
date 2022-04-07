@@ -2,23 +2,23 @@
 
 namespace Tests\Feature\Commands;
 
+use App\Commands\TestWithBackup;
 use Hyde\Framework\Hyde;
 use Illuminate\Support\Facades\File;
-use App\Commands\TestWithBackup;
 use Tests\TestCase;
 
 class HydePublishFrontendResourcesCommandTest extends TestCase
 {
-	/** Setup */
-	public function setUp(): void
-	{
-		parent::setUp();
+    /** Setup */
+    public function setUp(): void
+    {
+        parent::setUp();
 
-		TestWithBackup::backupDirectory(Hyde::path('resources/frontend'));
-		File::deleteDirectory(Hyde::path('resources/frontend'));
-	}
+        TestWithBackup::backupDirectory(Hyde::path('resources/frontend'));
+        File::deleteDirectory(Hyde::path('resources/frontend'));
+    }
 
-	/** @test */
+    /** @test */
     public function testCommandReturnsZeroExitCode()
     {
         $this->artisan('update:resources --force')
@@ -47,11 +47,11 @@ class HydePublishFrontendResourcesCommandTest extends TestCase
         $this->assertDirectoryExists(Hyde::path('resources/frontend'));
     }
 
-	/** Teardown */
-	public function tearDown(): void
-	{
-		TestWithBackup::restoreDirectory(Hyde::path('resources/frontend'));
+    /** Teardown */
+    public function tearDown(): void
+    {
+        TestWithBackup::restoreDirectory(Hyde::path('resources/frontend'));
 
-		parent::tearDown();
-	}
+        parent::tearDown();
+    }
 }

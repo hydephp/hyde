@@ -23,4 +23,3 @@ test('check that app.css exist', function () {
         $this->assertTrue(true);
     }
 })->group('validators');
-
