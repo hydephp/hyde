@@ -1,3 +1,11 @@
+/**
+ * Core Scripts for the HydePHP Frontend
+ * 
+ * @package     HydePHP - HydeFront
+ * @version     v0.3.0 (HydeFront)
+ * @author      Caen De Silva
+ */
+
 // Handle the main navigation menu
 
 const mainNavigation = document.getElementById("main-navigation");

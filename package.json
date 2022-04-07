@@ -1,46 +1,20 @@
 {
-  "name": "hydefront",
-  "version": "0.2.0",
-  "description": "Frontend assets for HydePHP",
-  "main": "_site/index.html",
-  "directories": {
-    "test": "tests"
-  },
+  "private": true,
   "scripts": {
-    "test": "php hyde test",
     "build": "php hyde build --no-ansi",
-    "watch": "concurrently  \"npm:watch-livereload\" \"npm:watch-build\" \"npm:watch-sass\" \"npm:watch-tailwind\"",
-    "watch-livereload": "npx browser-sync _site -w",
+    "watch": "concurrently  \"npm:watch-livereload\" \"npm:watch-build\" \"npm:watch-tailwind\"",
     "watch-build": "chokidar ./_posts/*.md ./_docs/*.md ./resources/views/**/*.blade.php -c \"npm run build\"",
-    "watch-sass": "sass resources/sass/app.scss _site/media/app.css -w",
-    "watch-tailwind": "npx tailwindcss -i ./resources/sass/tailwind.scss -o ./_site/media/tailwind.css --watch",
-    "prod": "sass resources/sass/app.scss _site/media/app.css --style=compressed && npx tailwindcss -i ./resources/sass/tailwind.scss -o ./_site/media/tailwind.css --minify",
-    "dev": " sass resources/sass/app.scss _site/media/app.css && npx tailwindcss -i ./resources/sass/tailwind.scss -o ./_site/media/tailwind.css"
+    "watch-livereload": "npx browser-sync _site -w",
+    "watch-tailwind": "npx tailwindcss -i ./resources/frontend/app.css -o ./_site/media/app.css --watch",
+    "prod": "npx tailwindcss -i ./resources/frontend/app.css -o ./_site/media/app.css --minify",
+    "dev": " npx tailwindcss -i ./resources/frontend/app.css -o ./_site/media/app.css"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/caendesilva/hyde.git"
-  },
-  "keywords": [
-    "hydephp",
-    "hyde",
-    "static",
-    "laravel",
-    "blog"
-  ],
-  "author": "Caen De Silva",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/hyde/hyde/issues"
-  },
-  "homepage": "https://github.com/hyde/hyde#readme",
   "devDependencies": {
+    "tailwindcss": "^3.0.23",
     "@tailwindcss/typography": "^0.5.2",
     "browser-sync": "^2.27.9",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^7.0.0",
-    "prettier": "2.6.0",
-    "sass": "^1.49.10",
-    "tailwindcss": "^3.0.23"
+    "prettier": "2.6.0"
   }
 }
