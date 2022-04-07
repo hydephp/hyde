@@ -67,7 +67,7 @@ class BuildStaticSiteCommandTest extends TestCase
 
     public function test_build_command_transfers_media_asset_files()
     {
-        $this->assertEquals(5, $this->countItemsInDirectory('_site/media'));
+        $this->assertGreaterThan(0, $this->countItemsInDirectory('_site/media'));
     }
 
     public function test_compiled_index_file_seems_valid()
@@ -78,7 +78,6 @@ class BuildStaticSiteCommandTest extends TestCase
         $stream = file_get_contents($file);
         $this->assertStringContainsStringIgnoringCase('<!DOCTYPE html>', $stream);
         $this->assertStringContainsString('HydePHP', $stream);
-        $this->assertStringContainsString('tailwind', $stream);
         unset($stream);
     }
 
@@ -105,7 +104,6 @@ class BuildStaticSiteCommandTest extends TestCase
     {
         $this->resetDefaultDirectories();
         $this->artisan('build')
-            ->expectsOutput('No Media Assets found. Skipping...')
             ->expectsOutput('No Markdown Posts found. Skipping...')
             ->expectsOutput('No Markdown Pages found. Skipping...')
             ->expectsOutput('No Documentation Pages found. Skipping...')

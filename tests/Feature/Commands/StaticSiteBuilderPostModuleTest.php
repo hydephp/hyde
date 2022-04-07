@@ -53,7 +53,6 @@ class StaticSiteBuilderPostModuleTest extends TestCase
         $stream = file_get_contents($this->file);
         $this->assertStringContainsStringIgnoringCase('<!DOCTYPE html>', $stream);
         $this->assertStringContainsString('HydePHP', $stream);
-        $this->assertStringContainsString('tailwind', $stream);
     }
 
     public function test_created_post_contains_expected_content()
