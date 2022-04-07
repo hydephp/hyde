@@ -10,7 +10,7 @@ class HydeSafeCopyHelperTest extends TestCase
 {
     protected static function testDir(string $path = ''): string
     {
-        return __DIR__ . 'HydeSafeCopyHelperTestTemp' . $path;
+        return __DIR__.'HydeSafeCopyHelperTestTemp'.$path;
     }
 
     public function setUp(): void
@@ -28,7 +28,7 @@ class HydeSafeCopyHelperTest extends TestCase
     public function testCopyMethodReturns404IfSourceFileDoesNotExist()
     {
         $this->assertEquals(404,
-            Hyde::copy(static::testDir('/does/not/exist.txt'),  static::testDir('/test.txt'))
+            Hyde::copy(static::testDir('/does/not/exist.txt'), static::testDir('/test.txt'))
         );
     }
 
@@ -37,7 +37,7 @@ class HydeSafeCopyHelperTest extends TestCase
         file_put_contents(static::testDir('/test.txt'), 'test');
 
         $this->assertEquals(409,
-            Hyde::copy(static::testDir('/test.txt'),  static::testDir('/test.txt'))
+            Hyde::copy(static::testDir('/test.txt'), static::testDir('/test.txt'))
         );
 
         unlink(static::testDir('/test.txt'));
@@ -48,7 +48,7 @@ class HydeSafeCopyHelperTest extends TestCase
         file_put_contents(static::testDir('/foo.txt'), 'foo');
 
         $this->assertTrue(
-            Hyde::copy(static::testDir('/foo.txt'),  static::testDir('/bar.txt'), true)
+            Hyde::copy(static::testDir('/foo.txt'), static::testDir('/bar.txt'), true)
         );
 
         unlink(static::testDir('/foo.txt'));
@@ -60,7 +60,7 @@ class HydeSafeCopyHelperTest extends TestCase
         file_put_contents(static::testDir('/foo.txt'), 'foo');
 
         $this->assertTrue(
-            Hyde::copy(static::testDir('/foo.txt'),  static::testDir('/bar.txt'))
+            Hyde::copy(static::testDir('/foo.txt'), static::testDir('/bar.txt'))
         );
 
         $this->assertFileExists(static::testDir('/bar.txt'));
@@ -72,7 +72,7 @@ class HydeSafeCopyHelperTest extends TestCase
         file_put_contents(static::testDir('/bar.txt'), 'bar');
 
         $this->assertEquals(409,
-            Hyde::copy(static::testDir('/foo.txt'),  static::testDir('/bar.txt'))
+            Hyde::copy(static::testDir('/foo.txt'), static::testDir('/bar.txt'))
         );
 
         $this->assertStringEqualsFile(static::testDir('/bar.txt'), 'bar');
@@ -84,7 +84,7 @@ class HydeSafeCopyHelperTest extends TestCase
         file_put_contents(static::testDir('/bar.txt'), 'bar');
 
         $this->assertTrue(
-            Hyde::copy(static::testDir('/foo.txt'),  static::testDir('/bar.txt'), true)
+            Hyde::copy(static::testDir('/foo.txt'), static::testDir('/bar.txt'), true)
         );
 
         $this->assertStringEqualsFile(static::testDir('/bar.txt'), 'foo');
