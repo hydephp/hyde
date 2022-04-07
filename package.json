@@ -3,6 +3,7 @@
   "scripts": {
     "build": "php hyde build --no-ansi",
     "watch": "concurrently  \"npm:watch-livereload\" \"npm:watch-build\" \"npm:watch-tailwind\"",
+    "watch-build": "chokidar ./_posts/*.md ./_docs/*.md ./resources/views/**/*.blade.php -c \"npm run build\"",
     "watch-livereload": "npx browser-sync _site -w",
     "watch-tailwind": "npx tailwindcss -i ./resources/frontend/app.css -o ./_site/media/app.css --watch",
     "prod": "npx tailwindcss -i ./resources/frontend/app.css -o ./_site/media/app.css --minify",
