@@ -67,7 +67,7 @@ class BuildStaticSiteCommandTest extends TestCase
 
     public function test_build_command_transfers_media_asset_files()
     {
-        $this->assertGreaterThan(0, $this->countItemsInDirectory('_site/media'));
+        $this->assertEquals(7, $this->countItemsInDirectory('_site/media'));
     }
 
     public function test_compiled_index_file_seems_valid()
