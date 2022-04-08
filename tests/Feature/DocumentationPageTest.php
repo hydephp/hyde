@@ -73,7 +73,7 @@ class DocumentationPageTest extends TestCase
     public function test_created_model_contains_expected_data(DocumentationPage $object)
     {
         $this->assertEquals('PHPUnit Test File', $object->title);
-        $this->assertEquals("# PHPUnit Test File \n Hello World!", $object->content);
+        $this->assertEquals("# PHPUnit Test File \n Hello World!", $object->body);
         $this->assertEquals('phpunit-test', $object->slug);
     }
 }
