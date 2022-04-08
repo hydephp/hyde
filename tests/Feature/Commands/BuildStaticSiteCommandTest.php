@@ -47,7 +47,7 @@ class BuildStaticSiteCommandTest extends TestCase
             ->expectsOutput('Transferring Media Assets...')
             ->expectsOutput('Creating Markdown Posts...')
             ->expectsOutput('No Documentation Pages found. Skipping...')
-            ->expectsOutput('Creating Custom Blade Pages...')
+            ->expectsOutput('Creating Blade Pages...')
             ->expectsOutputToContain('All done! Finished in')
             ->expectsOutput('Congratulations! 🎉 Your static site has been built!')
             ->expectsOutput('Your new homepage is stored here -> file://'.str_replace(
