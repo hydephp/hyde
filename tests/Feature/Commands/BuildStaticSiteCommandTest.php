@@ -50,11 +50,11 @@ class BuildStaticSiteCommandTest extends TestCase
             ->expectsOutput('Creating Blade Pages...')
             ->expectsOutputToContain('All done! Finished in')
             ->expectsOutput('Congratulations! 🎉 Your static site has been built!')
-            ->expectsOutput('Your new homepage is stored here -> file://' . str_replace(
+            ->expectsOutput('Your new homepage is stored here -> file://'.str_replace(
                 '\\',
                 '/',
                 realpath(Hyde::path('_site'))
-            ) . '/index.html')
+            ).'/index.html')
             ->assertExitCode(0);
     }
 
@@ -155,7 +155,7 @@ class BuildStaticSiteCommandTest extends TestCase
     {
         $scan = scandir(Hyde::path($directory), SCANDIR_SORT_NONE);
         if ($scan) {
-            return !isset($scan[2]);
+            return ! isset($scan[2]);
         }
 
         return false;

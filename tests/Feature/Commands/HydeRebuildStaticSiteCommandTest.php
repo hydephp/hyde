@@ -14,7 +14,7 @@ class HydeRebuildStaticSiteCommandTest extends TestCase
     {
         copy(Hyde::path(static::$stub), Hyde::path(static::$path));
 
-        $this->artisan('rebuild ' . static::$path)
+        $this->artisan('rebuild '.static::$path)
             ->assertExitCode(0);
 
         $outputPath = '_site/test-07239181-403e-443b-94f3-f912a031f31a.html';
