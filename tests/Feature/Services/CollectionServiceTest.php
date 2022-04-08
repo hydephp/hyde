@@ -2,15 +2,15 @@
 
 namespace Tests\Feature\Services;
 
-use Tests\TestCase;
+use App\Commands\TestWithBackup;
 use Hyde\Framework\Hyde;
-use Hyde\Framework\Services\CollectionService;
 use Hyde\Framework\Models\BladePage;
+use Hyde\Framework\Models\DocumentationPage;
 use Hyde\Framework\Models\MarkdownPage;
 use Hyde\Framework\Models\MarkdownPost;
-use Hyde\Framework\Models\DocumentationPage;
+use Hyde\Framework\Services\CollectionService;
 use Illuminate\Support\Facades\File;
-use App\Commands\TestWithBackup;
+use Tests\TestCase;
 
 class CollectionServiceTest extends TestCase
 {

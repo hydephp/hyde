@@ -1,6 +1,5 @@
 <?php
 
-
 use Hyde\Framework\Hyde;
 use Tests\TestCase;
 
