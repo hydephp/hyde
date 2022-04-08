@@ -19,7 +19,7 @@ class MarkdownFileServiceTest extends TestCase
         parent::setUp();
 
         // Create a Markdown file to work with
-        copy(Hyde::path('tests/_stubs/_posts/test-parser-post.md'), $this->getPath());
+        copy(Hyde::path('vendor/hyde/framework/tests/stubs/_posts/test-parser-post.md'), $this->getPath());
     }
 
     /**
@@ -45,7 +45,7 @@ class MarkdownFileServiceTest extends TestCase
         return Hyde::path('_posts/test-parser-post.md');
     }
 
-    public function testCanParseMarkdownFile()
+    public function test_can_parse_markdown_file()
     {
         $document = (new MarkdownFileService(Hyde::path('_posts/test-parser-post.md')))->get();
         $this->assertInstanceOf(MarkdownDocument::class, $document);
@@ -62,7 +62,7 @@ class MarkdownFileServiceTest extends TestCase
         );
     }
 
-    public function testParsedMarkdownPostContainsValidFrontMatter()
+    public function test_parsed_markdown_post_contains_valid_front_matter()
     {
         $post = (new MarkdownFileService(Hyde::path('_posts/test-parser-post.md')))->get();
         $this->assertEquals('My New Post', $post->matter['title']);

@@ -11,7 +11,7 @@ trait ResetsFileEnvironment
 {
     public function resetFileEnvironment()
     {
-        Artisan::call('stubs:publish --clean --force');
+        Artisan::call('test:publish-stubs --clean --force');
         File::deleteDirectory(Hyde::path('_site'));
         (new CreatesDefaultDirectories)->__invoke();
     }

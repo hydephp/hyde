@@ -58,12 +58,6 @@ return [
         NunoMaduro\LaravelConsoleSummary\SummaryCommand::class,
         Symfony\Component\Console\Command\DumpCompletionCommand::class,
         Symfony\Component\Console\Command\HelpCommand::class,
-        Illuminate\Console\Scheduling\ScheduleRunCommand::class,
-        Illuminate\Console\Scheduling\ScheduleListCommand::class,
-        Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
-        LaravelZero\Framework\Commands\StubPublishCommand::class,
-        Hyde\Framework\Commands\HydeMakeValidatorCommand::class,
-        Hyde\Framework\Commands\HydePublishStubsCommand::class,
         Hyde\Framework\Commands\HydeDebugCommand::class,
     ],
 
@@ -80,6 +74,10 @@ return [
 
     'remove' => [
         Illuminate\Console\Scheduling\ScheduleRunCommand::class,
+        Illuminate\Console\Scheduling\ScheduleListCommand::class,
+        Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
+        Illuminate\Console\Scheduling\ScheduleRunCommand::class,
+        LaravelZero\Framework\Commands\StubPublishCommand::class,
     ],
 
 ];

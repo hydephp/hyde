@@ -20,7 +20,7 @@ class CreatesDefaultDirectoriesTest extends TestCase
      *
      * @return void
      */
-    public function testDefaultDirectoriesAreCreated()
+    public function test_default_directories_are_created()
     {
         foreach (CreatesDefaultDirectories::getRequiredDirectories() as $directory) {
             $this->assertTrue(is_dir(Hyde::path($directory)));

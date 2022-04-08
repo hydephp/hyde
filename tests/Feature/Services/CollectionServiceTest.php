@@ -1,0 +1,62 @@
+<?php
+
+namespace Tests\Feature\Services;
+
+use App\Commands\TestWithBackup;
+use Hyde\Framework\Hyde;
+use Hyde\Framework\Models\BladePage;
+use Hyde\Framework\Models\DocumentationPage;
+use Hyde\Framework\Models\MarkdownPage;
+use Hyde\Framework\Models\MarkdownPost;
+use Hyde\Framework\Services\CollectionService;
+use Illuminate\Support\Facades\File;
+use Tests\TestCase;
+
+class CollectionServiceTest extends TestCase
+{
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        // TestWithBackup::backupDirectory(Hyde::path('_docs'));
+        // File::deleteDirectory(Hyde::path('_docs'));
+    }
+
+    public function test_class_exists()
+    {
+        $this->assertTrue(class_exists(CollectionService::class));
+    }
+
+    public function test_get_source_file_list_for_model_method()
+    {
+        $this->testListUnit(BladePage::class, 'resources/views/pages/a8a7b7ce.blade.php');
+        $this->testListUnit(MarkdownPage::class, '_pages/a8a7b7ce.md');
+        $this->testListUnit(MarkdownPost::class, '_posts/a8a7b7ce.md');
+        $this->testListUnit(DocumentationPage::class, '_docs/a8a7b7ce.md');
+
+        $this->assertFalse(CollectionService::getSourceFileListForModel('NonExistentModel'));
+    }
+
+    public function test_get_media_asset_files()
+    {
+        $this->assertTrue(is_array(CollectionService::getMediaAssetFiles()));
+    }
+
+    private function testListUnit(string $model, string $path)
+    {
+        touch(Hyde::path($path));
+
+        $expected = str_replace(['.md', '.blade.php'], '', basename($path));
+
+        $this->assertContains($expected, CollectionService::getSourceFileListForModel($model));
+
+        unlink(Hyde::path($path));
+    }
+
+    public function tearDown(): void
+    {
+        // TestWithBackup::restoreDirectory(Hyde::path('_docs'));
+
+        parent::tearDown();
+    }
+}

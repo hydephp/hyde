@@ -47,7 +47,7 @@ class BuildStaticSiteCommandTest extends TestCase
             ->expectsOutput('Transferring Media Assets...')
             ->expectsOutput('Creating Markdown Posts...')
             ->expectsOutput('No Documentation Pages found. Skipping...')
-            ->expectsOutput('Creating Custom Blade Pages...')
+            ->expectsOutput('Creating Blade Pages...')
             ->expectsOutputToContain('All done! Finished in')
             ->expectsOutput('Congratulations! 🎉 Your static site has been built!')
             ->expectsOutput('Your new homepage is stored here -> file://'.str_replace(
@@ -108,6 +108,46 @@ class BuildStaticSiteCommandTest extends TestCase
             ->expectsOutput('No Markdown Pages found. Skipping...')
             ->expectsOutput('No Documentation Pages found. Skipping...')
             ->expectsOutput('No Blade Pages found. Skipping...')
+            ->assertExitCode(0);
+    }
+
+    public function test_print_initial_information_allows_api_to_be_disabled()
+    {
+        $this->artisan('build --no-api')
+            ->expectsOutput('Disabling external API calls')
+            ->assertExitCode(0);
+    }
+
+    public function test_handle_clean_option()
+    {
+        $this->artisan('build --clean')
+            ->expectsOutput('The --clean option will remove all files in the output directory before building.')
+            ->expectsConfirmation('Are you sure?')
+            ->assertExitCode(1);
+
+        $this->artisan('build --clean')
+            ->expectsOutput('The --clean option will remove all files in the output directory before building.')
+            ->expectsConfirmation('Are you sure?', 'yes')
+            ->assertExitCode(0);
+    }
+
+    public function test_handle_purge_method()
+    {
+        touch(Hyde::path('_site/foo.html'));
+        $this->artisan('build --clean --force')
+            ->expectsOutput('Removing all files from build directory.')
+            ->expectsOutput(' > Directory purged')
+            ->expectsOutput(' > Recreating directories')
+            ->assertExitCode(0);
+        $this->assertFileDoesNotExist(Hyde::path('_site/foo.html'));
+    }
+
+    public function test_node_action_outputs()
+    {
+        $this->artisan('build --pretty --run-dev --run-prod')
+            ->expectsOutput('Prettifying code! This may take a second.')
+            ->expectsOutput('Building frontend assets for development! This may take a second.')
+            ->expectsOutput('Building frontend assets for production! This may take a second.')
             ->assertExitCode(0);
     }
 

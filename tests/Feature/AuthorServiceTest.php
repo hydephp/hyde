@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class AuthorServiceTest extends TestCase
 {
-    public function testPublishFileCreatesFile()
+    public function test_publish_file_creates_file()
     {
         $service = new AuthorService();
         $path = $service->filepath;
@@ -22,7 +22,7 @@ class AuthorServiceTest extends TestCase
         $this->assertFileExists($path);
     }
 
-    public function testGetAuthorsReturnsAuthorCollection()
+    public function test_get_authors_returns_author_collection()
     {
         $service = new AuthorService();
         $service->publishFile();
@@ -40,7 +40,7 @@ class AuthorServiceTest extends TestCase
         $this->assertEquals('https://github.com/hydephp/hyde', $author->website);
     }
 
-    public function testCanFindAuthorByUsername()
+    public function test_can_find_author_by_username()
     {
         $service = new AuthorService();
         $service->publishFile();
@@ -54,7 +54,7 @@ class AuthorServiceTest extends TestCase
         $this->assertEquals('https://github.com/hydephp/hyde', $author->website);
     }
 
-    public function testGetYamlCanParseFile()
+    public function test_get_yaml_can_parse_file()
     {
         $service = new AuthorService();
 

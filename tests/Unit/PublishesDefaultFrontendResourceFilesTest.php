@@ -20,7 +20,7 @@ class PublishesDefaultFrontendResourceFilesTest extends TestCase
     }
 
     /** @test */
-    public function testDefaultFilesArePublished()
+    public function test_default_files_are_published()
     {
         $this->assertDirectoryDoesNotExist(Hyde::path('resources/frontend'));
 
