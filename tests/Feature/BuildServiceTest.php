@@ -23,8 +23,6 @@ class BuildServiceTest extends TestCase
         $this->assertEquals(MarkdownPage::class, BuildService::findModelFromFilePath('_pages/test.md'));
         $this->assertEquals(DocumentationPage::class, BuildService::findModelFromFilePath('_docs/test.md'));
         $this->assertEquals(BladePage::class, BuildService::findModelFromFilePath('resources/views/pages/test.md'));
-
-        $this->assertFalse(BuildService::findModelFromFilePath('foo/bar/test.md'));
     }
 
     public function test_get_parser_class_for_model()
@@ -33,8 +31,6 @@ class BuildServiceTest extends TestCase
         $this->assertEquals(MarkdownPostParser::class, BuildService::getParserClassForModel(MarkdownPost::class));
         $this->assertEquals(DocumentationPageParser::class, BuildService::getParserClassForModel(DocumentationPage::class));
         $this->assertEquals(BladePage::class, BuildService::getParserClassForModel(BladePage::class));
-
-        $this->assertFalse(BuildService::getParserClassForModel('foo/bar'));
     }
 
     public function test_get_parser_instance_for_model()
@@ -46,8 +42,6 @@ class BuildServiceTest extends TestCase
         $this->assertInstanceOf(DocumentationPageParser::class, BuildService::getParserInstanceForModel(DocumentationPage::class, 'test'));
         $this->assertInstanceOf(BladePage::class, BuildService::getParserInstanceForModel(BladePage::class, 'test'));
 
-        $this->assertFalse(BuildService::getParserInstanceForModel('foo/bar', 'test'));
-
         $this->deleteContentSourceTestFiles();
     }
 
@@ -57,8 +51,6 @@ class BuildServiceTest extends TestCase
         $this->assertEquals('.md', BuildService::getFileExtensionForModelFiles(MarkdownPost::class));
         $this->assertEquals('.md', BuildService::getFileExtensionForModelFiles(DocumentationPage::class));
         $this->assertEquals('.blade.php', BuildService::getFileExtensionForModelFiles(BladePage::class));
-
-        $this->assertFalse(BuildService::getFileExtensionForModelFiles('foo/bar'));
     }
 
     public function test_get_file_path_for_model_class_files()
@@ -67,8 +59,6 @@ class BuildServiceTest extends TestCase
         $this->assertEquals('_pages', BuildService::getFilePathForModelClassFiles(MarkdownPage::class));
         $this->assertEquals('_docs', BuildService::getFilePathForModelClassFiles(DocumentationPage::class));
         $this->assertEquals('resources/views/pages', BuildService::getFilePathForModelClassFiles(BladePage::class));
-
-        $this->assertFalse(BuildService::getFilePathForModelClassFiles('foo/bar'));
     }
 
     public function test_create_clickable_filepath()
