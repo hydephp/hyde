@@ -19,7 +19,7 @@ class MarkdownPostParserTest extends TestCase
         parent::setUp();
 
         // Create a Markdown file to work with
-        copy(Hyde::path('tests/_stubs/_posts/test-parser-post.md'), $this->getPath());
+        copy(Hyde::path('vendor/hyde/framework/tests/stubs/_posts/test-parser-post.md'), $this->getPath());
     }
 
     /**
