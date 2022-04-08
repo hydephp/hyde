@@ -111,6 +111,34 @@ class BuildStaticSiteCommandTest extends TestCase
             ->assertExitCode(0);
     }
 
+    public function testHandleCleanOption()
+    {
+        $this->artisan('build --clean')
+            ->expectsOutput('The --clean option will remove all files in the output directory before building.')
+            ->expectsConfirmation('Are you sure?')
+            ->assertExitCode(1);
+    }
+
+    public function testHandlePurgeMethod()
+    {
+        touch(Hyde::path('_site/foo.html'));
+        $this->artisan('build --clean --force')
+            ->expectsOutput('Removing all files from build directory.')
+            ->expectsOutput(' > Directory purged')
+            ->expectsOutput(' > Recreating directories')
+            ->assertExitCode(0);
+        $this->assertFileDoesNotExist(Hyde::path('_site/foo.html'));
+    }
+
+    public function testNodeActionOutputs()
+    {
+        $this->artisan('build --pretty --run-dev --run-prod')
+            ->expectsOutput('Prettifying code! This may take a second.')
+            ->expectsOutput('Building frontend assets for development! This may take a second.')
+            ->expectsOutput('Building frontend assets for production! This may take a second.')
+            ->assertExitCode(0);
+    }
+
     private function checkIfDirectoryIsEmpty(string $directory): bool
     {
         $scan = scandir(Hyde::path($directory), SCANDIR_SORT_NONE);
