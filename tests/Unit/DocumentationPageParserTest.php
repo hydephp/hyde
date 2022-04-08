@@ -29,7 +29,7 @@ class DocumentationPageParserTest extends TestCase
     protected function tearDown(): void
     {
         // Remove the published stub file
-		unlink(Hyde::path('_docs/test.md'));
+        unlink(Hyde::path('_docs/test.md'));
 
         parent::tearDown();
     }
@@ -39,5 +39,4 @@ class DocumentationPageParserTest extends TestCase
         $page = (new DocumentationPageParser('test'))->get();
         $this->assertInstanceOf(DocumentationPage::class, $page);
     }
-
 }
