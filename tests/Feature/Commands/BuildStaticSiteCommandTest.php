@@ -117,6 +117,11 @@ class BuildStaticSiteCommandTest extends TestCase
             ->expectsOutput('The --clean option will remove all files in the output directory before building.')
             ->expectsConfirmation('Are you sure?')
             ->assertExitCode(1);
+
+        $this->artisan('build --clean')
+            ->expectsOutput('The --clean option will remove all files in the output directory before building.')
+            ->expectsConfirmation('Are you sure?', 'yes')
+            ->assertExitCode(0);
     }
 
     public function testHandlePurgeMethod()
