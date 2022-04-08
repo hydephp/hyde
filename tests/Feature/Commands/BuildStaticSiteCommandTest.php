@@ -50,11 +50,11 @@ class BuildStaticSiteCommandTest extends TestCase
             ->expectsOutput('Creating Blade Pages...')
             ->expectsOutputToContain('All done! Finished in')
             ->expectsOutput('Congratulations! 🎉 Your static site has been built!')
-            ->expectsOutput('Your new homepage is stored here -> file://'.str_replace(
+            ->expectsOutput('Your new homepage is stored here -> file://' . str_replace(
                 '\\',
                 '/',
                 realpath(Hyde::path('_site'))
-            ).'/index.html')
+            ) . '/index.html')
             ->assertExitCode(0);
     }
 
@@ -111,7 +111,14 @@ class BuildStaticSiteCommandTest extends TestCase
             ->assertExitCode(0);
     }
 
-    public function testHandleCleanOption()
+    public function test_print_initial_information_allows_api_to_be_disabled()
+    {
+        $this->artisan('build --no-api')
+            ->expectsOutput('Disabling external API calls')
+            ->assertExitCode(0);
+    }
+
+    public function test_handle_clean_option()
     {
         $this->artisan('build --clean')
             ->expectsOutput('The --clean option will remove all files in the output directory before building.')
@@ -124,7 +131,7 @@ class BuildStaticSiteCommandTest extends TestCase
             ->assertExitCode(0);
     }
 
-    public function testHandlePurgeMethod()
+    public function test_handle_purge_method()
     {
         touch(Hyde::path('_site/foo.html'));
         $this->artisan('build --clean --force')
@@ -135,7 +142,7 @@ class BuildStaticSiteCommandTest extends TestCase
         $this->assertFileDoesNotExist(Hyde::path('_site/foo.html'));
     }
 
-    public function testNodeActionOutputs()
+    public function test_node_action_outputs()
     {
         $this->artisan('build --pretty --run-dev --run-prod')
             ->expectsOutput('Prettifying code! This may take a second.')
@@ -148,7 +155,7 @@ class BuildStaticSiteCommandTest extends TestCase
     {
         $scan = scandir(Hyde::path($directory), SCANDIR_SORT_NONE);
         if ($scan) {
-            return ! isset($scan[2]);
+            return !isset($scan[2]);
         }
 
         return false;
