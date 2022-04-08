@@ -24,6 +24,12 @@ class HydeRebuildStaticSiteCommandTest extends TestCase
         unlink(Hyde::path($outputPath));
     }
 
+    public function testMediaFilesCanBeTransferred()
+    {
+        $this->artisan('rebuild _media')
+            ->assertExitCode(0);
+    }
+
     public function testValidateCatchesBadSourceDirectory()
     {
         $this->artisan('rebuild foo/bar')
