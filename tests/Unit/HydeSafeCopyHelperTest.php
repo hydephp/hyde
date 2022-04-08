@@ -27,7 +27,8 @@ class HydeSafeCopyHelperTest extends TestCase
 
     public function test_copy_method_returns404_if_source_file_does_not_exist()
     {
-        $this->assertEquals(404,
+        $this->assertEquals(
+            404,
             Hyde::copy(static::testDir('/does/not/exist.txt'), static::testDir('/test.txt'))
         );
     }
@@ -36,7 +37,8 @@ class HydeSafeCopyHelperTest extends TestCase
     {
         file_put_contents(static::testDir('/test.txt'), 'test');
 
-        $this->assertEquals(409,
+        $this->assertEquals(
+            409,
             Hyde::copy(static::testDir('/test.txt'), static::testDir('/test.txt'))
         );
 
@@ -71,7 +73,8 @@ class HydeSafeCopyHelperTest extends TestCase
         file_put_contents(static::testDir('/foo.txt'), 'foo');
         file_put_contents(static::testDir('/bar.txt'), 'bar');
 
-        $this->assertEquals(409,
+        $this->assertEquals(
+            409,
             Hyde::copy(static::testDir('/foo.txt'), static::testDir('/bar.txt'))
         );
 
