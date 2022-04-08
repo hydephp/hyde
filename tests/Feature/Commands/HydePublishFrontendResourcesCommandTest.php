@@ -19,7 +19,7 @@ class HydePublishFrontendResourcesCommandTest extends TestCase
     }
 
     /** @test */
-    public function testCommandReturnsZeroExitCode()
+    public function test_command_returns_zero_exit_code()
     {
         $this->artisan('update:resources --force')
             ->doesntExpectOutput('Please note that the following files will be overwritten:')
@@ -27,7 +27,7 @@ class HydePublishFrontendResourcesCommandTest extends TestCase
     }
 
     /** @test */
-    public function testCommandHasExpectedOutput()
+    public function test_command_has_expected_output()
     {
         $this->artisan('update:resources ')
             ->expectsOutput('Publishing frontend resources!')
@@ -37,7 +37,7 @@ class HydePublishFrontendResourcesCommandTest extends TestCase
     }
 
     /** @test */
-    public function testCommandHasCanPublishResources()
+    public function test_command_has_can_publish_resources()
     {
         $this->artisan('update:resources')
             ->expectsConfirmation('Would you like to continue?', 'yes')

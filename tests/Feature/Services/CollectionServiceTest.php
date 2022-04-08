@@ -22,12 +22,12 @@ class CollectionServiceTest extends TestCase
         // File::deleteDirectory(Hyde::path('_docs'));
     }
 
-    public function testClassExists()
+    public function test_class_exists()
     {
         $this->assertTrue(class_exists(CollectionService::class));
     }
 
-    public function testGetSourceFileListForModelMethod()
+    public function test_get_source_file_list_for_model_method()
     {
         $this->testListUnit(BladePage::class, 'resources/views/pages/a8a7b7ce.blade.php');
         $this->testListUnit(MarkdownPage::class, '_pages/a8a7b7ce.md');
@@ -37,7 +37,7 @@ class CollectionServiceTest extends TestCase
         $this->assertFalse(CollectionService::getSourceFileListForModel('NonExistentModel'));
     }
 
-    public function testGetMediaAssetFiles()
+    public function test_get_media_asset_files()
     {
         $this->assertTrue(is_array(CollectionService::getMediaAssetFiles()));
     }

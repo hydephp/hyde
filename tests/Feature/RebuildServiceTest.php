@@ -14,7 +14,7 @@ use Tests\TestCase;
  */
 class RebuildServiceTest extends TestCase
 {
-    public function testService()
+    public function test_service_method()
     {
         $path = '_posts/test-f01cae99-29ca-481e-b977-6acf9ee364d3.md';
         copy(
@@ -27,7 +27,7 @@ class RebuildServiceTest extends TestCase
         unlink(Hyde::path($path));
     }
 
-    public function testExecute()
+    public function test_execute_method()
     {
         $this->runExecuteTest('_posts');
         $this->runExecuteTest('_pages');

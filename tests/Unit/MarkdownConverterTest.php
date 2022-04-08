@@ -12,7 +12,7 @@ use Tests\TestCase;
  */
 class MarkdownConverterTest extends TestCase
 {
-    public function testParse(): void
+    public function test_parse(): void
     {
         $markdown = '# Hello World!';
 
