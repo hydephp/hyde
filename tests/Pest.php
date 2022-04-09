@@ -44,4 +44,19 @@ function something()
     // ..
 }
 
+function backup(string $absoluteFilePath)
+{
+    if (file_exists($absoluteFilePath)) {
+        copy($absoluteFilePath, $absoluteFilePath. '.bak');
+    }
+}
+
+function restore(string $absoluteFilePath)
+{
+    if (file_exists($absoluteFilePath . '.bak')) {
+        copy($absoluteFilePath . '.bak', $absoluteFilePath);
+        unlink($absoluteFilePath . '.bak');
+    }
+}
+
 uses()->group('validators')->in('validators');
