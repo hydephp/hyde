@@ -1,6 +1,6 @@
 <?php
 
-if (file_exists('resources/views/pages')) {
+if (file_exists('_pages')) {
     test('check for conflicts between blade and markdown pages', function () {
         $markdownPages = [];
         $bladePages = [];
@@ -9,7 +9,7 @@ if (file_exists('resources/views/pages')) {
             $markdownPages[] = basename($page, '.md');
         }
 
-        foreach (array_diff(scandir('resources/views/pages'), ['..', '.']) as $page) {
+        foreach (array_diff(scandir('_pages'), ['..', '.']) as $page) {
             $bladePages[] = basename($page, '.blade.php');
         }
 

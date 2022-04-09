@@ -3,6 +3,7 @@
 return [
     'paths' => [
         resource_path('views'),
+        base_path('_pages'),
     ],
 
     'compiled' => env(

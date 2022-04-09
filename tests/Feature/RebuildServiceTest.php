@@ -32,7 +32,7 @@ class RebuildServiceTest extends TestCase
         $this->runExecuteTest('_posts');
         $this->runExecuteTest('_pages');
         $this->runExecuteTest('_docs');
-        $this->runExecuteTest('resources/views/pages', '.blade.php');
+        $this->runExecuteTest('_pages', '.blade.php');
     }
 
     private function runExecuteTest(string $prefix, string $suffix = '.md')
