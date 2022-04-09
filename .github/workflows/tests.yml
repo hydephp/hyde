@@ -18,7 +18,6 @@ jobs:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '8.0'
-        coverage: xdebug
         extensions: fileinfo
     - uses: actions/checkout@v2
     - name: Install Dependencies
@@ -28,35 +27,7 @@ jobs:
     - name: Set environment to testing
       run: echo "ENV=testing" > .env
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
-      run: vendor/bin/pest --coverage-text=report.txt
+      run: vendor/bin/pest
       env: 
         ENV: testing
-    - name: Truncate report artifact
-      run: truncate -s `head -10 report.txt | wc -c` report.txt
-    - name: Upload report artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: report
-        path: report.txt
-
-  update-coverage:
-    needs: hyde-tests
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
-      with:
-        php-version: '8.0'
-    - name: Download report artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: report
-    - name: Download Coverage Parser
-      run: 'wget https://gist.githubusercontent.com/caendesilva/75a5ff8dd4e23921b75f503149655924/raw/456bd4bae423eda2a3ff2ba2ce8f8246f366d46f/parser.php'
-    - name: Run the parser
-      id: run-coverage-parser
-      run: echo ::set-output name=average_coverage::$(php parser.php)
-    - name: Output the value
-      run: echo Result ${{ steps.run-coverage-parser.outputs.average_coverage }}     
-    - name: Post the result to server
-      run: 'curl -X POST https://cdn.desilva.se/microservices/coverbadges/api.php -H "Content-Type: application/x-www-form-urlencoded" -d "repo=https://github.com/hydephp/hyde&value=${{ steps.run-coverage-parser.outputs.average_coverage }}&token=${{ secrets.COVERBADGES_SECRET }}"'
+   
