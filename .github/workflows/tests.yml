@@ -18,6 +18,7 @@ jobs:
       with:
         php-version: '8.0'
         coverage: xdebug
+        extensions: ext-fileinfo
     - uses: actions/checkout@v2
     - name: Install Dependencies
       run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
