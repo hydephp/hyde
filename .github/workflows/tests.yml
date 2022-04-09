@@ -12,6 +12,8 @@ jobs:
       # fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
+        dependency-version: [prefer-lowest, prefer-stable]
+
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -21,7 +23,8 @@ jobs:
         extensions: fileinfo
     - uses: actions/checkout@v2
     - name: Install Dependencies
-      run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      run: composer install --${{ matrix.dependency-version }} --prefer-dist --no-interaction
+
     - name: Set Framework version to dev-master
       run: composer require hyde/framework:dev-master
     - name: Set environment to testing
