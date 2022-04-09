@@ -17,8 +17,8 @@ class CreatesNewPageSourceFileTest extends TestCase
             unlink(Hyde::path('_pages/682072b-test-page.md'));
         }
 
-        if (file_exists(Hyde::path('resources/views/pages/682072b-test-page.blade.php'))) {
-            unlink(Hyde::path('resources/views/pages/682072b-test-page.blade.php'));
+        if (file_exists(Hyde::path('_pages/682072b-test-page.blade.php'))) {
+            unlink(Hyde::path('_pages/682072b-test-page.blade.php'));
         }
 
         parent::tearDown();
@@ -77,11 +77,11 @@ class CreatesNewPageSourceFileTest extends TestCase
 
         // Check that the file exists
         $this->assertFileExists(
-            Hyde::path('resources/views/pages/682072b-test-page.blade.php')
+            Hyde::path('_pages/682072b-test-page.blade.php')
         );
 
         // Check that the file contains the expected content
-        $fileContent = file_get_contents(Hyde::path('resources/views/pages/682072b-test-page.blade.php'));
+        $fileContent = file_get_contents(Hyde::path('_pages/682072b-test-page.blade.php'));
         $this->assertStringContainsString(
             '@extends(\'hyde::layouts.app\')',
             $fileContent
@@ -105,7 +105,7 @@ class CreatesNewPageSourceFileTest extends TestCase
         );
 
         $this->assertEquals(
-            Hyde::path('resources/views/pages/682072b-test-page.blade.php'),
+            Hyde::path('_pages/682072b-test-page.blade.php'),
             (new CreatesNewPageSourceFile('682072b Test Page', BladePage::class))->path
         );
     }

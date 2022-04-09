@@ -13,7 +13,7 @@ class HydePublishHomepageCommandTest extends TestCase
     {
         parent::setUp();
 
-        $this->file = Hyde::path('resources/views/pages/index.blade.php');
+        $this->file = Hyde::path('_pages/index.blade.php');
         backup($this->file);
     }
 

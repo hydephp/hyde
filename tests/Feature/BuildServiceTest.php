@@ -22,7 +22,7 @@ class BuildServiceTest extends TestCase
         $this->assertEquals(MarkdownPost::class, BuildService::findModelFromFilePath('_posts/test.md'));
         $this->assertEquals(MarkdownPage::class, BuildService::findModelFromFilePath('_pages/test.md'));
         $this->assertEquals(DocumentationPage::class, BuildService::findModelFromFilePath('_docs/test.md'));
-        $this->assertEquals(BladePage::class, BuildService::findModelFromFilePath('resources/views/pages/test.md'));
+        $this->assertEquals(BladePage::class, BuildService::findModelFromFilePath('_pages/test.md'));
     }
 
     public function test_get_parser_class_for_model()
@@ -58,7 +58,7 @@ class BuildServiceTest extends TestCase
         $this->assertEquals('_posts', BuildService::getFilePathForModelClassFiles(MarkdownPost::class));
         $this->assertEquals('_pages', BuildService::getFilePathForModelClassFiles(MarkdownPage::class));
         $this->assertEquals('_docs', BuildService::getFilePathForModelClassFiles(DocumentationPage::class));
-        $this->assertEquals('resources/views/pages', BuildService::getFilePathForModelClassFiles(BladePage::class));
+        $this->assertEquals('_pages', BuildService::getFilePathForModelClassFiles(BladePage::class));
     }
 
     public function test_create_clickable_filepath()

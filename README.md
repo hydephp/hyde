@@ -59,7 +59,7 @@ To write content in Markdown, simply place your files in the appropriate content
 
 For example, if you want to write a blog post, place it in the `_posts/` directory. If you want to write a page, place it in the `_pages/` directory. If you want to write a documentation page, place it in the `_docs/` directory.
 
-To make a Blade page, place your file in the `resources/views/pages/` directory. If you take a look here, you will see that there is a file named `index.blade.php`. This is the default welcome page. You can replace it with any of the other built-in index pages using the `php hyde publish:homepage` command.
+To make a Blade page, place your file in the `_pages/` directory. If you take a look here, you will see that there is a file named `index.blade.php`. This is the default welcome page. You can replace it with any of the other built-in index pages using the `php hyde publish:homepage` command.
 
 When compiling the site, the files in the content directories will be compiled into the appropriate subdirectories within the output directory `_site/`.
 

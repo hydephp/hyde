@@ -16,7 +16,7 @@ class HydeMakePageCommandTest extends TestCase
         parent::__construct();
 
         $this->markdownPath = Hyde::path('_pages/8450de2-test-page.md');
-        $this->bladePath = Hyde::path('resources/views/pages/8450de2-test-page.blade.php');
+        $this->bladePath = Hyde::path('_pages/8450de2-test-page.blade.php');
     }
 
     protected function tearDown(): void
