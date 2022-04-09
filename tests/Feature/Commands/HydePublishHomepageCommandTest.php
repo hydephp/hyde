@@ -24,7 +24,6 @@ class HydePublishHomepageCommandTest extends TestCase
         restore($this->file);
     }
 
-
     public function test_command_returns_expected_output()
     {
         unlink($this->file);
@@ -87,5 +86,4 @@ class HydePublishHomepageCommandTest extends TestCase
         $this->artisan('publish:homepage welcome --no-interaction')
             ->assertExitCode(0);
     }
-
 }
