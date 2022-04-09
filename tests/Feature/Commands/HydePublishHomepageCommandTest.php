@@ -26,7 +26,7 @@ class HydePublishHomepageCommandTest extends TestCase
 
     public function test_command_returns_expected_output()
     {
-        unlink($this->file);
+        unlinkIfExists($this->file);
         $this->artisan('publish:homepage welcome')
             ->expectsConfirmation('Would you like to rebuild the site?')
             ->assertExitCode(0);
@@ -34,7 +34,7 @@ class HydePublishHomepageCommandTest extends TestCase
 
     public function test_command_returns_expected_output_with_rebuild()
     {
-        unlink($this->file);
+        unlinkIfExists($this->file);
         $this->artisan('publish:homepage welcome')
             ->expectsConfirmation('Would you like to rebuild the site?', 'yes')
             ->expectsOutput('Okay, building site!')
@@ -44,7 +44,7 @@ class HydePublishHomepageCommandTest extends TestCase
 
     public function test_command_prompts_for_output()
     {
-        unlink($this->file);
+        unlinkIfExists($this->file);
         $this->artisan('publish:homepage')
             ->expectsQuestion('Which homepage do you want to publish?',
                 'welcome: The default welcome page.')

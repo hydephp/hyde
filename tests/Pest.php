@@ -44,18 +44,25 @@ function something()
     // ..
 }
 
-function backup(string $absoluteFilePath)
+function backup(string $filepath)
 {
-    if (file_exists($absoluteFilePath)) {
-        copy($absoluteFilePath, $absoluteFilePath.'.bak');
+    if (file_exists($filepath)) {
+        copy($filepath, $filepath.'.bak');
     }
 }
 
-function restore(string $absoluteFilePath)
+function restore(string $filepath)
 {
-    if (file_exists($absoluteFilePath.'.bak')) {
-        copy($absoluteFilePath.'.bak', $absoluteFilePath);
-        unlink($absoluteFilePath.'.bak');
+    if (file_exists($filepath.'.bak')) {
+        copy($filepath.'.bak', $filepath);
+        unlink($filepath.'.bak');
+    }
+}
+
+function unlinkIfExists(string $filepath)
+{
+    if (file_exists($filepath)) {
+        unlink($filepath);
     }
 }
 
