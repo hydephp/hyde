@@ -23,7 +23,7 @@ jobs:
         extensions: fileinfo
     - uses: actions/checkout@v2
     - name: Install Dependencies
-      run: composer install --${{ matrix.dependency-version }} --prefer-dist --no-interaction
+      run: composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
     - name: Set Framework version to dev-master
       run: composer require hyde/framework:dev-master
