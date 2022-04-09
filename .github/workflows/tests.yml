@@ -32,5 +32,7 @@ jobs:
     - name: Run the parser
       id: run-coverage-parser
       run: echo ::set-output name=average_coverage::$(php parser.php)
-    - name: Dump the value
+    - name: Output the value
       run: echo Result ${{ steps.run-coverage-parser.outputs.average_coverage }}     
+    - name: Post the result to server
+      run: 'curl -X POST https://cdn.desilva.se/microservices/coverbadges/api.php -H "Content-Type: application/x-www-form-urlencoded" -d "repo=value1&value=${{ steps.run-coverage-parser.outputs.average_coverage }}&token=${{ secrets.COVERBADGES_SECRET }}"'
