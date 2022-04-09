@@ -35,4 +35,4 @@ jobs:
     - name: Output the value
       run: echo Result ${{ steps.run-coverage-parser.outputs.average_coverage }}     
     - name: Post the result to server
-      run: 'curl -X POST https://cdn.desilva.se/microservices/coverbadges/api.php -H "Content-Type: application/x-www-form-urlencoded" -d "repo=9b8f6a9a7a48a2df54e6751790bad8bd910015301e379f334d6ec74c4c3806d1&value=${{ steps.run-coverage-parser.outputs.average_coverage }}&token=${{ secrets.COVERBADGES_SECRET }}"'
+      run: 'curl -X POST https://cdn.desilva.se/microservices/coverbadges/api.php -H "Content-Type: application/x-www-form-urlencoded" -d "repo=https://github.com/hydephp/hyde&value=${{ steps.run-coverage-parser.outputs.average_coverage }}&token=${{ secrets.COVERBADGES_SECRET }}"'
