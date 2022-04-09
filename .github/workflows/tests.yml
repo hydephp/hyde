@@ -20,7 +20,7 @@ jobs:
         coverage: xdebug
     - uses: actions/checkout@v2
     - name: Install Dependencies
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: Set Framework version to dev-master
       run: composer require hyde/framework:dev-master
     - name: Set environment to testing
