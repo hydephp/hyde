@@ -1,4 +1,4 @@
-name: Tests
+name: Test Suite
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  laravel-tests:
+  hyde-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +26,24 @@ jobs:
       run: vendor/bin/pest --coverage-text=report.txt
       env: 
         ENV: testing
+    - name: Upload report artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: report
+        path: report.txt
 
+  update-coverage:
+    needs: hyde-tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+      with:
+        php-version: '8.0'
+    - name: Download report artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: report
     - name: Download Coverage Parser
       run: 'wget https://gist.githubusercontent.com/caendesilva/75a5ff8dd4e23921b75f503149655924/raw/456bd4bae423eda2a3ff2ba2ce8f8246f366d46f/parser.php'
     - name: Run the parser
