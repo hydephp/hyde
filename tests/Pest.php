@@ -44,4 +44,26 @@ function something()
     // ..
 }
 
+function backup(string $filepath)
+{
+    if (file_exists($filepath)) {
+        copy($filepath, $filepath.'.bak');
+    }
+}
+
+function restore(string $filepath)
+{
+    if (file_exists($filepath.'.bak')) {
+        copy($filepath.'.bak', $filepath);
+        unlink($filepath.'.bak');
+    }
+}
+
+function unlinkIfExists(string $filepath)
+{
+    if (file_exists($filepath)) {
+        unlink($filepath);
+    }
+}
+
 uses()->group('validators')->in('validators');
