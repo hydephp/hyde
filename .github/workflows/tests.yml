@@ -9,6 +9,7 @@ on:
 jobs:
   hyde-tests:
     strategy:
+      # fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
@@ -18,7 +19,7 @@ jobs:
       with:
         php-version: '8.0'
         coverage: xdebug
-        extensions: ext-fileinfo
+        extensions: fileinfo
     - uses: actions/checkout@v2
     - name: Install Dependencies
       run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
