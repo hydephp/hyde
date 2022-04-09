@@ -26,6 +26,6 @@ class MarkdownConverterServiceTest extends TestCase
         $html = $service->parse();
 
         $this->assertStringContainsString('Syntax highlighting by <a href="https://torchlight.dev/" '
-                . 'rel="noopener nofollow">Torchlight.dev</a>', $html);
+                .'rel="noopener nofollow">Torchlight.dev</a>', $html);
     }
 }
