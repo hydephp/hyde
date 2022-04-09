@@ -31,6 +31,8 @@ jobs:
       run: vendor/bin/pest --coverage-text=report.txt
       env: 
         ENV: testing
+    - name: Truncate report artifact
+      run: truncate -s `head -10 report.txt | wc -c` report.txt
     - name: Upload report artifact
       uses: actions/upload-artifact@v3
       with:
