@@ -16,32 +16,30 @@ class RebuildServiceTest extends TestCase
 {
     public function test_service_method()
     {
-        $path = '_posts/test-f01cae99-29ca-481e-b977-6acf9ee364d3.md';
-        copy(
-            Hyde::path('vendor/hyde/framework/tests/stubs/_posts/my-new-post.md'),
-            Hyde::path($path)
-        );
-        $service = new RebuildService('_posts/test-f01cae99-29ca-481e-b977-6acf9ee364d3.md');
+        createTestPost();
+        $service = new RebuildService('_posts/test-post.md');
         $service->execute();
         $this->assertNotNull($service->model);
-        unlink(Hyde::path($path));
+        unlink(Hyde::path('_posts/test-post.md'));
+        unlink(Hyde::path('_site/posts/test-post.html'));
     }
 
-    public function test_execute_method()
+    public function test_execute_methods()
     {
         $this->runExecuteTest('_posts');
         $this->runExecuteTest('_pages');
         $this->runExecuteTest('_docs');
         $this->runExecuteTest('_pages', '.blade.php');
+
+        unlink(Hyde::path('_site/test-file.html'));
+        unlink(Hyde::path('_site/docs/test-file.html'));
+        unlink(Hyde::path('_site/posts/test-file.html'));
     }
 
     private function runExecuteTest(string $prefix, string $suffix = '.md')
     {
-        $path = $prefix.'/test-f01cae99-29ca-481e-b977-6acf9ee364d3'.$suffix;
-        copy(
-            Hyde::path('vendor/hyde/framework/tests/stubs/_posts/my-new-post.md'),
-            Hyde::path($path)
-        );
+        $path = $prefix.'/test-file'.$suffix;
+        createTestPost($path);
         $service = new RebuildService($path);
         $result = $service->execute();
         $this->assertInstanceOf(StaticPageBuilder::class, $result);
