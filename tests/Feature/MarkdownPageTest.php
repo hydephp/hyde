@@ -2,13 +2,11 @@
 
 namespace Tests\Feature;
 
-use App\Commands\TestWithBackup;
 use Exception;
 use Hyde\Framework\Hyde;
 use Hyde\Framework\MarkdownPageParser;
 use Hyde\Framework\Models\MarkdownPage;
 use Hyde\Framework\Services\CollectionService;
-use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
 /**

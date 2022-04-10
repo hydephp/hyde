@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use Hyde\Framework\Actions\GeneratesDocumentationSidebar;
 use Hyde\Framework\Hyde;
-use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
 class GeneratesDocumentationSidebarTest extends TestCase

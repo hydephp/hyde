@@ -7,7 +7,6 @@ use Hyde\Framework\DocumentationPageParser;
 use Hyde\Framework\Hyde;
 use Hyde\Framework\Models\DocumentationPage;
 use Hyde\Framework\Services\CollectionService;
-use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
 class DocumentationPageTest extends TestCase
