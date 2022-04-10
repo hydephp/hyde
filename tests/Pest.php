@@ -11,6 +11,8 @@
 |
 */
 
+use Hyde\Framework\Hyde;
+
 uses(Tests\TestCase::class)->in('Feature');
 
 /*
@@ -64,6 +66,23 @@ function unlinkIfExists(string $filepath)
     if (file_exists($filepath)) {
         unlink($filepath);
     }
+}
+
+function createTestPost(?string $path = null)
+{
+    $path = Hyde::path($path ?? '_posts/test-post.md');
+    file_put_contents($path, '---
+title: My New Post
+category: blog
+author: Mr. Hyde
+---
+
+# My New Post
+
+This is a post stub used in the automated tests
+');
+
+    return $path;
 }
 
 uses()->group('validators')->in('validators');
