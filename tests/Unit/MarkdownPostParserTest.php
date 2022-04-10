@@ -7,6 +7,9 @@ use Hyde\Framework\MarkdownPostParser;
 use Hyde\Framework\Models\MarkdownPost;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @see Tests\Feature\Commands\StaticSiteBuilderPostModuleTest for the compiler test.
+ */
 class MarkdownPostParserTest extends TestCase
 {
     /**
