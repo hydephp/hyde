@@ -7,27 +7,36 @@ use Tests\TestCase;
 
 class HydeRebuildStaticSiteCommandTest extends TestCase
 {
-    public static string $stub = 'vendor/hyde/framework/tests/stubs/_posts/my-new-post.md';
-    public static string $path = '_pages/test-07239181-403e-443b-94f3-f912a031f31a.md';
-
     public function test_handle_is_successful_with_valid_path()
     {
-        copy(Hyde::path(static::$stub), Hyde::path(static::$path));
+        file_put_contents(Hyde::path('_pages/test-page.md'), 'foo');
 
-        $this->artisan('rebuild '.static::$path)
+        $this->artisan('rebuild '.'_pages/test-page.md')
             ->assertExitCode(0);
 
-        $outputPath = '_site/test-07239181-403e-443b-94f3-f912a031f31a.html';
+        $outputPath = '_site/test-page.html';
         $this->assertFileExists(Hyde::path($outputPath));
 
-        unlink(Hyde::path(static::$path));
+        unlink(Hyde::path('_pages/test-page.md'));
         unlink(Hyde::path($outputPath));
     }
 
     public function test_media_files_can_be_transferred()
     {
+        backupDirectory(Hyde::path('_site/media'));
+        deleteDirectory(Hyde::path('_site/media'));
+        mkdir(Hyde::path('_site/media'));
+
+        touch(Hyde::path('_media/test.jpg'));
+
         $this->artisan('rebuild _media')
             ->assertExitCode(0);
+
+        $this->assertFileExists(Hyde::path('_site/media/test.jpg'));
+        unlink(Hyde::path('_media/test.jpg'));
+        unlink(Hyde::path('_site/media/test.jpg'));
+
+        restoreDirectory(Hyde::path('_site/media'));
     }
 
     public function test_validate_catches_bad_source_directory()

@@ -34,12 +34,17 @@ class HydePublishHomepageCommandTest extends TestCase
 
     public function test_command_returns_expected_output_with_rebuild()
     {
+        backupDirectory(Hyde::path('_site'));
+
+        backup(Hyde::path('_site/index.html'));
         unlinkIfExists($this->file);
         $this->artisan('publish:homepage welcome')
             ->expectsConfirmation('Would you like to rebuild the site?', 'yes')
             ->expectsOutput('Okay, building site!')
             ->expectsOutput('Site is built!')
         ->assertExitCode(0);
+
+        restoreDirectory(Hyde::path('_site'));
     }
 
     public function test_command_prompts_for_output()

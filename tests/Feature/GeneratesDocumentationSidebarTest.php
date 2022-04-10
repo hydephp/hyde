@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use Hyde\Framework\Actions\GeneratesDocumentationSidebar;
 use Hyde\Framework\Hyde;
-use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
 class GeneratesDocumentationSidebarTest extends TestCase
@@ -18,7 +17,7 @@ class GeneratesDocumentationSidebarTest extends TestCase
     {
         parent::setUp();
 
-        File::deleteDirectory(Hyde::path('_docs'));
+        deleteDirectory(Hyde::path('_docs'));
         mkdir(Hyde::path('_docs'));
 
         touch(Hyde::path('_docs/generates_documentation_sidebar_test1.md'));
@@ -33,7 +32,7 @@ class GeneratesDocumentationSidebarTest extends TestCase
      */
     protected function tearDown(): void
     {
-        File::deleteDirectory(Hyde::path('_docs'));
+        deleteDirectory(Hyde::path('_docs'));
         mkdir(Hyde::path('_docs'));
 
         parent::tearDown();

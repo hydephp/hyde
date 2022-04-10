@@ -7,7 +7,6 @@ use Hyde\Framework\DocumentationPageParser;
 use Hyde\Framework\Hyde;
 use Hyde\Framework\Models\DocumentationPage;
 use Hyde\Framework\Services\CollectionService;
-use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
 class DocumentationPageTest extends TestCase
@@ -17,7 +16,7 @@ class DocumentationPageTest extends TestCase
      */
     public function test_can_get_collection_of_slugs()
     {
-        File::deleteDirectory(Hyde::path('_docs'));
+        deleteDirectory(Hyde::path('_docs'));
         mkdir(Hyde::path('_docs'));
         file_put_contents(Hyde::path('_docs/phpunit-test.md'), "# PHPUnit Test File \n Hello World!");
 

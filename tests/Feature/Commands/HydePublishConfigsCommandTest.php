@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Commands;
 
-use App\Commands\TestWithBackup;
 use Hyde\Framework\Hyde;
 use Illuminate\Support\Facades\File;
 use Tests\TestCase;
@@ -14,8 +13,8 @@ class HydePublishConfigsCommandTest extends TestCase
     {
         parent::setUp();
 
-        TestWithBackup::backupDirectory(Hyde::path('config'));
-        File::deleteDirectory(Hyde::path('config'));
+        backupDirectory(Hyde::path('config'));
+        deleteDirectory(Hyde::path('config'));
     }
 
     /** @test */
@@ -54,7 +53,7 @@ class HydePublishConfigsCommandTest extends TestCase
     /** Teardown */
     public function tearDown(): void
     {
-        TestWithBackup::restoreDirectory(Hyde::path('config'));
+        restoreDirectory(Hyde::path('config'));
 
         parent::tearDown();
     }

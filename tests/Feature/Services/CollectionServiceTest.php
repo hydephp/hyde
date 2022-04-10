@@ -2,14 +2,12 @@
 
 namespace Tests\Feature\Services;
 
-use App\Commands\TestWithBackup;
 use Hyde\Framework\Hyde;
 use Hyde\Framework\Models\BladePage;
 use Hyde\Framework\Models\DocumentationPage;
 use Hyde\Framework\Models\MarkdownPage;
 use Hyde\Framework\Models\MarkdownPost;
 use Hyde\Framework\Services\CollectionService;
-use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
 class CollectionServiceTest extends TestCase
@@ -18,8 +16,8 @@ class CollectionServiceTest extends TestCase
     {
         parent::setUp();
 
-        // TestWithBackup::backupDirectory(Hyde::path('_docs'));
-        // File::deleteDirectory(Hyde::path('_docs'));
+        // backupDirectory(Hyde::path('_docs'));
+        // deleteDirectory(Hyde::path('_docs'));
     }
 
     public function test_class_exists()
@@ -55,7 +53,7 @@ class CollectionServiceTest extends TestCase
 
     public function tearDown(): void
     {
-        // TestWithBackup::restoreDirectory(Hyde::path('_docs'));
+        // restoreDirectory(Hyde::path('_docs'));
 
         parent::tearDown();
     }

@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use Hyde\Framework\Hyde;
-use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
 class HydeSafeCopyHelperTest extends TestCase
@@ -95,7 +94,7 @@ class HydeSafeCopyHelperTest extends TestCase
 
     public function tearDown(): void
     {
-        File::deleteDirectory(static::testDir());
+        deleteDirectory(static::testDir());
 
         parent::tearDown();
     }

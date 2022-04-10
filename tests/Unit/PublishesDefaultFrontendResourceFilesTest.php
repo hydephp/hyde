@@ -2,10 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\Commands\TestWithBackup;
 use Hyde\Framework\Actions\PublishesDefaultFrontendResourceFiles;
 use Hyde\Framework\Hyde;
-use Illuminate\Support\Facades\File;
 use tests\TestCase;
 
 class PublishesDefaultFrontendResourceFilesTest extends TestCase
@@ -15,8 +13,8 @@ class PublishesDefaultFrontendResourceFilesTest extends TestCase
     {
         parent::setUp();
 
-        TestWithBackup::backupDirectory(Hyde::path('resources/frontend'));
-        File::deleteDirectory(Hyde::path('resources/frontend'));
+        backupDirectory(Hyde::path('resources/frontend'));
+        deleteDirectory(Hyde::path('resources/frontend'));
     }
 
     /** @test */
@@ -36,7 +34,7 @@ class PublishesDefaultFrontendResourceFilesTest extends TestCase
     /** Teardown */
     public function tearDown(): void
     {
-        TestWithBackup::restoreDirectory(Hyde::path('resources/frontend'));
+        restoreDirectory(Hyde::path('resources/frontend'));
 
         parent::tearDown();
     }
