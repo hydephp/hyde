@@ -2,65 +2,62 @@
 
 namespace Tests\Feature\Commands;
 
+use App\Commands\TestWithBackup;
 use Hyde\Framework\Hyde;
+use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
 class HydePublishConfigsCommandTest extends TestCase
 {
-    public function test_command_returns_zero_exit_code()
+    /** Setup */
+    public function setUp(): void
     {
-        $this->artisan('publish:configs')->assertExitCode(0);
+        parent::setUp();
+
+        TestWithBackup::backupDirectory(Hyde::path('config'));
+        File::deleteDirectory(Hyde::path('config'));
     }
 
-    public function test_command_returns_expected_output()
+
+    /** @test */
+    public function test_command_has_expected_output()
     {
-        $this->artisan('publish:configs')
-            ->expectsOutputToContain('Copied Directory')
-            ->expectsOutput('Publishing complete.')
+        $this->artisan('update:configs')
+            ->expectsOutput('Published config files to ' . Hyde::path('config'))
             ->assertExitCode(0);
     }
 
+
+    /** @test */
     public function test_config_files_are_published()
     {
-        // Delete an non-critical file
-        unlink(Hyde::path('config/view.php'));
+        $this->assertDirectoryDoesNotExist(Hyde::path('config'));
 
-        $this->assertFileDoesNotExist(Hyde::path('config/view.php'));
+        $this->artisan('update:configs')
+            ->assertExitCode(0);
 
-        $this->artisan('publish:configs')->assertExitCode(0);
+        $this->assertFileEquals(Hyde::vendorPath('config/hyde.php'), Hyde::path('config/hyde.php'));
 
-        $this->assertFileExists(Hyde::path('config/view.php'));
+        $this->assertDirectoryExists(Hyde::path('config'));
     }
 
-    public function test_that_files_are_not_overwritten_by_default()
+    /** @test */
+    public function test_command_overwrites_existing_files()
     {
-        file_put_contents(Hyde::path('config/view.php'), '<?php return [ /** This should not be overwritten */ ];');
-        $this->artisan('publish:configs')->assertExitCode(0);
+        File::makeDirectory(Hyde::path('config'));
+        File::put(Hyde::path('config/hyde.php'), 'foo');
 
-        $this->assertStringContainsString(
-            'This should not be overwritten',
-            file_get_contents(Hyde::path('config/view.php'))
-        );
+        $this->artisan('update:configs')
+            ->assertExitCode(0);
 
-        $this->assertStringNotContainsString(
-            'VIEW_COMPILED_PATH',
-            file_get_contents(Hyde::path('config/view.php'))
-        );
+        $this->assertNotEquals('foo', File::get(Hyde::path('config/hyde.php')));
     }
 
-    public function test_that_files_are_overwritten_when_force_flag_is_set()
+    /** Teardown */
+    public function tearDown(): void
     {
-        file_put_contents(Hyde::path('config/view.php'), '<?php return [ /** This should be overwritten */ ];');
-        $this->artisan('publish:configs --force')->assertExitCode(0);
+        TestWithBackup::restoreDirectory(Hyde::path('config'));
 
-        $this->assertStringNotContainsString(
-            'This should be overwritten',
-            file_get_contents(Hyde::path('config/view.php'))
-        );
-
-        $this->assertStringContainsString(
-            'VIEW_COMPILED_PATH',
-            file_get_contents(Hyde::path('config/view.php'))
-        );
+        parent::tearDown();
     }
 }
