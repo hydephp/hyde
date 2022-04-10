@@ -9,6 +9,18 @@ use PHPUnit\Framework\TestCase;
 
 class AuthorServiceTest extends TestCase
 {
+    public function test_setup()
+    {
+        // If an authors.yml file exists, back it up and remove it
+        $service = new AuthorService();
+        $path = $service->filepath;
+
+        backup($path);
+        unlinkIfExists($path);
+
+        $this->assertTrue(true);
+    }
+
     public function test_publish_file_creates_file()
     {
         $service = new AuthorService();
@@ -72,5 +84,19 @@ class AuthorServiceTest extends TestCase
                 ],
             ],
         ], $array);
+    }
+
+    public function test_teardown()
+    {
+        // Clean up any test files
+        $service = new AuthorService();
+        $path = $service->filepath;
+        unlinkIfExists($path);
+
+        // Restore the original authors.yml file
+        
+        restore($path);
+
+        $this->assertTrue(true);
     }
 }
