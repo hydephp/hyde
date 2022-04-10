@@ -3,65 +3,122 @@
 namespace Tests\Feature\Commands;
 
 use Hyde\Framework\Hyde;
-use Tests\Setup\ResetsFileEnvironment;
+use Hyde\Framework\Models\MarkdownPost;
+use Hyde\Framework\StaticPageBuilder;
 use Tests\TestCase;
 
 /**
- * Test the post creation module.
- *
- * We will use the Alice in Wonderland example post
- * published in the ResetsFileEnvironment stub as
- * we know the contents of it, and expect that
- * the content within will not be modified.
+ * Test the post compiler module.
+ * @see Tests\Unit\MarkdownPostParserTest for the Markdown parser test.
  */
 class StaticSiteBuilderPostModuleTest extends TestCase
 {
-    use ResetsFileEnvironment;
+    protected MarkdownPost $post;
 
-    /**
-     * The filepath of the post.
-     *
-     * @var string
-     */
-    protected string $file;
-
-    public function __construct()
+    protected function setUp(): void
     {
-        parent::__construct();
+        parent::setUp();
 
-        $this->file = Hyde::path('_site/posts/alice-in-wonderland.html');
+        $this->post = new MarkdownPost([
+            'title' => 'Adventures in Wonderland',
+            'description' => 'All in the golden afternoon, full leisurely we glide.',
+            'category' => 'novels',
+            'author' => 'Lewis Carroll',
+            'date' => '1865-11-18 18:52',
+        ], "## CHAPTER I. DOWN THE RABBIT-HOLE. \n\nSo she was considering in her own mind, as well as she could, for the hot day made her feel very sleepy and stupid.", 'Test Title', 'test-post');
+
+        // Make sure no file exists which could caues unintended results.
+        unlinkIfExists(Hyde::path('_site/posts/test-post.html'));
     }
 
-    public function test_setup()
+    protected function tearDown(): void
     {
-        $this->resetFileEnvironment();
+        unlink(Hyde::path('_site/posts/test-post.html'));
 
-        $this->artisan('build');
-
-        $this->assertTrue(true);
+        parent::tearDown();
     }
 
-    public function test_blog_post_exists()
+    protected function inspectHtml(array $expectedStrings)
     {
-        $this->assertFileExists($this->file);
+        new StaticPageBuilder($this->post, true);
+        $stream = file_get_contents(Hyde::path('_site/posts/test-post.html'));
+
+        foreach ($expectedStrings as $expectedString) {
+            $this->assertStringContainsString($expectedString, $stream);
+        }
     }
 
-    public function test_created_post_contains_valid_html()
+    public function test_can_create_post()
     {
-        $this->assertGreaterThan(1024, filesize($this->file), 'Failed asserting that file is larger than one kilobyte');
+        $builder = new StaticPageBuilder($this->post);
 
-        $stream = file_get_contents($this->file);
-        $this->assertStringContainsStringIgnoringCase('<!DOCTYPE html>', $stream);
-        $this->assertStringContainsString('HydePHP', $stream);
+        $builder->__invoke();
+
+        $this->assertFileExists(Hyde::path('_site/posts/test-post.html'));
     }
 
-    public function test_created_post_contains_expected_content()
+    public function test_post_contains_expected_content()
     {
-        $stream = file_get_contents($this->file);
-        $this->assertStringContainsString('Alice&#039;s Adventures in Wonderland', $stream);
-        $this->assertStringContainsString('Lewis Carroll', $stream);
-        $this->assertStringContainsString('<h2>CHAPTER I. DOWN THE RABBIT-HOLE.</h2>', $stream);
-        $this->assertStringContainsString('So she was considering in her own mind, (as well as she could, for the hot day made her feel very sleepy and stupid,) whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a white rabbit with pink eyes ran close by her.', $stream);
-        $this->assertStringContainsString('<p><img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Alice_par_John_Tenniel_04.png" alt="Illustration d\'origine (1865), par John Tenniel" /></p>', $stream);
+        $this->inspectHtml([
+            'Adventures in Wonderland',
+            'Saturday Nov 18th, 1865, at 6:52pm',
+            'Lewis Carroll',
+            'in the category "novels"',
+            '<h2>CHAPTER I. DOWN THE RABBIT-HOLE.</h2>',
+            '<p>So she was considering in her own mind, as well as she could'
+        ]);
+    }
+
+
+    public function test_post_contains_expected_elements()
+    {
+        $this->inspectHtml([
+            '<!DOCTYPE html>',
+            '<html',
+            '<head',
+            '<body',
+            '<main',
+            '<article',
+            '<meta',
+            '<header',
+            '<h1',
+            '<time',
+            '<address',
+        ]);
+    }
+
+    public function test_post_contains_expected_meta_tags()
+    {
+        $this->inspectHtml([
+            '<meta name="description" content="All in the golden afternoon, full leisurely we glide.">',
+            '<meta name="author" content="Lewis Carroll">',
+            '<meta name="keywords" content="novels">',
+            '<meta property="og:type" content="article" />',
+            '<meta property="og:title" content="Adventures in Wonderland">',
+            '<meta property="og:article:published_time" content="1865-11-18 18:52">',
+        ]);
+    }
+
+    public function test_post_contains_expected_itemprops()
+    {
+        $this->inspectHtml([
+            'itemtype="https://schema.org/Article"',
+            'itemtype="https://schema.org/Person"',
+            'itemprop="identifier"',
+            'itemprop="headline"',
+            'itemprop="dateCreated datePublished"',
+            'itemprop="author publisher"',
+            'itemprop="name"',
+            'itemprop="articleBody"',
+        ]);
+    }
+
+    public function test_post_contains_expected_aria_support()
+    {
+        $this->inspectHtml([
+            'role="doc-pageheader"',
+            'role="doc-introduction"',
+            'aria-label="About the post"'
+        ]);
     }
 }
