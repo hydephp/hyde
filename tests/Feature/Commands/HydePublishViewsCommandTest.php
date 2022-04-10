@@ -13,13 +13,13 @@ class HydePublishViewsCommandTest extends TestCase
     {
         parent::setUp();
 
-        TestWithBackup::backupDirectory(Hyde::path('resources/views/vendor/hyde'));
-        File::deleteDirectory(Hyde::path('resources/views/vendor/hyde'));
+        backupDirectory(Hyde::path('resources/views/vendor/hyde'));
+        deleteDirectory(Hyde::path('resources/views/vendor/hyde'));
     }
 
     protected function tearDown(): void
     {
-        TestWithBackup::restoreDirectory(Hyde::path('resources/views/vendor/hyde'));
+        restoreDirectory(Hyde::path('resources/views/vendor/hyde'));
 
         parent::tearDown();
     }

@@ -14,15 +14,15 @@ class BuildStaticSiteCommandTest extends TestCase
     {
         parent::setUp();
 
-        TestWithBackup::backupDirectory(Hyde::path('_site'));
-        File::deleteDirectory(Hyde::path('_site'));
+        backupDirectory(Hyde::path('_site'));
+        deleteDirectory(Hyde::path('_site'));
 
         (new CreatesDefaultDirectories)->__invoke();
     }
 
     protected function tearDown(): void
     {
-        TestWithBackup::restoreDirectory(Hyde::path('_site'));
+        restoreDirectory(Hyde::path('_site'));
 
         parent::tearDown();
     }
@@ -57,10 +57,6 @@ class BuildStaticSiteCommandTest extends TestCase
         unlink(Hyde::path('_media/test-image.png'));
         unlink(Hyde::path('_site/media/test-image.png'));
     }
-
-    // @todo move to own test public function test_compiled_index_file_seems_valid()
-    // @todo move to own test public function test_compiled_404_file_seems_valid()
-   
 
     public function test_print_initial_information_allows_api_to_be_disabled()
     {

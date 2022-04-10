@@ -18,8 +18,8 @@ class CollectionServiceTest extends TestCase
     {
         parent::setUp();
 
-        // TestWithBackup::backupDirectory(Hyde::path('_docs'));
-        // File::deleteDirectory(Hyde::path('_docs'));
+        // backupDirectory(Hyde::path('_docs'));
+        // deleteDirectory(Hyde::path('_docs'));
     }
 
     public function test_class_exists()
@@ -55,7 +55,7 @@ class CollectionServiceTest extends TestCase
 
     public function tearDown(): void
     {
-        // TestWithBackup::restoreDirectory(Hyde::path('_docs'));
+        // restoreDirectory(Hyde::path('_docs'));
 
         parent::tearDown();
     }

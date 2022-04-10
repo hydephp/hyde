@@ -20,14 +20,14 @@ class MarkdownPageTest extends TestCase
     {
         parent::setUp();
 
-        TestWithBackup::backupDirectory(Hyde::path('_pages'));
+        backupDirectory(Hyde::path('_pages'));
 
         file_put_contents(Hyde::path('_pages/test-post.md'), "# PHPUnit Test File \n Hello World!");
     }
 
     protected function tearDown(): void
     {
-        TestWithBackup::restoreDirectory(Hyde::path('_pages'));
+        restoreDirectory(Hyde::path('_pages'));
 
         parent::tearDown();
     }

@@ -95,7 +95,7 @@ class HydeSafeCopyHelperTest extends TestCase
 
     public function tearDown(): void
     {
-        File::deleteDirectory(static::testDir());
+        deleteDirectory(static::testDir());
 
         parent::tearDown();
     }

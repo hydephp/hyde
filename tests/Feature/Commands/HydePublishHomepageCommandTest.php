@@ -35,7 +35,7 @@ class HydePublishHomepageCommandTest extends TestCase
 
     public function test_command_returns_expected_output_with_rebuild()
     {
-        TestWithBackup::backupDirectory(Hyde::path('_site'));
+        backupDirectory(Hyde::path('_site'));
         
         backup(Hyde::path('_site/index.html'));
         unlinkIfExists($this->file);
@@ -45,7 +45,7 @@ class HydePublishHomepageCommandTest extends TestCase
             ->expectsOutput('Site is built!')
         ->assertExitCode(0);
     
-        TestWithBackup::restoreDirectory(Hyde::path('_site'));
+        restoreDirectory(Hyde::path('_site'));
     }
 
     public function test_command_prompts_for_output()

@@ -14,8 +14,8 @@ class HydePublishFrontendResourcesCommandTest extends TestCase
     {
         parent::setUp();
 
-        TestWithBackup::backupDirectory(Hyde::path('resources/frontend'));
-        File::deleteDirectory(Hyde::path('resources/frontend'));
+        backupDirectory(Hyde::path('resources/frontend'));
+        deleteDirectory(Hyde::path('resources/frontend'));
     }
 
     /** @test */
@@ -50,7 +50,7 @@ class HydePublishFrontendResourcesCommandTest extends TestCase
     /** Teardown */
     public function tearDown(): void
     {
-        TestWithBackup::restoreDirectory(Hyde::path('resources/frontend'));
+        restoreDirectory(Hyde::path('resources/frontend'));
 
         parent::tearDown();
     }
