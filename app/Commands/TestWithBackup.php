@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\File;
 use LaravelZero\Framework\Commands\Command;
 
 /**
+ * @deprecated v0.10.0 as it is not needed anymore. The backup helpers will be extracted.
  * Backs up source files, runs tests, then restores original files.
  */
 class TestWithBackup extends Command
