@@ -18,15 +18,13 @@ class HydePublishConfigsCommandTest extends TestCase
         File::deleteDirectory(Hyde::path('config'));
     }
 
-
     /** @test */
     public function test_command_has_expected_output()
     {
         $this->artisan('update:configs')
-            ->expectsOutput('Published config files to ' . Hyde::path('config'))
+            ->expectsOutput('Published config files to '.Hyde::path('config'))
             ->assertExitCode(0);
     }
-
 
     /** @test */
     public function test_config_files_are_published()
