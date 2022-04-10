@@ -69,7 +69,6 @@ function unlinkIfExists(string $filepath)
     }
 }
 
-
 function backupDirectory(string $directory)
 {
     if (file_exists($directory)) {

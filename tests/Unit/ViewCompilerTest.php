@@ -42,7 +42,7 @@ class ViewCompilerTest extends TestCase
         // Create the test file
 
         // $this->validateBasicHtml($stream)
-    
+
         // Run any specific assertions
 
         // Clean up after the test
@@ -54,7 +54,7 @@ class ViewCompilerTest extends TestCase
         // Create the test file
 
         // $this->validateBasicHtml($stream)
-    
+
         // Run any specific assertions
 
         // Clean up after the test
@@ -66,7 +66,7 @@ class ViewCompilerTest extends TestCase
         // Create the test file
 
         // $this->validateBasicHtml($stream)
-    
+
         // Run any specific assertions
 
         // Clean up after the test
@@ -78,7 +78,7 @@ class ViewCompilerTest extends TestCase
         // Create the test file
 
         // $this->validateBasicHtml($stream)
-    
+
         // Run any specific assertions
 
         // Clean up after the test
@@ -90,7 +90,7 @@ class ViewCompilerTest extends TestCase
         // Create the test file
 
         // $this->validateBasicHtml($stream)
-    
+
         // Run any specific assertions
 
         // Clean up after the test

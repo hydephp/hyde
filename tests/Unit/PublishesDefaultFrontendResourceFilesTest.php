@@ -2,10 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\Commands\TestWithBackup;
 use Hyde\Framework\Actions\PublishesDefaultFrontendResourceFiles;
 use Hyde\Framework\Hyde;
-use Illuminate\Support\Facades\File;
 use tests\TestCase;
 
 class PublishesDefaultFrontendResourceFilesTest extends TestCase

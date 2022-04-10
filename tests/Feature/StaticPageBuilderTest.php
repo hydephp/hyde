@@ -7,10 +7,11 @@ use Tests\TestCase;
 
 /**
  * @todo Implement the test.
- * 
+ *
  * Feature tests for the StaticPageBuilder class.
+ *
  * @see \Hyde\Framework\StaticPageBuilder
- * 
+ *
  * The compiled HTML is tested in a separate unit test.
  * @see \Tests\Unit\ViewCompilerTest
  */
@@ -40,6 +41,7 @@ class StaticPageBuilderTest extends TestCase
 
         // Clean up after the test
     }
+
     public function test_can_build_markdown_page()
     {
         $this->markTestIncomplete();
@@ -50,6 +52,7 @@ class StaticPageBuilderTest extends TestCase
 
         // Clean up after the test
     }
+
     public function test_can_build_blade_page()
     {
         $this->markTestIncomplete();
@@ -60,6 +63,7 @@ class StaticPageBuilderTest extends TestCase
 
         // Clean up after the test
     }
+
     public function test_can_build_documentation_page()
     {
         $this->markTestIncomplete();

@@ -94,7 +94,7 @@ class AuthorServiceTest extends TestCase
         unlinkIfExists($path);
 
         // Restore the original authors.yml file
-        
+
         restore($path);
 
         $this->assertTrue(true);

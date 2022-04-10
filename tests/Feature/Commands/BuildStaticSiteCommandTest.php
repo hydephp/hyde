@@ -2,11 +2,9 @@
 
 namespace Tests\Feature\Commands;
 
+use Hyde\Framework\Actions\CreatesDefaultDirectories;
 use Hyde\Framework\Hyde;
 use Tests\TestCase;
-use App\Commands\TestWithBackup;
-use Hyde\Framework\Actions\CreatesDefaultDirectories;
-use Illuminate\Support\Facades\File;
 
 class BuildStaticSiteCommandTest extends TestCase
 {
@@ -97,5 +95,4 @@ class BuildStaticSiteCommandTest extends TestCase
             ->expectsOutput('Building frontend assets for production! This may take a second.')
             ->assertExitCode(0);
     }
-
 }

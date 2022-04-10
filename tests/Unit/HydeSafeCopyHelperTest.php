@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use Hyde\Framework\Hyde;
-use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
 class HydeSafeCopyHelperTest extends TestCase

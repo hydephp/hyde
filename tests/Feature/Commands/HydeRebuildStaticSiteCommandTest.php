@@ -2,9 +2,7 @@
 
 namespace Tests\Feature\Commands;
 
-use App\Commands\TestWithBackup;
 use Hyde\Framework\Hyde;
-use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
 class HydeRebuildStaticSiteCommandTest extends TestCase

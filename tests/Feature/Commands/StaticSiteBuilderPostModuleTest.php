@@ -9,6 +9,7 @@ use Tests\TestCase;
 
 /**
  * Test the post compiler module.
+ *
  * @see Tests\Unit\MarkdownPostParserTest for the Markdown parser test.
  */
 class StaticSiteBuilderPostModuleTest extends TestCase
@@ -65,10 +66,9 @@ class StaticSiteBuilderPostModuleTest extends TestCase
             'Lewis Carroll',
             'in the category "novels"',
             '<h2>CHAPTER I. DOWN THE RABBIT-HOLE.</h2>',
-            '<p>So she was considering in her own mind, as well as she could'
+            '<p>So she was considering in her own mind, as well as she could',
         ]);
     }
-
 
     public function test_post_contains_expected_elements()
     {
@@ -118,7 +118,7 @@ class StaticSiteBuilderPostModuleTest extends TestCase
         $this->inspectHtml([
             'role="doc-pageheader"',
             'role="doc-introduction"',
-            'aria-label="About the post"'
+            'aria-label="About the post"',
         ]);
     }
 }
