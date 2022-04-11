@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use Hyde\Framework\Hyde;
 use Hyde\Framework\MarkdownPostParser;
 use Hyde\Framework\Models\MarkdownPost;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 /**
  * @see Tests\Feature\Commands\StaticSiteBuilderPostModuleTest for the compiler test.
