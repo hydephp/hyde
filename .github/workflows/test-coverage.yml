@@ -3,8 +3,6 @@ name: Test Coverage
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   update-coverage:
