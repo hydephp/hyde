@@ -93,9 +93,9 @@ class StaticSiteBuilderPostModuleTest extends TestCase
             '<meta name="description" content="All in the golden afternoon, full leisurely we glide.">',
             '<meta name="author" content="Lewis Carroll">',
             '<meta name="keywords" content="novels">',
-            '<meta property="og:type" content="article" />',
+            '<meta property="og:type" content="article">',
             '<meta property="og:title" content="Adventures in Wonderland">',
-            '<meta property="og:article:published_time" content="1865-11-18 18:52">',
+            '<meta property="og:article:published_time" content="1865-11-18T18:52:00+00:00">',
         ]);
     }
 
@@ -107,7 +107,7 @@ class StaticSiteBuilderPostModuleTest extends TestCase
             'itemprop="identifier"',
             'itemprop="headline"',
             'itemprop="dateCreated datePublished"',
-            'itemprop="author publisher"',
+            'itemprop="author"',
             'itemprop="name"',
             'itemprop="articleBody"',
         ]);
