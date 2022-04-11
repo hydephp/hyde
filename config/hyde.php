@@ -47,7 +47,20 @@ return [
     | Example: https://example.org/blog
     |
     */
+
     'site_url' => env('SITE_URL', null),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Site Language
+    |--------------------------------------------------------------------------
+    |
+    | This value sets the language of your site and is used for the
+    | <html lang=""> element in the app layout. Default is 'en'.
+    |
+    */
+
+    'language' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,6 +78,7 @@ return [
     | for a list of tags and what what they are for.
     |
     */
+
     'meta' => [
         // 'author' => 'Mr. Hyde',
         // 'description' => 'My Hyde Blog',

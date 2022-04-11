@@ -28,7 +28,7 @@ class StaticSiteBuilderPostModuleTest extends TestCase
             'date' => '1865-11-18 18:52',
         ], "## CHAPTER I. DOWN THE RABBIT-HOLE. \n\nSo she was considering in her own mind, as well as she could, for the hot day made her feel very sleepy and stupid.", 'Test Title', 'test-post');
 
-        // Make sure no file exists which could caues unintended results.
+        // Make sure no file exists which could cause unintended results.
         unlinkIfExists(Hyde::path('_site/posts/test-post.html'));
     }
 
@@ -93,9 +93,9 @@ class StaticSiteBuilderPostModuleTest extends TestCase
             '<meta name="description" content="All in the golden afternoon, full leisurely we glide.">',
             '<meta name="author" content="Lewis Carroll">',
             '<meta name="keywords" content="novels">',
-            '<meta property="og:type" content="article" />',
+            '<meta property="og:type" content="article">',
             '<meta property="og:title" content="Adventures in Wonderland">',
-            '<meta property="og:article:published_time" content="1865-11-18 18:52">',
+            '<meta property="og:article:published_time" content="1865-11-18T18:52:00+00:00">',
         ]);
     }
 
@@ -107,7 +107,7 @@ class StaticSiteBuilderPostModuleTest extends TestCase
             'itemprop="identifier"',
             'itemprop="headline"',
             'itemprop="dateCreated datePublished"',
-            'itemprop="author publisher"',
+            'itemprop="author"',
             'itemprop="name"',
             'itemprop="articleBody"',
         ]);
