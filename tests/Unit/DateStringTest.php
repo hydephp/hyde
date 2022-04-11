@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class DateStringTest extends TestCase
 {
-	// Test it can parse a date string
+    // Test it can parse a date string
     public function test_it_can_parse_date_string()
     {
         $dateString = new DateString('2020-01-01');
