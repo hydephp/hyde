@@ -6,7 +6,7 @@ use Exception;
 use Hyde\Framework\Actions\CreatesNewPageSourceFile;
 use Hyde\Framework\Hyde;
 use Hyde\Framework\Models\BladePage;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class CreatesNewPageSourceFileTest extends TestCase
 {

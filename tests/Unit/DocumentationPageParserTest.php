@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use Hyde\Framework\DocumentationPageParser;
 use Hyde\Framework\Hyde;
 use Hyde\Framework\Models\DocumentationPage;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class DocumentationPageParserTest extends TestCase
 {

@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Hyde\Framework\Hyde;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class EnsureCommandsFollowNamingConventionTest extends TestCase
 {

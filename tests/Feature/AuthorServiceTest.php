@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Hyde\Framework\Models\Author;
 use Hyde\Framework\Services\AuthorService;
 use Illuminate\Support\Collection;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class AuthorServiceTest extends TestCase
 {

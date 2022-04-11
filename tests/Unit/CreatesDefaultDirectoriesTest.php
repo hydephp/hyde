@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use Hyde\Framework\Actions\CreatesDefaultDirectories;
 use Hyde\Framework\Hyde;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class CreatesDefaultDirectoriesTest extends TestCase
 {

@@ -2,7 +2,7 @@
 
 namespace Tests\Setup;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class RunDebugCommandTest extends TestCase
 {

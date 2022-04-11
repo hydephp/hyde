@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Hyde\Framework\Services\FileCacheService as Service;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class FileCacheServiceUnixsumMethodTest extends TestCase
 {
