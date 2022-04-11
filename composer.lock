@@ -879,12 +879,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hydephp/framework.git",
-                "reference": "0a7d82a1ce3e2b921d5a94825acbe9e51abec789"
+                "reference": "74f81e6a4586932753ad634fba9afa96087bd737"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hydephp/framework/zipball/0a7d82a1ce3e2b921d5a94825acbe9e51abec789",
-                "reference": "0a7d82a1ce3e2b921d5a94825acbe9e51abec789",
+                "url": "https://api.github.com/repos/hydephp/framework/zipball/74f81e6a4586932753ad634fba9afa96087bd737",
+                "reference": "74f81e6a4586932753ad634fba9afa96087bd737",
                 "shasum": ""
             },
             "require": {
@@ -924,7 +924,7 @@
                 "issues": "https://github.com/hydephp/framework/issues",
                 "source": "https://github.com/hydephp/framework/tree/master"
             },
-            "time": "2022-04-09T10:21:03+00:00"
+            "time": "2022-04-11T17:44:21+00:00"
         },
         {
             "name": "illuminate/bus",
@@ -2458,16 +2458,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.0.15",
+            "version": "3.0.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "3b71cd136dc0331ee87b636b25f4ee339368c718"
+                "reference": "dea729954c596bdb6cdaecba6f73df9f3e2c4255"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/3b71cd136dc0331ee87b636b25f4ee339368c718",
-                "reference": "3b71cd136dc0331ee87b636b25f4ee339368c718",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/dea729954c596bdb6cdaecba6f73df9f3e2c4255",
+                "reference": "dea729954c596bdb6cdaecba6f73df9f3e2c4255",
                 "shasum": ""
             },
             "require": {
@@ -2528,7 +2528,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.0.15"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.0.16"
             },
             "funding": [
                 {
@@ -2544,20 +2544,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-08T18:36:06+00:00"
+            "time": "2022-04-11T13:32:22+00:00"
         },
         {
             "name": "league/mime-type-detection",
-            "version": "1.9.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/mime-type-detection.git",
-                "reference": "aa70e813a6ad3d1558fc927863d47309b4c23e69"
+                "reference": "3e4a35d756eedc67096f30240a68a3149120dae7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/aa70e813a6ad3d1558fc927863d47309b4c23e69",
-                "reference": "aa70e813a6ad3d1558fc927863d47309b4c23e69",
+                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/3e4a35d756eedc67096f30240a68a3149120dae7",
+                "reference": "3e4a35d756eedc67096f30240a68a3149120dae7",
                 "shasum": ""
             },
             "require": {
@@ -2588,7 +2588,7 @@
             "description": "Mime-type detection for Flysystem",
             "support": {
                 "issues": "https://github.com/thephpleague/mime-type-detection/issues",
-                "source": "https://github.com/thephpleague/mime-type-detection/tree/1.9.0"
+                "source": "https://github.com/thephpleague/mime-type-detection/tree/1.10.0"
             },
             "funding": [
                 {
@@ -2600,7 +2600,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-21T11:48:40+00:00"
+            "time": "2022-04-11T12:49:04+00:00"
         },
         {
             "name": "nesbot/carbon",
