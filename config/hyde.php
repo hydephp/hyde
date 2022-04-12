@@ -122,8 +122,7 @@ return [
 
     'footer' => [
         'enabled' => true,
-        'markdown' => 'Site built with the Free and Open Source [HydePHP](https://github.com/hydephp/hyde).
-                       License [MIT](https://github.com/hydephp/hyde/blob/master/LICENSE.md).',
+        'markdown' => 'Site proudly built with [HydePHP](https://github.com/hydephp/hyde) 🎩',
     ],
 
     /*

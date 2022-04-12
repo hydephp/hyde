@@ -2,7 +2,7 @@
  * Core Scripts for the HydePHP Frontend
  * 
  * @package     HydePHP - HydeFront
- * @version     v0.3.0 (HydeFront)
+ * @version     v0.4.0 (HydeFront)
  * @author      Caen De Silva
  */
 
@@ -85,4 +85,26 @@ function hideSidebar() {
 	});
 
 	sidebarOpen = false;
+}
+
+function toggleTheme() {
+	if (isSelectedThemeDark()) {
+		setThemeToLight();
+	} else {
+		setThemeToDark();
+	}
+
+	function isSelectedThemeDark() {
+		return localStorage.getItem('color-theme') === 'dark' || !('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches;
+	}
+
+	function setThemeToDark() { 
+		document.documentElement.classList.add("dark");
+		localStorage.setItem('color-theme', 'dark');
+	}
+	
+	function setThemeToLight() {
+		document.documentElement.classList.remove("dark");
+		localStorage.setItem('color-theme', 'light');
+	}
 }
