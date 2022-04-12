@@ -10,14 +10,6 @@
 </p>
 
 ## Make static websites, blogs, and documentation pages with the tools you already know and love.
----
-
-## ⚠ Beta Software Warning ⚠
-### Heads up! HydePHP is still very new. As such there may be bugs (please report them) and breaking changes.
-#### Please wait until v1.0 for production use and remember to backup your source files before updating (use Git!).
----
-
-## About
 
 HydePHP is a content-first Laravel-powered Static Site Builder that allows you to create static HTML pages, blog posts, and documentation sites using Markdown, optionally with YAML Front Matter.
 
@@ -25,54 +17,40 @@ Need more control? You can also use Laravel Blade to get the full power of dynam
 
 Hyde is modular, configurable, and hackable - allowing you to customize everything - but only if you want to. Hyde follows convention over configuration, allowing you to get an awesome blog or a smooth documentation site up and running in mere minutes. All the TailwindCSS and Blade templates you need for your site are already configured.
 
+Write a lot of code examples? Hyde automatically enables [Torchlight.dev](https://torchlight.dev/) highlighting for you when you add an API token in the `.env` file.
+
 See the documentation and learn more at https://hydephp.github.io/docs/
 
 ## Live Demo
 The Hyde site (https://hydephp.github.io/) is fully built with Hyde. That includes the homepage, the blog, and the documentation.
 
-## Installation Quick Start
-The recommended method of installation is using Composer.
+## Getting Started - High-level overview
+> See [Installation Guide](https://hydephp.github.io/docs/master/installation.html) and [Getting Started](https://hydephp.github.io/docs/master/getting-started.html) for the full details.
+
+It's a breeze to get started with Hyde. Create a new Hyde project using Composer:
 
 ```bash
-composer create-project hyde/hyde --stability=dev
+composer create-project hyde/hyde
 ```
 
-> Full installation guide is at https://hydephp.github.io/docs/master/installation.html
-
-## Getting Started - High-level overview
-It's a breeze to get started. After creating a new Hyde project, place Markdown or Blade files in the content directories, run the build command, and you're ready to upload your site to your host, or GitHub Pages.
-
-### Writing content
-You can create content using Markdown by placing the files in and of the following directories: `_pages`, `_posts`, and `_docs`.
-
-If you want to use Blade templates, you can place the views in the '_pages' directory.
+Next, place Markdown or Blade files in the content directories: `_posts`, `_docs`, and `_pages`. You can even use full Blade views in the `_pages` directory.
 
 You can scaffold files using the `hyde make` command.
 ```bash
-php hyde make:post # Automatically creates the front matter
-php hyde make:page "Page Title" [--type="markdown/blade"]
+php hyde make:page|post
 ```
 
-### Build the static site
-
-Compile the static site using the `hyde build` command.
+Next, run the build command to compile your static site:
 ```bash
-php hyde build # Compile the static site
-php hyde rebuild _posts/example.md # Or, compile a single file
+php hyde build
 ```
+Your website HTML files are saved in the `_site` directory and are ready to be served!
 
-> See the [console command docs](https://hydephp.github.io/docs/master/console-commands.html) for more information on the HydeCLI.
+## ⚠ Beta Software Warning 
+Heads up! HydePHP is very new and currently in beta. Please report any bugs and issues in the appropriate issue tracker. Versions in the 0.x series are not stable and may change at any time. No backwards compatibility guarantees are made and there will be breaking changes without notice.
 
-
-
-## Hacking Hyde
-Hyde is designed to be easy to use and easy to customize and hack. See [Hacking Hyde](https://hydephp.github.io/docs/master/index.html#hacking-hyde) for more. 
-
-### Extensions
-Hyde comes with built-in support for Torchlight Syntax Highlighting.
-All you need to do is to set your API token in your .env file and
-Hyde will automatically enable the CommonMark extension.
-
+Please wait until v1.0 for production use and remember to back up your source files before updating (use Git!).
+See https://hydephp.github.io/docs/master/updating-hyde.html for the upgrade guide.
 
 ## Resources
 
