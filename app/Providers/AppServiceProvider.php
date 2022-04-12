@@ -13,7 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        \Illuminate\Console\Application::starting(
+            function ($artisan) {
+                $artisan->setName(file_get_contents(__DIR__.'/logo.txt'));
+            }
+         );
     }
 
     /**
