@@ -103,4 +103,5 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 
 - The Hyde core is built with [Laravel Zero](https://laravel-zero.com/) which is based on [Laravel](https://laravel.com/)
 - The frontend is built with [TailwindCSS](https://tailwindcss.com/).
-- The dark mode switch is based on a component from [Flowbite](https://flowbite.com/docs/customize/dark-mode/)
+- The dark mode switch is based on a component from [Flowbite](https://flowbite.com/docs/customize/dark-mode/).
+- Icons are from [Google Material Icons](https://material.io/resources/icons/). License Apache 2.0
