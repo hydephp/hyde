@@ -28,7 +28,7 @@ module.exports = {
                         blockquote: {
                             backgroundColor: '#80808020',
                             borderLeftColor: '#d1d5db',
-                            color: '#1f2937',
+                            color: 'unset',
                             fontWeight: 500,
                             fontStyle: 'unset',
                             lineHeight: '1.25em',
