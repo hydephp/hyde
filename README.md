@@ -21,8 +21,13 @@ Write a lot of code examples? Hyde automatically enables [Torchlight.dev](https:
 
 See the documentation and learn more at https://hydephp.github.io/docs/
 
-## Live Demo
+## Live Demo & Videos
+### The Hyde Website
 The Hyde site (https://hydephp.github.io/) is fully built with Hyde. That includes the homepage, the blog, and the documentation.
+
+### Demo video showcasing how to scaffold a blog post and compile it to static HTML
+[<img src="https://user-images.githubusercontent.com/95144705/163691183-bbf7c005-787c-4257-a7bc-5a413c5e6ee3.png" title="Watch on YouTube" alt="YouTube Thumbnail" width="600px"></img>](https://www.youtube.com/watch?v=gjpE1U527h8)
+
 
 ## Getting Started - High-level overview
 > See [Installation Guide](https://hydephp.github.io/docs/master/installation.html) and [Getting Started](https://hydephp.github.io/docs/master/getting-started.html) for the full details.
