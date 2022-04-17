@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "787ae0af556131347b6a78a32384ed5a",
+    "content-hash": "e65594a46c2e769c9eea85a93663748d",
     "packages": [
         {
             "name": "brick/math",
@@ -875,16 +875,16 @@
         },
         {
             "name": "hyde/framework",
-            "version": "v0.10.0-beta",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hydephp/framework.git",
-                "reference": "19913a91d13af2b3ea7189e97561de9ac1b4f1f6"
+                "reference": "f852a7c77f3db522467b434163467f9d21da6720"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hydephp/framework/zipball/19913a91d13af2b3ea7189e97561de9ac1b4f1f6",
-                "reference": "19913a91d13af2b3ea7189e97561de9ac1b4f1f6",
+                "url": "https://api.github.com/repos/hydephp/framework/zipball/f852a7c77f3db522467b434163467f9d21da6720",
+                "reference": "f852a7c77f3db522467b434163467f9d21da6720",
                 "shasum": ""
             },
             "require": {
@@ -902,6 +902,7 @@
             "suggest": {
                 "hyde/hyde": "The Framework package contains the Hyde Core. To create your site you should use the Hyde/Hyde project."
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -921,9 +922,9 @@
             "description": "The HydePHP Framework",
             "support": {
                 "issues": "https://github.com/hydephp/framework/issues",
-                "source": "https://github.com/hydephp/framework/tree/v0.10.0-beta"
+                "source": "https://github.com/hydephp/framework/tree/master"
             },
-            "time": "2022-04-12T19:35:51+00:00"
+            "time": "2022-04-12T21:10:10+00:00"
         },
         {
             "name": "illuminate/bus",
@@ -2457,16 +2458,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.0.16",
+            "version": "3.0.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "dea729954c596bdb6cdaecba6f73df9f3e2c4255"
+                "reference": "29eb78cac0be0c22237c5e0f6f98234d97037d79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/dea729954c596bdb6cdaecba6f73df9f3e2c4255",
-                "reference": "dea729954c596bdb6cdaecba6f73df9f3e2c4255",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/29eb78cac0be0c22237c5e0f6f98234d97037d79",
+                "reference": "29eb78cac0be0c22237c5e0f6f98234d97037d79",
                 "shasum": ""
             },
             "require": {
@@ -2527,7 +2528,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.0.16"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.0.17"
             },
             "funding": [
                 {
@@ -2543,7 +2544,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-11T13:32:22+00:00"
+            "time": "2022-04-14T14:57:13+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -6310,6 +6311,46 @@
             "time": "2020-07-09T08:09:16+00:00"
         },
         {
+            "name": "hyde/realtime-compiler",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hydephp/realtime-compiler.git",
+                "reference": "3c49ba88ea9ae9937baf13ae96a6dfce2b73b285"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hydephp/realtime-compiler/zipball/3c49ba88ea9ae9937baf13ae96a6dfce2b73b285",
+                "reference": "3c49ba88ea9ae9937baf13ae96a6dfce2b73b285",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "bin": [
+                "server.php"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Hyde\\RealtimeCompiler\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caen De Silva",
+                    "email": "caen@desilva.se"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/hydephp/realtime-compiler/issues",
+                "source": "https://github.com/hydephp/realtime-compiler/tree/master"
+            },
+            "time": "2022-04-16T20:37:33+00:00"
+        },
+        {
             "name": "mockery/mockery",
             "version": "1.5.0",
             "source": {
@@ -8457,7 +8498,10 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "hyde/framework": 20,
+        "hyde/realtime-compiler": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
