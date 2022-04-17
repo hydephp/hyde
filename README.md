@@ -31,13 +31,14 @@ Just write your content in Markdown, and Hyde will automatically generate the si
 
 For example, storing a file in the `_posts` directory will render the Markdown HTML in a Blog Post template with strong support for Front Matter. Files in the `_docs` directory use the Documentation Page layout with an automatic sidebar. Markdown files in the `_pages` directory are rendered into a simple blank page putting the focus on your content. When using Blade pages you can choose which layout to use, or create your own!
 
-### No messing with routes, links, etc.
+### Worry-free development, freeing you from sweating the small stuff
+With Hyde's auto-discovery and automatic content generation, there is no messing with routes, links, etc.
 
 Hyde automatically creates and populates navigation menus and documentation sidebars.
-
-All internal links use relative links that automatically get the appropriate level of `../`'s depending on the file path.
-
 For example, if you create a Markdown file as `_pages/about-us.md`, an 'About Us' link will be added to the navigation menu automatically.
+Furthermore, internal links use relative links that automatically get the appropriate level of `../`'s depending on the file path.
+
+Want to customize the generated menus? You can do that to. Overwrite, reorder, remove, and add external links as you see fit using the config.
 
 ### You're not limited to just Markdown
 There may be times when you need more control than Markdown can offer. In this case, you can create pages using Laravel Blade. You can extend the default layout to take advantage of the built-in styles and components as well as the dynamic PHP templating, or if you prefer, stick with vanilla HTML. Hyde will compile it to a static page. And of course, you can mix and match between Markdown and Blade as you wish.
@@ -50,7 +51,7 @@ The Hyde site (https://hydephp.github.io/) is fully built with Hyde. That includ
 [<img src="https://user-images.githubusercontent.com/95144705/163714609-8d636acd-3538-47e9-a6f3-1923b375338b.png" title="Watch on YouTube" alt="YouTube Thumbnail" width="40%"></img>](https://www.youtube.com/watch?v=gjpE1U527h8)
 
 ### Screenshots
-All screenshots are from the built in Hyde theme to show what you can do with just Markdown.
+All screenshots are from the built-in Hyde theme to show what you can do with just Markdown.
 
 <img style="display: inline" width="40%" src="https://user-images.githubusercontent.com/95144705/163714313-87eea86c-ac9c-44e8-89fd-5e4d4f6deeef.png"></img>
 <img style="display: inline" width="40%" src="https://user-images.githubusercontent.com/95144705/163714306-80ce295c-a510-4682-beb2-3b527072adb5.png"></img>
