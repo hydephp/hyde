@@ -49,6 +49,13 @@ The Hyde site (https://hydephp.github.io/) is fully built with Hyde. That includ
 ### Demo video showcasing how to scaffold a blog post and compile it to static HTML
 [<img src="https://user-images.githubusercontent.com/95144705/163691183-bbf7c005-787c-4257-a7bc-5a413c5e6ee3.png" title="Watch on YouTube" alt="YouTube Thumbnail" width="600px"></img>](https://www.youtube.com/watch?v=gjpE1U527h8)
 
+### Screenshots
+All screenshots are from the built in Hyde theme to show what you can do with just Markdown.
+
+<img style="display: inline" width="40%" src="https://user-images.githubusercontent.com/95144705/163714313-87eea86c-ac9c-44e8-89fd-5e4d4f6deeef.png"></img>
+<img style="display: inline" width="40%" src="https://user-images.githubusercontent.com/95144705/163714306-80ce295c-a510-4682-beb2-3b527072adb5.png"></img>
+<img style="display: inline" width="40%" src="https://user-images.githubusercontent.com/95144705/163714315-a320f663-11b2-4675-b437-443ec27de62c.png"></img>
+<img style="display: inline" width="40%" src="https://user-images.githubusercontent.com/95144705/163714352-fb28adf7-46b8-4fc0-bc56-eee4ea114b01.png"></img>
 
 ## Getting Started - High-level overview
 > See [Installation Guide](https://hydephp.github.io/docs/master/installation.html) and [Getting Started](https://hydephp.github.io/docs/master/getting-started.html) for the full details.
