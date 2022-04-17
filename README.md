@@ -27,7 +27,9 @@ See the documentation and learn more at https://hydephp.github.io/docs/
 
 Hyde comes preinstalled with a responsive TailwindCSS starter kit for static pages, blogs, and documentation sites alike. It has dark mode support, is mobile-friendly, and is accessible to screen readers.
 
-Just write your content in Markdown, and Hyde will automatically generate the site from it.
+Just write your content in Markdown, and Hyde will automatically generate the site from it. Depending on what folder you stored the Markdown file in, Hyde will choose the appropriate layout from one of the many built-in templates.
+
+For example, storing a file in the `_posts` directory will render the Markdown HTML in a Blog Post template with strong support for Front Matter. Files in the `_docs` directory use the Documentation Page layout with an automatic sidebar. Markdown files in the `_pages` directory are rendered into a simple blank page putting the focus on your content. When using Blade pages you can choose which layout to use, or create your own!
 
 ### No messing with routes, links, etc.
 
