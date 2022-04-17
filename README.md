@@ -47,7 +47,7 @@ There may be times when you need more control than Markdown can offer. In this c
 The Hyde site (https://hydephp.github.io/) is fully built with Hyde. That includes the homepage, the blog, and the documentation.
 
 ### Demo video showcasing how to scaffold a blog post and compile it to static HTML
-[<img src="https://user-images.githubusercontent.com/95144705/163691183-bbf7c005-787c-4257-a7bc-5a413c5e6ee3.png" title="Watch on YouTube" alt="YouTube Thumbnail" width="600px"></img>](https://www.youtube.com/watch?v=gjpE1U527h8)
+[<img src="https://user-images.githubusercontent.com/95144705/163714609-8d636acd-3538-47e9-a6f3-1923b375338b.png" title="Watch on YouTube" alt="YouTube Thumbnail" width="40%"></img>](https://www.youtube.com/watch?v=gjpE1U527h8)
 
 ### Screenshots
 All screenshots are from the built in Hyde theme to show what you can do with just Markdown.
