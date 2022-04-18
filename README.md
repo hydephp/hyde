@@ -11,52 +11,46 @@
 
 ## Make static websites, blogs, and documentation pages with the tools you already know and love.
 
-HydePHP is a content-first Laravel-powered Static Site Builder that allows you to create static HTML pages, blog posts, and documentation sites using Markdown, optionally with YAML Front Matter.
+HydePHP is a content-first Laravel-powered Static Site Builder that allows you to create static HTML pages, blog posts, and documentation sites using Markdown.
+Hyde is all about letting you get started quickly while giving you the power and freedom of doing things the way you want to.
 
-Need more control? You can also use Laravel Blade to get the full power of dynamic templating and absolute control over HTML.
-
-Hyde is modular, configurable, and hackable - allowing you to customize everything - but only if you want to. Hyde follows convention over configuration, allowing you to get an awesome blog or a smooth documentation site up and running in mere minutes. All the TailwindCSS and Blade templates you need for your site are already configured.
-
-Write a lot of code examples? Hyde automatically enables [Torchlight.dev](https://torchlight.dev/) highlighting for you when you add an API token in the `.env` file.
+Markdown purist? That's all you need. Blade artisan? Go for it.
+Hyde comes with hand-crafted frontend templates so you can focus on your content.
+You don't _need_ to customize anything. But you _can_ customize everything.
 
 See the documentation and learn more at https://hydephp.github.io/docs/
 
 ## Features
 
-### Create content faster than ever
+### Content Creation
+- Create blog posts using Markdown and Front Matter.
+- Create documentation pages from plain Markdown, no front matter needed!
+- Create simple pages using Markdown, or create advanced ones using Laravel Blade.
+- You can scaffold blog posts and Markdown pages to automatically fill in the front matter.
+- You can also scaffold Blade pages to automatically use the default layout.
 
-Hyde comes preinstalled with a responsive TailwindCSS starter kit for static pages, blogs, and documentation sites alike. It has dark mode support, is mobile-friendly, and is accessible to screen readers.
+### Built-in Frontend
+- Hyde comes with a TailwindCSS starter kit so you can start making content right away.
+- The starter kit is fully responsive, has a dark mode theme, and is customizable.
+- The frontend is accessible to screenreaders and rich with semantic HTML and microdata. 
+- Hyde automatically chooses the right layout to use depending on the content being rendered.
+- Hyde also fills in and creates content like navigation menus and sidebars automatically.
 
-Just write your content in Markdown, and Hyde will automatically generate the site from it. Depending on what folder you stored the Markdown file in, Hyde will choose the appropriate layout from one of the many built-in templates.
+### Customization
+- You don't need to configure anything as Hyde is shipped with sensible defaults.
+- You can, however, customize nearly everything. Here are some examples:
+- All frontend components and page layouts are created with Blade so you 
+  can publish the vendor views, just like in Laravel.
+- Override many of the dynamic content features like the menus and footer.
 
-For example, storing a file in the `_posts` directory will render the Markdown HTML in a Blog Post template with strong support for Front Matter. Files in the `_docs` directory use the Documentation Page layout with an automatic sidebar. Markdown files in the `_pages` directory are rendered into a simple blank page putting the focus on your content. When using Blade pages you can choose which layout to use, or create your own!
-
-### Worry-free development, freeing you from sweating the small stuff
-With Hyde's auto-discovery and automatic content generation, there is no messing with routes, links, etc.
-
-Hyde automatically creates and populates navigation menus and documentation sidebars.
-For example, if you create a Markdown file as `_pages/about-us.md`, an 'About Us' link will be added to the navigation menu automatically.
-Furthermore, internal links use relative links that automatically get the appropriate level of `../`'s depending on the file path.
-
-Want to customize the generated menus? You can do that to. Overwrite, reorder, remove, and add external links as you see fit using the config.
-
-### You're not limited to just Markdown
-There may be times when you need more control than Markdown can offer. In this case, you can create pages using Laravel Blade. You can extend the default layout to take advantage of the built-in styles and components as well as the dynamic PHP templating, or if you prefer, stick with vanilla HTML. Hyde will compile it to a static page. And of course, you can mix and match between Markdown and Blade as you wish.
 
 ## Live Demo & Media
 ### The Hyde Website
 The Hyde site (https://hydephp.github.io/) is fully built with Hyde. That includes the homepage, the blog, and the documentation.
+You can also take a look at the [Gallery page](https://hydephp.github.io/gallery). It is created using the Blade page module in Hyde and contains interactive graphics showcasing Hyde.
 
 ### Demo video showcasing how to scaffold a blog post and compile it to static HTML
 [<img src="https://user-images.githubusercontent.com/95144705/163714609-8d636acd-3538-47e9-a6f3-1923b375338b.png" title="Watch on YouTube" alt="YouTube Thumbnail" width="40%"></img>](https://www.youtube.com/watch?v=gjpE1U527h8)
-
-### Screenshots
-All screenshots are from the built-in Hyde theme to show what you can do with just Markdown.
-
-<img style="display: inline" width="40%" src="https://user-images.githubusercontent.com/95144705/163714313-87eea86c-ac9c-44e8-89fd-5e4d4f6deeef.png"></img>
-<img style="display: inline" width="40%" src="https://user-images.githubusercontent.com/95144705/163714306-80ce295c-a510-4682-beb2-3b527072adb5.png"></img>
-<img style="display: inline" width="40%" src="https://user-images.githubusercontent.com/95144705/163714315-a320f663-11b2-4675-b437-443ec27de62c.png"></img>
-<img style="display: inline" width="40%" src="https://user-images.githubusercontent.com/95144705/163714352-fb28adf7-46b8-4fc0-bc56-eee4ea114b01.png"></img>
 
 ## Getting Started - High-level overview
 > See [Installation Guide](https://hydephp.github.io/docs/master/installation.html) and [Getting Started](https://hydephp.github.io/docs/master/getting-started.html) for the full details.
@@ -67,12 +61,11 @@ It's a breeze to get started with Hyde. Create a new Hyde project using Composer
 composer create-project hyde/hyde
 ```
 
-Next, place Markdown or Blade files in the content directories: `_posts`, `_docs`, and `_pages`. You can even use full Blade views in the `_pages` directory.
+Next, place Markdown or Blade files in the content directories, or use the `hyde:make` command to scaffold them.
+The content files are stored in the following directories: `_posts`, `_docs`, and `_pages`. The first two only support Markdown, however, `_pages` accept both Markdown and Blade.
+The directory you place your file in will determine what Blade template to render the content into, as well as the filepath for the compiled file.
 
-You can scaffold files using the `hyde make` command.
-```bash
-php hyde make:page|post
-```
+> For example, a file stored as `_posts/hello-world.md` will be compiled into the `post.blade.php` layout and saved as `_site/posts/hello-world.html`.
 
 Next, run the build command to compile your static site:
 ```bash
