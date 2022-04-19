@@ -61,7 +61,7 @@ class AuthorPostsIntegrationTest extends TestCase
 
         // Check that the author is rendered as is in the DOM
         $this->assertStringContainsString(
-            '<span itemprop="name" aria-label="The author\'s name" >test_undefined_author</span>',
+            '>test_undefined_author</span>',
             file_get_contents(Hyde::path('_site/posts/test-2dcbb2c-post-with-undefined-author.html'))
         );
 
