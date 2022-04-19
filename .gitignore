@@ -8,3 +8,4 @@
 .phpunit.result.cache
 
 .env
+extensions/realtime-compiler/
