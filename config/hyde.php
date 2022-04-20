@@ -182,7 +182,7 @@ return [
     */
 
     'docsDirectory' => 'docs',
-    
+
     /*
     |--------------------------------------------------------------------------
     | Documentation Sidebar Page Order
@@ -218,5 +218,5 @@ return [
         'minHeadingLevel' => 2,
         'maxHeadingLevel' => 4,
         'smoothPageScrolling' => true,
-    ]
+    ],
 ];
