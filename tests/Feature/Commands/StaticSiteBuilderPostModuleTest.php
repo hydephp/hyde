@@ -66,7 +66,7 @@ class StaticSiteBuilderPostModuleTest extends TestCase
             'Saturday Nov 18th, 1865, at 6:52pm',
             'Lewis Carroll',
             'in the category "novels"',
-            '<h2><a id="chapter-i-down-the-rabbit-hole" href="#chapter-i-down-the-rabbit-hole" class="heading-permalink" aria-hidden="true" title="Permalink"></a>CHAPTER I. DOWN THE RABBIT-HOLE.</h2>',
+            '<h2>CHAPTER I. DOWN THE RABBIT-HOLE.</h2>',
             '<p>So she was considering in her own mind, as well as she could',
         ]);
     }
