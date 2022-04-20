@@ -9,6 +9,7 @@ use Tests\TestCase;
  * Class HasTableOfContentsTest.
  *
  * @covers \Hyde\Framework\Models\HasTableOfContents
+ *
  * @see Tests\Feature\Actions\GeneratesTableOfContentsTest
  */
 class HasTableOfContentsTest extends TestCase
@@ -22,11 +23,11 @@ class HasTableOfContentsTest extends TestCase
         $this->assertClassHasAttribute('tableOfContents', static::class);
     }
 
-	public function testConstructorCreatesTableOfContentsString()
-	{
+    public function testConstructorCreatesTableOfContentsString()
+    {
         $this->body = '## Title';
         $this->constructTableOfContents();
-		$this->assertIsString($this->tableOfContents);
+        $this->assertIsString($this->tableOfContents);
         $this->assertEquals('<ul class="table-of-contents"><li><a href="#title">Title</a></li></ul>', str_replace("\n", '', $this->tableOfContents));
-	}
+    }
 }
