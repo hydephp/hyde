@@ -7,7 +7,8 @@ use Tests\TestCase;
 
 /**
  * Class MarkdownConverterTest.
- *
+ * @todo Run without the heading permalink extension ones the extensions are customizable.
+ * 
  * @covers \Hyde\Framework\Actions\MarkdownConverter
  */
 class MarkdownConverterTest extends TestCase
@@ -19,6 +20,6 @@ class MarkdownConverterTest extends TestCase
         $html = MarkdownConverter::parse($markdown);
 
         $this->assertIsString($html);
-        $this->assertEquals("<h1>Hello World!</h1>\n", $html);
+        $this->assertEquals("<h1><a id=\"hello-world\" href=\"#hello-world\" class=\"heading-permalink\" aria-hidden=\"true\" title=\"Permalink\"></a>Hello World!</h1>\n", $html);
     }
 }

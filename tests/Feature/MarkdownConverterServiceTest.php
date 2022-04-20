@@ -5,6 +5,9 @@ namespace Tests\Feature;
 use Hyde\Framework\Services\MarkdownConverterService;
 use Tests\TestCase;
 
+/**
+ * @todo Run without the heading permalink extension ones the extensions are customizable.
+ */
 class MarkdownConverterServiceTest extends TestCase
 {
     public function test_service_can_parse_markdown_to_html()
@@ -14,7 +17,7 @@ class MarkdownConverterServiceTest extends TestCase
         $html = (new MarkdownConverterService($markdown))->parse();
 
         $this->assertIsString($html);
-        $this->assertEquals("<h1>Hello World!</h1>\n", $html);
+        $this->assertEquals("<h1><a id=\"hello-world\" href=\"#hello-world\" class=\"heading-permalink\" aria-hidden=\"true\" title=\"Permalink\"></a>Hello World!</h1>\n", $html);
     }
 
     public function test_torchlight_integration_injects_attribution()
