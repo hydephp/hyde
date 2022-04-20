@@ -11,6 +11,7 @@ use Tests\TestCase;
  * Test the post compiler module.
  *
  * @todo Run without the heading permalink extension ones the extensions are customizable.
+ *
  * @see Tests\Unit\MarkdownPostParserTest for the Markdown parser test.
  */
 class StaticSiteBuilderPostModuleTest extends TestCase
