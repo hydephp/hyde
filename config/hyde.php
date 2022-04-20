@@ -167,6 +167,24 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Documentation Site Output Directory
+    |--------------------------------------------------------------------------
+    |
+    | If you want to store the compiled documentation pages in a different
+    | directory than the default 'docs' directory, for example to set the
+    | specified version, you can specify the directory here.
+    |
+    | Note that you need to take care as to not set it to something that
+    | may conflict with other parts, such as media or posts directories.
+    |
+    | The default value is 'docs'.
+    |
+    */
+
+    'docsDirectory' => 'docs',
+    
+    /*
+    |--------------------------------------------------------------------------
     | Documentation Sidebar Page Order
     |--------------------------------------------------------------------------
     |
@@ -186,20 +204,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Documentation Site Output Directory
+    | Documentation Table of Contents Settings
     |--------------------------------------------------------------------------
     |
-    | If you want to store the compiled documentation pages in a different
-    | directory than the default 'docs' directory, for example to set the
-    | specified version, you can specify the directory here.
-    |
-    | Note that you need to take care as to not set it to something that
-    | may conflict with other parts, such as media or posts directories.
-    |
-    | The default value is 'docs'.
+    | The Hyde Documentation Module comes with a fancy Sidebar that, by default,
+    | has a Table of Contents included. Here, you can configure its behavior,
+    | content, look and feel. You can also disable the feature completely.
     |
     */
 
-    'docsDirectory' => 'docs',
-
+    'documentationPageTableOfContents' => [
+        'enabled' => true,
+        'minHeadingLevel' => 2,
+        'maxHeadingLevel' => 4,
+        'smoothPageScrolling' => true,
+    ]
 ];
