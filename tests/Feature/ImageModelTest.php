@@ -15,7 +15,7 @@ class ImageModelTest extends TestCase
         $image = new Image();
         $this->assertInstanceOf(Image::class, $image);
     }
-    
+
     public function test_array_data_can_be_used_to_initialize_properties_in_constructor()
     {
         $data = [
@@ -71,7 +71,6 @@ class ImageModelTest extends TestCase
         $this->assertStringContainsString('<span itemprop="name">John Doe</span>', $string);
         $this->assertStringContainsString('<a href="https://example.com/"', $string);
 
-
         // Test with author set
         $image = new Image(['author' => 'John Doe']);
         $string = $image->getImageAuthorAttributionString();
@@ -84,37 +83,37 @@ class ImageModelTest extends TestCase
         $this->assertNull($image->getImageAuthorAttributionString());
     }
 
-	public function test_get_copyright_string()
-	{
+    public function test_get_copyright_string()
+    {
         $image = new Image(['copyright' => 'foo']);
-		$this->assertEquals('<span itemprop="copyrightNotice">foo</span>', $image->getCopyrightString());
+        $this->assertEquals('<span itemprop="copyrightNotice">foo</span>', $image->getCopyrightString());
 
-		$image = new Image();
-		$this->assertNull($image->getCopyrightString());
-	}
+        $image = new Image();
+        $this->assertNull($image->getCopyrightString());
+    }
 
-	public function test_get_license_string()
-	{
+    public function test_get_license_string()
+    {
         // Test with license and url set
-		$image = new Image([
-			'license' => 'foo',
-			'licenseUrl' => 'https://example.com/bar.html',
-		]);
-		$this->assertEquals('<a href="https://example.com/bar.html" rel="license nofollow noopener" '.
-				'itemprop="license">foo</a>', $image->getLicenseString());
+        $image = new Image([
+            'license' => 'foo',
+            'licenseUrl' => 'https://example.com/bar.html',
+        ]);
+        $this->assertEquals('<a href="https://example.com/bar.html" rel="license nofollow noopener" '.
+                'itemprop="license">foo</a>', $image->getLicenseString());
 
-		// Test with license set
-		$image = new Image(['license' => 'foo']);
-		$this->assertEquals('<span itemprop="license">foo</span>', $image->getLicenseString());
-	
-		// Test with url set
-		$image = new Image(['licenseUrl' => 'https://example.com/bar.html']);
-		$this->assertNull($image->getLicenseString());
+        // Test with license set
+        $image = new Image(['license' => 'foo']);
+        $this->assertEquals('<span itemprop="license">foo</span>', $image->getLicenseString());
 
-		// Test with nothing set
-		$image = new Image();
-		$this->assertNull($image->getLicenseString());
-	}
+        // Test with url set
+        $image = new Image(['licenseUrl' => 'https://example.com/bar.html']);
+        $this->assertNull($image->getLicenseString());
+
+        // Test with nothing set
+        $image = new Image();
+        $this->assertNull($image->getLicenseString());
+    }
 
     public function test_get_fluent_attribution_method()
     {
@@ -131,27 +130,26 @@ class ImageModelTest extends TestCase
         $this->assertStringContainsString('<span itemprop="copyrightNotice">foo</span>', $string);
 
         // Test it contains the License string
-		$image = new Image(['license' => 'foo']);
+        $image = new Image(['license' => 'foo']);
 
-		$string = $image->getFluentAttribution();
-		$this->assertStringContainsString('License <span itemprop="license">foo</span>', $string);
+        $string = $image->getFluentAttribution();
+        $this->assertStringContainsString('License <span itemprop="license">foo</span>', $string);
 
         // Test with nothing set
-		$image = new Image();
-		$this->assertEquals('', $image->getFluentAttribution());
+        $image = new Image();
+        $this->assertEquals('', $image->getFluentAttribution());
     }
 
-	public function test_get_metadata_array()
-	{
-		$image = new Image([
-			'description' => 'foo',
-			'title' => 'bar',
-		]);
+    public function test_get_metadata_array()
+    {
+        $image = new Image([
+            'description' => 'foo',
+            'title' => 'bar',
+        ]);
 
-		$this->assertEquals([
-			'text' => 'foo',
-			'name' => 'bar',
-		], $image->getMetadataArray());
-	}
-    
+        $this->assertEquals([
+            'text' => 'foo',
+            'name' => 'bar',
+        ], $image->getMetadataArray());
+    }
 }
