@@ -42,11 +42,6 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
-{
-    // ..
-}
-
 function backup(string $filepath)
 {
     if (file_exists($filepath)) {
@@ -91,7 +86,7 @@ function deleteDirectory(string $directory)
     }
 }
 
-function createTestPost(?string $path = null)
+function createTestPost(?string $path = null): string
 {
     $path = Hyde::path($path ?? '_posts/test-post.md');
     file_put_contents($path, '---
