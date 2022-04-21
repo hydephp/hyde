@@ -1,4 +1,4 @@
-name: Test Coverage
+name: Test With Coverage
 
 on:
   push:
@@ -27,6 +27,12 @@ jobs:
       run: vendor/bin/pest --coverage-text=report.txt
       env: 
         ENV: testing
+
+    - name: Upload the report as an artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: 'report.txt'
+        path: 'report.txt'
    
     - name: Download Coverage Parser
       run: 'wget https://gist.githubusercontent.com/caendesilva/75a5ff8dd4e23921b75f503149655924/raw/456bd4bae423eda2a3ff2ba2ce8f8246f366d46f/parser.php'
