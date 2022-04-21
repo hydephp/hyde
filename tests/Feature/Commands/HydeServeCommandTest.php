@@ -6,7 +6,7 @@ use Hyde\Framework\Hyde;
 use Tests\TestCase;
 
 /**
- * @covers \Hyde\Framework\HydeServeCommand
+ * @covers \Hyde\Framework\Commands\HydeServeCommand
  */
 class HydeServeCommandTest extends TestCase
 {
