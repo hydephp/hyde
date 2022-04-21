@@ -19,12 +19,12 @@ class HydeGetLatestPostsHelperTest extends TestCase
 
     public function test_get_latest_posts_helper_returns_collection_with_posts()
     {
-        file_put_contents(MarkdownPost::$sourceDirectory . '/foo.md', '');
+        file_put_contents(MarkdownPost::$sourceDirectory.'/foo.md', '');
 
         $collection = Hyde::getLatestPosts();
         $this->assertTrue($collection->isNotEmpty());
         $this->assertInstanceOf(MarkdownPost::class, $collection->first());
 
-        unlink(MarkdownPost::$sourceDirectory . '/foo.md');
+        unlink(MarkdownPost::$sourceDirectory.'/foo.md');
     }
 }

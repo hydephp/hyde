@@ -18,15 +18,15 @@ class HasFeaturedImageTest extends TestCase
     protected array $matter;
 
     // Test it can create a new Image instance from a string
-	public function test_it_can_create_a_new_image_instance_from_a_string()
-	{
-		$this->matter = [
-			'image' => 'https://example.com/image.jpg',
-		];
+    public function test_it_can_create_a_new_image_instance_from_a_string()
+    {
+        $this->matter = [
+            'image' => 'https://example.com/image.jpg',
+        ];
 
-		$this->constructFeaturedImage();
-		$this->assertInstanceOf(Image::class, $this->image);
-		$this->assertEquals('https://example.com/image.jpg', $this->image->uri);
+        $this->constructFeaturedImage();
+        $this->assertInstanceOf(Image::class, $this->image);
+        $this->assertEquals('https://example.com/image.jpg', $this->image->uri);
     }
 
     // Test it can create a new Image instance from an array
@@ -56,7 +56,7 @@ class HasFeaturedImageTest extends TestCase
         $image = $this->constructBaseImage('/path/to/image.jpg');
         $this->assertEquals('/path/to/image.jpg', $image->getSource());
     }
-    
+
     // Test constructBaseImage() returns an Image instance created from a string
     public function test_construct_base_image_returns_an_image_instance_created_from_a_string()
     {
@@ -68,5 +68,4 @@ class HasFeaturedImageTest extends TestCase
     {
         $this->assertInstanceOf(Image::class, $this->constructFullImage([]));
     }
-
 }
