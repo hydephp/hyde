@@ -13,28 +13,28 @@ class PublishesDefaultFrontendResourceFilesTest extends TestCase
     {
         parent::setUp();
 
-        backupDirectory(Hyde::path('resources/frontend'));
-        deleteDirectory(Hyde::path('resources/frontend'));
+        backupDirectory(Hyde::path('resources/assets'));
+        deleteDirectory(Hyde::path('resources/assets'));
     }
 
     /** @test */
     public function test_default_files_are_published()
     {
-        $this->assertDirectoryDoesNotExist(Hyde::path('resources/frontend'));
+        $this->assertDirectoryDoesNotExist(Hyde::path('resources/assets'));
 
         (new PublishesDefaultFrontendResourceFiles)->__invoke();
 
-        $this->assertDirectoryExists(Hyde::path('resources/frontend'));
+        $this->assertDirectoryExists(Hyde::path('resources/assets'));
 
-        $this->assertFileExists(Hyde::path('resources/frontend/app.css'));
-        $this->assertFileExists(Hyde::path('resources/frontend/hyde.css'));
-        $this->assertFileExists(Hyde::path('resources/frontend/hyde.js'));
+        $this->assertFileExists(Hyde::path('resources/assets/app.css'));
+        $this->assertFileExists(Hyde::path('resources/assets/hyde.css'));
+        $this->assertFileExists(Hyde::path('resources/assets/hyde.js'));
     }
 
     /** Teardown */
     public function tearDown(): void
     {
-        restoreDirectory(Hyde::path('resources/frontend'));
+        restoreDirectory(Hyde::path('resources/assets'));
 
         parent::tearDown();
     }
