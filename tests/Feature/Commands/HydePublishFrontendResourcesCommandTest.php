@@ -12,8 +12,8 @@ class HydePublishFrontendResourcesCommandTest extends TestCase
     {
         parent::setUp();
 
-        backupDirectory(Hyde::path('resources/frontend'));
-        deleteDirectory(Hyde::path('resources/frontend'));
+        backupDirectory(Hyde::path('resources/assets'));
+        deleteDirectory(Hyde::path('resources/assets'));
     }
 
     /** @test */
@@ -42,13 +42,13 @@ class HydePublishFrontendResourcesCommandTest extends TestCase
             ->expectsOutput('Okay. Proceeding.')
             ->assertExitCode(0);
 
-        $this->assertDirectoryExists(Hyde::path('resources/frontend'));
+        $this->assertDirectoryExists(Hyde::path('resources/assets'));
     }
 
     /** Teardown */
     public function tearDown(): void
     {
-        restoreDirectory(Hyde::path('resources/frontend'));
+        restoreDirectory(Hyde::path('resources/assets'));
 
         parent::tearDown();
     }
