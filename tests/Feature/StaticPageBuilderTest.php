@@ -14,15 +14,8 @@ use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
 /**
- * @todo Implement the test.
- *
  * Feature tests for the StaticPageBuilder class.
- *
  * @covers \Hyde\Framework\StaticPageBuilder
- *
- * The compiled HTML content is tested in a separate unit test.
- *
- * @see \Tests\Unit\ViewCompilerTest
  */
 class StaticPageBuilderTest extends TestCase
 {
@@ -48,6 +41,19 @@ class StaticPageBuilderTest extends TestCase
         parent::tearDown();
     }
 
+    protected function validateBasicHtml(string $html)
+    {
+        $this->assertStringContainsString('<!DOCTYPE html>', $html);
+        $this->assertStringContainsString('<html lang="en">', $html);
+        $this->assertStringContainsString('<head>', $html);
+        $this->assertStringContainsString('<title>', $html);
+        $this->assertStringContainsString('</title>', $html);
+        $this->assertStringContainsString('</head>', $html);
+        $this->assertStringContainsString('<body>', $html);
+        $this->assertStringContainsString('</body>', $html);
+        $this->assertStringContainsString('</html>', $html);
+    }
+
     public function test_can_build_blade_page()
     {
         file_put_contents(BladePage::$sourceDirectory.'/foo.blade.php', 'bar');
@@ -57,6 +63,7 @@ class StaticPageBuilderTest extends TestCase
         new StaticPageBuilder($page, true);
 
         $this->assertFileExists(Hyde::path('_site/foo.html'));
+        $this->assertStringEqualsFile(Hyde::path('_site/foo.html'), 'bar');
 
         unlink(BladePage::$sourceDirectory.'/foo.blade.php');
     }
@@ -71,6 +78,7 @@ class StaticPageBuilderTest extends TestCase
         new StaticPageBuilder($page, true);
 
         $this->assertFileExists(Hyde::path('_site/posts/foo.html'));
+        $this->validateBasicHtml(file_get_contents(Hyde::path('_site/posts/foo.html')));
     }
 
     public function test_can_build_markdown_page()
@@ -80,6 +88,7 @@ class StaticPageBuilderTest extends TestCase
         new StaticPageBuilder($page, true);
 
         $this->assertFileExists(Hyde::path('_site/foo.html'));
+        $this->validateBasicHtml(file_get_contents(Hyde::path('_site/foo.html')));
     }
 
     public function test_can_build_documentation_page()
@@ -89,6 +98,7 @@ class StaticPageBuilderTest extends TestCase
         new StaticPageBuilder($page, true);
 
         $this->assertFileExists(Hyde::path('_site/'.Hyde::docsDirectory().'/foo.html'));
+        $this->validateBasicHtml(file_get_contents(Hyde::path('_site/'.Hyde::docsDirectory().'/foo.html')));
     }
 
     public function test_creates_custom_documentation_directory()
@@ -100,5 +110,6 @@ class StaticPageBuilderTest extends TestCase
         new StaticPageBuilder($page, true);
 
         $this->assertFileExists(Hyde::path('_site/docs/foo/foo.html'));
+        $this->validateBasicHtml(file_get_contents(Hyde::path('_site/docs/foo/foo.html')));
     }
 }
