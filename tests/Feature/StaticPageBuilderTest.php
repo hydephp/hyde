@@ -15,6 +15,7 @@ use Tests\TestCase;
 
 /**
  * Feature tests for the StaticPageBuilder class.
+ *
  * @covers \Hyde\Framework\StaticPageBuilder
  */
 class StaticPageBuilderTest extends TestCase
