@@ -21,6 +21,7 @@ use Tests\TestCase;
  * @covers \Hyde\Framework\StaticPageBuilder
  *
  * The compiled HTML content is tested in a separate unit test.
+ *
  * @see \Tests\Unit\ViewCompilerTest
  */
 class StaticPageBuilderTest extends TestCase
@@ -34,7 +35,7 @@ class StaticPageBuilderTest extends TestCase
 
         // Clean the site directory
         File::deleteDirectory(Hyde::path('_site'));
-    
+
         // Recreate the default directories
         (new CreatesDefaultDirectories)->__invoke();
     }
@@ -49,7 +50,7 @@ class StaticPageBuilderTest extends TestCase
 
     public function test_can_build_blade_page()
     {
-        file_put_contents(BladePage::$sourceDirectory . '/foo.blade.php', 'bar');
+        file_put_contents(BladePage::$sourceDirectory.'/foo.blade.php', 'bar');
 
         $page = new BladePage('foo');
 
@@ -57,9 +58,8 @@ class StaticPageBuilderTest extends TestCase
 
         $this->assertFileExists(Hyde::path('_site/foo.html'));
 
-        unlink(BladePage::$sourceDirectory . '/foo.blade.php');
+        unlink(BladePage::$sourceDirectory.'/foo.blade.php');
     }
-
 
     public function test_can_build_markdown_post()
     {
@@ -67,7 +67,7 @@ class StaticPageBuilderTest extends TestCase
             'title' => 'foo',
             'author' => 'bar',
         ], '# Body', 'Title', 'foo');
-        
+
         new StaticPageBuilder($page, true);
 
         $this->assertFileExists(Hyde::path('_site/posts/foo.html'));
@@ -88,7 +88,7 @@ class StaticPageBuilderTest extends TestCase
 
         new StaticPageBuilder($page, true);
 
-        $this->assertFileExists(Hyde::path('_site/' . Hyde::docsDirectory() . '/foo.html'));
+        $this->assertFileExists(Hyde::path('_site/'.Hyde::docsDirectory().'/foo.html'));
     }
 
     public function test_creates_custom_documentation_directory()
