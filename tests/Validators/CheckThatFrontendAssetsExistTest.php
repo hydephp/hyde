@@ -2,7 +2,7 @@
 
 test('check that hyde.css exists', function () {
     if (! file_exists('_site/media/hyde.css')) {
-        $this->addWarning('Could not find the `Hyde.css` stylesheet in the build directory. You may need to run `php hyde update:resources`.');
+        $this->addWarning('Could not find the `Hyde.css` stylesheet in the build directory. You may need to run `php hyde update:assets`.');
     } else {
         $this->assertTrue(true);
     }
@@ -10,7 +10,7 @@ test('check that hyde.css exists', function () {
 
 test('check that hyde.js exists', function () {
     if (! file_exists('_site/media/hyde.js')) {
-        $this->addWarning('Could not find the `Hyde.js` stylesheet in the build directory. You may need to run `php hyde update:resources`.');
+        $this->addWarning('Could not find the `Hyde.js` stylesheet in the build directory. You may need to run `php hyde update:assets`.');
     } else {
         $this->assertTrue(true);
     }
