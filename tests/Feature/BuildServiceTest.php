@@ -23,6 +23,8 @@ class BuildServiceTest extends TestCase
         $this->assertEquals(MarkdownPost::class, BuildService::findModelFromFilePath('_posts/test.md'));
         $this->assertEquals(DocumentationPage::class, BuildService::findModelFromFilePath('_docs/test.md'));
         $this->assertEquals(BladePage::class, BuildService::findModelFromFilePath('_pages/test.blade.php'));
+
+        $this->assertFalse(BuildService::findModelFromFilePath('_foo/test.txt'));
     }
 
     public function test_get_parser_class_for_model()
