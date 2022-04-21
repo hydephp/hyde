@@ -1,4 +1,4 @@
-# HydePHP - Static App Builder powered by Laravel
+# HydePHP - Elegant and Powerful Static App Builder
 
 <p> 
     <a href="https://packagist.org/packages/hyde/framework"><img style="display: inline; margin: 4px 2px;" src="https://img.shields.io/packagist/v/hyde/framework?include_prereleases" alt="Latest Version on Packagist"></a> 
