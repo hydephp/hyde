@@ -2,12 +2,12 @@
 
 namespace Tests\Unit;
 
-use Hyde\Framework\Actions\ServiceActions\HasMarkdownFeatures;
+use Hyde\Framework\Concerns\Markdown\HasMarkdownFeatures;
 use Illuminate\Support\Facades\Config;
 use Tests\TestCase;
 
 /**
- * @covers \Hyde\Framework\Actions\ServiceActions\HasMarkdownFeatures
+ * @covers \Hyde\Framework\Concerns\Markdown\HasMarkdownFeatures
  */
 class HasMarkdownFeaturesTest extends TestCase
 {

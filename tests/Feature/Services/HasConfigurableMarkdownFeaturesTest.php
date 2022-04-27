@@ -2,13 +2,13 @@
 
 namespace Services;
 
-use Hyde\Framework\Actions\ServiceActions\HasConfigurableMarkdownFeatures;
+use Hyde\Framework\Concerns\Markdown\HasConfigurableMarkdownFeatures;
 use Hyde\Framework\Models\DocumentationPage;
 use Illuminate\Support\Facades\Config;
 use Tests\TestCase;
 
 /**
- * @covers \Hyde\Framework\Actions\ServiceActions\HasConfigurableMarkdownFeatures
+ * @covers \Hyde\Framework\Concerns\Markdown\HasConfigurableMarkdownFeatures
  */
 class HasConfigurableMarkdownFeaturesTest extends TestCase
 {
