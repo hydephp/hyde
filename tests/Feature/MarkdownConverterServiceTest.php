@@ -7,8 +7,6 @@ use Tests\TestCase;
 
 /**
  * @covers \Hyde\Framework\Services\MarkdownConverterService
- *
- * @todo Run without the heading permalink extension ones the extensions are customizable.
  */
 class MarkdownConverterServiceTest extends TestCase
 {
