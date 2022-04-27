@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Hyde\Framework\Models\Author;
 use Hyde\Framework\Concerns\HasAuthor;
+use Hyde\Framework\Models\Author;
 use Tests\TestCase;
 
 /**
