@@ -50,7 +50,7 @@ class StaticPageBuilderTest extends TestCase
         $this->assertStringContainsString('<title>', $html);
         $this->assertStringContainsString('</title>', $html);
         $this->assertStringContainsString('</head>', $html);
-        $this->assertStringContainsString('<body>', $html);
+        $this->assertStringContainsString('<body', $html);
         $this->assertStringContainsString('</body>', $html);
         $this->assertStringContainsString('</html>', $html);
     }
