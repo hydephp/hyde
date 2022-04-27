@@ -9,7 +9,7 @@ use Tests\TestCase;
 /**
  * Class HasFeaturedImageTest.
  *
- * @covers \Hyde\Framework\Models\HasFeaturedImage
+ * @covers \Hyde\Framework\Concerns\HasFeaturedImage
  */
 class HasFeaturedImageTest extends TestCase
 {

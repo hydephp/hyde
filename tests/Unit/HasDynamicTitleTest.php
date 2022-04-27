@@ -8,7 +8,7 @@ use Tests\TestCase;
 /**
  * Class HasDynamicTitleTest.
  *
- * @covers \Hyde\Framework\Models\HasDynamicTitle
+ * @covers \Hyde\Framework\Concerns\HasDynamicTitle
  */
 class HasDynamicTitleTest extends TestCase
 {

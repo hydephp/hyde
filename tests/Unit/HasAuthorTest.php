@@ -9,7 +9,7 @@ use Tests\TestCase;
 /**
  * Class HasAuthorTest.
  *
- * @covers \Hyde\Framework\Models\HasAuthor
+ * @covers \Hyde\Framework\Concerns\HasAuthor
  */
 class HasAuthorTest extends TestCase
 {

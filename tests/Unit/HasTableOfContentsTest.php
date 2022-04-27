@@ -8,7 +8,7 @@ use Tests\TestCase;
 /**
  * Class HasTableOfContentsTest.
  *
- * @covers \Hyde\Framework\Models\HasTableOfContents
+ * @covers \Hyde\Framework\Concerns\HasTableOfContents
  *
  * @see Tests\Feature\Actions\GeneratesTableOfContentsTest
  */
