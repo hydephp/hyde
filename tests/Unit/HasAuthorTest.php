@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Hyde\Framework\Models\Author;
-use Hyde\Framework\Models\HasAuthor;
+use Hyde\Framework\Concerns\HasAuthor;
 use Tests\TestCase;
 
 /**

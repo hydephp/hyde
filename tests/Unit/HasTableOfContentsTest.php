@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use Hyde\Framework\Models\HasTableOfContents;
+use Hyde\Framework\Concerns\HasTableOfContents;
 use Tests\TestCase;
 
 /**

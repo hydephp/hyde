@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use Hyde\Framework\Models\HasFeaturedImage;
+use Hyde\Framework\Concerns\HasFeaturedImage;
 use Hyde\Framework\Models\Image;
 use Tests\TestCase;
 
