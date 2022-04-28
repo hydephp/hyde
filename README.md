@@ -5,9 +5,10 @@
     <a href="https://packagist.org/packages/hyde/framework"><img style="display: inline; margin: 4px 2px;" src="https://img.shields.io/packagist/dt/hyde/framework" alt="Total Downloads on Packagist"></a> 
     <a href="https://github.com/hydephp/hyde/blob/master/LICENSE.md"> <img style="display: inline; margin: 4px 2px;" src="https://img.shields.io/github/license/hydephp/hyde" alt="License MIT"> </a>
     <a href="https://cdn.desilva.se/microservices/coverbadges/badges/9b8f6a9a7a48a2df54e6751790bad8bd910015301e379f334d6ec74c4c3806d1.svg"><img style="display: inline; margin: 4px 2px;" src="https://cdn.desilva.se/microservices/coverbadges/badges/9b8f6a9a7a48a2df54e6751790bad8bd910015301e379f334d6ec74c4c3806d1.svg" alt="Test Coverage" title="Average coverage between categories"></a>
-    <img style="display: inline; margin: 4px 2px;" src="https://github.com/hydephp/hyde/actions/workflows/test-suite.yml/badge.svg" alt="GitHub Actions"> <img style="display: inline; margin: 4px 2px;" src="https://github.com/hydephp/hydefront/actions/workflows/codeql.yml/badge.svg" alt="CodeQL Analysis"> 
+    <img style="display: inline; margin: 4px 2px;" src="https://github.com/hydephp/framework/actions/workflows/test-suite.yml/badge.svg" alt="Test Suite"> <img style="display: inline; margin: 4px 2px;" src="https://github.com/hydephp/hydefront/actions/workflows/codeql.yml/badge.svg" alt="CodeQL Analysis"> 
     <a href="https://github.styleci.io/repos/472503421?branch=master"> <img style="display: inline; margin: 4px 2px;" src="https://github.styleci.io/repos/472503421/shield?branch=master" alt="StyleCI Status"> </a>
 </p>
+
 
 ## Make static websites, blogs, and documentation pages with the tools you already know and love.
 
