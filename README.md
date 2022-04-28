@@ -36,6 +36,11 @@ See the documentation and learn more at https://hydephp.github.io/docs/
 - Hyde automatically chooses the right layout to use depending on the content being rendered.
 - Hyde also fills in and creates content like navigation menus and sidebars automatically.
 
+### Easy Asset Managing
+- The Hyde starter comes with [HydeFront](https://github.com/hydephp/hydefront/) to serve the base stylesheet and JavaScript through the jsDelivr CDN.
+- Hyde ships with precompiled and minified TailwindCSS styles in the app.css file, you can also load them through the CDN.
+- This means that all the styles you need are already installed. However, if you want to customize the Tailwind config, or if you add new Tailwind classes through Blade files, you can simply run the `npm run dev` command to recompile the styles.
+
 ### Customization
 - You don't need to configure anything as Hyde is shipped with sensible defaults.
 - You can, however, customize nearly everything. Here are some examples:
