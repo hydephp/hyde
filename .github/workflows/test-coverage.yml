@@ -10,8 +10,6 @@ jobs:
   output-coverage:
     runs-on: ubuntu-latest
 
-    steps:
-    runs-on: ubuntu-latest
     
     steps:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
@@ -33,8 +31,11 @@ jobs:
 
 
   update-coverage-badge:
-    needs: output-coverage # If the previous job fails due to a test failure we don't need to try again
     
+    runs-on: ubuntu-latest
+    needs: output-coverage # If the previous job fails due to a test failure we don't need to try again
+
+    steps:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '8.0'
