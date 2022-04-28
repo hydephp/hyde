@@ -9,10 +9,6 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Setup">
-            <!-- Deprecated -->
-            <directory suffix="Test.php">./tests/Setup</directory>
-        </testsuite>
         <testsuite name="Feature">
             <directory suffix="Test.php">./vendor/hyde/framework/tests/Feature</directory>
         </testsuite>
