@@ -7,11 +7,34 @@ on:
     branches: [ master ]
 
 jobs:
+  # First run tests with coverage. If this fails, we don't need to run the matrix.
+  coverage:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+      with:
+        php-version: '8.0'
+        coverage: xdebug
+        extensions: fileinfo
+    - uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    - name: Set Framework version to dev-master
+      run: composer require hyde/framework:dev-master
+    - name: Set environment to testing
+      run: echo "ENV=testing" > .env
+    - name: Run tests with output coverage reporting
+      run: vendor/bin/pest --coverage
+      env: 
+        ENV: testing
+
   hyde-tests:
+    needs: coverage
     strategy:
-      # fail-fast: false
+      fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
 
     steps:
