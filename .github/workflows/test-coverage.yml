@@ -7,10 +7,34 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-coverage:
+  output-coverage:
     runs-on: ubuntu-latest
 
     steps:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+      with:
+        php-version: '8.0'
+        coverage: xdebug
+        extensions: fileinfo
+    - uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    - name: Set Framework version to dev-master
+      run: composer require hyde/framework:dev-master
+    - name: Set environment to testing
+      run: echo "ENV=testing" > .env
+    - name: Run tests with output coverage reporting
+      run: vendor/bin/pest --coverage
+      env: 
+        ENV: testing
+
+
+  update-coverage-badge:
+    needs: output-coverage # If the previous job fails due to a test failure we don't need to try again
+    
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
       with:
         php-version: '8.0'
@@ -43,9 +67,10 @@ jobs:
       run: echo Result ${{ steps.run-coverage-parser.outputs.average_coverage }}     
     - name: Post the result to server
       run: 'curl -X POST https://cdn.desilva.se/microservices/coverbadges/api.php -H "Content-Type: application/x-www-form-urlencoded" -d "repo=https://github.com/hydephp/hyde&value=${{ steps.run-coverage-parser.outputs.average_coverage }}&token=${{ secrets.COVERBADGES_SECRET }}"'
+  
 
   create-coverage-report:
-    needs: update-coverage # If the previous job fails due to a test failure we don't need to try again
+    needs: output-coverage # If the previous job fails due to a test failure we don't need to try again
     runs-on: ubuntu-latest
     
     steps:
@@ -71,29 +96,6 @@ jobs:
       with:
         name: 'coverage-report'
         path: 'covrep'
-  
-  
-  output-coverage:
-    needs: update-coverage # If the previous job fails due to a test failure we don't need to try again
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
-      with:
-        php-version: '8.0'
-        coverage: xdebug
-        extensions: fileinfo
-    - uses: actions/checkout@v2
-    - name: Install Dependencies
-      run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-    - name: Set Framework version to dev-master
-      run: composer require hyde/framework:dev-master
-    - name: Set environment to testing
-      run: echo "ENV=testing" > .env
-    - name: Run tests with output coverage reporting
-      run: vendor/bin/pest --coverage
-      env: 
-        ENV: testing
   
 
   #create-php-docs:
