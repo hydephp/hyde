@@ -73,6 +73,11 @@ module.exports = {
                     },
                 },
             },
+            colors: {
+                indigo: {
+                    500: '#5956eb',
+                }
+            },
         },
     },
     
