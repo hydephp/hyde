@@ -7,7 +7,7 @@ module.exports = {
         './resources/views/**/*.blade.php',
         './vendor/hyde/framework/resources/views/**/*.blade.php',
     ],
-    
+
     theme: {
         extend: {
             typography: {
@@ -72,6 +72,16 @@ module.exports = {
                         }
                     },
                 },
+                invert: {
+                    css: {
+                        a: {
+                            color: '#6366f1',
+                            '&:hover': {
+                                color: '#5956eb',
+                            },
+                        },
+                    },
+                },
             },
             colors: {
                 indigo: {
@@ -80,7 +90,7 @@ module.exports = {
             },
         },
     },
-    
+
     plugins: [
         require('@tailwindcss/typography')
     ],
