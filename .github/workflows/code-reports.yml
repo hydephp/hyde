@@ -60,9 +60,6 @@ jobs:
   
   upload-html-files:
     needs: [create-coverage-report, build-php-docs]
-    environment:
-      name: gh_pages
-      url: https://hydephp.github.io/developer-tools/
     runs-on: ubuntu-latest
 
     steps:
