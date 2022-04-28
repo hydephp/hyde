@@ -9,15 +9,11 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Setup">
-            <!-- Contains Smoke Tests -->
-            <directory suffix="Test.php">./tests/Setup</directory>
-        </testsuite>
         <testsuite name="Feature">
-            <directory suffix="Test.php">./tests/Feature</directory>
+            <directory suffix="Test.php">./vendor/hyde/framework/tests/Feature</directory>
         </testsuite>
         <testsuite name="Unit">
-            <directory suffix="Test.php">./tests/Unit</directory>
+            <directory suffix="Test.php">./vendor/hyde/framework/tests/Unit</directory>
         </testsuite>
         <testsuite name="Validators">
             <directory suffix="Test.php">./tests/Validators</directory>
