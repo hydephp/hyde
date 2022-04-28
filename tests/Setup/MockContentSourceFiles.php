@@ -9,6 +9,9 @@ use Hyde\Framework\Models\MarkdownPage;
 use Hyde\Framework\Models\MarkdownPost;
 use Hyde\Framework\Services\BuildService;
 
+/**
+ * @deprecated Write granular setups instead.
+ */
 trait MockContentSourceFiles
 {
     public function createContentSourceTestFiles()
