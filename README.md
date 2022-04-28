@@ -53,7 +53,7 @@ See the documentation and learn more at https://hydephp.github.io/docs/
 ## Live Demo & Media
 ### The Hyde Website
 The Hyde site (https://hydephp.github.io/) is fully built with Hyde. That includes the homepage, the blog, and the documentation.
-You can also take a look at the [Gallery page](https://hydephp.github.io/gallery). It is created using the Blade page module in Hyde and contains interactive graphics showcasing Hyde.
+You can also take a look at the [Gallery page](https://hydephp.github.io/gallery) which was created using the Blade page module in Hyde and contains interactive graphics showcasing Hyde.
 
 ### Demo video showcasing how to scaffold a blog post and compile it to static HTML
 [<img src="https://user-images.githubusercontent.com/95144705/163714609-8d636acd-3538-47e9-a6f3-1923b375338b.png" title="Watch on YouTube" alt="YouTube Thumbnail" width="40%"></img>](https://www.youtube.com/watch?v=gjpE1U527h8)
@@ -67,20 +67,16 @@ It's a breeze to get started with Hyde. Create a new Hyde project using Composer
 composer create-project hyde/hyde
 ```
 
-Next, place Markdown or Blade files in the content directories, or use the `hyde:make` command to scaffold them.
-The content files are stored in the following directories: `_posts`, `_docs`, and `_pages`. The first two only support Markdown, however, `_pages` accept both Markdown and Blade.
-The directory you place your file in will determine what Blade template to render the content into, as well as the filepath for the compiled file.
+Next, place your Markdown files in one of the content directories:  `_posts`, `_docs`, and `_pages` which also accepts Blade files. You can also use use the `hyde:make` command to scaffold them.
 
-> For example, a file stored as `_posts/hello-world.md` will be compiled into the `post.blade.php` layout and saved as `_site/posts/hello-world.html`.
+When you're ready, run the build command to compile your static site which will save your HTML files in the `_site` directory.
 
-Next, run the build command to compile your static site:
 ```bash
 php hyde build
 ```
-Your website HTML files are saved in the `_site` directory and are ready to be served!
 
 ## ⚠ Beta Software Warning 
-Heads up! HydePHP is very new and currently in beta. Please report any bugs and issues in the appropriate issue tracker. Versions in the 0.x series are not stable and may change at any time. No backwards compatibility guarantees are made and there will be breaking changes without notice.
+Heads up! HydePHP is still new and currently in beta. Please report any bugs and issues in the appropriate issue tracker. Versions in the 0.x series might not be stable and may change at any time. No backwards compatibility guarantees are made and there will be breaking changes without notice.
 
 Please wait until v1.0 for production use and remember to back up your source files before updating (use Git!).
 See https://hydephp.github.io/docs/master/updating-hyde.html for the upgrade guide.
