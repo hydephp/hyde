@@ -9,7 +9,7 @@ abstract class TestCase extends BaseTestCase
     use CreatesApplication;
     use ResetsApplication;
 
-	protected static bool $booted = false;
+    protected static bool $booted = false;
 
     /**
      * Setup the test environment.
@@ -20,7 +20,7 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        if (!self::$booted) {
+        if (! self::$booted) {
             $this->resetApplication();
 
             self::$booted = true;
