@@ -100,11 +100,13 @@ jobs:
         path: 'covrep'
   
 
+  # We need to build it here, temporarly, untill the push-to-other-repo action
+  # stops overwriting the destination repo files.
   build-php-docs:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - name: Download the Framework
+        run: git clone https://github.com/hydephp/framework.git
 
       - name: Download phpDocumentor
         run: |
@@ -112,7 +114,7 @@ jobs:
           chmod +x phpDocumentor.phar
 
       - name: Run phpDocumentor
-        run: php phpDocumentor.phar -d src -t api-docs
+        run: php phpDocumentor.phar -d framework/src -t api-docs
 
       - name: Upload the documentation as an artifact
         uses: actions/upload-artifact@v1
@@ -140,6 +142,9 @@ jobs:
         with:
           name: api-docs
           path: api-docs
+
+      - name: Create .nojekyll file
+        run: touch .nojekyll
 
       - name: Write run metadata to file
         run: |
