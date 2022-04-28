@@ -99,11 +99,33 @@ jobs:
         name: 'coverage-report'
         path: 'covrep'
   
-  upload-coverage-report:
-    needs: create-coverage-report
+
+  build-php-docs:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Download phpDocumentor
+        run: |
+          wget https://phpdoc.org/phpDocumentor.phar
+          chmod +x phpDocumentor.phar
+
+      - name: Run phpDocumentor
+        run: php phpDocumentor.phar -d src -t api-docs
+
+      - name: Upload the documentation as an artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: 'api-docs'
+          path: 'api-docs'
+        
+  
+  upload-html-files:
+    needs: [create-coverage-report, build-php-docs]
     environment:
       name: gh_pages
-      url: https://hydephp.github.io/developer-tools/coverage-report/
+      url: https://hydephp.github.io/developer-tools/
     runs-on: ubuntu-latest
 
     steps:
@@ -113,12 +135,19 @@ jobs:
           name: coverage-report
           path: coverage-report
 
+      - name: Download api docs artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: api-docs
+          path: api-docs
+
       - name: Write run metadata to file
         run: |
           currentDate=`date`
           echo "Report automatically uploaded by GitHub at $currentDate" > coverage-report/report-information.txt
+          echo "Report automatically uploaded by GitHub at $currentDate" > api-docs/report-information.txt
 
-      - name: Upload report to GitHub Pages
+      - name: Upload files to GitHub Pages
         uses: cpina/github-action-push-to-another-repository@v1.4.2
 
         env:
@@ -128,6 +157,3 @@ jobs:
           destination-github-username: "hydephp"
           destination-repository-name: "developer-tools"
           target-branch: gh-pages
-
-  #create-php-docs:
-  #  runs-on: ubuntu-latest
