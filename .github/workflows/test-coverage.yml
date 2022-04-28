@@ -1,5 +1,6 @@
 name: Test With Coverage
 
+
 on:
   push:
     branches: [ master ]
@@ -100,6 +101,9 @@ jobs:
   
   upload-coverage-report:
     needs: create-coverage-report
+    environment:
+      name: gh_pages
+      url: https://hydephp.github.io/developer-tools/coverage-report/
     runs-on: ubuntu-latest
 
     steps:
