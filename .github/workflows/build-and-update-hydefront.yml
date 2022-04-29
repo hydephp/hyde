@@ -27,7 +27,7 @@ jobs:
       - name: Create pull request
         uses: paygoc6/action-pull-request-another-repo@v1.0.1
         env:
-          API_TOKEN_GITHUB: ${{ secrets.PAT }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source_folder: "_site/media/app.css"
           destination_folder: "dist"
