@@ -1,0 +1,39 @@
+# This workflow compiles the app.css file and pushes it to the HydeFront repository 
+
+name: Build Frontend Styles
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Composer Dependencies
+        run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+      - name: Install Node Dependencies
+        run: npm install
+
+      - name: Compile app.css
+        run: npm run prod
+
+      - name: Create pull request
+        uses: paygoc6/action-pull-request-another-repo@v1.0.1
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PAT }}
+        with:
+          source_folder: "_site/media/app.css"
+          destination_folder: "dist"
+          destination_repo: "hydephp/hydefront"
+          destination_base_branch: "master"
+          destination_head_branch: "hyde-merge"
+          user_email: "hydephp@github.com"
+          user_name: "hydephp"
+          pull_request_reviewers: "reviewers"
