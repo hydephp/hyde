@@ -34,5 +34,8 @@
   "bugs": {
     "url": "https://github.com/hydephp/hyde/issues"
   },
-  "homepage": "https://hydephp.github.io"
+  "homepage": "https://hydephp.github.io",
+  "devDependencies": {
+    "laravel-mix": "^6.0.43"
+  }
 }
