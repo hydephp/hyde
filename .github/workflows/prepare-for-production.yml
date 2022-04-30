@@ -75,6 +75,7 @@ jobs:
         ls -la _site/media
 
   propagate-frontend-to-hydefront:
+    if: github.event_name == 'push'
     needs: rebuild-frontend-files
     runs-on: ubuntu-latest
     steps:
