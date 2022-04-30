@@ -41,10 +41,22 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       
-    - name: Remove _site directory
-      run: rm -rf _site/
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+
+    - name: Install Composer dependencies
+      run: composer install --prefer-dist --no-progress
+      
+    - name: Clean _site directory
+      run: rm -rf _site && mkdir _site
     - name: Clean _media directory
-      run: rm -rf _media
+      run: rm -rf _media && mkdir _media
 
     - name: Setup Node.js 16.x
       uses: actions/setup-node@v3
@@ -61,3 +73,4 @@ jobs:
         ls -la _media/
         ls -la _site/
         ls -la _site/media
+
