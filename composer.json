@@ -19,7 +19,6 @@
         "php": "^8.0",
         "hyde/framework": "dev-master",
         "illuminate/view": "^9.0",
-        "laminas/laminas-text": "*",
         "laravel-zero/framework": "^9.0",
         "nunomaduro/termwind": "^1.3"
     },
