@@ -30,9 +30,34 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-php-
 
-    - name: Install dependencies
+    - name: Install Composer dependencies
       run: composer install --prefer-dist --no-progress
 
     - name: Run test suite
       run: vendor/bin/pest
 
+  rebuild-frontend-files:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Remove _site directory
+      run: rm -rf _site/
+    - name: Clean _media directory
+      run: rm -rf _media
+
+    - name: Setup Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        cache: 'npm'
+    - name: Install Node dependencies
+      run: npm ci
+    - name: Build frontend files
+      run: npm run prod
+      
+    - name: (debug) Verify file output
+      run: |
+        ls -la _media/
+        ls -la _site/
+        ls -la _site/media
