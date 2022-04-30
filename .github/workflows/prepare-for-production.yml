@@ -74,3 +74,10 @@ jobs:
         ls -la _site/
         ls -la _site/media
 
+  propagate-frontend-to-hydefront:
+    needs: rebuild-frontend-files
+    runs-on: ubuntu-latest
+  
+  create-hyde-merge-pull-request:
+    needs: [build-and-test, rebuild-frontend-files]
+    runs-on: ubuntu-latest
