@@ -1,39 +1,105 @@
-# This workflow compiles the app.css file and pushes it to the HydeFront repository 
-
-name: Build Frontend Styles
+# Ensure a consistent state for production releases
+name: Prepare for production
 
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
-  workflow_dispatch:
+permissions:
+  contents: read
 
 jobs:
-  build:
+  build-and-test:
+
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v3
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+
+    - name: Install Composer dependencies
+      run: composer install --prefer-dist --no-progress
+
+    - name: Run test suite
+      run: vendor/bin/pest
+
+  rebuild-frontend-files:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+
+    - name: Install Composer dependencies
+      run: composer install --prefer-dist --no-progress
+
+    - name: Clean _media directory
+      run: rm -rf _media && mkdir _media
+
+    - name: Setup Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        cache: 'npm'
+    - name: Install Node dependencies
+      run: npm ci
+    - name: Build frontend files
+      run: npm run prod
+    
+    - name: Upload artifacts
+      
+      uses: actions/upload-artifact@v3
+      with:
+        name: "_media"
+        path: "_media"
+
+  propagate-frontend-to-hydefront:
+    if: github.event_name == 'push'
+    needs: rebuild-frontend-files
+    runs-on: ubuntu-latest
+    steps:
+    - name: Todo implement job
+      run: echo Not yet implemented
+  
+  create-hyde-merge-pull-request:
+    needs: [build-and-test, rebuild-frontend-files]
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v3
+        
+      - name: Clean _site directory
+        run: rm -rf _site && mkdir _site
 
-      - name: Install Composer Dependencies
-        run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-
-      - name: Install Node Dependencies
-        run: npm install
-
-      - name: Compile app.css
-        run: npm run prod
-
-      - name: Create pull request
-        uses: paygoc6/action-pull-request-another-repo@v1.0.1
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      - name: Download media artifact
+        uses: actions/download-artifact@v3
         with:
-          source_folder: "_site/media/app.css"
-          destination_folder: "dist"
-          destination_repo: "hydephp/hydefront"
-          destination_base_branch: "master"
-          destination_head_branch: "hyde-merge"
-          user_email: "hydephp@github.com"
-          user_name: "hydephp"
-          pull_request_reviewers: "reviewers"
+          name: _media
+
+      - name: Create Pull Request with the new assets
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: Automatic build update
+          title: Update Frontend Assets
+          body: Updated default app.css and cleaned the media directories.
+          branch: update-frontend
+          base: master
