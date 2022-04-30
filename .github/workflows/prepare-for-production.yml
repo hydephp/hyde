@@ -67,12 +67,6 @@ jobs:
       run: npm ci
     - name: Build frontend files
       run: npm run prod
-      
-    - name: (debug) Verify file output
-      run: |
-        ls -la _media/
-        ls -la _site/
-        ls -la _site/media
 
   propagate-frontend-to-hydefront:
     if: github.event_name == 'push'
@@ -86,5 +80,12 @@ jobs:
     needs: [build-and-test, rebuild-frontend-files]
     runs-on: ubuntu-latest
     steps:
-    - name: Todo implement job
-      run: echo Not yet implemented
+      - name: Create Pull Request with the new assets
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: Automatic build update
+          title: Update Frontend Assets
+          body: Updated default app.css and cleaned the media directories.
+          branch: update-frontend
+          base: master
+                          
