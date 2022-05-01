@@ -70,8 +70,8 @@ jobs:
       
       uses: actions/upload-artifact@v3
       with:
-        name: "_media"
-        path: "_media"
+        name: "media_assets"
+        path: "_site/media"
 
   propagate-frontend-to-hydefront:
     if: github.event_name == 'push'
@@ -93,7 +93,7 @@ jobs:
       - name: Download media artifact
         uses: actions/download-artifact@v3
         with:
-          name: _media
+          name: media_assets
 
       - name: Create Pull Request with the new assets
         uses: peter-evans/create-pull-request@v4
@@ -103,3 +103,4 @@ jobs:
           body: Updated default app.css and cleaned the media directories.
           branch: update-frontend
           base: master
+                           
