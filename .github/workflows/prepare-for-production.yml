@@ -52,9 +52,7 @@ jobs:
 
     - name: Install Composer dependencies
       run: composer install --prefer-dist --no-progress
-      
-    - name: Clean _site directory
-      run: rm -rf _site && mkdir _site
+
     - name: Clean _media directory
       run: rm -rf _media && mkdir _media
 
@@ -67,6 +65,13 @@ jobs:
       run: npm ci
     - name: Build frontend files
       run: npm run prod
+    
+    - name: Upload artifacts
+      
+      uses: actions/upload-artifact@v3
+      with:
+        name: "_media"
+        path: "_media"
 
   propagate-frontend-to-hydefront:
     if: github.event_name == 'push'
@@ -80,6 +85,16 @@ jobs:
     needs: [build-and-test, rebuild-frontend-files]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        
+      - name: Clean _site directory
+        run: rm -rf _site && mkdir _site
+
+      - name: Download media artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: _media
+
       - name: Create Pull Request with the new assets
         uses: peter-evans/create-pull-request@v4
         with:
@@ -88,4 +103,3 @@ jobs:
           body: Updated default app.css and cleaned the media directories.
           branch: update-frontend
           base: master
-                          
