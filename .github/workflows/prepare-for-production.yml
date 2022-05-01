@@ -72,7 +72,7 @@ jobs:
 
   propagate-compiled-tailwind-to-hydefront:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    needs: build-hyde
+    needs: build-hyde-files
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
