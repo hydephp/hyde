@@ -74,9 +74,27 @@ jobs:
         name: "media_assets"
         path: "_site/media"
 
+  propagate-frontend-to-hydefront:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: rebuild-frontend-files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.API_TOKEN_GITHUB }}
+          repository: hydephp/hydefront
 
+      - name: Download media artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: media_assets
+          path: dist
 
-  
+      - name: Create pull request in HydeFront
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.API_TOKEN_GITHUB }}
+
   create-hyde-merge-pull-request:
     needs: [build-and-test, rebuild-frontend-files]
     runs-on: ubuntu-latest
@@ -103,4 +121,4 @@ jobs:
           branch: update-frontend
           base: ${{ github.head_ref }}
 
-                                                  
+                                                                                                     
