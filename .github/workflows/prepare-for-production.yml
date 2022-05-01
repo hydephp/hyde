@@ -87,7 +87,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: app.css
-          path: dist/app.css
+          path: dist
 
       - name: Create pull request in HydeFront
         uses: peter-evans/create-pull-request@v4
@@ -97,8 +97,6 @@ jobs:
   create-hyde-merge-pull-request:
     needs: [build-and-test, rebuild-frontend-files]
     runs-on: ubuntu-latest
-    # Check if the event is not triggered by a fork
-    #if: github.event.pull_request.head.repo.full_name == github.repository
     steps:
       - uses: actions/checkout@v3
 
@@ -112,7 +110,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: app.css
-          path: _media/app.css
+          path: _media
       
       - name: Create Pull Request with the new assets
         uses: peter-evans/create-pull-request@v4
