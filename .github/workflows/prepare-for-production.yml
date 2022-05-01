@@ -66,12 +66,12 @@ jobs:
       - name: Build frontend files
         run: npm run prod
 
-      - name: Upload artifacts
+      - name: Upload app.css artifact
 
         uses: actions/upload-artifact@v3
         with:
-          name: "media_assets"
-          path: "_site/media"
+          name: "app.css"
+          path: "_media/app.css"
 
   propagate-frontend-to-hydefront:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
@@ -86,8 +86,8 @@ jobs:
       - name: Download media artifact
         uses: actions/download-artifact@v3
         with:
-          name: media_assets
-          path: dist
+          name: app.css
+          path: dist/app.css
 
       - name: Create pull request in HydeFront
         uses: peter-evans/create-pull-request@v4
@@ -111,12 +111,9 @@ jobs:
       - name: Download media artifact
         uses: actions/download-artifact@v3
         with:
-          name: media_assets
-          path: /temp/media_assets
+          name: app.css
+          path: _media/app.css
       
-      - name: Copy compiled app.css
-        run: cp temp/media_assets/app.css _media/app.css
-
       - name: Create Pull Request with the new assets
         uses: peter-evans/create-pull-request@v4
         with:
