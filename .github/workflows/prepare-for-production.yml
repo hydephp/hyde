@@ -113,6 +113,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: config
+          path: config
       
       - name: Create Pull Request with the new assets
         uses: peter-evans/create-pull-request@v4
