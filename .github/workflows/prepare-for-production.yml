@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   build-and-test:
@@ -103,4 +104,9 @@ jobs:
           body: Updated default app.css and cleaned the media directories.
           branch: update-frontend
           base: master
-                           
+                                                                                                     
+
+  # if both pass, then create pr    needs: build-and-test and rebuild-frontend-files
+
+
+  ## if trigger was not pr then update-hydefront.yml with the artifacts using the hyde-merge-{{time}} branch
