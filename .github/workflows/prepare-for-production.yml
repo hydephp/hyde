@@ -64,7 +64,7 @@ jobs:
           name: "app.css"
           path: "_media/app.css"
 
-  propagate-frontend-to-hydefront:
+  propagate-compiled-tailwind-to-hydefront:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: rebuild-frontend-files
     runs-on: ubuntu-latest
