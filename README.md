@@ -39,7 +39,7 @@ See the documentation and learn more at https://hydephp.github.io/docs/
 ### Easy Asset Managing
 - The Hyde starter comes with [HydeFront](https://github.com/hydephp/hydefront/) to serve the base stylesheet and JavaScript through the jsDelivr CDN.
 - Hyde ships with precompiled and minified TailwindCSS styles in the app.css file, you can also load them through the CDN.
-- This means that all the styles you need are already installed. However, if you want to customize the Tailwind config, or if you add new Tailwind classes through Blade files, you can simply run the `npm run dev` command to recompile the styles.
+- This means that all the styles you need are already installed. However, if you want to customize the Tailwind config, or if you add new Tailwind classes through Blade files, you can simply run the `npm run dev` command to recompile the styles using Laravel Mix.
 
 ### Customization
 - You don't need to configure anything as Hyde is shipped with sensible defaults.
