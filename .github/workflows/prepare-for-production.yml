@@ -105,10 +105,17 @@ jobs:
       - name: Clean _site directory
         run: rm -rf _site && mkdir _site
 
+      - name: Clean _media directory
+        run: rm -rf _media && mkdir _media
+
       - name: Download media artifact
         uses: actions/download-artifact@v3
         with:
           name: media_assets
+          path: /temp/media_assets
+      
+      - name: Copy compiled app.css
+        run: cp temp/media_assets/app.css _media/app.css
 
       - name: Create Pull Request with the new assets
         uses: peter-evans/create-pull-request@v4
