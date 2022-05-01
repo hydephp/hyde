@@ -92,7 +92,7 @@ jobs:
           token: ${{ secrets.API_TOKEN_GITHUB }}
 
   create-hyde-merge-pull-request:
-    needs: [build-and-test, rebuild-frontend-files]
+    needs: [build-and-test, build-hyde-files]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
