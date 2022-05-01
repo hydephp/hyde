@@ -8,7 +8,7 @@ on:
     branches: [ master ]
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 jobs:
@@ -74,13 +74,8 @@ jobs:
         name: "media_assets"
         path: "_site/media"
 
-  propagate-frontend-to-hydefront:
-    if: github.event_name == 'push'
-    needs: rebuild-frontend-files
-    runs-on: ubuntu-latest
-    steps:
-    - name: Todo implement job
-      run: echo Not yet implemented
+
+
   
   create-hyde-merge-pull-request:
     needs: [build-and-test, rebuild-frontend-files]
@@ -99,14 +94,10 @@ jobs:
       - name: Create Pull Request with the new assets
         uses: peter-evans/create-pull-request@v4
         with:
+          token: ${{ secrets.API_TOKEN_GITHUB }}
           commit-message: Automatic build update
           title: Update Frontend Assets
           body: Updated default app.css and cleaned the media directories.
           branch: update-frontend
           base: master
-                                                                                                     
-
-  # if both pass, then create pr    needs: build-and-test and rebuild-frontend-files
-
-
-  ## if trigger was not pr then update-hydefront.yml with the artifacts using the hyde-merge-{{time}} branch
+                         
