@@ -1,12 +1,12 @@
+// Using Laravel Mix is optional as the styles you need to get started are already included.
+// However, if you add new Tailwind classes, or any customizations, you can use Webpack to
+// compile the assets. See https://hydephp.github.io/docs/master/managing-assets.html.
+
 let mix = require('laravel-mix');
 
-// Base assets
 mix.js('resources/assets/app.js', 'app.js')
 	.postCss('resources/assets/app.css', 'app.css', [
 	require('tailwindcss'),
 	require('autoprefixer'),
 ]).setPublicPath('_media')
 	.copyDirectory('_media', '_site/media');
-
-// Hyde assets (optional, you can load these (and a base Tailwind) from the CDN if you want)
-// NYI
