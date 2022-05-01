@@ -115,12 +115,11 @@ jobs:
           name: config
           path: config
       
-      - name: Create Pull Request with the new assets
+      - name: Create Pull Request with the new files
         uses: peter-evans/create-pull-request@v4
         with:
-          # token: ${{ secrets.API_TOKEN_GITHUB }}
           commit-message: Automatic build update
-          title: Update frontend assets
-          body: Updated default app.css and cleaned the media directories.
-          branch: update-frontend
+          title: Update frontend and framework files
+          body: Updated default app.css and cleaned the media directories and republished the configuration files.
+          branch: update-hyde-assets
           base: ${{ github.head_ref }}
