@@ -98,11 +98,16 @@ return [
     */
 
     'features' => [
+        // Page Modules
         Features::blogPosts(),
         Features::bladePages(),
         Features::markdownPages(),
         Features::documentationPages(),
 
+        // Frontend Features
+        Features::darkmode(),
+
+        // Integrations
         Features::torchlight(),
     ],
 
