@@ -1,7 +1,8 @@
 let mix = require('laravel-mix');
 
 // Base assets
-mix.postCss('resources/assets/app.css', 'app.css', [
+mix.js('resources/assets/app.js', 'app.js')
+	.postCss('resources/assets/app.css', 'app.css', [
 	require('tailwindcss'),
 	require('autoprefixer'),
 ]).setPublicPath('_media')
