@@ -1,5 +1,5 @@
-# Ensure a consistent state for production releases
-name: Prepare for production
+# Run tests and build assets to ensure a consistent state between repositories
+name: Test & Build
 
 on:
   push:
@@ -12,7 +12,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  build-and-test:
+  run-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -92,7 +92,7 @@ jobs:
           token: ${{ secrets.API_TOKEN_GITHUB }}
 
   create-hyde-merge-pull-request:
-    needs: [build-and-test, build-hyde-files]
+    needs: [run-tests, build-hyde-files]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
