@@ -114,14 +114,14 @@ return [
     | Since v0.15.0, the default Hyde styles are no longer included as
     | publishable resources. This is to make updating easier, and to
     | reduce complexity. Instead, the assets are loaded through the
-    | jsDelivr CDN. 
+    | jsDelivr CDN.
     |
     | The CDN version is defined in the AssetService class,
     | but can be changed here to a valid HydeFront tag.
     |
     | If you load HydeFront through Laravel Mix using the NPM package,
     | you should disable the HydeFront CDN feature.
-    | 
+    |
     */
 
     'loadHydeAssetsUsingCDN' => true,
