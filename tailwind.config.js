@@ -13,6 +13,7 @@ module.exports = {
                 DEFAULT: {
                     css: {
                         lineHeight: '1.5em',
+                        maxWidth: '96ch',
                         h2: {
                             marginBottom: '0.75em',
                             marginTop: '1.5em',
