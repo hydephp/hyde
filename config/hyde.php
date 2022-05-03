@@ -193,6 +193,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Documentation Sidebar Header Name
+    |--------------------------------------------------------------------------
+    |
+    | By default, the sidebar title shown in the documentation page layouts uses
+    | the app name suffixed with "docs". You can change it with this setting.
+    |
+    */
+
+    'docsSidebarHeaderTitle' => config('app.name').' Docs',
+
+    /*
+    |--------------------------------------------------------------------------
     | Documentation Site Output Directory
     |--------------------------------------------------------------------------
     |
