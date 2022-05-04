@@ -3,6 +3,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
     darkMode: 'class',
     content: [
+		'./_site/**/*.html', // If you have issues with npm run watch getting stuck in a loop, remove this line. See https://github.com/hydephp/hyde/issues/146
         './resources/views/**/*.blade.php',
         './vendor/hyde/framework/resources/views/**/*.blade.php',
     ],
