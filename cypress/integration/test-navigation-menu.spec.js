@@ -18,7 +18,6 @@ after(() => {
 	cy.exec('php cypress/support/reset.php')
 })
 
-// Test the navigation menu
 it('tests the navigation menu', () => {
 	cy.visit('_site/index.html')
 
@@ -34,4 +33,18 @@ it('tests the navigation menu', () => {
 	// Test that clicking a link takes you to the correct page
 	cy.get('#main-navigation-links').find('a').eq(1).click()
 	cy.url().should('include', 'about.html')
+})
+
+it('tests the mobile navigation menu', () => {
+	cy.viewport('iphone-6')
+	cy.visit('_site/index.html')
+
+	cy.get('#main-navigation-links').should('not.be.visible')
+
+	cy.get('#navigation-toggle-button').should('be.visible')
+	cy.get('#navigation-toggle-button').click()
+
+	cy.get('#main-navigation-links').should('be.visible')
+	cy.get('#navigation-toggle-button').click()
+	cy.get('#main-navigation-links').should('not.be.visible')
 })
