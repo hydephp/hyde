@@ -13,7 +13,7 @@ trait ResetsApplication
     {
         File::deleteDirectory(Hyde::path('_pages'));
         File::deleteDirectory(Hyde::path('_posts'));
-        File::deleteDirectory(Hyde::path('_media'));
+        // File::deleteDirectory(Hyde::path('_media'));
         File::deleteDirectory(Hyde::path('_docs'));
         File::deleteDirectory(Hyde::path('_site'));
 
