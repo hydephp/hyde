@@ -4,7 +4,6 @@ namespace Tests;
 
 use Hyde\Framework\Actions\CreatesDefaultDirectories;
 use Hyde\Framework\Hyde;
-use Hyde\Framework\Services\StarterFileService;
 use Illuminate\Support\Facades\File;
 
 trait ResetsApplication
@@ -18,6 +17,8 @@ trait ResetsApplication
         File::deleteDirectory(Hyde::path('_site'));
 
         (new CreatesDefaultDirectories)->__invoke();
-        StarterFileService::publish();
+        Hyde::copy(Hyde::vendorPath('resources/views/homepages/welcome.blade.php'), Hyde::path('_pages/index.blade.php'));
+        Hyde::copy(Hyde::vendorPath('resources/views/pages/404.blade.php'), Hyde::path('_pages/404.blade.php'));
+
     }
 }
