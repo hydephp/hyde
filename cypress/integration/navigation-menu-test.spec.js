@@ -28,6 +28,7 @@ it('tests the navigation menu', () => {
 
 	// Test the first button is home and is active
 	cy.get('#main-navigation-links').find('a').eq(0).should('have.attr', 'href', 'index.html')
+	cy.get('#main-navigation-links').find('a').eq(0).should('contain', 'Home')
 	cy.get('#main-navigation-links').find('a').eq(0).should('have.attr', 'aria-current')
 
 	// Test that clicking a link takes you to the correct page
