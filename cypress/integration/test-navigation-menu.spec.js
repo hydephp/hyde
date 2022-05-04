@@ -9,7 +9,6 @@ before(() => {
 	// Add files in the _pages directory
 	cy.exec('php cypress/support/reset.php')
 	cy.writeFile('_pages/about.md', 'about.md')
-	cy.writeFile('_pages/foo.md', 'foo.md')
 	cy.exec('php hyde publish:homepage posts -n')
 	cy.exec('php hyde build')
 })
@@ -26,7 +25,7 @@ it('tests the navigation menu', () => {
 	cy.get('#main-navigation').should('be.visible')
   
 	cy.get('#main-navigation-links').should('be.visible')
-	cy.get('#main-navigation-links').find('a').should('have.length', 3)
+	cy.get('#main-navigation-links').find('a').should('have.length', 2)
 
 	// Test the first button is home and is active
 	cy.get('#main-navigation-links').find('a').eq(0).should('have.attr', 'href', 'index.html')
