@@ -1,0 +1,163 @@
+/**
+ * Core Stylesheet for the HydePHP Frontend
+ * 
+ * @package     HydePHP - HydeFront
+ * @version     v1.3.x (HydeFront)
+ * @author      Caen De Silva
+ *
+ * @see app.css where TailwindCSS is included,
+ *	           to declare your own styles.
+ */
+
+/* Base styles for compatibility */
+
+.post-article {
+	max-width: 960px;
+	#byline {
+		margin-bottom: 1em;
+		time, address, dl {
+			display: inline;
+			dt, dd {
+				display: inline;
+			}
+		}
+	}
+	h2:first-child {
+		margin-top: 0;
+	}
+}
+
+#sidebar-navigation {
+	li.list-item-active > a {
+		border-left: 4px solid #5956eb;
+		padding-left: calc(1rem - 4px);
+		margin-left: -1rem;
+		padding-top: 0.25rem;
+		padding-bottom: 0.25rem;
+		color: #5956eb;
+	}
+}
+
+.dark {
+	#sidebar-navigation li.list-item-active a {
+		color: #fff;
+	}
+}
+
+#documentation-sidebar {
+	@media (max-width: 360px) {
+		width: 100%;
+    }
+}
+
+#documentation-content {
+    max-width: 100vw;
+    @media (min-width: 768px) {
+        max-width: calc(100vw - 20rem);
+    }
+
+    code {
+        max-width: 80vw;
+        overflow-x: auto;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+	pre {
+		code {
+			display: block;
+			max-width: unset;
+		}
+	}
+}
+
+#sidebar-backdrop {
+	width: 100vw;
+	height: 100vh;
+	background: rgba(128, 128, 128, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+
+.sidebar-button-wrapper {
+	&.open {
+		button.close {
+			display: none;
+		}
+	}
+	&.closed {
+		button.open {
+			display: none;
+		}
+	}
+}
+
+/**
+ * Styles for Torchlight
+ *
+ * Uses the styles from https://torchlight.dev/docs/css
+ */
+ 
+ .torchlight-enabled {
+	pre {
+		border-radius: 0.25rem;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		overflow-x: auto;
+		padding: 0;
+
+		code.torchlight {
+			display: block;
+			min-width: -webkit-max-content;
+			min-width: -moz-max-content;
+			min-width: max-content;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+
+			.line {
+				padding-left: 1rem;
+				padding-right: 1rem;
+			}
+
+			.line-number,
+			.summary-caret {
+				margin-right: 1rem;
+			}
+		}
+	}
+}
+
+/**
+* Styles for Accessibility
+*/
+
+// Skip to main content button
+// Implementation based on https://accessibility.oit.ncsu.edu/it-accessibility-at-nc-state/developers/accessibility-handbook/mouse-and-keyboard-events/skip-to-main-content/
+// And complies with https://www.w3.org/TR/WCAG20-TECHS/G1.html
+#skip-to-content {
+	left:-999px;
+    position:absolute;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    z-index:-999;
+	&:focus, &:active {
+		color: #fff;
+		background-color:#000;
+		left: auto;
+		top: auto;
+		width: 30%;
+		height: auto;
+		overflow:auto;
+		margin: 10px 35%;
+		padding:5px;
+		border-radius: 15px;
+		border:4px solid yellow;
+		text-align:center;
+		font-size:1.2em;
+		z-index:999;
+	}
+}

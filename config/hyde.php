@@ -129,7 +129,7 @@ return [
     |
     */
 
-    'loadHydeAssetsUsingCDN' => true,
+    'loadHydeAssetsUsingCDN' => false,
     // 'cdnVersionOverride' => 'v1.0.0,
 
     /*
