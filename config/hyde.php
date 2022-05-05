@@ -257,4 +257,18 @@ return [
         'maxHeadingLevel' => 4,
         'smoothPageScrolling' => true,
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Hyde Config Version @HydeConfigVersion 1.0.0
+    |--------------------------------------------------------------------------
+    |
+    | Hyde can use the value above to determine if this configuration file
+    | contains the latest config options. If your config needs updating,
+    | a message will be shown in the HydeCLI, unless disabled below.
+    |
+    */
+
+    'warnAboutOutdatedConfig' => true,
+
 ];
