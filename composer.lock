@@ -879,12 +879,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hydephp/framework.git",
-                "reference": "084b540b1218997c8bc6374c268ce1a3115716b2"
+                "reference": "3db360f36206d9e8aab7c402777299b282a7bbe7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hydephp/framework/zipball/084b540b1218997c8bc6374c268ce1a3115716b2",
-                "reference": "084b540b1218997c8bc6374c268ce1a3115716b2",
+                "url": "https://api.github.com/repos/hydephp/framework/zipball/3db360f36206d9e8aab7c402777299b282a7bbe7",
+                "reference": "3db360f36206d9e8aab7c402777299b282a7bbe7",
                 "shasum": ""
             },
             "require": {
@@ -924,7 +924,7 @@
                 "issues": "https://github.com/hydephp/framework/issues",
                 "source": "https://github.com/hydephp/framework/tree/master"
             },
-            "time": "2022-05-05T18:21:12+00:00"
+            "time": "2022-05-06T09:55:32+00:00"
         },
         {
             "name": "illuminate/bus",
