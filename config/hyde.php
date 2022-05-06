@@ -75,7 +75,7 @@ return [
     | Note that some tags may be overwritten on certain pages, for instance post pages.
     |
     | Tip: See https://www.w3schools.com/tags/att_meta_name.asp
-    | for a list of tags and what what they are for.
+    | for a list of tags and what they are for.
     |
     */
 
@@ -130,7 +130,7 @@ return [
     */
 
     'loadHydeAssetsUsingCDN' => true,
-    // 'cdnVersionOverride' => 'v1.0.0,
+    // 'cdnVersionOverride' => 'v1.0.0',
 
     /*
     |--------------------------------------------------------------------------
