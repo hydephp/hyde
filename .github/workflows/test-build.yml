@@ -20,6 +20,9 @@ jobs:
 
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
+      
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-progress
 
       - name: Cache Composer packages
         id: composer-cache
@@ -29,12 +32,6 @@ jobs:
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-php-
-
-      - name: Install Composer dependencies
-        run: composer install --prefer-dist --no-progress
-
-      - name: Install latest Hyde/Framework
-        run: git clone https://github.com/hydephp/framework.git vendor/hyde/framework
 
       - name: Run test suite
         run: vendor/bin/pest
