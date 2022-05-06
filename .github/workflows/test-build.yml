@@ -36,7 +36,7 @@ jobs:
       - name: Run test suite
         run: vendor/bin/pest
 
-  build-hyde-files:
+  build-hyde-assets:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -72,7 +72,7 @@ jobs:
 
   propagate-compiled-tailwind-to-hydefront:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    needs: build-hyde-files
+    needs: build-hyde-assets
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -92,7 +92,7 @@ jobs:
           token: ${{ secrets.API_TOKEN_GITHUB }}
 
   create-hyde-merge-pull-request:
-    needs: [run-tests, build-hyde-files]
+    needs: [run-tests, build-hyde-assets]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
