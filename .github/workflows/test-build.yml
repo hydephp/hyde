@@ -24,14 +24,14 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-progress
 
-      - name: Cache Composer packages
-        id: composer-cache
-        uses: actions/cache@v3
-        with:
-          path: vendor
-          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-php-
+#       - name: Cache Composer packages
+#         id: composer-cache
+#         uses: actions/cache@v3
+#         with:
+#           path: vendor
+#           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+#           restore-keys: |
+#             ${{ runner.os }}-php-
 
       - name: Run test suite
         run: vendor/bin/pest
