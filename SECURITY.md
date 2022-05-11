@@ -2,12 +2,17 @@
 
 ## Supported Versions
 
-| Version | Supported          | Notes         |
-| ------- | ------------------ | ----          |
-| 0.1.0-Pre    | :warning:     | Pre-release   |
-| 0.1.0        | :x:           | Alpha-release |
+### Hyde is currently in Beta and has no supported versions.
 
-:warning: Pre-releases are not suited for production.
+Versions in the 0.x series are not stable and may change at any time.
+No backwards compatibility guarantees are made and there will be breaking changes without notice.
+
+| Version | Supported | Classification            |
+|---------|-----------|---------------------------|
+| > 0.20  | :warning: | Beta (active development) |
+| < 0.20  | :x:       | Beta (legacy)             |
+| < 0.8   | :x:       | Alpha stage               |
+
 
 <!-- 
 | 5.1.x   | :white_check_mark: |
