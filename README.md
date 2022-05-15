@@ -97,7 +97,7 @@ All vulnerabilities will be promptly addressed.
 
 ### Credits
 
--   [Caen De Silva](https://github.com/caendesilva)
+-   [Caen De Silva](https://github.com/caendesilva), feel free to buy me a coffee! https://www.buymeacoffee.com/caen
 -   [All Contributors](../../contributors)
 
 ### License
