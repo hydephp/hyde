@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/hydephp/hyde/issues"
   },
-  "homepage": "https://hydephp.github.io",
+  "homepage": "https://hydephp.com",
   "devDependencies": {
     "autoprefixer": "^10.4.5",
     "laravel-mix": "^6.0.43",
