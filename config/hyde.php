@@ -263,7 +263,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Hyde Config Version @HydeConfigVersion 1.0.0
+    | Pretty URLs (Links that do not end in .html)
+    |--------------------------------------------------------------------------
+    |
+    | Introduced in v0.25.0, you can now enable "pretty URLs". When the setting
+    | is enabled, generated links in the compiled HTML site are without the
+    | `.html` extension. Since this breaks local browsing you can leave
+    | the setting disabled, and instead add the `--pretty-urls` flag
+    | when running the `php hyde build` command for deployment.
+    |
+    */
+
+    'prettyUrls' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Hyde Config Version @HydeConfigVersion 0.1.0
     |--------------------------------------------------------------------------
     |
     | Hyde can use the value above to determine if this configuration file
