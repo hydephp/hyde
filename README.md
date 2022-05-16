@@ -18,7 +18,7 @@ Markdown purist? That's all you need. Blade artisan? Go for it.
 Hyde comes with hand-crafted frontend templates so you can focus on your content.
 You don't _need_ to customize anything. But you _can_ customize everything.
 
-See the documentation and learn more at https://hydephp.github.io/docs/
+See the documentation and learn more at https://hydephp.com/docs/
 
 ## Features
 
@@ -51,14 +51,14 @@ See the documentation and learn more at https://hydephp.github.io/docs/
 
 ## Live Demo & Media
 ### The Hyde Website
-The Hyde site (https://hydephp.github.io/) is fully built with Hyde. That includes the homepage, the blog, and the documentation.
-You can also take a look at the [Gallery page](https://hydephp.github.io/gallery) which was created using the Blade page module in Hyde and contains interactive graphics showcasing Hyde.
+The Hyde site (https://hydephp.com/) is fully built with Hyde. That includes the homepage, the blog, and the documentation.
+You can also take a look at the [Gallery page](https://hydephp.com/gallery) which was created using the Blade page module in Hyde and contains interactive graphics showcasing Hyde.
 
 ### Demo video showcasing how to scaffold a blog post and compile it to static HTML
 [<img src="https://user-images.githubusercontent.com/95144705/163714609-8d636acd-3538-47e9-a6f3-1923b375338b.png" title="Watch on YouTube" alt="YouTube Thumbnail" width="40%"></img>](https://www.youtube.com/watch?v=gjpE1U527h8)
 
 ## Getting Started - High-level overview
-> See [Installation Guide](https://hydephp.github.io/docs/master/installation.html) and [Getting Started](https://hydephp.github.io/docs/master/getting-started.html) for the full details.
+> See [Installation Guide](https://hydephp.com/docs/master/installation.html) and [Getting Started](https://hydephp.com/docs/master/getting-started.html) for the full details.
 
 It's a breeze to get started with Hyde. Create a new Hyde project using Composer:
 
@@ -78,7 +78,7 @@ php hyde build
 Heads up! HydePHP is still new and currently in beta. Please report any bugs and issues in the appropriate issue tracker. Versions in the 0.x series might not be stable and may change at any time. No backwards compatibility guarantees are made and there will be breaking changes without notice.
 
 Please wait until v1.0 for production use and remember to back up your source files before updating (use Git!).
-See https://hydephp.github.io/docs/master/updating-hyde.html for the upgrade guide.
+See https://hydephp.com/docs/master/updating-hyde.html for the upgrade guide.
 
 ## Resources
 
