@@ -222,7 +222,25 @@ return [
     |
     */
 
+    /**
+     * @deprecated version 0.25.0, will be renamed to documentationOutputPath
+     */
     'docsDirectory' => 'docs',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Site Output Directory (Experimental 🧪)
+    |--------------------------------------------------------------------------
+    |
+    | If you want to store your compiled website in a different directory than
+    | the default `_pages`, you can change the path here. The Hyde::path()
+    | helper ensures the path is relative to your Hyde project. While
+    | you can set the path to an absolute path outside the project,
+    | this is not officially supported and may be unstable.
+    |
+    */
+
+    'siteOutputPath' => Hyde\Framework\Hyde::path('_site'),
 
     /*
     |--------------------------------------------------------------------------
