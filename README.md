@@ -11,7 +11,13 @@
 
 ## Make static websites, blogs, and documentation pages with the tools you already know and love.
 
-HydePHP is a content-first Laravel-powered Static Site Builder that allows you to create static HTML pages, blog posts, and documentation sites using Markdown.
+### About HydePHP
+HydePHP is a content-first Laravel-powered Static Site Builder that allows you to create static HTML pages, blog posts, and documentation sites,
+using your choice of Markdown and/or Blade.
+
+Build sites in record-time with a full batteries-included TailwindCSS frontend that just works without any fuzz.
+
+### Simplicity first, full control when you need it.
 Hyde is all about letting you get started quickly while giving you the power and freedom of doing things the way you want to.
 
 Markdown purist? That's all you need. Blade artisan? Go for it.
@@ -108,5 +114,6 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 > Please see the respective authors' repositories for their license files
 
 - The Hyde core is built with [Laravel Zero](https://laravel-zero.com/) which is based on [Laravel](https://laravel.com/)
-- The frontend is built with [TailwindCSS](https://tailwindcss.com/).
+- The documentation frontend is based on [Lagrafo - Docs for Laravel apps](https://github.com/caendesilva/lagrafo)
 - The dark mode switch is based on a component from [Flowbite](https://flowbite.com/docs/customize/dark-mode/).
+- The frontend is built with [TailwindCSS](https://tailwindcss.com/).
