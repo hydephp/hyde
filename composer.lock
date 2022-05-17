@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a9a48307f143f7328ad0f6175c2d21e",
+    "content-hash": "fbbd91d7ee2e6bda985bf4431eca6df1",
     "packages": [
         {
             "name": "brick/math",
@@ -875,16 +875,16 @@
         },
         {
             "name": "hyde/framework",
-            "version": "dev-master",
+            "version": "v0.25.0-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hydephp/framework.git",
-                "reference": "ca7e6996991df5749f51701a2654d1d04562e134"
+                "reference": "5231a09ae443c6fbfb1e026324ce4273d667ec16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hydephp/framework/zipball/ca7e6996991df5749f51701a2654d1d04562e134",
-                "reference": "ca7e6996991df5749f51701a2654d1d04562e134",
+                "url": "https://api.github.com/repos/hydephp/framework/zipball/5231a09ae443c6fbfb1e026324ce4273d667ec16",
+                "reference": "5231a09ae443c6fbfb1e026324ce4273d667ec16",
                 "shasum": ""
             },
             "require": {
@@ -902,7 +902,6 @@
             "suggest": {
                 "hyde/hyde": "The Framework package contains the Hyde Core. To create your site you should use the Hyde/Hyde project."
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -922,9 +921,9 @@
             "description": "The HydePHP Framework",
             "support": {
                 "issues": "https://github.com/hydephp/framework/issues",
-                "source": "https://github.com/hydephp/framework/tree/master"
+                "source": "https://github.com/hydephp/framework/tree/v0.25.0-beta"
             },
-            "time": "2022-05-11T17:35:15+00:00"
+            "time": "2022-05-17T09:44:57+00:00"
         },
         {
             "name": "illuminate/bus",
@@ -2062,16 +2061,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.3.0",
+            "version": "2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "32a49eb2b38fe5e5c417ab748a45d0beaab97955"
+                "reference": "cb36fee279f7fca01d5d9399ddd1b37e48e2eca1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/32a49eb2b38fe5e5c417ab748a45d0beaab97955",
-                "reference": "32a49eb2b38fe5e5c417ab748a45d0beaab97955",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/cb36fee279f7fca01d5d9399ddd1b37e48e2eca1",
+                "reference": "cb36fee279f7fca01d5d9399ddd1b37e48e2eca1",
                 "shasum": ""
             },
             "require": {
@@ -2164,7 +2163,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-07T22:37:05+00:00"
+            "time": "2022-05-14T15:37:39+00:00"
         },
         {
             "name": "league/config",
@@ -2918,16 +2917,16 @@
         },
         {
             "name": "nunomaduro/termwind",
-            "version": "v1.9.0",
+            "version": "v1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/termwind.git",
-                "reference": "7d7c5f846158a764bdd0cd943685c381de9be656"
+                "reference": "b63e00e448af1d418cbb07a683187685a97ca0e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/7d7c5f846158a764bdd0cd943685c381de9be656",
-                "reference": "7d7c5f846158a764bdd0cd943685c381de9be656",
+                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/b63e00e448af1d418cbb07a683187685a97ca0e6",
+                "reference": "b63e00e448af1d418cbb07a683187685a97ca0e6",
                 "shasum": ""
             },
             "require": {
@@ -2984,7 +2983,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nunomaduro/termwind/issues",
-                "source": "https://github.com/nunomaduro/termwind/tree/v1.9.0"
+                "source": "https://github.com/nunomaduro/termwind/tree/v1.10.1"
             },
             "funding": [
                 {
@@ -3000,7 +2999,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-05-03T00:11:55+00:00"
+            "time": "2022-05-12T01:36:04+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -6109,7 +6108,7 @@
         },
         {
             "name": "hyde/realtime-compiler",
-            "version": "dev-master",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hydephp/realtime-compiler.git",
@@ -6121,7 +6120,6 @@
                 "reference": "1667f2f0e13822429d76af49d163ba12ea45db0d",
                 "shasum": ""
             },
-            "default-branch": true,
             "bin": [
                 "server.php"
             ],
@@ -6336,16 +6334,16 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v1.21.2",
+            "version": "v1.21.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "63f009fadf9b37f611fda43928d03336475d5d9f"
+                "reference": "66f69617f1e01032e009f783136f129de3476689"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/63f009fadf9b37f611fda43928d03336475d5d9f",
-                "reference": "63f009fadf9b37f611fda43928d03336475d5d9f",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/66f69617f1e01032e009f783136f129de3476689",
+                "reference": "66f69617f1e01032e009f783136f129de3476689",
                 "shasum": ""
             },
             "require": {
@@ -6367,7 +6365,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-1.x": "1.x-dev"
                 },
                 "pest": {
                     "plugins": [
@@ -6413,7 +6411,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v1.21.2"
+                "source": "https://github.com/pestphp/pest/tree/v1.21.3"
             },
             "funding": [
                 {
@@ -6445,7 +6443,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-03-05T19:34:40+00:00"
+            "time": "2022-05-12T19:10:25+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -8295,10 +8293,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "hyde/framework": 20,
-        "hyde/realtime-compiler": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
