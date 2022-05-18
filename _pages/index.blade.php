@@ -65,7 +65,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://hydephp.com/docs/master/getting-started.html" class="uppercase font-bold text-sm flex text-center m-2 mx-3">
+                                <a href="https://hydephp.com/docs/master/getting-started" class="uppercase font-bold text-sm flex text-center m-2 mx-3">
                                     Getting Started
                                 </a>
                             </li>
