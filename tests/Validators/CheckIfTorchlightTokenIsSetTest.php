@@ -1,6 +1,6 @@
 <?php
 
-use Hyde\Framework\Features;
+use Hyde\Framework\Helpers\Features;
 use Illuminate\Contracts\Console\Kernel;
 
 $app = require __DIR__.'/../../bootstrap/app.php';
