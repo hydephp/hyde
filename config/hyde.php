@@ -39,20 +39,28 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Site URL
+    | Site URL Configuration
     |--------------------------------------------------------------------------
     |
-    | If you want, you can set your site's URL here or in the .env file.
+    | Here are some configuration options for URL generation.
     |
-    | The URL will then be used in meta tags to create permalinks.
-    | If you are serving your site from a subdirectory, you will
-    | need to include that in the path without a trailing slash.
+    | A site_url is required to use sitemaps and RSS feeds.
     |
-    | Example: https://example.org/blog
+    | `site_url` is used to create canonical URLs and permalinks.
+    | `prettyUrls` will when enabled create links that do not end in .html.
+    | `generateSitemap` determines if a sitemap.xml file should be generated.
+    |
+    | To see the full documentation, please visit the (temporary link) below.
+    | https://github.com/hydephp/framework/wiki/Documentation-Page-Drafts
+    |
     |
     */
 
     'site_url' => env('SITE_URL', null),
+
+    'prettyUrls' => false,
+
+    'generateSitemap' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -282,27 +290,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Pretty URLs (Links that do not end in .html)
+    | Warn about outdated config?
     |--------------------------------------------------------------------------
     |
-    | Introduced in v0.25.0, you can now enable "pretty URLs". When the setting
-    | is enabled, generated links in the compiled HTML site are without the
-    | `.html` extension. Since this breaks local browsing you can leave
-    | the setting disabled, and instead add the `--pretty-urls` flag
-    | when running the `php hyde build` command for deployment.
-    |
-    */
-
-    'prettyUrls' => false,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Hyde Config Version @HydeConfigVersion 0.1.0
-    |--------------------------------------------------------------------------
-    |
-    | Hyde can use the value above to determine if this configuration file
-    | contains the latest config options. If your config needs updating,
-    | a message will be shown in the HydeCLI, unless disabled below.
+    | If your config needs updating, a message will be shown in the
+    | HydeCLI info screen, unless disabled below.
     |
     */
 
