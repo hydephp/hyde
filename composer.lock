@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4ceefa0076e12d4c948906caaf16edf",
+    "content-hash": "f1da7d0422a977820b65615da15c98de",
     "packages": [
         {
             "name": "brick/math",
@@ -6109,16 +6109,16 @@
         },
         {
             "name": "hyde/realtime-compiler",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hydephp/realtime-compiler.git",
-                "reference": "1667f2f0e13822429d76af49d163ba12ea45db0d"
+                "reference": "44fe381d310436cf809a3243814200020056c5b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hydephp/realtime-compiler/zipball/1667f2f0e13822429d76af49d163ba12ea45db0d",
-                "reference": "1667f2f0e13822429d76af49d163ba12ea45db0d",
+                "url": "https://api.github.com/repos/hydephp/realtime-compiler/zipball/44fe381d310436cf809a3243814200020056c5b0",
+                "reference": "44fe381d310436cf809a3243814200020056c5b0",
                 "shasum": ""
             },
             "bin": [
@@ -6142,9 +6142,9 @@
             ],
             "support": {
                 "issues": "https://github.com/hydephp/realtime-compiler/issues",
-                "source": "https://github.com/hydephp/realtime-compiler/tree/v1.2.0"
+                "source": "https://github.com/hydephp/realtime-compiler/tree/v1.3.0"
             },
-            "time": "2022-05-08T15:15:50+00:00"
+            "time": "2022-05-30T11:04:28+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -8301,5 +8301,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.1.0"
 }
