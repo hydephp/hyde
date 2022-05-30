@@ -119,6 +119,7 @@ return [
 
         // Frontend Features
         Features::darkmode(),
+        Features::documentationSearch(),
 
         // Integrations
         Features::torchlight(),
