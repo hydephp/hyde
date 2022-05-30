@@ -57,8 +57,7 @@ module.exports = {
                             paddingRight: '4px',
                             marginLeft: '-2px',
                             marginRight: '1px',
-                            borderRadius: '4px',
-                            whiteSpace: 'pre',
+                            borderRadius: '4px'
                         },
                         'code::before': {
                             content: 'unset',
