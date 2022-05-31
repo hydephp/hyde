@@ -50,4 +50,20 @@ return [
         //
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Blade-supported Markdown
+    |--------------------------------------------------------------------------
+    |
+    | Since Hyde v0.30.x you can use Laravel Blade in Markdown files.
+    |
+    | It's disabled by default since can be a security risk as it allows
+    | arbitrary PHP to run. But if your Markdown is trusted, try it out!
+    |
+    | To see the syntax and usage, see the documentation:
+    | @see https://hydephp.com/docs/master/advanced-markdown#blade-support
+    |
+    */
+
+    'enable_blade' => false,
 ];

@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "hyde/framework": "^0.29",
+        "hyde/framework": "^0.30",
         "illuminate/view": "^9.0",
         "laravel-zero/framework": "^9.0",
         "nunomaduro/termwind": "^1.3"
