@@ -75,9 +75,9 @@ module.exports = {
                 invert: {
                     css: {
                         a: {
-                            color: '#6366f1',
+                            color: '#818cf8',
                             '&:hover': {
-                                color: '#5956eb',
+                                color: '#6366f1',
                             },
                         },
                     },
