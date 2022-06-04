@@ -17,8 +17,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "hyde/framework": "^0.32",
-        "illuminate/view": "^9.0"
+        "hyde/framework": "^0.32"
     },
     "require-dev": {
         "hyde/realtime-compiler": "^1.3",
