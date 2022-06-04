@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b204d809a2e49b57863b66a61e736d4d",
+    "content-hash": "e680b9c6128a84159d77f1186d3cb871",
     "packages": [
         {
             "name": "brick/math",
@@ -875,20 +875,21 @@
         },
         {
             "name": "hyde/framework",
-            "version": "v0.32.0-beta",
+            "version": "v0.32.1-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hydephp/framework.git",
-                "reference": "f3e542029963ccac08e4296e9a781ffca5594344"
+                "reference": "8bbe1dfb040501889733090ba028d2452c9c6b7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hydephp/framework/zipball/f3e542029963ccac08e4296e9a781ffca5594344",
-                "reference": "f3e542029963ccac08e4296e9a781ffca5594344",
+                "url": "https://api.github.com/repos/hydephp/framework/zipball/8bbe1dfb040501889733090ba028d2452c9c6b7a",
+                "reference": "8bbe1dfb040501889733090ba028d2452c9c6b7a",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "^9.5",
+                "illuminate/view": "^9.0",
                 "laravel-zero/framework": "^9.1",
                 "league/commonmark": "^2.2",
                 "php": "^8.0",
@@ -897,7 +898,6 @@
                 "torchlight/torchlight-commonmark": "^0.5.5"
             },
             "require-dev": {
-                "hyde/realtime-compiler": "^2.0",
                 "phpunit/phpunit": "^7.5.15 || ^8.5 || ^9.0"
             },
             "suggest": {
@@ -923,9 +923,9 @@
             "description": "The HydePHP Framework",
             "support": {
                 "issues": "https://github.com/hydephp/framework/issues",
-                "source": "https://github.com/hydephp/framework/tree/v0.32.0-beta"
+                "source": "https://github.com/hydephp/framework/tree/v0.32.1-beta"
             },
-            "time": "2022-06-04T18:15:53+00:00"
+            "time": "2022-06-04T19:04:40+00:00"
         },
         {
             "name": "illuminate/bus",
@@ -5902,6 +5902,55 @@
     ],
     "packages-dev": [
         {
+            "name": "desilva/microserve",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caendesilva/microserve.git",
+                "reference": "2a55037f67578c2c9a30108a7b68051236a6b2d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caendesilva/microserve/zipball/2a55037f67578c2c9a30108a7b68051236a6b2d6",
+                "reference": "2a55037f67578c2c9a30108a7b68051236a6b2d6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Desilva\\Microserve\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caen De Silva",
+                    "email": "caen@desilva.se",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Lightweight API for creating PHP application servers",
+            "homepage": "https://github.com/caendesilva/microserve",
+            "keywords": [
+                "desilva",
+                "microserve"
+            ],
+            "support": {
+                "issues": "https://github.com/caendesilva/microserve/issues",
+                "source": "https://github.com/caendesilva/microserve/tree/v1.0.0"
+            },
+            "time": "2022-06-04T12:07:54+00:00"
+        },
+        {
             "name": "doctrine/instantiator",
             "version": "1.4.1",
             "source": {
@@ -6021,6 +6070,54 @@
                 "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.0.1"
             },
             "time": "2020-07-09T08:09:16+00:00"
+        },
+        {
+            "name": "hyde/realtime-compiler",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hydephp/realtime-compiler.git",
+                "reference": "65b153a09c324b6ecf1fcc6315c476805b70c62d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hydephp/realtime-compiler/zipball/65b153a09c324b6ecf1fcc6315c476805b70c62d",
+                "reference": "65b153a09c324b6ecf1fcc6315c476805b70c62d",
+                "shasum": ""
+            },
+            "require": {
+                "desilva/microserve": "^1.0"
+            },
+            "require-dev": {
+                "hyde/framework": "dev-master"
+            },
+            "suggest": {
+                "hyde/framework": ">=v0.32.0-beta"
+            },
+            "bin": [
+                "bin/server.php"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Hyde\\RealtimeCompiler\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caen De Silva",
+                    "email": "caen@desilva.se"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/hydephp/realtime-compiler/issues",
+                "source": "https://github.com/hydephp/realtime-compiler/tree/v2.0.0"
+            },
+            "time": "2022-06-04T13:54:44+00:00"
         },
         {
             "name": "mockery/mockery",
