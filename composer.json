@@ -20,6 +20,7 @@
         "hyde/framework": "^0.32"
     },
     "require-dev": {
+        "mockery/mockery": "^1.4.4",
         "pestphp/pest": "^1.21.1"
     },
     "autoload": {
