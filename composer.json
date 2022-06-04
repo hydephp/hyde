@@ -21,7 +21,6 @@
     },
     "require-dev": {
         "hyde/realtime-compiler": "^1.3",
-        "mockery/mockery": "^1.4.4",
         "pestphp/pest": "^1.21.1"
     },
     "autoload": {
