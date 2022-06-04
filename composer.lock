@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5cb58fc196f2127c7b14364e20ee28ab",
+    "content-hash": "9556503e8ed4f9670c4d1f88a15d8261",
     "packages": [
         {
             "name": "brick/math",
@@ -875,20 +875,19 @@
         },
         {
             "name": "hyde/framework",
-            "version": "v0.31.1-beta",
+            "version": "v0.32.0-beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hydephp/framework.git",
-                "reference": "b0ce4cb7c0e2280e98ee77201c1b16b8bc0a7d29"
+                "reference": "f3e542029963ccac08e4296e9a781ffca5594344"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hydephp/framework/zipball/b0ce4cb7c0e2280e98ee77201c1b16b8bc0a7d29",
-                "reference": "b0ce4cb7c0e2280e98ee77201c1b16b8bc0a7d29",
+                "url": "https://api.github.com/repos/hydephp/framework/zipball/f3e542029963ccac08e4296e9a781ffca5594344",
+                "reference": "f3e542029963ccac08e4296e9a781ffca5594344",
                 "shasum": ""
             },
             "require": {
-                "ext-simplexml": "*",
                 "illuminate/support": "^9.5",
                 "laravel-zero/framework": "^9.1",
                 "league/commonmark": "^2.2",
@@ -898,9 +897,11 @@
                 "torchlight/torchlight-commonmark": "^0.5.5"
             },
             "require-dev": {
+                "hyde/realtime-compiler": "^2.0",
                 "phpunit/phpunit": "^7.5.15 || ^8.5 || ^9.0"
             },
             "suggest": {
+                "ext-simplexml": "Required to generate sitemaps and RSS feeds.",
                 "hyde/hyde": "The Framework package contains the Hyde Core. To create your site you should use the Hyde/Hyde project."
             },
             "type": "library",
@@ -922,9 +923,9 @@
             "description": "The HydePHP Framework",
             "support": {
                 "issues": "https://github.com/hydephp/framework/issues",
-                "source": "https://github.com/hydephp/framework/tree/v0.31.1-beta"
+                "source": "https://github.com/hydephp/framework/tree/v0.32.0-beta"
             },
-            "time": "2022-06-03T19:58:27+00:00"
+            "time": "2022-06-04T18:15:53+00:00"
         },
         {
             "name": "illuminate/bus",
