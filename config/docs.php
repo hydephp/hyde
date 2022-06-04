@@ -44,6 +44,29 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Collaborative Source Editing Location
+    |--------------------------------------------------------------------------
+    |
+    | @see https://hydephp.com/docs/master/documentation-pages#automatic-edit-page-button
+    |
+    | By adding a base URL here, Hyde will use it to create "edit source" links
+    | to your documentation pages. Hyde expects this to be a GitHub path, but
+    | it will probably work with other methods as well, if not, send a PR!
+    |
+    | You can also change the link text with the `edit_source_link_text` setting.
+    |
+    | Example: https://github.com/hydephp/docs/blob/master
+    |          Do not specify the filename or extension, Hyde will do that for you.
+    | Setting the setting to null will disable the feature.
+    |
+    */
+
+    // 'source_file_location_base' => 'https://github.com/<user>/<repo>/<[blob/edit]>/<branch>',
+    'edit_source_link_text' => 'Edit Source',
+    'edit_source_link_position' => 'footer', // 'header', 'footer', or 'both'
+
+    /*
+    |--------------------------------------------------------------------------
     | Sidebar Page Order
     |--------------------------------------------------------------------------
     |

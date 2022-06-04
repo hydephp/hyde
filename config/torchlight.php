@@ -21,7 +21,7 @@ return [
     'attribution' => [
         'enabled' => true,
         'markdown' => '
-<p class="mt-8">
+<p>
     <i>
         Syntax highlighting by <a href="https://torchlight.dev/" rel="noopener nofollow">Torchlight.dev</a>
     </i>
