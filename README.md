@@ -17,8 +17,8 @@ using your choice of Markdown and/or Blade.
 
 Build sites in record-time with a full batteries-included TailwindCSS frontend that just works without any fuzz.
 
-### Simplicity first, full control when you need it.
-Hyde is all about letting you get started quickly while giving you the power and freedom of doing things the way you want to.
+### Speed & simplicity first, full control when you need it.
+Hyde is all about letting you get started quickly by giving you a full-featured frontend starter kit, while also giving you the power and freedom of doing things the way you want to.
 
 Markdown purist? That's all you need. Blade artisan? Go for it.
 Hyde comes with hand-crafted frontend templates so you can focus on your content.
