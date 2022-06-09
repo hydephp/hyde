@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @deprecated v0.35.x-dev - This file has moved to app/bootstrap.php,
- *                           and will be removed in a future release.
- */
-
 /*
 |--------------------------------------------------------------------------
 | Create The Application
