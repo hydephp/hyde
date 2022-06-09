@@ -10,10 +10,10 @@
          stopOnFailure="false">
     <testsuites>
         <testsuite name="Feature">
-            <directory suffix="Test.php">./vendor/hyde/framework/tests/Feature</directory>
+            <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
         <testsuite name="Unit">
-            <directory suffix="Test.php">./vendor/hyde/framework/tests/Unit</directory>
+            <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
         <testsuite name="Validators">
             <directory suffix="Test.php">./tests/Validators</directory>
@@ -21,7 +21,7 @@
     </testsuites>
     <coverage processUncoveredFiles="true">
         <include>
-            <directory suffix=".php">./vendor/hyde/framework/src</directory>
+            <directory suffix=".php">./packages/framework/src</directory>
         </include>
     </coverage>
     <groups>
@@ -32,4 +32,7 @@
     <php>
         <env name="ENV" value="testing"/>
     </php>
+    <listeners>
+        <listener class="\Hyde\Testing\TestListener" />
+    </listeners>
 </phpunit>
