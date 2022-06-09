@@ -1,0 +1,8 @@
+/*
+* This file is loaded into your Hyde/Hyde installation and is used to generate the TailwindCSS for your project. 
+* You can use this file to customize your TailwindCSS or to add new classes.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
