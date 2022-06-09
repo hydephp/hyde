@@ -15,7 +15,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name (Logo)
+    | Application Name
     |--------------------------------------------------------------------------
     |
     | This value is the name of your application. This value is used when the
@@ -24,15 +24,7 @@ return [
     |
     */
 
-    'name' => "
-
-\033[34m     __ __        __   \033[33m ___  __ _____
-\033[34m    / // /_ _____/ /__ \033[33m/ _ \/ // / _ \
-\033[34m   / _  / // / _  / -_)\033[33m ___/ _  / ___/
-\033[34m  /_//_/\_, /\_,_/\__/\033[33m_/  /_//_/_/
-\033[34m       /___/
-    
-\033[0m",
+    'name' => config('hyde.name', 'HydePHP'),
 
     /*
     |--------------------------------------------------------------------------
@@ -77,6 +69,7 @@ return [
     */
 
     'providers' => [
+        App\Providers\AppServiceProvider::class,
         Hyde\Framework\HydeServiceProvider::class,
     ],
 

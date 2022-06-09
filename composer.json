@@ -1,11 +1,7 @@
 {
     "name": "hyde/hyde",
     "description": "Static Site Generator to rapidly create Blogs, Documentation, and more, using Markdown and Blade.",
-    "keywords": [
-        "framework",
-        "hyde",
-        "hyde framework"
-    ],
+    "keywords": ["framework", "hyde", "hyde framework"],
     "homepage": "https://hydephp.com",
     "type": "project",
     "license": "MIT",
@@ -21,12 +17,12 @@
     ],
     "require": {
         "php": "^8.0",
-        "hyde/framework": "dev-master"
+        "hyde/framework": "^0.34"
     },
     "require-dev": {
         "mockery/mockery": "^1.4.4",
         "pestphp/pest": "^1.21.1",
-        "hyde/realtime-compiler": "dev-master"
+        "hyde/realtime-compiler": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -37,7 +33,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Hyde\\Testing\\": "tests/"
+            "Tests\\": "tests/"
         }
     },
     "config": {
@@ -50,7 +46,5 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "bin": [
-        "hyde"
-    ]
+    "bin": ["hyde"]
 }

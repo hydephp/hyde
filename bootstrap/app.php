@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @deprecated v0.35.x-dev - This file has moved to app/bootstrap.php,
- *                           and will be removed in a future release.
- */
-
 /*
 |--------------------------------------------------------------------------
 | Create The Application
@@ -40,17 +35,6 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     Illuminate\Foundation\Exceptions\Handler::class
 );
-
-/*
-|--------------------------------------------------------------------------
-| Set Important Hyde Configurations
-|--------------------------------------------------------------------------
-|
-| Next, we need to configure Hyde to to use our project's base path.
-|
-*/
-
-\Hyde\Framework\Hyde::setBasePath(getcwd());
 
 /*
 |--------------------------------------------------------------------------
