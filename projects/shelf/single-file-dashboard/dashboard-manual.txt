@@ -1,0 +1,68 @@
+HYDERC DASHBOARD MANUAL
+
+IMPORTANT NOTE
+
+As this is alpha stage software there may be bugs,
+and usage is at your own risk. You should always keep
+backups using Git version control or similar.
+
+A version allowing for community editing by creating
+a public static HTML dashboard is planned, this would
+then link to files on GitHub for collaboration.
+Though, this idea may instead be handled in a separate
+package included as a dashboard.blade.php file,
+using the default layout.
+
+
+SECURITY
+
+This is not a traditional CMS like WordPress and similar.
+It's never supposed to be on production systems.
+Instead, it's a local developer tool.
+Think of it as an integrated development environment
+specifically tailored for use with HydePHP projects.
+
+As the dashboard modifies files on the computer running it
+and gives arbitrary access to the server by running shell
+commands, opening files, and executing programs, it is
+extremely important that the dashboard is not exposed
+to the internet. You must only ever use this dashboard
+as a local development tool.
+
+A basic check is made to block requests not made from
+localhost as an extra precaution. You should still
+never make the dashboard.php file publicly accessible.
+
+Also note that error reporting is enabled by default,
+as the dashboard assumes that all who can access it
+are authorized to use the system running it.
+
+The app is not safe against XSS/script injection either
+as not all output is sanitized or escaped; and the
+output that is escaped, is only made so to prevent
+visual glitches, like displaying source HTML tags.
+
+
+LICENSE
+
+MIT License
+
+Copyright (c) 2022 Caen De Silva
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
