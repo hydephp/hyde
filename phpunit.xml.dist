@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- This file is deprecated and will be removed from the standard install in a future release -->
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
          bootstrap="vendor/autoload.php"
@@ -9,26 +10,10 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
-        <testsuite name="Feature">
-            <directory suffix="Test.php">./vendor/hyde/framework/tests/Feature</directory>
-        </testsuite>
-        <testsuite name="Unit">
-            <directory suffix="Test.php">./vendor/hyde/framework/tests/Unit</directory>
-        </testsuite>
         <testsuite name="Validators">
             <directory suffix="Test.php">./tests/Validators</directory>
         </testsuite>
     </testsuites>
-    <coverage processUncoveredFiles="true">
-        <include>
-            <directory suffix=".php">./vendor/hyde/framework/src</directory>
-        </include>
-    </coverage>
-    <groups>
-        <exclude>
-            <group>validators</group>
-        </exclude>
-    </groups> 
     <php>
         <env name="ENV" value="testing"/>
     </php>

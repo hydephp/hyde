@@ -92,7 +92,7 @@ return [
 
     'meta' => [
         // Meta::name('author', 'Mr. Hyde'),
-        // Meta::name('twitter:creator', '@hyde_php'),
+        // Meta::name('twitter:creator', '@HydeFramework'),
         // Meta::name('description', 'My Hyde Blog'),
         // Meta::name('keywords', 'Static Sites, Blogs, Documentation'),
         Meta::name('generator', 'HydePHP '.Hyde\Framework\Hyde::version()),

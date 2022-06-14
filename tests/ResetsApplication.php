@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Hyde\Testing;
 
 use Hyde\Framework\Actions\CreatesDefaultDirectories;
 use Hyde\Framework\Hyde;
