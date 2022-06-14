@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace Hyde\Testing;
 
 use LaravelZero\Framework\Testing\TestCase as BaseTestCase;
 

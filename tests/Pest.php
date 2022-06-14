@@ -14,7 +14,7 @@
 use Hyde\Framework\Hyde;
 use Illuminate\Support\Facades\File;
 
-uses(Tests\TestCase::class)->in('Feature');
+uses(\Hyde\Testing\TestCase::class)->in('Feature');
 
 /*
 |--------------------------------------------------------------------------
