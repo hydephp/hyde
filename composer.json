@@ -21,12 +21,12 @@
     ],
     "require": {
         "php": "^8.0",
-        "hyde/framework": "^0.35"
+        "hyde/framework": "dev-master"
     },
     "require-dev": {
         "mockery/mockery": "^1.4.4",
         "pestphp/pest": "^1.21.1",
-        "hyde/realtime-compiler": "^2.1"
+        "hyde/realtime-compiler": "dev-master"
     },
     "autoload": {
         "psr-4": {
