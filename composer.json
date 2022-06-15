@@ -40,6 +40,11 @@
             "Hyde\\Testing\\": "tests/"
         }
     },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php hyde package:discover --ansi"
+        ]
+    },
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
