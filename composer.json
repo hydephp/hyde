@@ -21,7 +21,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "hyde/framework": "^0.35"
+        "hyde/framework": "^0.36"
     },
     "require-dev": {
         "mockery/mockery": "^1.4.4",
@@ -39,6 +39,11 @@
         "psr-4": {
             "Hyde\\Testing\\": "tests/"
         }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php hyde package:discover --ansi"
+        ]
     },
     "config": {
         "preferred-install": "dist",

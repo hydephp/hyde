@@ -17,7 +17,7 @@
 |
 */
 
-$app = new LaravelZero\Framework\Application(
+$app = new Hyde\Framework\Application(
     dirname(__DIR__)
 );
 
