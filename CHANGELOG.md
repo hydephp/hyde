@@ -1,10 +1,13 @@
 ### Changelog
 
-The changelog is now handled in the [monorepo](https://github.com/hydephp/develop). Here is a direct link https://github.com/hydephp/develop/blob/master/CHANGELOG.md
+In v0.35.0 the Hyde project source was moved into the [HydePHP/Develop monorepo](https://github.com/hydephp/develop) where the changelog is now handled.
+Here is a direct link https://github.com/hydephp/develop/blob/master/CHANGELOG.md. Releases in Hyde/Hyde and Hyde/Framework are synced one-to-one since this change.
+
+You can find the archive below.
 
 ---
 
-### Archive
+### Archive (pre v0.35.0)
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
