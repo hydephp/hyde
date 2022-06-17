@@ -1,4 +1,11 @@
 * text=auto
+
+*.blade.php diff=html
+*.css diff=css
+*.html diff=html
+*.md diff=markdown
+*.php diff=php
+
 /.github export-ignore
 .styleci.yml export-ignore
 .scrutinizer.yml export-ignore
