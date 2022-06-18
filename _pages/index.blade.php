@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>HydePHP</title>
+    <title>Welcome to HydePHP!</title>
 
     <style>
         /*! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com*/
