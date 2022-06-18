@@ -36,7 +36,10 @@
     "autoload-dev": {
         "psr-4": {
             "Hyde\\Testing\\": "tests/"
-        }
+        },
+        "files": [
+            "tests/helpers.php"
+        ]
     },
     "scripts": {
         "post-autoload-dump": [
