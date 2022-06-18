@@ -12,3 +12,5 @@
 BACKERS.md export-ignore
 CONTRIBUTING.md export-ignore
 CHANGELOG.md export-ignore
+
+tests/ export-ignore
