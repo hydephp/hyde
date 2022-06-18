@@ -5,8 +5,6 @@ namespace Hyde\Testing;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Foundation\Application;
 
-require_once __DIR__.'/helpers.php';
-
 trait CreatesApplication
 {
     /**

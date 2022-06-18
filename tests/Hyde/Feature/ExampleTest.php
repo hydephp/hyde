@@ -10,4 +10,9 @@ class ExampleTest extends TestCase
     {
         $this->assertTrue(true);
     }
+
+    public function test_helpers_are_available()
+    {
+        $this->assertTrue(function_exists('backup'));
+    }
 }
