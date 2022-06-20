@@ -9,7 +9,7 @@ class HydeCLITest extends TestCase
     public function test_can_show_hyde_console()
     {
         $this->artisan('list')
-            ->expectsOutputToContain('Hyde')
+            ->expectsOutputToContain('hyde')
             ->assertExitCode(0);
     }
 }
