@@ -221,6 +221,9 @@ return [
     |
     */
 
+    /**
+     * @deprecated will be handled in the service provider
+     */
     'site_output_path' => Hyde\Framework\Hyde::path('_site'),
 
     /*
