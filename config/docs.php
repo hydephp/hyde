@@ -102,4 +102,23 @@ return [
         'min_heading_level' => 2,
         'max_heading_level' => 4,
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Search Customization
+    |--------------------------------------------------------------------------
+    |
+    | Hyde comes with an easy to use search feature for documentation pages.
+    | @see https://hydephp.com/docs/master/documentation-pages#search-feature
+    |
+    */
+
+    // Should a docs/search.html page be generated?
+    'create_search_page' => true,
+
+    // Are there any pages you don't want to show in the search results?
+    'exclude_from_search' => [
+        'changelog',
+    ],
+
 ];
