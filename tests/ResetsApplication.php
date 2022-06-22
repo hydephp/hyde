@@ -3,7 +3,6 @@
 namespace Hyde\Testing;
 
 use Hyde\Framework\Hyde;
-use Illuminate\Support\Facades\File;
 
 /**
  * @internal
@@ -12,8 +11,6 @@ trait ResetsApplication
 {
     public function resetApplication()
     {
-        copy(Hyde::path('_media/app.css'), Hyde::path('storage/framework/cache/app.css'));
-
         $this->resetMedia();
         $this->resetPages();
         $this->resetPosts();
@@ -23,29 +20,27 @@ trait ResetsApplication
 
     public function resetMedia()
     {
-        File::cleanDirectory(Hyde::path('_media'));
-        copy(Hyde::path('storage/framework/cache/app.css'), Hyde::path('_media/app.css'));
+        //
     }
 
     public function resetPages()
     {
-        File::cleanDirectory(Hyde::path('_pages'));
-        Hyde::copy(Hyde::vendorPath('resources/views/homepages/welcome.blade.php'), Hyde::path('_pages/index.blade.php'));
-        Hyde::copy(Hyde::vendorPath('resources/views/pages/404.blade.php'), Hyde::path('_pages/404.blade.php'));
+        array_map('unlinkUnlessDefault', glob(Hyde::path('_pages/*.md')));
+        array_map('unlinkUnlessDefault', glob(Hyde::path('_pages/*.blade.php')));
     }
 
     public function resetPosts()
     {
-        File::cleanDirectory(Hyde::path('_posts'));
+        array_map('unlinkUnlessDefault', glob(Hyde::path('_posts/*.md')));
     }
 
     public function resetDocs()
     {
-        File::cleanDirectory(Hyde::path('_docs'));
+        array_map('unlinkUnlessDefault', glob(Hyde::path('_docs/*.md')));
     }
 
     public function resetSite()
     {
-        File::cleanDirectory(Hyde::path('_site'));
+        array_map('unlinkUnlessDefault', glob(Hyde::path('_site/*.html')));
     }
 }
