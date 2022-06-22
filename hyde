@@ -17,10 +17,7 @@ define('LARAVEL_START', microtime(true));
 
 $autoloader = require file_exists(__DIR__.'/vendor/autoload.php') ?  __DIR__.'/vendor/autoload.php' : __DIR__.'/../../autoload.php';
 
-// Temporarly add compatability for old bootstrap file location making the transition easier
-$app = require_once file_exists(__DIR__.'/app/bootstrap.php') ? __DIR__.'/app/bootstrap.php' : __DIR__.'/bootstrap/app.php';
-// This is what we will use after a few releases
-// $app = require_once __DIR__.'/app/bootstrap.php';
+$app = require_once __DIR__.'/app/bootstrap.php';
 
 /*
 |--------------------------------------------------------------------------
