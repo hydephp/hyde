@@ -20,4 +20,4 @@ It also assumes that the tests are run in a clean project.
 
 Todo:
 
-- [] Add the Cypress tests.
+- [ ] Add the Cypress tests.

@@ -80,3 +80,19 @@ This is a post stub used in the automated tests
         return $path;
     }
 }
+
+if (! function_exists('unlinkUnlessDefault')) {
+    function unlinkUnlessDefault(string $filepath)
+    {
+        $protected = [
+            'app.css',
+            'index.blade.php',
+            '404.blade.php',
+            '.gitkeep',
+        ];
+
+        if (! in_array(basename($filepath), $protected)) {
+            unlink($filepath);
+        }
+    }
+}
