@@ -213,16 +213,19 @@ return [
     | Site Output Directory (Experimental 🧪)
     |--------------------------------------------------------------------------
     |
-    | If you want to store your compiled website in a different directory than
-    | the default `_pages`, you can change the path here. The Hyde::path()
-    | helper ensures the path is relative to your Hyde project. While
-    | you can set the path to an absolute path outside the project,
-    | this is not officially supported and may be unstable.
+    | This setting specifies the output path for your site, useful to for
+    | example, store the site in the docs/ directory for GitHub Pages.
+    | The path is relative to the root of your project.
+    |
+    | To use an absolute path, or just to learn more:
+    | @see https://hydephp.com/docs/master/advanced-customization#customizing-the-output-directory-
     |
     */
 
+    'output_directory' => '_site',
+
     /**
-     * @deprecated will be handled in the service provider
+     * @deprecated use the 'output_directory' setting instead
      */
     'site_output_path' => Hyde\Framework\Hyde::path('_site'),
 
