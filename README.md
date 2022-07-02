@@ -12,7 +12,7 @@
 ## Make static websites, blogs, and documentation pages with the tools you already know and love.
 
 ### About HydePHP
-HydePHP is a content-first Laravel-powered Static Site Builder that allows you to create static HTML pages, blog posts, and documentation sites,
+HydePHP is a content-first Laravel-powered console application that allows you to create static HTML pages, blog posts, and documentation sites,
 using your choice of Markdown and/or Blade.
 
 Build sites in record-time with a full batteries-included TailwindCSS frontend that just works without any fuzz.

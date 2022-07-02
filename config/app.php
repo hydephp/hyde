@@ -95,6 +95,7 @@ return [
     'aliases' => [
         'Hyde' => Hyde\Framework\Hyde::class,
         'Asset' => Hyde\Framework\Facades\Asset::class,
+        'MarkdownPost' => Hyde\Framework\Models\Pages\MarkdownPost::class,
     ],
 
 ];

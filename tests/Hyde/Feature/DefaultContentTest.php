@@ -12,11 +12,13 @@ class DefaultContentTest extends TestCase
         $this->assertFileExists(Hyde::path('_pages/index.blade.php'));
         $this->assertFileExists(Hyde::path('_pages/404.blade.php'));
 
-        $this->assertStringContainsString('<title>Welcome to HydePHP!</title>',
+        $this->assertStringContainsString(
+            '<title>Welcome to HydePHP!</title>',
             file_get_contents(Hyde::path('_pages/index.blade.php'))
         );
 
-        $this->assertStringContainsString('<title>404 - Page not found</title>',
+        $this->assertStringContainsString(
+            '<title>404 - Page not found</title>',
             file_get_contents(Hyde::path('_pages/404.blade.php'))
         );
     }
@@ -25,7 +27,8 @@ class DefaultContentTest extends TestCase
     {
         $this->assertFileExists(Hyde::path('_media/app.css'));
 
-        $this->assertStringContainsString('https://tailwindcss.com',
+        $this->assertStringContainsString(
+            'https://tailwindcss.com',
             file_get_contents(Hyde::path('_media/app.css'))
         );
     }

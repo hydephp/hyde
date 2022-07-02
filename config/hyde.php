@@ -224,11 +224,6 @@ return [
 
     'output_directory' => '_site',
 
-    /**
-     * @deprecated use the 'output_directory' setting instead
-     */
-    'site_output_path' => Hyde\Framework\Hyde::path('_site'),
-
     /*
     |--------------------------------------------------------------------------
     | Warn about outdated config?

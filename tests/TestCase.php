@@ -20,10 +20,10 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        if (! self::$booted) {
+        if (! static::$booted) {
             $this->resetApplication();
 
-            self::$booted = true;
+            static::$booted = true;
         }
     }
 
