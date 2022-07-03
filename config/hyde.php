@@ -116,6 +116,7 @@ return [
         Features::bladePages(),
         Features::markdownPages(),
         Features::documentationPages(),
+        // Features::dataCollections(),
 
         // Frontend Features
         Features::darkmode(),
