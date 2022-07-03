@@ -10,24 +10,19 @@ This serves two purposes:
 2. At release time, you can move the Unreleased section changes into a new release version section.
 
 ### Added
-- Added `DocumentationPage::indexPath()`, replacing `Hyde::docsIndexPath()`
+- for new features.
 
 ### Changed
-- internal: Move service provider helper methods to the RegistersFileLocations trait
-- internal: Add helpers.php to reduce repeated code and boilerplate
-- internal: Change internal monorepo scripts for semi-automating the release process
-- Added `DocumentationPage` as a class alias, allowing you to use it directly in Blade views, without having to add full namespace.
+- for changes in existing functionality.
 
 ### Deprecated
 - for soon-to-be removed features.
 
 ### Removed
-- Remove deprecated `Hyde::getDocumentationOutputDirectory()`, replaced with `DocumentationPage::getOutputDirectory()`
-- Remove deprecated `Hyde::docsIndexPath()`, replaced with `DocumentationPage::indexPath()`
-- Remove deprecated `DocumentationPage::getDocumentationOutputPath()`, use `DocumentationPage::getOutputPath()` instead
+- for now removed features.
 
 ### Fixed
-- Fix minor bug in Blade view registry where merged array was not unique
+- for any bug fixes.
 
 ### Security
 - in case of vulnerabilities.
