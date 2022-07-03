@@ -41,7 +41,7 @@ $app->singleton(
 | Set Important Hyde Configurations
 |--------------------------------------------------------------------------
 |
-| Next, we need to configure Hyde to to use our project's base path.
+| Next, we need to configure Hyde to use our project's base path.
 |
 */
 
