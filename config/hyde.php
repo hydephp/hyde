@@ -225,16 +225,4 @@ return [
 
     'output_directory' => '_site',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Warn about outdated config?
-    |--------------------------------------------------------------------------
-    |
-    | If your config needs updating, a message will be shown in the
-    | HydeCLI info screen, unless disabled below.
-    |
-    */
-
-    'warn_about_outdated_config' => true,
-
 ];
