@@ -41,6 +41,8 @@ trait ResetsApplication
 
     public function resetSite()
     {
-        array_map('unlinkUnlessDefault', glob(Hyde::path('_site/*.html')));
+        array_map('unlinkUnlessDefault', glob(Hyde::path('_site/**/*.html')));
+        array_map('unlinkUnlessDefault', glob(Hyde::path('_site/**/*.json')));
+        array_map('unlinkUnlessDefault', glob(Hyde::path('_site/*.xml')));
     }
 }
