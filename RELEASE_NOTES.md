@@ -10,7 +10,7 @@ This serves two purposes:
 2. At release time, you can move the Unreleased section changes into a new release version section.
 
 ### Added
-- for new features.
+- Added a pseudo-router module which will internally be used to improve Hyde auto-discovery
 
 ### Changed
 - for changes in existing functionality.
