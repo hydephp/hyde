@@ -13,13 +13,13 @@ This serves two purposes:
 - Added a pseudo-router module which will internally be used to improve Hyde auto-discovery
 
 ### Changed
-- for changes in existing functionality.
+- internal refactor: Creates a new build service to handle the build process
 
 ### Deprecated
 - for soon-to-be removed features.
 
 ### Removed
-- for now removed features.
+- The "no pages found, skipping" message has been removed as the build loop no longer recieves empty collections.
 
 ### Fixed
 - for any bug fixes.
