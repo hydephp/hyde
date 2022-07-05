@@ -2,6 +2,7 @@
 
 namespace Hyde\Testing;
 
+use Hyde\Framework\Hyde;
 use LaravelZero\Framework\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -22,6 +23,10 @@ abstract class TestCase extends BaseTestCase
 
         if (! static::$booted) {
             $this->resetApplication();
+
+            Hyde::macro('touch', function (string $path) {
+                return touch(Hyde::path($path));
+            });
 
             static::$booted = true;
         }
