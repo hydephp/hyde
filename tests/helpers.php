@@ -63,6 +63,7 @@ if (! function_exists('deleteDirectory')) {
 }
 
 if (! function_exists('createTestPost')) {
+    /** @deprecated - You usually don't need an actual post file anymore. Use touch() instead. */
     function createTestPost(?string $path = null): string
     {
         $path = Hyde::path($path ?? '_posts/test-post.md');

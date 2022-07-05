@@ -16,7 +16,7 @@ This serves two purposes:
 - internal refactor: Creates a new build service to handle the build process
 
 ### Deprecated
-- for soon-to-be removed features.
+- Deprecated `DiscoveryService::findModelFromFilePath()` - Use the Router instead.
 
 ### Removed
 - The "no pages found, skipping" message has been removed as the build loop no longer recieves empty collections.
