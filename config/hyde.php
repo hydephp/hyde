@@ -184,6 +184,7 @@ return [
     |
     */
 
+    /** @deprecated pending rename */
     'navigation_menu_links' => [
         // [
         //     'title' => 'GitHub',
@@ -205,6 +206,7 @@ return [
     |
     */
 
+    /** @deprecated pending rename */
     'navigation_menu_blacklist' => [
         '404',
     ],
