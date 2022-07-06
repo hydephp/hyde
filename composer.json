@@ -26,7 +26,7 @@
     "require-dev": {
         "mockery/mockery": "^1.4.4",
         "pestphp/pest": "^1.21.1",
-        "hyde/realtime-compiler": "^2.2"
+        "hyde/realtime-compiler": "^2.3"
     },
     "autoload": {
         "psr-4": {
