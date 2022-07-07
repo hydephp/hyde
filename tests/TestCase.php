@@ -24,8 +24,24 @@ abstract class TestCase extends BaseTestCase
         if (! static::$booted) {
             $this->resetApplication();
 
-            Hyde::macro('touch', function (string $path) {
-                return touch(Hyde::path($path));
+            Hyde::macro('touch', function (string|array $path) {
+                if (is_array($path)) {
+                    foreach ($path as $p) {
+                        touch(Hyde::path($p));
+                    }
+                } else {
+                    return touch(Hyde::path($path));
+                }
+            });
+
+            Hyde::macro('unlink', function (string|array $path) {
+                if (is_array($path)) {
+                    foreach ($path as $p) {
+                        unlink(Hyde::path($p));
+                    }
+                } else {
+                    return unlink(Hyde::path($path));
+                }
             });
 
             static::$booted = true;
