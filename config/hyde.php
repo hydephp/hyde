@@ -170,6 +170,33 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Navigation Menu Configuration
+    |--------------------------------------------------------------------------
+    |
+    | If you are looking to customize the navigation menu links, this is the place!
+    |
+    | See the documentation for the full list of options:
+    | https://hydephp.com/docs/master/customization#navigation-menu--sidebar
+    |
+    */
+
+    'navigation' => [
+        // This configuration sets the priorities used to determine the order of the menu.
+        // The default values have been added below for reference and easy editing.
+        'order' => [
+            'index' => 0,
+            'posts' => 10,
+            'docs' => 100,
+        ],
+
+        // These are the pages that should not show up in the navigation menu.
+        'exclude' => [
+            '404',
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Custom Navigation Menu Links
     |--------------------------------------------------------------------------
     |
