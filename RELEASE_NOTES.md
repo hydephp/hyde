@@ -21,6 +21,7 @@ You will also need to update navigation related Blade templates, if you have pre
 
 ### Deprecated
 - Deprecated `DiscoveryService::findModelFromFilePath()` - Use the Router instead.
+- Deprecated `DiscoveryService.php` - Use the Router instead. (Some helpers may be moved to FluentPathHelpers.php)
 
 ### Removed
 - The "no pages found, skipping" message has been removed as the build loop no longer recieves empty collections.
