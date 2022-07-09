@@ -1,13 +1,12 @@
-## [Unreleased] - YYYY-MM-DD
+## [Unreleased] - YYYY-MM-DD - Internal Pseudo-Router Service Refactoring
 
 ### About
 
-Keep an Unreleased section at the top to track upcoming changes.
+This release brings a massive refactor in the way the HydePHP auto-discovery process works. It does this by centralizing all discovery logic to the new pseudo-router module which discovers and maps all source files and output paths.
 
-This serves two purposes:
+The update also refactors related code to use the router. Part of this is a major rewrite of the navigation menu generation. If you have set any custom navigation links you will need to update your configuration files as the syntax has changed to use the NavItem model instead of array keys.
 
-1. People can see what changes they might expect in upcoming releases
-2. At release time, you can move the Unreleased section changes into a new release version section.
+You will also need to update navigation related Blade templates, if you have previously published them.
 
 ### Added
 - Added a pseudo-router module which will internally be used to improve Hyde auto-discovery
@@ -26,9 +25,3 @@ This serves two purposes:
 ### Removed
 - The "no pages found, skipping" message has been removed as the build loop no longer recieves empty collections.
 - Removed the `hyde.navigation_menu_links` and `hyde.navigation_menu_blacklist` configuration options, see new addition above. 
-
-### Fixed
-- for any bug fixes.
-
-### Security
-- in case of vulnerabilities.
