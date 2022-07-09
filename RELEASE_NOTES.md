@@ -17,6 +17,7 @@ This serves two purposes:
 
 ### Changed
 - Changed how the navigation menu is generated, configuration files and published views must be updated
+- Reversed deprecation for `StaticPageBuilder::$outputPath`
 - internal refactor: Creates a new build service to handle the build process
 
 ### Deprecated
