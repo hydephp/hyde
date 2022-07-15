@@ -8,7 +8,7 @@
   "dependencies": {},
   "name": "hyde",
   "description": "Elegant and Powerful Static App Builder",
-  "version": "0.48.0",
+  "version": "0.49.0",
   "main": "hyde",
   "directories": {
     "test": "tests"
