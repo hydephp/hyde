@@ -7,8 +7,8 @@ $time = microtime(true);
 
 use Hyde\Framework\Actions\CreatesNewPageSourceFile;
 use Hyde\Framework\Models\Pages\BladePage;
-use Hyde\Framework\Models\Pages\MarkdownPage;
 use Hyde\Framework\Models\Pages\DocumentationPage;
+use Hyde\Framework\Models\Pages\MarkdownPage;
 
 $autoloader = require __DIR__.'/../../vendor/autoload.php';
 $app = require_once __DIR__.'/../../app/bootstrap.php';
