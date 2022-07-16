@@ -60,8 +60,16 @@ abstract class TestCase extends BaseTestCase
         parent::tearDown();
     }
 
-    protected function mockRoute()
+    /** @internal */
+    protected function mockRoute(?Route $route = null)
     {
-        view()->share('currentRoute', (new Route(new MarkdownPage())));
+        view()->share('currentRoute', $route ?? (new Route(new MarkdownPage())));
+    }
+
+    /** @internal */
+    protected function mockPage()
+    {
+        view()->share('page', new MarkdownPage());
+        view()->share('currentPage', 'PHPUnit');
     }
 }
