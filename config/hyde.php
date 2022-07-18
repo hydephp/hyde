@@ -2,18 +2,12 @@
 
 /*
 |--------------------------------------------------------------------------
-|      __ __        __    ___  __ _____
-|     / // /_ _____/ /__ / _ \/ // / _ \
-|    / _  / // / _  / -_) ___/ _  / ___/
-|   /_//_/\_, /\_,_/\__/_/  /_//_/_/
-|        /___/
+| The HydePHP Configuration File
 |--------------------------------------------------------------------------
 |
-| Welcome to HydePHP! In this file, you can customize your new Static Site!
-|
-| HydePHP favours convention over configuration and as such requires virtually
-| no configuration out of the box to get started. Though, you may want to
-| change the options to personalize your site and make it your own!
+| This configuration file lets you change and customize the behaviour
+| of your HydePHP site. To customize the presentation options, like
+| the site name, please see the new config/site.php file instead.
 |
 */
 
