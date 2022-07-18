@@ -23,58 +23,6 @@ use Hyde\Framework\Helpers\Meta;
 use Hyde\Framework\Models\NavItem;
 
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Site Name
-    |--------------------------------------------------------------------------
-    |
-    | This value sets the name of your site and is, for example, used in
-    | the compiled page titles and more. The default value is HydePHP.
-    |
-    | The name is stored in the $siteName variable so it can be
-    | used again later on in this config.
-    |
-    */
-
-    'name' => $siteName = env('SITE_NAME', 'HydePHP'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Site URL Configuration
-    |--------------------------------------------------------------------------
-    |
-    | Here are some configuration options for URL generation.
-    |
-    | A site_url is required to use sitemaps and RSS feeds.
-    |
-    | `site_url` is used to create canonical URLs and permalinks.
-    | `prettyUrls` will when enabled create links that do not end in .html.
-    | `generateSitemap` determines if a sitemap.xml file should be generated.
-    |
-    | To see the full documentation, please visit the documentation link below.
-    | https://hydephp.com/docs/master/customization#site-url-configuration
-    |
-    */
-
-    'site_url' => env('SITE_URL', null),
-
-    'pretty_urls' => false,
-
-    'generate_sitemap' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Site Language
-    |--------------------------------------------------------------------------
-    |
-    | This value sets the language of your site and is used for the
-    | <html lang=""> element in the app layout. Default is 'en'.
-    |
-    */
-
-    'language' => 'en',
-
     /*
     |--------------------------------------------------------------------------
     | Global Site Meta Tags
@@ -96,7 +44,7 @@ return [
         // Meta::name('description', 'My Hyde Blog'),
         // Meta::name('keywords', 'Static Sites, Blogs, Documentation'),
         Meta::name('generator', 'HydePHP '.Hyde\Framework\Hyde::version()),
-        Meta::property('site_name', $siteName),
+        Meta::property('site_name', config('site.name', 'HydePHP')),
     ],
 
     /*
@@ -202,21 +150,4 @@ return [
             // NavItem::toLink('https://github.com/hydephp/hyde', 'GitHub', 200),
         ],
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Site Output Directory (Experimental 🧪)
-    |--------------------------------------------------------------------------
-    |
-    | This setting specifies the output path for your site, useful to for
-    | example, store the site in the docs/ directory for GitHub Pages.
-    | The path is relative to the root of your project.
-    |
-    | To use an absolute path, or just to learn more:
-    | @see https://hydephp.com/docs/master/advanced-customization#customizing-the-output-directory-
-    |
-    */
-
-    'output_directory' => '_site',
-
 ];
