@@ -44,7 +44,7 @@ return [
     |
     */
 
-    'site_url' => env('SITE_URL', 'http://localhost'),
+    'url' => env('SITE_URL', 'http://localhost'),
 
     /*
     |--------------------------------------------------------------------------
