@@ -143,4 +143,16 @@ return [
             // NavItem::toLink('https://github.com/hydephp/hyde', 'GitHub', 200),
         ],
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Load app.css from CDN
+    |--------------------------------------------------------------------------
+    |
+    | Hyde ships with an app.css file containing compiled TailwindCSS styles
+    | in the _media/ directory. If you want to load this file from the
+    | HydeFront JsDelivr CDN, you can set this setting to true.
+    */
+
+    'load_app_styles_from_cdn' => false,
 ];
