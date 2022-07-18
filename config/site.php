@@ -69,12 +69,34 @@ return [
     |--------------------------------------------------------------------------
     |
     | When the setting is enabled, a sitemap.xml file will automatically be
-    | generated when the site is built. Note that this requires that you
-    | have a base URL set in the site configuration above.
+    | generated when the site is built.
+    |
+    | This feature requires that a site base URL has been set.
     |
     */
 
     'generate_sitemap' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | RSS Feed Generation
+    |--------------------------------------------------------------------------
+    |
+    | When enabled, an RSS feed with your Markdown blog posts will be
+    | generated when you compile your static site.
+    |
+    | This feature requires that a site base URL has been set.
+    |
+    */
+
+    // Should the RSS feed be generated?
+    'generate_rss_feed' => true,
+
+    // What filename should the RSS file use?
+    'rss_filename' => 'feed.xml',
+
+    // The channel description. By default this is "Site Name + RSS Feed".
+    // 'rss_description' => '',
 
     /*
     |--------------------------------------------------------------------------
