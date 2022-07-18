@@ -97,19 +97,18 @@ return [
     | Footer Text
     |--------------------------------------------------------------------------
     |
-    | Most websites have a footer with copyright details and contact information.
-    | You probably want to change the Markdown to include your information,
-    | though you are of course welcome to keep the attribution link!
+    | Here you can customize the footer Markdown text for your site.
     |
-    | You can also customize the blade view if you want a more complex footer.
-    | You can disable it completely by setting `enabled` to `false`.
+    | If you don't want to write Markdown here, you use a Markdown include.
+    | You can also customize the Blade view if you want a more complex footer.
+    | You can disable it completely by changing the setting to `false`.
+    |
+    | To read about the many configuration options here, visit:
+    | https://hydephp.com/docs/master/customization#footer
     |
     */
 
-    'footer' => [
-        'enabled' => true,
-        'markdown' => 'Site proudly built with [HydePHP](https://github.com/hydephp/hyde) 🎩',
-    ],
+    'footer' => 'Site proudly built with [HydePHP](https://github.com/hydephp/hyde) 🎩',
 
     /*
     |--------------------------------------------------------------------------
