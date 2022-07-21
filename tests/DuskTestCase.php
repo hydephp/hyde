@@ -5,7 +5,6 @@ namespace Hyde\Testing;
 use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
-
 use Illuminate\Support\Facades\Facade;
 use Laravel\Dusk\Browser;
 use Laravel\Dusk\TestCase as BaseTestCase;
@@ -85,7 +84,6 @@ abstract class DuskTestCase extends BaseTestCase
         static::assertFalse($recorder->exists($command, $arguments),
             'Failed asserting that \''.$command.'\' was not called with the given arguments: '.$argumentsAsString);
     }
-    
 
     /**
      * Prepare for Dusk test execution.
