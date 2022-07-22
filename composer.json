@@ -21,7 +21,8 @@
     ],
     "require": {
         "php": "^8.0",
-        "hyde/framework": "^0.49"
+        "hyde/framework": "^0.49",
+        "laravel-zero/framework": "^9.1"
     },
     "require-dev": {
         "mockery/mockery": "^1.4.4",
