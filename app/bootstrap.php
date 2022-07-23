@@ -41,11 +41,17 @@ $app->singleton(
 | Set Important Hyde Configurations
 |--------------------------------------------------------------------------
 |
-| Next, we need to configure Hyde to use our project's base path.
+| Now, we create a new instance of the HydeKernel, which encapsulates
+| our Hyde project and provides helpful methods for interacting with it.
+| Then, we bind the kernel into the application service container.
 |
 */
 
-\Hyde\Framework\Hyde::setBasePath(dirname(__DIR__));
+$hyde = new Hyde\Framework\HydeKernel(dirname(__DIR__));
+
+$app->instance(
+    Hyde\Framework\Contracts\HydeKernelContract::class, $hyde
+);
 
 /*
 |--------------------------------------------------------------------------

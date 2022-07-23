@@ -93,7 +93,7 @@ return [
     */
 
     'aliases' => [
-        'Hyde' => Hyde\Framework\Hyde::class,
+        'Hyde' => \Hyde\Framework\Hyde::class,
         'Asset' => Hyde\Framework\Facades\Asset::class,
         'Route' => Hyde\Framework\Models\Route::class,
         'MarkdownPost' => Hyde\Framework\Models\Pages\MarkdownPost::class,
