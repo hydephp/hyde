@@ -5,7 +5,6 @@
     "prod": "mix --production",
     "watch": "mix watch"
   },
-  "dependencies": {},
   "name": "hyde",
   "description": "Elegant and Powerful Static App Builder",
   "version": "0.49.0",
@@ -31,11 +30,11 @@
   },
   "homepage": "https://hydephp.com",
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.5",
-    "laravel-mix": "^6.0.43",
+    "laravel-mix": "^6.0.49",
     "postcss": "^8.4.13",
     "prettier": "2.6.0",
-    "tailwindcss": "^3.0.24",
-    "@tailwindcss/typography": "^0.5.2"
+    "tailwindcss": "^3.0.24"
   }
 }
