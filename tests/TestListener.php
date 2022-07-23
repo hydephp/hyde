@@ -1,6 +1,6 @@
 <?php
 
-namespace Hyde\Testing;
+namespace Tests;
 
 use Hyde\Framework\Hyde;
 use PHPUnit\Framework\AssertionFailedError;

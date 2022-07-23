@@ -25,8 +25,7 @@
         "laravel-zero/framework": "^9.1"
     },
     "require-dev": {
-        "mockery/mockery": "^1.4.4",
-        "pestphp/pest": "^1.21.1",
+        "hyde/testing": "dev-master",
         "hyde/realtime-compiler": "^2.4"
     },
     "autoload": {
@@ -41,6 +40,7 @@
     },
     "scripts": {
         "post-autoload-dump": [
+            "@php -r \"@unlink('./storage/framework/cache/packages.php');\"",
             "@php hyde package:discover --ansi"
         ]
     },
