@@ -17,7 +17,3 @@ vendor/bin/pest --testsuite="FeatureHyde"
 
 Please note that the tests will modify project files.
 It also assumes that the tests are run in a clean project.
-
-Todo:
-
-- [ ] Add the Cypress tests.
