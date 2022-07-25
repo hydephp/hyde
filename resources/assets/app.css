@@ -3,6 +3,8 @@
 * You can use this file to customize your TailwindCSS or to add new classes.
 */
 
+@import '~hydefront/dist/hyde.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
