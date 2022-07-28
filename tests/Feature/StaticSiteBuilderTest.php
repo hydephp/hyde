@@ -10,11 +10,12 @@ class StaticSiteBuilderTest extends TestCase
 {
     public function test_can_build_static_site()
     {
-        File::deleteDirectory(Hyde::path('_site'));
-        File::makeDirectory(Hyde::path('_site'));
+        File::cleanDirectory(Hyde::path('_site'));
 
         $this->artisan('build')
             ->expectsOutputToContain('Building your static site!')
             ->assertExitCode(0);
+
+        File::cleanDirectory(Hyde::path('_site'));
     }
 }
