@@ -25,7 +25,6 @@
         "laravel-zero/framework": "^9.1"
     },
     "require-dev": {
-        "hyde/testing": "dev-master",
         "hyde/realtime-compiler": "^2.4"
     },
     "autoload": {
