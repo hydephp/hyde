@@ -1,0 +1,40 @@
+# README: This workflow runs some tests intended to make sure that the package works smoothly.
+#         This file is not included when you install Hyde normally, however it is present
+#         when you create a project by using the GitHub template. Unless you want to
+#         contribute to the project, there's no reason for you to keep this file.
+
+name: Hyde Tests
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  hyde-tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+      with:
+        php-version: '8.0'
+        extensions: fileinfo
+
+    - uses: actions/checkout@v3
+      
+    - name: Download tests from monorepo
+      run: |
+        git clone https://github.com/hydephp/develop.git --depth 1
+        cp develop/tests/Hyde/ ./tests -r
+
+    - name: Install dependencies
+      run: composer require hyde/testing --dev --no-install && composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: Execute tests (Unit and Feature tests) via Pest
+      run: vendor/bin/pest
+      
