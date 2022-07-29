@@ -30,7 +30,7 @@ jobs:
     - name: Download tests from monorepo
       run: |
         git clone https://github.com/hydephp/develop.git --depth 1
-        cp develop/tests/Hyde/ ./tests -R
+        cp develop/tests/Hyde/ ./tests
 
     - name: Install dependencies
       run: composer require hyde/testing --dev --no-install && composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
