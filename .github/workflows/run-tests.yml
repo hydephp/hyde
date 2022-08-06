@@ -17,7 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        dependency-version: [lockfile, latest]
+        dependency-version: [composer, master]
 
     runs-on: ${{ matrix.os }}
     name: Hyde tests - ${{ matrix.os }} (${{ matrix.dependency-version }})
@@ -35,9 +35,9 @@ jobs:
         git clone https://github.com/hydephp/develop.git --depth 1
         cp -r develop/tests/Hyde/ tests
       
-    - name: Remove lock file
-      if: matrix.dependency-version == 'latest'
-      run: rm composer.lock
+    - name: Require latest version
+      if: matrix.dependency-version == 'master'
+      run: composer require hyde/framework:master --no-install
 
     - name: Install dependencies
       run: composer require hyde/testing --dev --no-install && composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
