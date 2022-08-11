@@ -132,6 +132,12 @@ return [
             'docs/index' => 100,
         ],
 
+        // In case you want to customize the labels for the menu items, you can do so here.
+        'labels' => [
+            // 'index' => 'Start',
+            // 'docs/index' => 'Documentation',
+        ],
+
         // These are the pages that should not show up in the navigation menu.
         'exclude' => [
             '404',
