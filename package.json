@@ -7,7 +7,7 @@
   },
   "name": "hyde",
   "description": "Elegant and Powerful Static App Builder",
-  "version": "0.59.0",
+  "version": "0.60.0",
   "main": "hyde",
   "directories": {
     "test": "tests"
