@@ -52,7 +52,7 @@ $hyde = new Hyde\Framework\HydeKernel(
 );
 
 $app->singleton(
-    Hyde\Framework\Contracts\HydeKernelContract::class, function () {
+    Hyde\Framework\HydeKernel::class, function () {
         return Hyde\Framework\HydeKernel::getInstance();
     }
 );
