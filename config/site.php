@@ -15,6 +15,10 @@
 | no configuration out of the box to get started. Though, you may want to
 | change the options to personalize your site and make it your own!
 |
+| Tip: The settings here can also be overridden by creating a hyde.yml file
+| in the root of your project directory. Note that these cannot reference
+| environment variables, and their values override any made here.
+|
 */
 
 return [
