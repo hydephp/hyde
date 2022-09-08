@@ -14,7 +14,6 @@
 use Hyde\Framework\Helpers\Features;
 use Hyde\Framework\Helpers\Meta;
 use Hyde\Framework\Models\Author;
-use Hyde\Framework\Models\NavItem;
 
 return [
     /*
