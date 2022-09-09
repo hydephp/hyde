@@ -4,7 +4,11 @@
     "keywords": [
         "framework",
         "hyde",
-        "hyde framework"
+        "hyde framework",
+        "hydephp",
+        "static site generator",
+        "static site framework",
+        "ssg"
     ],
     "homepage": "https://hydephp.com",
     "type": "project",

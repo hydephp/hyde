@@ -53,15 +53,6 @@ See the documentation and learn more at https://hydephp.com/docs/
   can publish the vendor views, just like in Laravel.
 - Override many of the dynamic content features like the menus and footer.
 
-
-## Live Demo & Media
-### The Hyde Website
-The Hyde site (https://hydephp.com/) is fully built with Hyde. That includes the homepage, the blog, and the documentation.
-You can also take a look at the [Gallery page](https://hydephp.com/gallery) which was created using the Blade page module in Hyde and contains interactive graphics showcasing Hyde.
-
-### Demo video showcasing how to scaffold a blog post and compile it to static HTML
-[<img src="https://user-images.githubusercontent.com/95144705/163714609-8d636acd-3538-47e9-a6f3-1923b375338b.png" title="Watch on YouTube" alt="YouTube Thumbnail" width="40%"></img>](https://www.youtube.com/watch?v=gjpE1U527h8)
-
 ## Getting Started - High-level overview
 > See [Installation Guide](https://hydephp.com/docs/master/installation.html) and [Getting Started](https://hydephp.com/docs/master/getting-started.html) for the full details.
 
@@ -89,7 +80,7 @@ See https://hydephp.com/docs/master/updating-hyde for the upgrade guide.
 
 ### Changelog 
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+Please see [CHANGELOG](https://github.com/hydephp/develop/blob/master/CHANGELOG.md) for more information on what has changed recently.
 
 ### Contributing
 
