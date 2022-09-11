@@ -132,6 +132,7 @@ return [
         ],
 
         // In case you want to customize the labels for the menu items, you can do so here.
+        // Simply add the route key (slug) as the key, and the label as the value.
         'labels' => [
             // 'index' => 'Start',
             // 'docs/index' => 'Documentation',
