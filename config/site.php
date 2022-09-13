@@ -40,7 +40,7 @@ return [
     | Site Base URL
     |--------------------------------------------------------------------------
     |
-    | Setting a base URL is highly reccomended, and is required to use some
+    | Setting a base URL is highly recommended, and is required to use some
     | HydePHP features, like automatic sitemaps and RSS feeds.
     |
     | If you are serving your site from a subdirectory,
