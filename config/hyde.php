@@ -53,6 +53,7 @@ return [
 
     'features' => [
         // Page Modules
+        Features::htmlPages(),
         Features::blogPosts(),
         Features::bladePages(),
         Features::markdownPages(),
