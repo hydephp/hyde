@@ -1,4 +1,4 @@
-# HydePHP - Elegant and Powerful Static Site Generator
+# HydePHP - Elegant and Powerful Static App Builder
 
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/hyde/framework?include_prereleases)](https://packagist.org/packages/hyde/framework) 
