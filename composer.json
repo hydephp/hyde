@@ -1,6 +1,6 @@
 {
     "name": "hyde/hyde",
-    "description": "Static Site Generator to rapidly create Blogs, Documentation, and more, using Markdown and Blade.",
+    "description": "Static Site Generator to rapidly create Blogs, Documentation Sites, and more, using Markdown and Blade.",
     "keywords": [
         "framework",
         "hyde",
