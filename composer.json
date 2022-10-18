@@ -29,7 +29,7 @@
         "laravel-zero/framework": "^9.1"
     },
     "require-dev": {
-        "hyde/realtime-compiler": "^2.6"
+        "hyde/realtime-compiler": "^2.7"
     },
     "autoload": {
         "psr-4": {
