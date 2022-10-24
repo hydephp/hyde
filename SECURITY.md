@@ -9,8 +9,8 @@ No backwards compatibility guarantees are made and there will be breaking change
 
 | Version | Supported | Classification            |
 |---------|-----------|---------------------------|
-| > 0.50  | :warning: | Beta (active development) |
-| < 0.50  | :x:       | Beta (legacy)             |
+| > 0.64  | :warning: | Beta (active development) |
+| < 0.64  | :x:       | Beta (legacy)             |
 | < 0.8   | :x:       | Alpha stage               |
 
 
