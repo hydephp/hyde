@@ -29,12 +29,7 @@ jobs:
         extensions: fileinfo
 
     - uses: actions/checkout@v3
-      
-    - name: Download tests from monorepo
-      run: |
-        git clone https://github.com/hydephp/develop.git --depth 1
-        cp -r develop/tests/Hyde/ tests
-      
+
     - name: Require latest version
       if: matrix.dependency-version == 'master'
       run: composer require hyde/framework:master --no-install
