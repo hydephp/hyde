@@ -47,17 +47,17 @@ $app->singleton(
 |
 */
 
-$hyde = new \Hyde\Foundation\HydeKernel(
+$hyde = new \Hyde\Framework\HydeKernel(
     dirname(__DIR__)
 );
 
 $app->singleton(
-    \Hyde\Foundation\HydeKernel::class, function () {
-        return \Hyde\Foundation\HydeKernel::getInstance();
+    \Hyde\Framework\HydeKernel::class, function () {
+        return \Hyde\Framework\HydeKernel::getInstance();
     }
 );
 
-\Hyde\Foundation\HydeKernel::setInstance($hyde);
+\Hyde\Framework\HydeKernel::setInstance($hyde);
 
 /*
 |--------------------------------------------------------------------------
