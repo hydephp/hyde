@@ -58,7 +58,7 @@ return [
         NunoMaduro\LaravelConsoleSummary\SummaryCommand::class,
         Symfony\Component\Console\Command\DumpCompletionCommand::class,
         Symfony\Component\Console\Command\HelpCommand::class,
-        \Hyde\Console\Commands\DebugCommand::class,
+        Hyde\Framework\Commands\HydeDebugCommand::class,
     ],
 
     /*

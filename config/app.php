@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'version' => Hyde\Hyde::version(),
+    'version' => Hyde\Framework\Hyde::version(),
 
     /*
     |--------------------------------------------------------------------------
@@ -93,14 +93,14 @@ return [
     */
 
     'aliases' => [
-        'Hyde' => Hyde\Hyde::class,
-        'Site' => \Hyde\Facades\Site::class,
-        'Route' => \Hyde\Facades\Route::class,
-        'Asset' => \Hyde\Facades\Asset::class,
-        'BladePage' => \Hyde\Pages\BladePage::class,
-        'MarkdownPage' => \Hyde\Pages\MarkdownPage::class,
-        'MarkdownPost' => \Hyde\Pages\MarkdownPost::class,
-        'DocumentationPage' => \Hyde\Pages\DocumentationPage::class,
+        'Hyde' => Hyde\Framework\Hyde::class,
+        'Asset' => Hyde\Framework\Helpers\Asset::class,
+        'Site' => \Hyde\Framework\Models\Support\Site::class,
+        'Route' => \Hyde\Framework\Models\Support\Route::class,
+        'BladePage' => Hyde\Framework\Models\Pages\BladePage::class,
+        'MarkdownPage' => Hyde\Framework\Models\Pages\MarkdownPage::class,
+        'MarkdownPost' => Hyde\Framework\Models\Pages\MarkdownPost::class,
+        'DocumentationPage' => Hyde\Framework\Models\Pages\DocumentationPage::class,
     ],
 
 ];
