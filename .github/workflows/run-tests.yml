@@ -7,9 +7,9 @@ name: Hyde Tests
 
 on:
   push:
-    branches: [ "master", "develop" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "master", "develop" ]
+    branches: [ "master" ]
 
 jobs:
   hyde-tests:
