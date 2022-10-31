@@ -11,7 +11,7 @@
 |
 */
 
-$app = new \Hyde\Foundation\Application(
+$app = new \Hyde\Framework\Foundation\Application(
     dirname(__DIR__)
 );
 
