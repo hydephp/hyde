@@ -11,9 +11,9 @@
 |
 */
 
-use Hyde\Facades\Author;
-use Hyde\Facades\Features;
-use Hyde\Facades\Meta;
+use Hyde\Framework\Helpers\Features;
+use Hyde\Framework\Helpers\Meta;
+use Hyde\Framework\Models\Support\Author;
 
 return [
 
@@ -50,7 +50,7 @@ return [
         // Meta::name('twitter:creator', '@HydeFramework'),
         // Meta::name('description', 'My Hyde Blog'),
         // Meta::name('keywords', 'Static Sites, Blogs, Documentation'),
-        Meta::name('generator', 'HydePHP '.Hyde\Hyde::version()),
+        Meta::name('generator', 'HydePHP '.Hyde\Framework\Hyde::version()),
         Meta::property('site_name', config('site.name', 'HydePHP')),
     ],
 
@@ -100,9 +100,9 @@ return [
 
     'authors' => [
         Author::create(
-            'mr_hyde', // Required username
-            'Mr. Hyde', // Optional display name
-            'https://hydephp.com' // Optional website URL
+            username: 'mr_hyde', // Required username
+            name: 'Mr. Hyde', // Optional display name
+            website: 'https://hydephp.com' // Optional website URL
         ),
     ],
 
