@@ -32,6 +32,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Source Root Directory
+    |--------------------------------------------------------------------------
+    |
+    | HydePHP will by default look for the underscored source directories in the
+    | root of your project. For example, you might want everything in a 'src'
+    | subdirectory. That's easy enough, just set the value below to "src"!
+    |
+    */
+
+    'source_root' => '',
+
+    /*
+    |--------------------------------------------------------------------------
     | Global Site Meta Tags
     |--------------------------------------------------------------------------
     |
