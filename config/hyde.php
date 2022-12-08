@@ -177,6 +177,10 @@ return [
         'custom' => [
             // NavItem::toLink('https://github.com/hydephp/hyde', 'GitHub', 200),
         ],
+
+        // How should pages in subdirectories be displayed in the menu?
+        // You can choose between 'dropdown', 'flat', and 'hidden'.
+        'subdirectories' => 'hidden',
     ],
 
     /*
