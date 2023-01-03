@@ -57,7 +57,7 @@ jobs:
     - uses: shivammathur/setup-php@8e2ac35f639d3e794c1da1f28999385ab6fdf0fc
       with:
         php-version: ${{ matrix.php }}
-        extensions: fileinfo
+        extensions: fileinfo, zip
 
     - uses: actions/checkout@v3
 
