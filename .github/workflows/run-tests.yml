@@ -53,7 +53,7 @@ jobs:
     if: github.ref == 'refs/heads/develop'
 
     steps:
-    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+    - uses: shivammathur/setup-php@8e2ac35f639d3e794c1da1f28999385ab6fdf0fc
       with:
         php-version: '8.1'
         extensions: fileinfo
