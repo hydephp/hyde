@@ -64,10 +64,10 @@ jobs:
       run: composer require hyde/framework:dev-develop --no-install
 
     - name: Require additional dependencies
-      run: composer require hyde/testing:dev-master --dev
+      run: composer require hyde/testing:dev-master --dev --no-install
 
     - name: Install dependencies
-      run: composer install --no-interaction --no-install
+      run: composer install --no-interaction
 
     - name: Execute tests (Unit and Feature tests) via Pest
       run: vendor/bin/pest
