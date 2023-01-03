@@ -33,6 +33,9 @@ jobs:
     - name: Require latest version
       if: matrix.dependency-version == 'master'
       run: composer require hyde/framework:master --no-install
+    - name: Require latest development version
+      if: matrix.dependency-version == 'develop'
+      run: composer require hyde/framework:develop --no-install
 
     - name: Install dependencies
       run: composer require hyde/testing --dev --no-install && composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
