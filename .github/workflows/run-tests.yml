@@ -63,8 +63,11 @@ jobs:
     - name: Require latest development version
       run: composer require hyde/framework:dev-develop --no-install
 
+    - name: Require additional dependencies
+      run: composer require hyde/testing --dev --no-install
+
     - name: Install dependencies
-      run: composer require hyde/testing --dev --no-install && composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      run: composer install --no-interaction
 
     - name: Execute tests (Unit and Feature tests) via Pest
       run: vendor/bin/pest
