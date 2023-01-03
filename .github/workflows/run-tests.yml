@@ -22,7 +22,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     name: Hyde tests - ${{ matrix.os }} (${{ matrix.dependency-version }})
 
-    if: (github.ref != 'refs/heads/develop' || matrix.dependency-version != 'composer')
+    if: (github.ref != 'refs/heads/develop' || ${{ matrix.dependency-version }} != 'composer')
 
     steps:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
