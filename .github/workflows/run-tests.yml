@@ -61,10 +61,10 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Require latest development version
-      run: composer require hyde/framework:dev-develop --no-install
+      run: composer require hyde/framework:dev-develop
 
     - name: Require additional dependencies
-      run: composer require hyde/testing --dev --no-install
+      run: composer require hyde/testing --dev
 
     - name: Install dependencies
       run: composer install --no-interaction
