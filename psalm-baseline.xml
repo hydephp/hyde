@@ -1,0 +1,1550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.30.0@d0bc6e25d89f649e4f36a534f330f8bb4643dd69">
+  <file src="packages/framework/src/Console/Commands/BuildRssFeedCommand.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$description</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>BuildRssFeedCommand</code>
+      <code>BuildRssFeedCommand</code>
+      <code>BuildRssFeedCommand</code>
+      <code>BuildRssFeedCommand</code>
+      <code>BuildRssFeedCommand</code>
+      <code>BuildRssFeedCommand</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Console/Commands/BuildSearchCommand.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$description</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>BuildSearchCommand</code>
+      <code>BuildSearchCommand</code>
+      <code>BuildSearchCommand</code>
+      <code>BuildSearchCommand</code>
+      <code>BuildSearchCommand</code>
+      <code>BuildSearchCommand</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Console/Commands/BuildSiteCommand.php">
+    <ForbiddenCode occurrences="1"/>
+    <MixedMethodCall occurrences="1">
+      <code>environment</code>
+    </MixedMethodCall>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$description</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyNotSetInConstructor occurrences="7">
+      <code>$service</code>
+      <code>BuildSiteCommand</code>
+      <code>BuildSiteCommand</code>
+      <code>BuildSiteCommand</code>
+      <code>BuildSiteCommand</code>
+      <code>BuildSiteCommand</code>
+      <code>BuildSiteCommand</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Console/Commands/BuildSitemapCommand.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$description</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>BuildSitemapCommand</code>
+      <code>BuildSitemapCommand</code>
+      <code>BuildSitemapCommand</code>
+      <code>BuildSitemapCommand</code>
+      <code>BuildSitemapCommand</code>
+      <code>BuildSitemapCommand</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Console/Commands/DebugCommand.php">
+    <MixedAssignment occurrences="1">
+      <code>$feature</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="2">
+      <code>app('env')</code>
+      <code>app('git.version')</code>
+    </MixedOperand>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$description</code>
+    </NonInvariantDocblockPropertyType>
+    <PossibleRawObjectIteration occurrences="1">
+      <code>config('hyde.features')</code>
+    </PossibleRawObjectIteration>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>DebugCommand</code>
+      <code>DebugCommand</code>
+      <code>DebugCommand</code>
+      <code>DebugCommand</code>
+      <code>DebugCommand</code>
+      <code>DebugCommand</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Console/Commands/MakePageCommand.php">
+    <InvalidReturnStatement occurrences="1"/>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1"/>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$description</code>
+    </NonInvariantDocblockPropertyType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;option('type')</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;option('force') ?? false</code>
+    </PossiblyInvalidPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="10">
+      <code>$force</code>
+      <code>$pageClass</code>
+      <code>$selectedType</code>
+      <code>$title</code>
+      <code>MakePageCommand</code>
+      <code>MakePageCommand</code>
+      <code>MakePageCommand</code>
+      <code>MakePageCommand</code>
+      <code>MakePageCommand</code>
+      <code>MakePageCommand</code>
+    </PropertyNotSetInConstructor>
+    <PropertyTypeCoercion occurrences="1">
+      <code>$this-&gt;getQualifiedPageType()</code>
+    </PropertyTypeCoercion>
+  </file>
+  <file src="packages/framework/src/Console/Commands/MakePostCommand.php">
+    <InvalidReturnStatement occurrences="1"/>
+    <MixedArgument occurrences="3">
+      <code>$author</code>
+      <code>$category</code>
+      <code>$description</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="3">
+      <code>$author</code>
+      <code>$category</code>
+      <code>$description</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1"/>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$description</code>
+    </NonInvariantDocblockPropertyType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;option('force')</code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullOperand occurrences="1">
+      <code>$this-&gt;argument('title')</code>
+    </PossiblyNullOperand>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>MakePostCommand</code>
+      <code>MakePostCommand</code>
+      <code>MakePostCommand</code>
+      <code>MakePostCommand</code>
+      <code>MakePostCommand</code>
+      <code>MakePostCommand</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Console/Commands/PackageDiscoverCommand.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$hidden</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyNotSetInConstructor occurrences="5">
+      <code>PackageDiscoverCommand</code>
+      <code>PackageDiscoverCommand</code>
+      <code>PackageDiscoverCommand</code>
+      <code>PackageDiscoverCommand</code>
+      <code>PackageDiscoverCommand</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Console/Commands/PublishHomepageCommand.php">
+    <InvalidReturnStatement occurrences="2">
+      <code>$this-&gt;argument('homepage') ?? $this-&gt;parseChoiceIntoKey($this-&gt;promptForHomepage())</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="2">
+      <code>string</code>
+      <code>string</code>
+    </InvalidReturnType>
+    <MixedArgumentTypeCoercion occurrences="3">
+      <code>map</code>
+      <code>map</code>
+    </MixedArgumentTypeCoercion>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$description</code>
+    </NonInvariantDocblockPropertyType>
+    <PossiblyNullReference occurrences="1">
+      <code>publish</code>
+    </PossiblyNullReference>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>PublishHomepageCommand</code>
+      <code>PublishHomepageCommand</code>
+      <code>PublishHomepageCommand</code>
+      <code>PublishHomepageCommand</code>
+      <code>PublishHomepageCommand</code>
+      <code>PublishHomepageCommand</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Console/Commands/PublishViewsCommand.php">
+    <MixedArgument occurrences="1">
+      <code>PublishesHydeViews::$options[$selected]['path']</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="3">
+      <code>$value['description']</code>
+      <code>PublishesHydeViews::$options[$selected]['destination']</code>
+      <code>PublishesHydeViews::$options[$selected]['path']</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="3">
+      <code>$to</code>
+      <code>$value</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$description</code>
+    </NonInvariantDocblockPropertyType>
+    <PossiblyFalseArgument occurrences="1">
+      <code>strpos($from, 'vendor')</code>
+    </PossiblyFalseArgument>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;selected</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast occurrences="1">
+      <code>$this-&gt;selected</code>
+    </PossiblyInvalidCast>
+    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
+      <code>$this-&gt;argument('category') ?? $this-&gt;promptForCategory()</code>
+    </PossiblyInvalidPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="7">
+      <code>$selected</code>
+      <code>PublishViewsCommand</code>
+      <code>PublishViewsCommand</code>
+      <code>PublishViewsCommand</code>
+      <code>PublishViewsCommand</code>
+      <code>PublishViewsCommand</code>
+      <code>PublishViewsCommand</code>
+    </PropertyNotSetInConstructor>
+    <UnusedForeachValue occurrences="1">
+      <code>$value</code>
+    </UnusedForeachValue>
+  </file>
+  <file src="packages/framework/src/Console/Commands/RebuildStaticSiteCommand.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$description</code>
+    </NonInvariantDocblockPropertyType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;argument('path')</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidCast occurrences="1">
+      <code>$this-&gt;argument('path')</code>
+    </PossiblyInvalidCast>
+    <PropertyNotSetInConstructor occurrences="7">
+      <code>$path</code>
+      <code>RebuildStaticSiteCommand</code>
+      <code>RebuildStaticSiteCommand</code>
+      <code>RebuildStaticSiteCommand</code>
+      <code>RebuildStaticSiteCommand</code>
+      <code>RebuildStaticSiteCommand</code>
+      <code>RebuildStaticSiteCommand</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Console/Commands/RouteListCommand.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$description</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>RouteListCommand</code>
+      <code>RouteListCommand</code>
+      <code>RouteListCommand</code>
+      <code>RouteListCommand</code>
+      <code>RouteListCommand</code>
+      <code>RouteListCommand</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Console/Commands/ServeCommand.php">
+    <InvalidCast occurrences="1">
+      <code>$this-&gt;option('port') ?: config('hyde.server.port', 8080)</code>
+    </InvalidCast>
+    <MixedMethodCall occurrences="1">
+      <code>environment</code>
+    </MixedMethodCall>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$description</code>
+    </NonInvariantDocblockPropertyType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$this-&gt;option('host')</code>
+    </PossiblyInvalidArgument>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>ServeCommand</code>
+      <code>ServeCommand</code>
+      <code>ServeCommand</code>
+      <code>ServeCommand</code>
+      <code>ServeCommand</code>
+      <code>ServeCommand</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Console/Commands/UpdateConfigsCommand.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$description</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>UpdateConfigsCommand</code>
+      <code>UpdateConfigsCommand</code>
+      <code>UpdateConfigsCommand</code>
+      <code>UpdateConfigsCommand</code>
+      <code>UpdateConfigsCommand</code>
+      <code>UpdateConfigsCommand</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Console/Commands/ValidateCommand.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$description</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyNotSetInConstructor occurrences="7">
+      <code>ValidateCommand</code>
+      <code>ValidateCommand</code>
+      <code>ValidateCommand</code>
+      <code>ValidateCommand</code>
+      <code>ValidateCommand</code>
+      <code>ValidateCommand</code>
+      <code>ValidateCommand</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Facades/Author.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>PostAuthor::all()</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>\Illuminate\Support\Collection&lt;\Hyde\Framework\Features\Blogging\Models\PostAuthor&gt;</code>
+    </InvalidReturnType>
+    <InvalidTemplateParam occurrences="1">
+      <code>\Illuminate\Support\Collection&lt;\Hyde\Framework\Features\Blogging\Models\PostAuthor&gt;</code>
+    </InvalidTemplateParam>
+    <MissingTemplateParam occurrences="1">
+      <code>\Illuminate\Support\Collection&lt;\Hyde\Framework\Features\Blogging\Models\PostAuthor&gt;</code>
+    </MissingTemplateParam>
+  </file>
+  <file src="packages/framework/src/Facades/Features.php">
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>array&lt;string, bool&gt;</code>
+    </ImplementedReturnTypeMismatch>
+    <MixedArgument occurrences="1"/>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>array&lt;string, bool&gt;</code>
+    </MixedReturnTypeCoercion>
+  </file>
+  <file src="packages/framework/src/Facades/Filesystem.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>self::kernel()-&gt;pathToAbsolute(self::relativePath($path))</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>string</code>
+    </InvalidReturnType>
+    <MissingTemplateParam occurrences="1">
+      <code>\Illuminate\Support\Collection&lt;string&gt;</code>
+    </MissingTemplateParam>
+    <MixedInferredReturnType occurrences="1">
+      <code>\Illuminate\Filesystem\Filesystem</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>File::getFacadeRoot()</code>
+    </MixedReturnStatement>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>\Illuminate\Support\Collection&lt;string&gt;</code>
+      <code>self::kernel()-&gt;filesystem()-&gt;smartGlob($pattern, $flags)</code>
+    </MixedReturnTypeCoercion>
+  </file>
+  <file src="packages/framework/src/Facades/Route.php">
+    <TooManyTemplateParams occurrences="1">
+      <code>\Hyde\Foundation\RouteCollection&lt;\Hyde\Support\Models\Route&gt;</code>
+    </TooManyTemplateParams>
+  </file>
+  <file src="packages/framework/src/Facades/Site.php">
+    <MixedInferredReturnType occurrences="3">
+      <code>?string</code>
+      <code>?string</code>
+      <code>?string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="3">
+      <code>config('site.language')</code>
+      <code>config('site.name')</code>
+      <code>config('site.url')</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="packages/framework/src/Foundation/Application.php">
+    <PropertyNotSetInConstructor occurrences="7">
+      <code>Application</code>
+      <code>Application</code>
+      <code>Application</code>
+      <code>Application</code>
+      <code>Application</code>
+      <code>Application</code>
+      <code>Application</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Foundation/Concerns/BaseFoundationCollection.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>(new static())-&gt;setKernel($kernel)-&gt;runDiscovery()</code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType occurrences="1">
+      <code>static</code>
+    </MoreSpecificReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$kernel</code>
+    </PropertyNotSetInConstructor>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Foundation/Concerns/ManagesHydeKernel.php">
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>array&lt;class-string&lt;\Hyde\Foundation\Concerns\HydeExtension&gt;&gt;</code>
+      <code>array&lt;class-string&lt;\Hyde\Pages\Concerns\HydePage&gt;&gt;</code>
+    </MixedReturnTypeCoercion>
+  </file>
+  <file src="packages/framework/src/Foundation/FileCollection.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>FileCollection</code>
+    </PropertyNotSetInConstructor>
+    <RedundantCast occurrences="1">
+      <code>(string) $filepath</code>
+    </RedundantCast>
+    <TooManyTemplateParams occurrences="5">
+      <code>$this-&gt;getAllSourceFiles()-&gt;where(fn (SourceFile $file): bool =&gt; $file-&gt;model === $pageClass)</code>
+      <code>\Hyde\Foundation\FileCollection&lt;\Hyde\Support\Filesystem\MediaFile&gt;</code>
+      <code>\Hyde\Foundation\FileCollection&lt;\Hyde\Support\Filesystem\SourceFile&gt;</code>
+      <code>\Hyde\Foundation\FileCollection&lt;\Hyde\Support\Filesystem\SourceFile&gt;</code>
+      <code>\Hyde\Foundation\FileCollection&lt;\Hyde\Support\Filesystem\SourceFile&gt;</code>
+    </TooManyTemplateParams>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>class-string&lt;\Hyde\Foundation\Concerns\HydeExtension&gt;</code>
+    </UnnecessaryVarAnnotation>
+  </file>
+  <file src="packages/framework/src/Foundation/Filesystem.php">
+    <ArgumentTypeCoercion occurrences="2">
+      <code>$model</code>
+      <code>$model</code>
+    </ArgumentTypeCoercion>
+    <InvalidReturnStatement occurrences="1">
+      <code>$this-&gt;pathToAbsolute($path)</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>string</code>
+    </InvalidReturnType>
+    <MixedArgument occurrences="2">
+      <code>$p</code>
+      <code>$p</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>map</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="2">
+      <code>$p</code>
+      <code>$p</code>
+    </MixedAssignment>
+  </file>
+  <file src="packages/framework/src/Foundation/HydeKernel.php">
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>array{basePath: string, features: \Hyde\Facades\Features, pages: \Hyde\Foundation\PageCollection, routes: \Hyde\Foundation\RouteCollection}</code>
+    </ImplementedReturnTypeMismatch>
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>$files</code>
+      <code>$pages</code>
+      <code>$routes</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Foundation/Hyperlinks.php">
+    <PossiblyInvalidCast occurrences="1">
+      <code>config('site.url')</code>
+    </PossiblyInvalidCast>
+  </file>
+  <file src="packages/framework/src/Foundation/PageCollection.php">
+    <InvalidArgument occurrences="1">
+      <code>$pageClass::parse($basename)</code>
+    </InvalidArgument>
+    <InvalidDocblock occurrences="1">
+      <code>string&lt;\Hyde\Pages\Concerns\HydePage&gt;</code>
+    </InvalidDocblock>
+    <InvalidTemplateParam occurrences="2">
+      <code>\Illuminate\Support\Collection&lt;\Hyde\Pages\Concerns\HydePage&gt;</code>
+    </InvalidTemplateParam>
+    <MissingTemplateParam occurrences="2">
+      <code>\Illuminate\Support\Collection&lt;\Hyde\Pages\Concerns\HydePage&gt;</code>
+    </MissingTemplateParam>
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>each</code>
+      <code>filter</code>
+    </MixedArgumentTypeCoercion>
+    <MixedInferredReturnType occurrences="1">
+      <code>HydePage</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$this-&gt;items[$sourcePath] ?? throw new FileNotFoundException($sourcePath.' in page collection')</code>
+    </MixedReturnStatement>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>PageCollection</code>
+    </PropertyNotSetInConstructor>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>class-string&lt;\Hyde\Foundation\Concerns\HydeExtension&gt;</code>
+    </UnnecessaryVarAnnotation>
+  </file>
+  <file src="packages/framework/src/Foundation/RouteCollection.php">
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>each</code>
+      <code>filter</code>
+    </MixedArgumentTypeCoercion>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>RouteCollection</code>
+    </PropertyNotSetInConstructor>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>class-string&lt;\Hyde\Foundation\Concerns\HydeExtension&gt;</code>
+    </UnnecessaryVarAnnotation>
+  </file>
+  <file src="packages/framework/src/Framework/Actions/BladeMatterParser.php">
+    <MixedArgument occurrences="2">
+      <code>static::SEARCH</code>
+      <code>static::SEARCH</code>
+    </MixedArgument>
+    <MixedArrayOffset occurrences="1">
+      <code>$array[static::getValueWithType(trim(trim($pair[0]), "'"))]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="1">
+      <code>$array[static::getValueWithType(trim(trim($pair[0]), "'"))]</code>
+    </MixedAssignment>
+    <PossiblyFalseArgument occurrences="1">
+      <code>strpos($key, '=')</code>
+    </PossiblyFalseArgument>
+    <PossiblyFalseOperand occurrences="1">
+      <code>strpos($key, '=')</code>
+    </PossiblyFalseOperand>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$matter</code>
+    </PropertyNotSetInConstructor>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static($contents)</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Framework/Actions/CreatesNewMarkdownPostFile.php">
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>$date</code>
+      <code>$identifier</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Framework/Actions/GeneratesSidebarTableOfContents.php">
+    <PossiblyFalseArgument occurrences="1">
+      <code>strpos($html, '&lt;p&gt;[[END_TOC]]')</code>
+    </PossiblyFalseArgument>
+  </file>
+  <file src="packages/framework/src/Framework/Actions/MarkdownFileParser.php">
+    <MixedAssignment occurrences="1">
+      <code>$this-&gt;matter</code>
+    </MixedAssignment>
+  </file>
+  <file src="packages/framework/src/Framework/Actions/PublishesHydeViews.php">
+    <MixedArgument occurrences="5">
+      <code>static::$options[$this-&gt;selected]['destination']</code>
+      <code>static::$options[$this-&gt;selected]['destination']</code>
+      <code>static::$options[$this-&gt;selected]['path']</code>
+      <code>static::$options[$this-&gt;selected]['path']</code>
+      <code>static::$options[$this-&gt;selected]['path']</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="5">
+      <code>static::$options[$this-&gt;selected]['destination']</code>
+      <code>static::$options[$this-&gt;selected]['destination']</code>
+      <code>static::$options[$this-&gt;selected]['path']</code>
+      <code>static::$options[$this-&gt;selected]['path']</code>
+      <code>static::$options[$this-&gt;selected]['path']</code>
+    </MixedArrayAccess>
+    <MixedInferredReturnType occurrences="1">
+      <code>bool|int</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="2"/>
+  </file>
+  <file src="packages/framework/src/Framework/Actions/SourceFileParser.php">
+    <InvalidStringClass occurrences="1">
+      <code>new $pageClass($this-&gt;identifier)</code>
+    </InvalidStringClass>
+    <LessSpecificReturnStatement occurrences="2">
+      <code>new $pageClass($this-&gt;identifier)</code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType occurrences="2">
+      <code>BaseMarkdownPage</code>
+      <code>HydePage|BladePage|BaseMarkdownPage</code>
+    </MoreSpecificReturnType>
+    <UndefinedClass occurrences="1"/>
+  </file>
+  <file src="packages/framework/src/Framework/Concerns/Internal/MockableFeatures.php">
+    <MixedArgument occurrences="1">
+      <code>$value</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$key</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="1">
+      <code>$value</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>?bool</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="packages/framework/src/Framework/Concerns/Internal/SetsUpMarkdownConverter.php">
+    <InvalidStringClass occurrences="1">
+      <code>new $extensionClassName()</code>
+    </InvalidStringClass>
+    <MixedArgument occurrences="5">
+      <code>$extensionClassName</code>
+      <code>config('markdown.config', [])</code>
+      <code>config('markdown.enable_blade', false)</code>
+      <code>config('markdown.enable_blade', false)</code>
+      <code>config('markdown.features.codeblock_filepaths', true)</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$extensionClassName</code>
+    </MixedAssignment>
+    <PossibleRawObjectIteration occurrences="1">
+      <code>config('markdown.extensions', [])</code>
+    </PossibleRawObjectIteration>
+    <UndefinedInterfaceMethod occurrences="1">
+      <code>addExtension</code>
+    </UndefinedInterfaceMethod>
+  </file>
+  <file src="packages/framework/src/Framework/Concerns/InvokableAction.php">
+    <TooManyArguments occurrences="1">
+      <code>new static(...$args)</code>
+    </TooManyArguments>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static(...$args)</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Framework/Concerns/RegistersFileLocations.php">
+    <MixedArgument occurrences="3">
+      <code>$location</code>
+      <code>$location</code>
+      <code>config('view.paths', [])</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$location</code>
+      <code>$location</code>
+    </MixedAssignment>
+    <UnusedVariable occurrences="2">
+      <code>$class</code>
+      <code>$class</code>
+    </UnusedVariable>
+  </file>
+  <file src="packages/framework/src/Framework/Factories/BlogPostDataFactory.php">
+    <MixedArgument occurrences="2">
+      <code>$this-&gt;matter('author')</code>
+      <code>$this-&gt;matter('date')</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="2">
+      <code>?string</code>
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="2">
+      <code>$this-&gt;matter('category')</code>
+      <code>$this-&gt;matter('description') ?? $this-&gt;getTruncatedMarkdown($this-&gt;markdown-&gt;body())</code>
+    </MixedReturnStatement>
+    <PossiblyFalsePropertyAssignmentValue occurrences="1">
+      <code>$pageData-&gt;markdown</code>
+    </PossiblyFalsePropertyAssignmentValue>
+  </file>
+  <file src="packages/framework/src/Framework/Factories/Concerns/CoreDataObject.php">
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>array{pageClass: string, identifier: string, sourcePath: string, outputPath: string, routeKey: string}</code>
+    </ImplementedReturnTypeMismatch>
+  </file>
+  <file src="packages/framework/src/Framework/Factories/Concerns/HasFactory.php">
+    <MixedArgument occurrences="1">
+      <code>$this-&gt;markdown ?? false</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$value</code>
+    </MixedAssignment>
+  </file>
+  <file src="packages/framework/src/Framework/Factories/FeaturedImageFactory.php">
+    <MixedArgument occurrences="3">
+      <code>$this-&gt;matter('image')</code>
+      <code>$this-&gt;matter('image')</code>
+      <code>$this-&gt;matter('image.path')</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="8">
+      <code>?string</code>
+      <code>?string</code>
+      <code>?string</code>
+      <code>?string</code>
+      <code>?string</code>
+      <code>?string</code>
+      <code>?string</code>
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="9">
+      <code>$this-&gt;matter('image')</code>
+      <code>$this-&gt;matter('image.attributionUrl')</code>
+      <code>$this-&gt;matter('image.author')</code>
+      <code>$this-&gt;matter('image.copyright')</code>
+      <code>$this-&gt;matter('image.description')</code>
+      <code>$this-&gt;matter('image.license')</code>
+      <code>$this-&gt;matter('image.licenseUrl')</code>
+      <code>$this-&gt;matter('image.title')</code>
+      <code>$this-&gt;matter('image.url')</code>
+    </MixedReturnStatement>
+    <RedundantCastGivenDocblockType occurrences="1">
+      <code>(string) $data['source']</code>
+    </RedundantCastGivenDocblockType>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static($matter)</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Framework/Factories/HydePageDataFactory.php">
+    <MixedInferredReturnType occurrences="2">
+      <code>?string</code>
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="2">
+      <code>$this-&gt;matter('canonicalUrl')</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="packages/framework/src/Framework/Factories/NavigationDataFactory.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$class</code>
+    </ArgumentTypeCoercion>
+    <MixedArgument occurrences="5">
+      <code>$this-&gt;matter('navigation.visible')</code>
+      <code>config('docs.sidebar_order', [])</code>
+      <code>config('hyde.navigation.exclude', ['404'])</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="8">
+      <code>?bool</code>
+      <code>?int</code>
+      <code>?int</code>
+      <code>?string</code>
+      <code>?string</code>
+      <code>?string</code>
+      <code>?string</code>
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="8">
+      <code>config("hyde.navigation.order.$this-&gt;routeKey")</code>
+      <code>config('hyde.navigation.subdirectories', 'hidden')</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Blogging/Models/PostAuthor.php">
+    <MixedArgument occurrences="3">
+      <code>$data['name'] ?? null</code>
+      <code>$data['website'] ?? null</code>
+      <code>config('hyde.authors', [])</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$data['username'] ?? $data['name'] ?? 'Guest'</code>
+    </MixedReturnStatement>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>static</code>
+      <code>static::all()-&gt;firstWhere('username', $username) ?? static::create($username)</code>
+    </MixedReturnTypeCoercion>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static($username, $name, $website)</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Blogging/Models/RemoteFeaturedImage.php">
+    <MixedArgument occurrences="2">
+      <code>$headers</code>
+      <code>$headers['Content-Length']</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$headers</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="2">
+      <code>head</code>
+      <code>headers</code>
+    </MixedMethodCall>
+  </file>
+  <file src="packages/framework/src/Framework/Features/BuildTasks/BuildTask.php">
+    <DeprecatedMethod occurrences="1">
+      <code>getExecutionTime</code>
+    </DeprecatedMethod>
+    <InvalidReturnStatement occurrences="1">
+      <code>$this-&gt;exitCode</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>?int</code>
+    </InvalidReturnType>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$output</code>
+    </NonInvariantDocblockPropertyType>
+    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
+      <code>$exception-&gt;getCode()</code>
+    </PossiblyInvalidPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>BuildTask</code>
+      <code>BuildTask</code>
+    </PropertyNotSetInConstructor>
+    <UndefinedAttributeClass occurrences="1">
+      <code>Deprecated</code>
+    </UndefinedAttributeClass>
+  </file>
+  <file src="packages/framework/src/Framework/Features/BuildTasks/PostBuildTasks/GenerateBuildManifest.php">
+    <InvalidArgument occurrences="1"/>
+    <MixedArgument occurrences="1"/>
+    <PossiblyInvalidCast occurrences="1"/>
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>GenerateBuildManifest</code>
+      <code>GenerateBuildManifest</code>
+      <code>GenerateBuildManifest</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Framework/Features/BuildTasks/PostBuildTasks/GenerateRssFeed.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>GenerateRssFeed</code>
+      <code>GenerateRssFeed</code>
+      <code>GenerateRssFeed</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Framework/Features/BuildTasks/PostBuildTasks/GenerateSearch.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>GenerateSearch</code>
+      <code>GenerateSearch</code>
+      <code>GenerateSearch</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Framework/Features/BuildTasks/PostBuildTasks/GenerateSitemap.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>GenerateSitemap</code>
+      <code>GenerateSitemap</code>
+      <code>GenerateSitemap</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Framework/Features/DataCollections/DataCollection.php">
+    <MismatchingDocblockReturnType occurrences="1">
+      <code>DataCollection&lt;\Hyde\Markdown\Models\MarkdownDocument&gt;</code>
+    </MismatchingDocblockReturnType>
+    <MixedInferredReturnType occurrences="1">
+      <code>DataCollection&lt;\Hyde\Markdown\Models\MarkdownDocument&gt;</code>
+    </MixedInferredReturnType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$parseTimeInMs</code>
+    </PropertyNotSetInConstructor>
+    <TooManyTemplateParams occurrences="1">
+      <code>DataCollection&lt;\Hyde\Markdown\Models\MarkdownDocument&gt;</code>
+    </TooManyTemplateParams>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Documentation/SemanticDocumentationArticle.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>new self($page)</code>
+    </LessSpecificReturnStatement>
+    <MixedArgument occurrences="1"/>
+    <MixedAssignment occurrences="1">
+      <code>$config</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1"/>
+    <MoreSpecificReturnType occurrences="1">
+      <code>static</code>
+    </MoreSpecificReturnType>
+    <PossiblyInvalidCast occurrences="1"/>
+    <PossiblyUndefinedMethod occurrences="1">
+      <code>render</code>
+    </PossiblyUndefinedMethod>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Metadata/Elements/LinkElement.php">
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>map</code>
+    </MixedArgumentTypeCoercion>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Metadata/GlobalMetadataBag.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>$metadata</code>
+    </LessSpecificReturnStatement>
+    <MixedArgument occurrences="4">
+      <code>$global-&gt;$type</code>
+      <code>$item</code>
+      <code>$page-&gt;metadata-&gt;$type</code>
+      <code>View::shared('page')</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$item</code>
+    </MixedAssignment>
+    <MoreSpecificReturnType occurrences="1">
+      <code>static</code>
+    </MoreSpecificReturnType>
+    <PossibleRawObjectIteration occurrences="1">
+      <code>config('hyde.meta', [])</code>
+    </PossibleRawObjectIteration>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>Hyde::currentPage() !== null</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Metadata/MetadataBag.php">
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$this-&gt;get()</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAssignment occurrences="1">
+      <code>($this-&gt;$type)[$element-&gt;uniqueKey()]</code>
+    </MixedArrayAssignment>
+    <MixedAssignment occurrences="3">
+      <code>$array["$type:$key"]</code>
+      <code>$key</code>
+      <code>$value</code>
+    </MixedAssignment>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$element</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Metadata/PageMetadataBag.php">
+    <MixedArgument occurrences="2">
+      <code>$page-&gt;data('canonicalUrl')</code>
+      <code>$page-&gt;data('canonicalUrl')</code>
+    </MixedArgument>
+    <PossiblyNullArgument occurrences="1">
+      <code>$page-&gt;date-&gt;datetime</code>
+    </PossiblyNullArgument>
+    <PossiblyNullPropertyFetch occurrences="1">
+      <code>$page-&gt;date-&gt;datetime</code>
+    </PossiblyNullPropertyFetch>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Navigation/BaseNavigationMenu.php">
+    <MixedArgument occurrences="1">
+      <code>config('hyde.navigation.custom', [])</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="3">
+      <code>each</code>
+      <code>each</code>
+      <code>unique</code>
+    </MixedArgumentTypeCoercion>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Navigation/DocumentationSidebar.php">
+    <InvalidNullableReturnType occurrences="1">
+      <code>string</code>
+    </InvalidNullableReturnType>
+    <MixedArgumentTypeCoercion occurrences="3">
+      <code>each</code>
+      <code>filter</code>
+      <code>map</code>
+    </MixedArgumentTypeCoercion>
+    <NullableReturnStatement occurrences="1">
+      <code>$item-&gt;getGroup()</code>
+    </NullableReturnStatement>
+    <PossiblyNullArgument occurrences="1">
+      <code>$group</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Navigation/DropdownNavItem.php">
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$items</code>
+    </MixedArgumentTypeCoercion>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>DropdownNavItem</code>
+    </PropertyNotSetInConstructor>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static($name, $items)</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Navigation/NavItem.php">
+    <LessSpecificReturnStatement occurrences="2">
+      <code>new self($route, $label, $priority, false)</code>
+    </LessSpecificReturnStatement>
+    <MixedArgument occurrences="1">
+      <code>$this-&gt;route-&gt;getPage()-&gt;data('navigation.group')</code>
+    </MixedArgument>
+    <MoreSpecificReturnType occurrences="2">
+      <code>static</code>
+      <code>static</code>
+    </MoreSpecificReturnType>
+    <PossiblyNullReference occurrences="1">
+      <code>getPage</code>
+    </PossiblyNullReference>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>$href</code>
+      <code>$route</code>
+    </PropertyNotSetInConstructor>
+    <RedundantPropertyInitializationCheck occurrences="5">
+      <code>$this-&gt;href</code>
+      <code>$this-&gt;route</code>
+      <code>$this-&gt;route-&gt;getLink()</code>
+      <code>isset($this-&gt;route)</code>
+      <code>null</code>
+    </RedundantPropertyInitializationCheck>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Navigation/NavigationData.php">
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>array{label: string|null, group: string|null, hidden: bool|null, priority: int|null}</code>
+    </ImplementedReturnTypeMismatch>
+    <MixedArgument occurrences="4">
+      <code>$data['group'] ?? null</code>
+      <code>$data['hidden'] ?? null</code>
+      <code>$data['label'] ?? null</code>
+      <code>$data['priority'] ?? null</code>
+    </MixedArgument>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Navigation/NavigationMenu.php">
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>filter</code>
+    </MixedArgumentTypeCoercion>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>array&lt;string, DropdownNavItem&gt;</code>
+    </MixedReturnTypeCoercion>
+    <PossiblyNullArrayOffset occurrences="1">
+      <code>$dropdowns</code>
+    </PossiblyNullArrayOffset>
+    <PossiblyNullReference occurrences="1">
+      <code>is</code>
+    </PossiblyNullReference>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Paginator.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>Collection</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$this-&gt;paginatedItems-&gt;get($this-&gt;currentPage - 1)</code>
+    </MixedReturnStatement>
+    <NullableReturnStatement occurrences="1">
+      <code>$this-&gt;paginatedItems-&gt;get($this-&gt;currentPage - 1)</code>
+    </NullableReturnStatement>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$routeBasename</code>
+    </PropertyNotSetInConstructor>
+    <RedundantPropertyInitializationCheck occurrences="3">
+      <code>isset($this-&gt;routeBasename)</code>
+      <code>isset($this-&gt;routeBasename)</code>
+      <code>isset($this-&gt;routeBasename)</code>
+    </RedundantPropertyInitializationCheck>
+  </file>
+  <file src="packages/framework/src/Framework/Features/Templates/Homepages.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>?PublishableContract</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>self::options()-&gt;get($page)</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="packages/framework/src/Framework/Features/XmlGenerators/BaseXmlGenerator.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$xmlElement</code>
+    </PropertyNotSetInConstructor>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Framework/Features/XmlGenerators/RssFeedGenerator.php">
+    <MixedArgument occurrences="3">
+      <code>$channel</code>
+      <code>$item</code>
+      <code>config('site.language', 'en')</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>each</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="3">
+      <code>$atomLink</code>
+      <code>$channel</code>
+      <code>$item</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="2">
+      <code>string</code>
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedMethodCall occurrences="5">
+      <code>addAttribute</code>
+      <code>addAttribute</code>
+      <code>addAttribute</code>
+      <code>addChild</code>
+      <code>addChild</code>
+    </MixedMethodCall>
+    <MixedReturnStatement occurrences="2">
+      <code>config('hyde.rss_description', Site::name().' RSS Feed')</code>
+      <code>config('hyde.rss_filename', 'feed.xml')</code>
+    </MixedReturnStatement>
+    <PossiblyInvalidCast occurrences="1">
+      <code>config('site.language', 'en')</code>
+    </PossiblyInvalidCast>
+    <PossiblyNullArgument occurrences="3">
+      <code>$post-&gt;description</code>
+      <code>Site::name()</code>
+      <code>Site::url()</code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand occurrences="1">
+      <code>Site::name()</code>
+    </PossiblyNullOperand>
+    <PossiblyNullReference occurrences="2">
+      <code>getContentLength</code>
+      <code>getSource</code>
+    </PossiblyNullReference>
+    <TooManyTemplateParams occurrences="1"/>
+  </file>
+  <file src="packages/framework/src/Framework/Features/XmlGenerators/SitemapGenerator.php">
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>each</code>
+    </MixedArgumentTypeCoercion>
+  </file>
+  <file src="packages/framework/src/Framework/HydeServiceProvider.php">
+    <DeprecatedMethod occurrences="5">
+      <code>registerPageClass</code>
+      <code>registerPageClass</code>
+      <code>registerPageClass</code>
+      <code>registerPageClass</code>
+      <code>registerPageClass</code>
+    </DeprecatedMethod>
+    <MixedArgument occurrences="2">
+      <code>config('hyde.source_root', '')</code>
+      <code>config('site.output_directory', '_site')</code>
+    </MixedArgument>
+    <PossiblyInvalidCast occurrences="2">
+      <code>config('hyde.source_root', '')</code>
+      <code>config('site.output_directory', '_site')</code>
+    </PossiblyInvalidCast>
+  </file>
+  <file src="packages/framework/src/Framework/Services/BuildService.php">
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>map</code>
+    </MixedArgumentTypeCoercion>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>config('hyde.safe_output_directories', ['_site', 'docs', 'build'])</code>
+    </MixedReturnStatement>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>array&lt;class-string&lt;\Hyde\Pages\Concerns\HydePage&gt;&gt;</code>
+    </MixedReturnTypeCoercion>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>BuildService</code>
+      <code>BuildService</code>
+    </PropertyNotSetInConstructor>
+    <UnusedFunctionCall occurrences="1">
+      <code>array_map</code>
+    </UnusedFunctionCall>
+  </file>
+  <file src="packages/framework/src/Framework/Services/BuildTaskService.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>new $task($this-&gt;output)</code>
+    </ArgumentTypeCoercion>
+    <DeprecatedMethod occurrences="1">
+      <code>static::findTasksInAppDirectory()</code>
+    </DeprecatedMethod>
+    <InvalidStringClass occurrences="1">
+      <code>new $task($this-&gt;output)</code>
+    </InvalidStringClass>
+    <MixedArgument occurrences="2">
+      <code>config('hyde.generate_build_manifest', true)</code>
+      <code>config('hyde.post_build_tasks', [])</code>
+    </MixedArgument>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>array&lt;class-string&lt;\Hyde\Framework\Features\BuildTasks\BuildTask&gt;&gt;</code>
+    </MixedReturnTypeCoercion>
+    <RedundantCast occurrences="1">
+      <code>(string) $file</code>
+    </RedundantCast>
+  </file>
+  <file src="packages/framework/src/Framework/Services/ChecksumService.php">
+    <MixedArrayAccess occurrences="1">
+      <code>$file['unixsum']</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="2">
+      <code>$checksums[]</code>
+      <code>$file</code>
+    </MixedAssignment>
+    <RedundantCast occurrences="1">
+      <code>(string) $file</code>
+    </RedundantCast>
+  </file>
+  <file src="packages/framework/src/Framework/Services/DiscoveryService.php">
+    <MixedArgument occurrences="1">
+      <code>config('hyde.media_extensions', self::DEFAULT_MEDIA_EXTENSIONS)</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>$extensions</code>
+      <code>map</code>
+    </MixedArgumentTypeCoercion>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>array&lt;string&gt;</code>
+    </MixedReturnTypeCoercion>
+    <TooManyTemplateParams occurrences="1">
+      <code>FileCollection::getSourceFiles($model)-&gt;flatten()</code>
+    </TooManyTemplateParams>
+  </file>
+  <file src="packages/framework/src/Framework/Services/DocumentationSearchService.php">
+    <ImplicitToStringCast occurrences="1">
+      <code>$page-&gt;markdown</code>
+    </ImplicitToStringCast>
+    <MixedArgument occurrences="2">
+      <code>config('docs.exclude_from_search', [])</code>
+      <code>view('hyde::pages.documentation-search')-&gt;render()</code>
+    </MixedArgument>
+    <PossiblyUndefinedMethod occurrences="1">
+      <code>render</code>
+    </PossiblyUndefinedMethod>
+  </file>
+  <file src="packages/framework/src/Framework/Services/MarkdownService.php">
+    <MixedArgument occurrences="4">
+      <code>$extension</code>
+      <code>$line</code>
+      <code>$line</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>$lines</code>
+      <code>$this-&gt;config</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="5">
+      <code>$extension</code>
+      <code>$line</code>
+      <code>$line</code>
+      <code>$preprocessor</code>
+      <code>$this-&gt;markdown</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="1">
+      <code>$preprocessor::preprocess($this-&gt;markdown)</code>
+    </MixedMethodCall>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>[$lineNumber, $lineLen - $stripLen]</code>
+      <code>int[]</code>
+    </MixedReturnTypeCoercion>
+    <PossiblyInvalidCast occurrences="1"/>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>$converter</code>
+      <code>$html</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Framework/Services/RebuildService.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$builder</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Framework/Services/ValidationService.php">
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$conflicts</code>
+    </MixedArgumentTypeCoercion>
+    <MixedInferredReturnType occurrences="1">
+      <code>Result</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$this-&gt;$check(new Result)</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="packages/framework/src/Framework/Services/YamlConfigurationService.php">
+    <MixedArgument occurrences="1">
+      <code>Config::get('site', [])</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$yaml</code>
+    </MixedAssignment>
+  </file>
+  <file src="packages/framework/src/Framework/Views/Components/LinkComponent.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>view('hyde::components.link')</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>Factory|View</code>
+    </InvalidReturnType>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>LinkComponent</code>
+      <code>LinkComponent</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Markdown/MarkdownConverter.php">
+    <DeprecatedInterface occurrences="1">
+      <code>MarkdownConverter</code>
+    </DeprecatedInterface>
+  </file>
+  <file src="packages/framework/src/Markdown/Models/FrontMatter.php">
+    <UnsafeInstantiation occurrences="1">
+      <code>new static($matter)</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Markdown/Models/Markdown.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$sourceModel</code>
+    </ArgumentTypeCoercion>
+    <LessSpecificReturnStatement occurrences="1">
+      <code>MarkdownDocument::parse($localFilepath)-&gt;markdown()</code>
+    </LessSpecificReturnStatement>
+    <MixedMethodCall occurrences="1">
+      <code>convert</code>
+    </MixedMethodCall>
+    <MoreSpecificReturnType occurrences="1">
+      <code>static</code>
+    </MoreSpecificReturnType>
+    <PossiblyUndefinedMethod occurrences="1">
+      <code>convert</code>
+    </PossiblyUndefinedMethod>
+  </file>
+  <file src="packages/framework/src/Markdown/Models/MarkdownDocument.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>(new MarkdownFileParser($localFilepath))-&gt;get()</code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType occurrences="1">
+      <code>static</code>
+    </MoreSpecificReturnType>
+  </file>
+  <file src="packages/framework/src/Markdown/Processing/BladeDownProcessor.php">
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>$pageData</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$output</code>
+    </PropertyNotSetInConstructor>
+    <UnsafeInstantiation occurrences="2">
+      <code>new static($html, $pageData)</code>
+      <code>new static(static::preprocess($html), $pageData)</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Markdown/Processing/CodeblockFilepathProcessor.php">
+    <MixedArgument occurrences="1">
+      <code>$pattern</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>static::$patterns</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="1">
+      <code>$pattern</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1"/>
+    <PossiblyUndefinedMethod occurrences="1">
+      <code>render</code>
+    </PossiblyUndefinedMethod>
+  </file>
+  <file src="packages/framework/src/Markdown/Processing/ShortcodeProcessor.php">
+    <MixedArgument occurrences="1">
+      <code>$shortcode</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$shortcode</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedMethodCall occurrences="1">
+      <code>$this-&gt;shortcodes[$signature]::resolve($line)</code>
+    </MixedMethodCall>
+    <MixedReturnStatement occurrences="1"/>
+    <PossiblyFalseArgument occurrences="1">
+      <code>strpos($line, ' ')</code>
+    </PossiblyFalseArgument>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>$output</code>
+      <code>$shortcodes</code>
+    </PropertyNotSetInConstructor>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static($markdown)</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Pages/BladePage.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>view($this-&gt;getBladeView())-&gt;render()</code>
+    </MixedReturnStatement>
+    <PossiblyUndefinedMethod occurrences="1">
+      <code>render</code>
+    </PossiblyUndefinedMethod>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>BladePage</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Pages/Concerns/BaseMarkdownPage.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedMethodCall occurrences="1">
+      <code>render</code>
+    </MixedMethodCall>
+    <MixedReturnStatement occurrences="1"/>
+    <PossiblyUndefinedMethod occurrences="1">
+      <code>with</code>
+    </PossiblyUndefinedMethod>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>BaseMarkdownPage</code>
+    </PropertyNotSetInConstructor>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static($identifier, $matter, $markdown)</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Pages/Concerns/HydePage.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>(new SourceFileParser(static::class, $identifier))-&gt;get()</code>
+    </LessSpecificReturnStatement>
+    <MixedInferredReturnType occurrences="3">
+      <code>?string</code>
+      <code>int</code>
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="1">
+      <code>config('site.name', 'HydePHP')</code>
+    </MixedOperand>
+    <MixedReturnStatement occurrences="3">
+      <code>$this-&gt;navigation['group']</code>
+      <code>$this-&gt;navigation['label']</code>
+      <code>$this-&gt;navigation['priority']</code>
+    </MixedReturnStatement>
+    <MoreSpecificReturnType occurrences="1">
+      <code>static</code>
+    </MoreSpecificReturnType>
+    <NullableReturnStatement occurrences="2">
+      <code>$this-&gt;navigation['label']</code>
+      <code>$this-&gt;navigation['priority']</code>
+    </NullableReturnStatement>
+    <PossiblyNullArrayAccess occurrences="4">
+      <code>$this-&gt;navigation['group']</code>
+      <code>$this-&gt;navigation['hidden']</code>
+      <code>$this-&gt;navigation['label']</code>
+      <code>$this-&gt;navigation['priority']</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullReference occurrences="4">
+      <code>$this-&gt;navigation</code>
+      <code>$this-&gt;navigation</code>
+      <code>$this-&gt;navigation</code>
+      <code>$this-&gt;navigation</code>
+    </PossiblyNullReference>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$title</code>
+    </PropertyNotSetInConstructor>
+    <TooManyTemplateParams occurrences="1">
+      <code>\Hyde\Foundation\PageCollection&lt;\Hyde\Pages\Concerns\HydePage&gt;</code>
+    </TooManyTemplateParams>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static($identifier, $matter)</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Pages/DocumentationPage.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>bool</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>config('docs.table_of_contents.enabled', true)</code>
+    </MixedReturnStatement>
+    <PossiblyInvalidCast occurrences="1">
+      <code>config('docs.source_file_location_base')</code>
+    </PossiblyInvalidCast>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>DocumentationPage</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Pages/HtmlPage.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>HtmlPage</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Pages/MarkdownPage.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>MarkdownPage</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="packages/framework/src/Pages/MarkdownPost.php">
+    <LessSpecificReturnStatement occurrences="1">
+      <code>static::all()-&gt;sortByDesc('matter.date')</code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType occurrences="1">
+      <code>\Hyde\Foundation\PageCollection&lt;\Hyde\Pages\MarkdownPost&gt;</code>
+    </MoreSpecificReturnType>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>$author</code>
+      <code>$category</code>
+      <code>$date</code>
+      <code>$description</code>
+      <code>$image</code>
+      <code>MarkdownPost</code>
+    </PropertyNotSetInConstructor>
+    <TooManyTemplateParams occurrences="2">
+      <code>\Hyde\Foundation\PageCollection&lt;\Hyde\Pages\MarkdownPost&gt;</code>
+      <code>static::all()-&gt;sortByDesc('matter.date')</code>
+    </TooManyTemplateParams>
+  </file>
+  <file src="packages/framework/src/Pages/VirtualPage.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="2">
+      <code>$this-&gt;__call('compile', [])</code>
+      <code>AnonymousViewCompiler::call($this-&gt;view, $this-&gt;matter-&gt;toArray())</code>
+    </MixedReturnStatement>
+    <PossiblyInvalidFunctionCall occurrences="1">
+      <code>$macro(...$parameters)</code>
+    </PossiblyInvalidFunctionCall>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>VirtualPage</code>
+    </PropertyNotSetInConstructor>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static($identifier, $matter, $contents, $view)</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Support/Filesystem/ProjectFile.php">
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>array{name: string, path: string}</code>
+    </ImplementedReturnTypeMismatch>
+    <TooManyArguments occurrences="1">
+      <code>new static($path, ...$args)</code>
+    </TooManyArguments>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static($path, ...$args)</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Support/Models/Redirect.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1"/>
+    <PossiblyUndefinedMethod occurrences="1">
+      <code>render</code>
+    </PossiblyUndefinedMethod>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static($path, $destination, $showText)</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="packages/framework/src/Support/Models/Render.php">
+    <InvalidDocblock occurrences="1">
+      <code>public function toArray(): array</code>
+    </InvalidDocblock>
+    <MissingConstructor occurrences="3">
+      <code>$currentPage</code>
+      <code>$currentRoute</code>
+      <code>$page</code>
+    </MissingConstructor>
+    <RedundantPropertyInitializationCheck occurrences="6">
+      <code>$this-&gt;currentPage</code>
+      <code>$this-&gt;currentRoute</code>
+      <code>$this-&gt;page</code>
+      <code>null</code>
+      <code>null</code>
+      <code>null</code>
+    </RedundantPropertyInitializationCheck>
+  </file>
+  <file src="packages/framework/src/Support/Models/Route.php">
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>array{routeKey: string, sourcePath: string, outputPath: string, page: array{class: string, identifier: string}}</code>
+    </ImplementedReturnTypeMismatch>
+    <MixedInferredReturnType occurrences="1">
+      <code>?Route</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>Router::get(str_replace('.', '/', $routeKey))</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="packages/framework/src/Support/Models/ValidationResult.php">
+    <PossiblyNullArgument occurrences="1">
+      <code>$withTimeString</code>
+    </PossiblyNullArgument>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>$passed</code>
+      <code>$tip</code>
+    </PropertyNotSetInConstructor>
+    <RedundantPropertyInitializationCheck occurrences="2">
+      <code>$this-&gt;tip</code>
+      <code>false</code>
+    </RedundantPropertyInitializationCheck>
+  </file>
+  <file src="packages/framework/src/helpers.php">
+    <MixedInferredReturnType occurrences="2">
+      <code>HydeKernel</code>
+      <code>HydeKernel</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="2">
+      <code>app(HydeKernel::class)</code>
+      <code>app(HydeKernel::class)</code>
+    </MixedReturnStatement>
+  </file>
+</files>
