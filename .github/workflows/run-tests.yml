@@ -70,6 +70,9 @@ jobs:
     - name: Install dependencies
       run: composer install --no-interaction
 
+    - name: Download test runner configuration
+      run: curl https://raw.githubusercontent.com/hydephp/develop/master/packages/hyde/phpunit.xml.dist -o phpunit.xml.dist
+
     - name: Execute tests (Unit and Feature tests) via Pest
       run: vendor/bin/pest
       
