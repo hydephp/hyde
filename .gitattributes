@@ -8,9 +8,6 @@
 
 .github/ export-ignore
 tests/ export-ignore
-.styleci.yml export-ignore
-.scrutinizer.yml export-ignore
-phpunit.xml.dist export-ignore
-BACKERS.md export-ignore
-CONTRIBUTING.md export-ignore
 CHANGELOG.md export-ignore
+LICENSE.md export-ignore
+SECURITY.md export-ignore

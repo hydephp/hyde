@@ -13,57 +13,25 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Sidebar Header Name
+    | Sidebar Settings
     |--------------------------------------------------------------------------
     |
-    | By default, the sidebar title shown in the documentation page layouts uses
-    | the app name suffixed with "docs". You can change it with this setting.
+    | The Hyde Documentation Module comes with a fancy Sidebar that is
+    | automatically populated with links to your documentation pages.
+    | Here, you can configure its behavior, content, look and feel.
     |
     */
 
-    'header_title' => config('site.name', 'HydePHP').' Docs',
+    'sidebar' => [
+        // The title in the sidebar header
+        'header' => env('SITE_NAME', 'HydePHP').' Docs',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Documentation Site Output Directory
-    |--------------------------------------------------------------------------
-    |
-    | If you want to store the compiled documentation pages in a different
-    | directory than the default 'docs' directory, for example to set the
-    | specified version, you can specify the directory here.
-    |
-    | Note that you need to take care as to not set it to something that
-    | may conflict with other parts, such as media or posts directories.
-    |
-    | The default value is 'docs'. For easy versioning you can do what
-    | HydePHP.com does, setting it to 'docs/master'.
-    |
-    */
+        // When using a grouped sidebar, should the groups be collapsible?
+        'collapsible' => true,
 
-    'output_directory' => 'docs',
-
-    /*
-    |--------------------------------------------------------------------------
-    | Collaborative Source Editing Location
-    |--------------------------------------------------------------------------
-    |
-    | @see https://hydephp.com/docs/master/documentation-pages#automatic-edit-page-button
-    |
-    | By adding a base URL here, Hyde will use it to create "edit source" links
-    | to your documentation pages. Hyde expects this to be a GitHub path, but
-    | it will probably work with other methods as well, if not, send a PR!
-    |
-    | You can also change the link text with the `edit_source_link_text` setting.
-    |
-    | Example: https://github.com/hydephp/docs/blob/master
-    |          Do not specify the filename or extension, Hyde will do that for you.
-    | Setting the setting to null will disable the feature.
-    |
-    */
-
-    // 'source_file_location_base' => 'https://github.com/<user>/<repo>/<[blob/edit]>/<branch>',
-    'edit_source_link_text' => 'Edit Source',
-    'edit_source_link_position' => 'footer', // 'header', 'footer', or 'both'
+        // Should the sidebar footer be shown?
+        'footer' => true,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -103,6 +71,29 @@ return [
         'min_heading_level' => 2,
         'max_heading_level' => 4,
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Collaborative Source Editing Location
+    |--------------------------------------------------------------------------
+    |
+    | @see https://hydephp.com/docs/master/documentation-pages#automatic-edit-page-button
+    |
+    | By adding a base URL here, Hyde will use it to create "edit source" links
+    | to your documentation pages. Hyde expects this to be a GitHub path, but
+    | it will probably work with other methods as well, if not, send a PR!
+    |
+    | You can also change the link text with the `edit_source_link_text` setting.
+    |
+    | Example: https://github.com/hydephp/docs/blob/master
+    |          Do not specify the filename or extension, Hyde will do that for you.
+    | Setting the setting to null will disable the feature.
+    |
+    */
+
+    // 'source_file_location_base' => 'https://github.com/<user>/<repo>/<[blob/edit]>/<branch>',
+    'edit_source_link_text' => 'Edit Source',
+    'edit_source_link_position' => 'footer', // 'header', 'footer', or 'both'
 
     /*
     |--------------------------------------------------------------------------
