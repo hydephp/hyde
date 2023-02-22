@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace Hyde\Testing\Hyde\Feature;
 
 use Hyde\Hyde;
-use Hyde\Testing\TestCase;
+use Hyde\Testing\UnitTestCase;
 
-class DefaultContentTest extends TestCase
+class DefaultContentTest extends UnitTestCase
 {
+    public static function setUpBeforeClass(): void
+    {
+        self::needsKernel();
+    }
+
     public function test_default_pages_are_present()
     {
         $this->assertFileExists(Hyde::path('_pages/index.blade.php'));
