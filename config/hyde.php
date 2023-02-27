@@ -156,6 +156,7 @@ return [
 
     'server' => [
         'port' => env('SERVER_PORT', 8080),
+        'host' => env('SERVER_HOST', 'localhost'),
         'dashboard' => env('SERVER_DASHBOARD', true),
     ],
 
