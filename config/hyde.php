@@ -340,6 +340,24 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Cache Busting
+    |--------------------------------------------------------------------------
+    |
+    | Any assets loaded using the Asset::mediaLink() helper will automatically
+    | have a cache busting query string appended to the URL. This is useful
+    | when you want to force browsers to load a new version of an asset.
+    |
+    | The mediaLink helper is used in the built-in views to load the
+    | default stylesheets and scripts, and thus use this feature.
+    |
+    | To disable cache busting, set this setting to false.
+    |
+    */
+
+    'cache_busting' => true,
+
+    /*
+    |--------------------------------------------------------------------------
     | Load app.css from CDN
     |--------------------------------------------------------------------------
     |
@@ -366,6 +384,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Default Color Scheme
+    |--------------------------------------------------------------------------
+    |
+    | The default color scheme for the meta color-scheme tag, note that this
+    | is just a hint to the user-agent and does not force a specific theme.
+    |
+    */
+
+    'default_color_scheme' => 'light',
+
+    /*
+    |--------------------------------------------------------------------------
     | Built-in Server
     |--------------------------------------------------------------------------
     |
@@ -378,5 +408,32 @@ return [
         'host' => env('SERVER_HOST', 'localhost'),
         'dashboard' => env('SERVER_DASHBOARD', true),
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Additional Advanced Options
+    |--------------------------------------------------------------------------
+    |
+    | Finally, here are some additional configuration options that you most
+    | likely won't need to change. These are intended for advanced users,
+    | and some should only be changed if you know what you're doing.
+    |
+    */
+
+    // The list of directories that are considered to be safe to empty upon site build.
+    // If the site output directory is set to a directory that is not in this list,
+    // the build command will prompt for confirmation before emptying it.
+    'safe_output_directories' => ['_site', 'docs', 'build'],
+
+    // Should a JSON build manifest with metadata about the build be generated?
+    'generate_build_manifest' => true,
+
+    // Where should the build manifest be saved? (Relative to project root, for example _site/build-manifest.json)
+    'build_manifest_path' => 'app/storage/framework/cache/build-manifest.json',
+
+    // Here you can specify HydeFront version and URL for when loading app.css from the CDN.
+    // Only change these if you know what you're doing as some versions may incompatible with your Hyde version.
+    // 'hydefront_version' => '',
+    // 'hydefront_cdn_url' => ''
 
 ];
