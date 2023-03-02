@@ -1,0 +1,30 @@
+{
+    "$schema": "https://laravel-ide.com/schema/laravel-ide-v2.json",
+    "completions": [
+        {
+            "complete": "directoryFiles",
+            "options": {
+                "directory": "/"
+            },
+            "condition": [
+                {
+                    "methodNames": ["path"],
+                    "place": "parameter",
+                    "classFqn": ["\\Hyde\\Hyde"],
+                    "parameters": [1]
+                }
+            ]
+        },
+        {
+            "complete": "configKey",
+            "condition": [
+                {
+                    "methodNames": ["getArray", "getString", "getInt", "getBool", "getFloat"],
+                    "place": "parameter",
+                    "classFqn": ["\\Hyde\\Facades\\Config"],
+                    "parameters": [1]
+                }
+            ]
+        }
+    ]
+}
