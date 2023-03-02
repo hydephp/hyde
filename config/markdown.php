@@ -23,7 +23,7 @@ return [
     | Remember that you may need to install any third party extensions
     | through Composer before you can use them.
     |
-    | Hyde ships with the Github Flavored Markdown extension.
+    | Hyde ships with the GitHub Flavored Markdown extension.
     | The Torchlight extension is enabled automatically when needed.
     |
     */
