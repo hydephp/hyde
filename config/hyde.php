@@ -354,7 +354,7 @@ return [
     |
     */
 
-    'cache_busting' => true,
+    'enable_cache_busting' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -433,7 +433,7 @@ return [
 
     // Here you can specify HydeFront version and URL for when loading app.css from the CDN.
     // Only change these if you know what you're doing as some versions may incompatible with your Hyde version.
-    // 'hydefront_version' => '',
-    // 'hydefront_cdn_url' => ''
+    'hydefront_version' => \Hyde\Framework\Services\AssetService::HYDEFRONT_VERSION,
+    'hydefront_cdn_url' => \Hyde\Framework\Services\AssetService::HYDEFRONT_CDN_URL,
 
 ];
