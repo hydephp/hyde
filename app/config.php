@@ -102,6 +102,7 @@ return [
         'MarkdownPost' => \Hyde\Pages\MarkdownPost::class,
         'DocumentationPage' => \Hyde\Pages\DocumentationPage::class,
         'Filesystem' => \Hyde\Facades\Filesystem::class,
+        'DataCollection' => \Hyde\Support\DataCollection::class,
     ],
 
 ];
