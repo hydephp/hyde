@@ -327,7 +327,7 @@ return [
         // To get started quickly, you can uncomment the defaults here.
         // See the documentation link above for more information.
         'custom' => [
-            // NavItem::toLink('https://github.com/hydephp/hyde', 'GitHub', 200),
+            // NavItem::forLink('https://github.com/hydephp/hyde', 'GitHub', 200),
         ],
 
         // How should pages in subdirectories be displayed in the menu?
