@@ -91,7 +91,6 @@ return [
         'Hyde' => Hyde\Hyde::class,
         'Site' => \Hyde\Facades\Site::class,
         'Meta' => \Hyde\Facades\Meta::class,
-        'Route' => \Hyde\Facades\Route::class,
         'Asset' => \Hyde\Facades\Asset::class,
         'Author' => \Hyde\Facades\Author::class,
         'Includes' => \Hyde\Facades\Includes::class,
@@ -103,6 +102,7 @@ return [
         'DocumentationPage' => \Hyde\Pages\DocumentationPage::class,
         'Filesystem' => \Hyde\Facades\Filesystem::class,
         'DataCollection' => \Hyde\Support\DataCollection::class,
+        'Routes' => \Hyde\Foundation\Facades\Routes::class,
     ],
 
 ];

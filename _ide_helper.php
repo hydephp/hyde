@@ -28,7 +28,6 @@ $currentPage = \Hyde\Support\Facades\Render::getCurrentPage();
 class Hyde extends \Hyde\Hyde {}
 class Site extends \Hyde\Facades\Site {}
 class Meta extends \Hyde\Facades\Meta {}
-class Route extends \Hyde\Facades\Route {}
 /** @mixin \Hyde\Framework\Services\AssetService */
 class Asset extends \Hyde\Facades\Asset {}
 class Author extends \Hyde\Facades\Author {}
@@ -42,3 +41,5 @@ class DocumentationPage extends \Hyde\Pages\DocumentationPage {}
 /** @mixin \Illuminate\Filesystem\Filesystem */
 class Filesystem extends \Hyde\Facades\Filesystem {}
 class DataCollection extends \Hyde\Support\DataCollection {}
+/** @mixin \Hyde\Foundation\Kernel\RouteCollection */
+class Routes extends \Hyde\Foundation\Facades\Routes {}
