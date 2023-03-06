@@ -34,12 +34,15 @@ class Author extends \Hyde\Facades\Author {}
 class Includes extends \Hyde\Facades\Includes {}
 class Features extends \Hyde\Facades\Features {}
 class Config extends \Hyde\Facades\Config {}
+/** @mixin \Illuminate\Filesystem\Filesystem */
+class Filesystem extends \Hyde\Facades\Filesystem {}
+class DataCollections extends \Hyde\Support\DataCollections {}
+/** @mixin \Hyde\Foundation\Kernel\RouteCollection */
+class Routes extends \Hyde\Foundation\Facades\Routes {}
+
+// Page classes (aliased in app/config.php)
+class HtmlPage extends \Hyde\Pages\HtmlPage {}
 class BladePage extends \Hyde\Pages\BladePage {}
 class MarkdownPage extends \Hyde\Pages\MarkdownPage {}
 class MarkdownPost extends \Hyde\Pages\MarkdownPost {}
 class DocumentationPage extends \Hyde\Pages\DocumentationPage {}
-/** @mixin \Illuminate\Filesystem\Filesystem */
-class Filesystem extends \Hyde\Facades\Filesystem {}
-class DataCollection extends \Hyde\Support\DataCollection {}
-/** @mixin \Hyde\Foundation\Kernel\RouteCollection */
-class Routes extends \Hyde\Foundation\Facades\Routes {}

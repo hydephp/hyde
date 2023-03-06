@@ -96,13 +96,14 @@ return [
         'Includes' => \Hyde\Facades\Includes::class,
         'Features' => \Hyde\Facades\Features::class,
         'Config' => \Hyde\Facades\Config::class,
+        'Filesystem' => \Hyde\Facades\Filesystem::class,
+        'Routes' => \Hyde\Foundation\Facades\Routes::class,
+        'HtmlPage' => \Hyde\Pages\HtmlPage::class,
         'BladePage' => \Hyde\Pages\BladePage::class,
         'MarkdownPage' => \Hyde\Pages\MarkdownPage::class,
         'MarkdownPost' => \Hyde\Pages\MarkdownPost::class,
         'DocumentationPage' => \Hyde\Pages\DocumentationPage::class,
-        'Filesystem' => \Hyde\Facades\Filesystem::class,
-        'DataCollection' => \Hyde\Support\DataCollection::class,
-        'Routes' => \Hyde\Foundation\Facades\Routes::class,
+        'DataCollections' => \Hyde\Support\DataCollections::class,
     ],
 
 ];
