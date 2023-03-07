@@ -12,15 +12,16 @@ on:
     branches: [ "master", "develop" ]
 
 jobs:
-  hyde-tests:
+  hyde-tests-master:
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        dependency-version: [composer, master]
+        dependency-version: [composer, latest]
 
     runs-on: ${{ matrix.os }}
     name: Hyde tests - ${{ matrix.os }} (${{ matrix.dependency-version }})
+    if: github.ref == 'refs/heads/master'
 
     steps:
     - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
@@ -31,11 +32,49 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Require latest version
-      if: matrix.dependency-version == 'master'
+      if: matrix.dependency-version == 'latest'
       run: composer require hyde/framework:master --no-install
-
+    
     - name: Install dependencies
       run: composer require hyde/testing --dev --no-install && composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: Download test runner configuration
+      run: curl https://raw.githubusercontent.com/hydephp/develop/master/packages/hyde/phpunit.xml.dist -o phpunit.xml.dist
+
+    - name: Execute tests (Unit and Feature tests) via Pest
+      run: vendor/bin/pest
+
+
+  hyde-tests-develop:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        php: [8.1, 8.2]
+
+    runs-on: ${{ matrix.os }}
+    name: Hyde tests - ${{ matrix.os }} ${{ matrix.php }} (develop)
+    if: github.ref == 'refs/heads/develop'
+
+    steps:
+    - uses: shivammathur/setup-php@8e2ac35f639d3e794c1da1f28999385ab6fdf0fc
+      with:
+        php-version: ${{ matrix.php }}
+        extensions: fileinfo, zip
+
+    - uses: actions/checkout@v3
+
+    - name: Require latest development version
+      run: composer require hyde/framework:dev-develop --no-install
+
+    - name: Require additional dependencies
+      run: composer require hyde/testing:dev-master --dev --no-install
+
+    - name: Install dependencies
+      run: composer install --no-interaction
+
+    - name: Download test runner configuration
+      run: curl https://raw.githubusercontent.com/hydephp/develop/master/packages/hyde/phpunit.xml.dist -o phpunit.xml.dist
 
     - name: Execute tests (Unit and Feature tests) via Pest
       run: vendor/bin/pest

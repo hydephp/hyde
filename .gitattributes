@@ -1,4 +1,4 @@
-* text=auto
+* text eol=lf
 
 *.blade.php diff=html
 *.css diff=css
@@ -6,11 +6,8 @@
 *.md diff=markdown
 *.php diff=php
 
-/.github export-ignore
-.styleci.yml export-ignore
-.scrutinizer.yml export-ignore
-BACKERS.md export-ignore
-CONTRIBUTING.md export-ignore
-CHANGELOG.md export-ignore
-
+.github/ export-ignore
 tests/ export-ignore
+CHANGELOG.md export-ignore
+LICENSE.md export-ignore
+SECURITY.md export-ignore

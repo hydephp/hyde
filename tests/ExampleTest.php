@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Hyde\Testing\Hyde\Feature;
+namespace Hyde\Testing\Hyde;
 
-use Hyde\Testing\TestCase;
+use Hyde\Testing\UnitTestCase;
 
-class ExampleTest extends TestCase
+class ExampleTest extends UnitTestCase
 {
     public function test_example()
     {

@@ -15,7 +15,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name (Logo)
+    | Application Name
     |--------------------------------------------------------------------------
     |
     | This value is the name of your application. This value is used when the
@@ -24,15 +24,7 @@ return [
     |
     */
 
-    'name' => "
-
-\033[34m     __ __        __   \033[33m ___  __ _____
-\033[34m    / // /_ _____/ /__ \033[33m/ _ \/ // / _ \
-\033[34m   / _  / // / _  / -_)\033[33m ___/ _  / ___/
-\033[34m  /_//_/\_, /\_,_/\__/\033[33m_/  /_//_/_/
-\033[34m       /___/
-    
-\033[0m",
+    'name' => 'HydePHP',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +37,7 @@ return [
     |
     */
 
-    'version' => Hyde\Framework\Hyde::version(),
+    'version' => Hyde\Hyde::version(),
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +70,10 @@ return [
 
     'providers' => [
         App\Providers\AppServiceProvider::class,
+        Hyde\Foundation\Providers\ConfigurationServiceProvider::class,
         Hyde\Framework\HydeServiceProvider::class,
+        Hyde\Foundation\Providers\ViewServiceProvider::class,
+        Hyde\Console\ConsoleServiceProvider::class,
     ],
 
     /*
@@ -93,14 +88,22 @@ return [
     */
 
     'aliases' => [
-        'Hyde' => Hyde\Framework\Hyde::class,
-        'Asset' => Hyde\Framework\Helpers\Asset::class,
-        'Site' => \Hyde\Framework\Models\Support\Site::class,
-        'Route' => \Hyde\Framework\Models\Support\Route::class,
-        'BladePage' => Hyde\Framework\Models\Pages\BladePage::class,
-        'MarkdownPage' => Hyde\Framework\Models\Pages\MarkdownPage::class,
-        'MarkdownPost' => Hyde\Framework\Models\Pages\MarkdownPost::class,
-        'DocumentationPage' => Hyde\Framework\Models\Pages\DocumentationPage::class,
+        'Hyde' => Hyde\Hyde::class,
+        'Site' => \Hyde\Facades\Site::class,
+        'Meta' => \Hyde\Facades\Meta::class,
+        'Asset' => \Hyde\Facades\Asset::class,
+        'Author' => \Hyde\Facades\Author::class,
+        'Features' => \Hyde\Facades\Features::class,
+        'Config' => \Hyde\Facades\Config::class,
+        'Filesystem' => \Hyde\Facades\Filesystem::class,
+        'Routes' => \Hyde\Foundation\Facades\Routes::class,
+        'HtmlPage' => \Hyde\Pages\HtmlPage::class,
+        'BladePage' => \Hyde\Pages\BladePage::class,
+        'MarkdownPage' => \Hyde\Pages\MarkdownPage::class,
+        'MarkdownPost' => \Hyde\Pages\MarkdownPost::class,
+        'DocumentationPage' => \Hyde\Pages\DocumentationPage::class,
+        'DataCollections' => \Hyde\Support\DataCollections::class,
+        'Includes' => \Hyde\Support\Includes::class,
     ],
 
 ];

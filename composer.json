@@ -25,8 +25,8 @@
     ],
     "require": {
         "php": "^8.1",
-        "hyde/framework": "^0.64",
-        "laravel-zero/framework": "^9.1"
+        "hyde/framework": "dev-develop",
+        "laravel-zero/framework": "^10.0"
     },
     "require-dev": {
         "hyde/realtime-compiler": "^2.7"

@@ -11,7 +11,7 @@
 |
 */
 
-$app = new \Hyde\Framework\Foundation\Application(
+$app = new \Hyde\Foundation\Application(
     dirname(__DIR__)
 );
 
@@ -28,7 +28,7 @@ $app = new \Hyde\Framework\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    LaravelZero\Framework\Kernel::class
+    \Hyde\Foundation\ConsoleKernel::class
 );
 
 $app->singleton(
@@ -47,17 +47,17 @@ $app->singleton(
 |
 */
 
-$hyde = new Hyde\Framework\HydeKernel(
+$hyde = new \Hyde\Foundation\HydeKernel(
     dirname(__DIR__)
 );
 
 $app->singleton(
-    Hyde\Framework\HydeKernel::class, function () {
-        return Hyde\Framework\HydeKernel::getInstance();
+    \Hyde\Foundation\HydeKernel::class, function (): \Hyde\Foundation\HydeKernel {
+        return \Hyde\Foundation\HydeKernel::getInstance();
     }
 );
 
-Hyde\Framework\HydeKernel::setInstance($hyde);
+\Hyde\Foundation\HydeKernel::setInstance($hyde);
 
 /*
 |--------------------------------------------------------------------------

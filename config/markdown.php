@@ -23,7 +23,7 @@ return [
     | Remember that you may need to install any third party extensions
     | through Composer before you can use them.
     |
-    | Hyde ships with the Github Flavored Markdown extension.
+    | Hyde ships with the GitHub Flavored Markdown extension.
     | The Torchlight extension is enabled automatically when needed.
     |
     */
@@ -69,7 +69,7 @@ return [
     | Blade-supported Markdown
     |--------------------------------------------------------------------------
     |
-    | Since Hyde v0.30.x you can use Laravel Blade in Markdown files.
+    | This feature allows you to use basic Laravel Blade in Markdown files.
     |
     | It's disabled by default since can be a security risk as it allows
     | arbitrary PHP to run. But if your Markdown is trusted, try it out!
