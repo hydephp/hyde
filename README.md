@@ -1,8 +1,8 @@
 # HydePHP - Elegant and Powerful Static Site Generator
 
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/hyde/framework?include_prereleases)](https://packagist.org/packages/hyde/framework) 
-[![Total Downloads on Packagist](https://img.shields.io/packagist/dt/hyde/framework)](https://packagist.org/packages/hyde/framework) 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/hyde/framework?include_prereleases)](https://packagist.org/packages/hyde/framework)
+[![Total Downloads on Packagist](https://img.shields.io/packagist/dt/hyde/framework)](https://packagist.org/packages/hyde/framework)
 [![License MIT](https://img.shields.io/github/license/hydephp/hyde) ](https://github.com/hydephp/hyde/blob/master/LICENSE.md)
 [![Test Coverage](https://codecov.io/gh/hydephp/develop/branch/master/graph/badge.svg?token=G6N2161TOT)](https://codecov.io/gh/hydephp/develop)
 [![Test Suite](https://github.com/hydephp/develop/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/hydephp/develop/actions/workflows/continuous-integration.yml)
@@ -37,7 +37,7 @@ See the documentation and learn more at https://hydephp.com/docs/
 ### Built-in Frontend
 - Hyde comes with a TailwindCSS starter kit so you can start making content right away.
 - The starter kit is fully responsive, has a dark mode theme, and is customizable.
-- The frontend is accessible to screenreaders and rich with semantic HTML and microdata. 
+- The frontend is accessible to screenreaders and rich with semantic HTML and microdata.
 - Hyde automatically chooses the right layout to use depending on the content being rendered.
 - Hyde also fills in and creates content like navigation menus and sidebars automatically.
 
@@ -49,7 +49,7 @@ See the documentation and learn more at https://hydephp.com/docs/
 ### Customization
 - You don't need to configure anything as Hyde is shipped with sensible defaults.
 - You can, however, customize nearly everything. Here are some examples:
-- All frontend components and page layouts are created with Blade so you 
+- All frontend components and page layouts are created with Blade so you
   can publish the vendor views, just like in Laravel.
 - Override many of the dynamic content features like the menus and footer.
 
@@ -70,7 +70,7 @@ When you're ready, run the build command to compile your static site which will 
 php hyde build
 ```
 
-## ⚠ Beta Software Warning 
+## ⚠ Beta Software Warning
 Heads up! HydePHP is still new and currently in beta. Please report any bugs and issues in the appropriate issue tracker. Versions in the 0.x series might not be stable and may change at any time. No backwards compatibility guarantees are made and there will be breaking changes without notice.
 
 Please wait until v1.0 for production use and remember to back up your source files before updating (use Git!).
@@ -78,7 +78,7 @@ See https://hydephp.com/docs/master/updating-hyde for the upgrade guide.
 
 ## Resources
 
-### Changelog 
+### Changelog
 
 Please see [CHANGELOG](https://github.com/hydephp/develop/blob/master/CHANGELOG.md) for more information on what has changed recently.
 
