@@ -93,7 +93,6 @@ return [
         'Meta' => \Hyde\Facades\Meta::class,
         'Asset' => \Hyde\Facades\Asset::class,
         'Author' => \Hyde\Facades\Author::class,
-        'Includes' => \Hyde\Facades\Includes::class,
         'Features' => \Hyde\Facades\Features::class,
         'Config' => \Hyde\Facades\Config::class,
         'Filesystem' => \Hyde\Facades\Filesystem::class,
@@ -104,6 +103,7 @@ return [
         'MarkdownPost' => \Hyde\Pages\MarkdownPost::class,
         'DocumentationPage' => \Hyde\Pages\DocumentationPage::class,
         'DataCollections' => \Hyde\Support\DataCollections::class,
+        'Includes' => \Hyde\Support\Includes::class,
     ],
 
 ];
