@@ -29,7 +29,7 @@
         "laravel-zero/framework": "^10.0"
     },
     "require-dev": {
-        "hyde/realtime-compiler": "^2.7"
+        "hyde/realtime-compiler": "^3.0"
     },
     "autoload": {
         "psr-4": {
@@ -43,7 +43,7 @@
     },
     "scripts": {
         "post-autoload-dump": [
-            "@php -r \"@unlink('./storage/framework/cache/packages.php');\"",
+            "@php -r \"@unlink('./app/storage/framework/cache/packages.php');\"",
             "@php hyde package:discover --ansi"
         ]
     },
