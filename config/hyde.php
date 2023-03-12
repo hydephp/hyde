@@ -114,8 +114,8 @@ return [
     // What filename should the RSS file use?
     'rss_filename' => 'feed.xml',
 
-    // The channel description. By default this is "Site Name + RSS Feed".
-    // 'rss_description' => '',
+    // The channel description.
+    'rss_description' =>  env('SITE_NAME', 'HydePHP').' RSS Feed',
 
     /*
     |--------------------------------------------------------------------------
