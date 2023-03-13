@@ -1,6 +1,5 @@
 # HydePHP - Elegant and Powerful Static Site Generator
 
-
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/hyde/framework?include_prereleases)](https://packagist.org/packages/hyde/framework)
 [![Total Downloads on Packagist](https://img.shields.io/packagist/dt/hyde/framework)](https://packagist.org/packages/hyde/framework)
 [![License MIT](https://img.shields.io/github/license/hydephp/hyde) ](https://github.com/hydephp/hyde/blob/master/LICENSE.md)
@@ -11,12 +10,14 @@
 ## Make static websites, blogs, and documentation pages with the tools you already know and love.
 
 ### About HydePHP
+
 HydePHP is a content-first Laravel-powered console application that allows you to create static HTML pages, blog posts, and documentation sites,
 using your choice of Markdown and/or Blade.
 
 Build sites in record-time with a full batteries-included TailwindCSS frontend that just works without any fuzz.
 
 ### Speed & simplicity first, full control when you need it.
+
 Hyde is all about letting you get started quickly by giving you a full-featured frontend starter kit, while also giving you the power and freedom of doing things the way you want to.
 
 Markdown purist? That's all you need. Blade artisan? Go for it.
@@ -25,9 +26,11 @@ You don't _need_ to customize anything. But you _can_ customize everything.
 
 See the documentation and learn more at https://hydephp.com/docs/
 
+
 ## Features
 
 ### Content Creation
+
 - Create blog posts using Markdown and Front Matter.
 - Create documentation pages from plain Markdown, no front matter needed!
 - Create simple pages using Markdown, or create advanced ones using Laravel Blade.
@@ -35,6 +38,7 @@ See the documentation and learn more at https://hydephp.com/docs/
 - You can also scaffold Blade pages to automatically use the default layout.
 
 ### Built-in Frontend
+
 - Hyde comes with a TailwindCSS starter kit so you can start making content right away.
 - The starter kit is fully responsive, has a dark mode theme, and is customizable.
 - The frontend is accessible to screenreaders and rich with semantic HTML and microdata.
@@ -42,18 +46,22 @@ See the documentation and learn more at https://hydephp.com/docs/
 - Hyde also fills in and creates content like navigation menus and sidebars automatically.
 
 ### Easy Asset Managing
+
 - The Hyde starter comes with [HydeFront](https://github.com/hydephp/hydefront/) to serve the base stylesheet and JavaScript through the jsDelivr CDN.
 - Hyde ships with precompiled and minified TailwindCSS styles in the app.css file, you can also load them through the CDN.
 - This means that all the styles you need are already installed. However, if you want to customize the Tailwind config, or if you add new Tailwind classes through Blade files, you can simply run the `npm run dev` command to recompile the styles using Laravel Mix.
 
 ### Customization
+
 - You don't need to configure anything as Hyde is shipped with sensible defaults.
 - You can, however, customize nearly everything. Here are some examples:
 - All frontend components and page layouts are created with Blade so you
   can publish the vendor views, just like in Laravel.
 - Override many of the dynamic content features like the menus and footer.
 
+
 ## Getting Started - High-level overview
+
 > See [Installation Guide](https://hydephp.com/docs/master/installation.html) and [Getting Started](https://hydephp.com/docs/master/getting-started.html) for the full details.
 
 It's a breeze to get started with Hyde. Create a new Hyde project using Composer:
@@ -69,6 +77,7 @@ When you're ready, run the build command to compile your static site which will 
 ```bash
 php hyde build
 ```
+
 
 ## Resources
 
@@ -97,6 +106,7 @@ All vulnerabilities will be promptly addressed.
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
 ### Attributions
+
 > Please see the respective authors' repositories for their license files
 
 - The Hyde core is built with [Laravel Zero](https://laravel-zero.com/) which is based on [Laravel](https://laravel.com/)
