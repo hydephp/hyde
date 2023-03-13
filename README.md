@@ -70,12 +70,6 @@ When you're ready, run the build command to compile your static site which will 
 php hyde build
 ```
 
-## ⚠ Beta Software Warning
-Heads up! HydePHP is still new and currently in beta. Please report any bugs and issues in the appropriate issue tracker. Versions in the 0.x series might not be stable and may change at any time. No backwards compatibility guarantees are made and there will be breaking changes without notice.
-
-Please wait until v1.0 for production use and remember to back up your source files before updating (use Git!).
-See https://hydephp.com/docs/master/updating-hyde for the upgrade guide.
-
 ## Resources
 
 ### Changelog
