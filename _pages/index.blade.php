@@ -60,12 +60,12 @@
                     <span class="sr-only">Resources for getting started</span>
                     <ul class="flex flex-wrap justify-center list-none" style="padding: 0;">
                         <li>
-                            <a href="https://hydephp.com/docs/master" class="uppercase font-bold text-sm flex text-center m-2 mx-3">
+                            <a href="https://hydephp.com/docs/1.x" class="uppercase font-bold text-sm flex text-center m-2 mx-3">
                                 Documentation
                             </a>
                         </li>
                         <li>
-                            <a href="https://hydephp.com/docs/master/getting-started" class="uppercase font-bold text-sm flex text-center m-2 mx-3">
+                            <a href="https://hydephp.com/docs/1.x/getting-started" class="uppercase font-bold text-sm flex text-center m-2 mx-3">
                                 Getting Started
                             </a>
                         </li>

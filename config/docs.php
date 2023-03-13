@@ -78,7 +78,7 @@ return [
     | Collaborative Source Editing Location
     |--------------------------------------------------------------------------
     |
-    | @see https://hydephp.com/docs/master/documentation-pages#automatic-edit-page-button
+    | @see https://hydephp.com/docs/1.x/documentation-pages#automatic-edit-page-button
     |
     | By adding a base URL here, Hyde will use it to create "edit source" links
     | to your documentation pages. Hyde expects this to be a GitHub path, but
@@ -102,7 +102,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Hyde comes with an easy to use search feature for documentation pages.
-    | @see https://hydephp.com/docs/master/documentation-pages#search-feature
+    | @see https://hydephp.com/docs/1.x/documentation-pages#search-feature
     |
     */
 

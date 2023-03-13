@@ -8,7 +8,7 @@
 * so you don't need to compile this file unless you're making changes.
 *
 * If you want, you can load the compiled file with minified styles for a base install from the CDN.
-* See https://hydephp.com/docs/master/managing-assets#loading-from-cdn
+* See https://hydephp.com/docs/1.x/managing-assets#loading-from-cdn
 */
 
 @import '~hydefront/dist/hyde.css';

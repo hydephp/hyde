@@ -75,7 +75,7 @@ return [
     | arbitrary PHP to run. But if your Markdown is trusted, try it out!
     |
     | To see the syntax and usage, see the documentation:
-    | @see https://hydephp.com/docs/master/advanced-markdown#blade-support
+    | @see https://hydephp.com/docs/1.x/advanced-markdown#blade-support
     |
     */
 
