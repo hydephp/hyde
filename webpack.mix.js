@@ -1,6 +1,6 @@
 // Using Laravel Mix is optional as the styles you need to get started are already included.
 // However, if you add new Tailwind classes, or any customizations, you can use Webpack to
-// compile the assets. See https://hydephp.com/docs/master/managing-assets.html.
+// compile the assets. See https://hydephp.com/docs/1.x/managing-assets.html.
 
 let mix = require('laravel-mix');
 
