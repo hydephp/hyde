@@ -21,10 +21,10 @@ Build sites in record-time with a full batteries-included TailwindCSS frontend t
 Hyde is all about letting you get started quickly by giving you a full-featured frontend starter kit, while also giving you the power and freedom of doing things the way you want to.
 
 Markdown purist? That's all you need. Blade artisan? Go for it.
-Hyde comes with hand-crafted frontend templates so you can focus on your content.
+Hyde comes with hand-crafted frontend templates, so you can focus on your content.
 You don't _need_ to customize anything. But you _can_ customize everything.
 
-See the documentation and learn more at https://hydephp.com/docs/
+See the documentation and learn more at https://hydephp.com/docs
 
 
 ## Features
@@ -39,30 +39,30 @@ See the documentation and learn more at https://hydephp.com/docs/
 
 ### Built-in Frontend
 
-- Hyde comes with a TailwindCSS starter kit so you can start making content right away.
+- Hyde comes with a TailwindCSS starter kit, so you can start making content right away.
 - The starter kit is fully responsive, has a dark mode theme, and is customizable.
-- The frontend is accessible to screenreaders and rich with semantic HTML and microdata.
+- The frontend is accessible to screen-readers and rich with semantic HTML and microdata.
 - Hyde automatically chooses the right layout to use depending on the content being rendered.
 - Hyde also fills in and creates content like navigation menus and sidebars automatically.
 
 ### Easy Asset Managing
 
-- The Hyde starter comes with [HydeFront](https://github.com/hydephp/hydefront/) to serve the base stylesheet and JavaScript through the jsDelivr CDN.
+- The Hyde starter comes with [HydeFront](https://github.com/hydephp/hydefront) to serve the base stylesheet and JavaScript through the jsDelivr CDN.
 - Hyde ships with precompiled and minified TailwindCSS styles in the app.css file, you can also load them through the CDN.
-- This means that all the styles you need are already installed. However, if you want to customize the Tailwind config, or if you add new Tailwind classes through Blade files, you can simply run the `npm run dev` command to recompile the styles using Laravel Mix.
+- This means that all the styles you need are already installed. However, if you want to customize the included Tailwind config, or if you add new Tailwind classes through Blade files, you can simply run the `npm run dev` command to recompile the styles using the pre-configured Laravel Mix package.
 
 ### Customization
 
 - You don't need to configure anything as Hyde is shipped with sensible defaults.
-- You can, however, customize nearly everything. Here are some examples:
-- All frontend components and page layouts are created with Blade so you
+- You can, however, customize nearly everything. Here are just a few out of many examples:
+- All frontend components and page layouts are created with Blade, so you
   can publish the vendor views, just like in Laravel.
 - Override many of the dynamic content features like the menus and footer.
 
 
 ## Getting Started - High-level overview
 
-> See [Installation Guide](https://hydephp.com/docs/1.x/installation.html) and [Getting Started](https://hydephp.com/docs/1.x/getting-started.html) for the full details.
+> See [Installation Guide](https://hydephp.com/docs/1.x/installation) and [Getting Started](https://hydephp.com/docs/1.x/getting-started) for the full details.
 
 It's a breeze to get started with Hyde. Create a new Hyde project using Composer:
 
@@ -70,7 +70,7 @@ It's a breeze to get started with Hyde. Create a new Hyde project using Composer
 composer create-project hyde/hyde
 ```
 
-Next, place your Markdown files in one of the content directories:  `_posts`, `_docs`, and `_pages` which also accepts Blade files. You can also use use the `hyde:make` command to scaffold them.
+Next, place your Markdown files in one of the content directories:  `_posts`, `_docs`, and `_pages` which also accepts Blade files. You can also use the `hyde:make` commands to scaffold them.
 
 When you're ready, run the build command to compile your static site which will save your HTML files in the `_site` directory.
 
@@ -104,12 +104,3 @@ All vulnerabilities will be promptly addressed.
 ### License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-### Attributions
-
-> Please see the respective authors' repositories for their license files
-
-- The Hyde core is built with [Laravel Zero](https://laravel-zero.com/) which is based on [Laravel](https://laravel.com/)
-- The documentation frontend was originally based on [Lagrafo - Docs for Laravel apps](https://github.com/caendesilva/lagrafo)
-- The dark mode switch is based on a component from [Flowbite](https://flowbite.com/docs/customize/dark-mode/).
-- The frontend is built with [TailwindCSS](https://tailwindcss.com/).
