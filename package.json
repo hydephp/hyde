@@ -7,7 +7,7 @@
     },
     "name": "hyde",
     "description": "Elegant and Powerful Static App Builder",
-    "version": "1.0.0-RC.6",
+    "version": "1.0.0-RC.7",
     "main": "hyde",
     "directories": {
         "test": "tests"
