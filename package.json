@@ -32,7 +32,7 @@
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.2",
         "autoprefixer": "^10.4.5",
-        "hydefront": "^3.2.0",
+        "hydefront": "^3.3.0",
         "laravel-mix": "^6.0.49",
         "postcss": "^8.4.13",
         "prettier": "2.6.0",
