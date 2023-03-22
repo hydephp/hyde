@@ -24,25 +24,25 @@ jobs:
     if: github.ref == 'refs/heads/master'
 
     steps:
-    - uses: shivammathur/setup-php@16011a795d747d5f45038f96371c3b98aec5669d
-      with:
-        php-version: '8.1'
-        extensions: fileinfo
+      - uses: shivammathur/setup-php@16011a795d747d5f45038f96371c3b98aec5669d
+        with:
+          php-version: '8.1'
+          extensions: fileinfo
 
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Require latest version
-      if: matrix.dependency-version == 'latest'
-      run: composer require hyde/framework:master --no-install
-    
-    - name: Install dependencies
-      run: composer require hyde/testing --dev --no-install && composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Require latest version
+        if: matrix.dependency-version == 'latest'
+        run: composer require hyde/framework:master --no-install
 
-    - name: Download test runner configuration
-      run: curl https://raw.githubusercontent.com/hydephp/develop/master/packages/hyde/phpunit.xml.dist -o phpunit.xml.dist
+      - name: Install dependencies
+        run: composer require hyde/testing --dev --no-install && composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
-    - name: Execute tests (Unit and Feature tests) via Pest
-      run: vendor/bin/pest
+      - name: Download test runner configuration
+        run: curl https://raw.githubusercontent.com/hydephp/develop/master/packages/hyde/phpunit.xml.dist -o phpunit.xml.dist
+
+      - name: Execute tests (Unit and Feature tests) via Pest
+        run: vendor/bin/pest
 
 
   hyde-tests-develop:
@@ -57,25 +57,19 @@ jobs:
     if: github.ref == 'refs/heads/develop'
 
     steps:
-    - uses: shivammathur/setup-php@16011a795d747d5f45038f96371c3b98aec5669d
-      with:
-        php-version: ${{ matrix.php }}
-        extensions: fileinfo, zip
+      - uses: shivammathur/setup-php@16011a795d747d5f45038f96371c3b98aec5669d
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: fileinfo, zip
 
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Require latest development version
-      run: composer require hyde/framework:dev-develop --no-install
+      - name: Require latest development version
+        run: composer require hyde/framework:dev-develop hyde/testing:dev-master
 
-    - name: Require additional dependencies
-      run: composer require hyde/testing:dev-master --dev --no-install
+      - name: Download test runner configuration
+        run: curl https://raw.githubusercontent.com/hydephp/develop/master/packages/hyde/phpunit.xml.dist -o phpunit.xml.dist
 
-    - name: Install dependencies
-      run: composer install --no-interaction
+      - name: Execute tests (Unit and Feature tests) via Pest
+        run: vendor/bin/pest
 
-    - name: Download test runner configuration
-      run: curl https://raw.githubusercontent.com/hydephp/develop/master/packages/hyde/phpunit.xml.dist -o phpunit.xml.dist
-
-    - name: Execute tests (Unit and Feature tests) via Pest
-      run: vendor/bin/pest
-      
