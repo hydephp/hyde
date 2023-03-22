@@ -33,10 +33,11 @@ jobs:
 
       - name: Require latest version
         if: matrix.dependency-version == 'latest'
-        run: composer require hyde/framework:master --no-install
+        run: composer require hyde/framework:master hyde/testing
 
-      - name: Install dependencies
-        run: composer require hyde/testing --dev --no-install && composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Install additional dependencies
+        if: matrix.dependency-version != 'latest'
+        run: composer require hyde/testing --dev
 
       - name: Download test runner configuration
         run: curl https://raw.githubusercontent.com/hydephp/develop/master/packages/hyde/phpunit.xml.dist -o phpunit.xml.dist
@@ -72,4 +73,3 @@ jobs:
 
       - name: Execute tests (Unit and Feature tests) via Pest
         run: vendor/bin/pest
-
