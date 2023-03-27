@@ -94,6 +94,7 @@ module.exports = {
     safelist: [
         'prose',
         'dark:prose-invert',
+        'prose-img:inline',
         'text-left',
         'text-center',
         'text-right',
