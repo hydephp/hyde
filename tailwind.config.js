@@ -91,30 +91,6 @@ module.exports = {
         },
     },
 
-    safelist: [
-        'prose',
-        'dark:prose-invert',
-        'prose-img:inline',
-        'text-left',
-        'text-center',
-        'text-right',
-        'ml-auto',
-        'mx-auto',
-        'mr-auto',
-        'my-0',
-        'my-4',
-        'my-8',
-        'py-0',
-        'py-4',
-        'py-8',
-        'mx-0',
-        'mx-4',
-        'mx-8',
-        'px-0',
-        'px-4',
-        'px-8',
-    ],
-
     plugins: [
         require('@tailwindcss/typography')
     ],
