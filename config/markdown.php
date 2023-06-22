@@ -80,4 +80,19 @@ return [
     */
 
     'enable_blade' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Tailwind Typography Prose Classes
+    |--------------------------------------------------------------------------
+    |
+    | HydePHP uses Tailwind Typography to style rendered Markdown.
+    |
+    | This setting controls the base classes to apply to all the HTML elements
+    | containing rendered markdown. Please note that if you add any new
+    | classes, you may need to recompile your CSS file.
+    |
+    */
+
+    'prose_classes' => 'prose dark:prose-invert',
 ];
