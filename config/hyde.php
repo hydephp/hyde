@@ -399,6 +399,8 @@ return [
     |--------------------------------------------------------------------------
     |
     | Here you can configure settings for the built-in realtime compiler server.
+    | The server also includes a magic dashboard feature that supercharges
+    | your local development! This feature can alo be customised here.
     |
     */
 
@@ -412,14 +414,17 @@ return [
         // Should preview pages be saved to the output directory?
         'save_preview' => true,
 
-        // Should the realtime compiler dashboard be enabled?
-        'dashboard' => env('SERVER_DASHBOARD', true),
+        // Configure the realtime compiler dashboard
+        'dashboard' => [
+            // Should the realtime compiler dashboard be enabled?
+            'enabled' => env('SERVER_DASHBOARD', true),
 
-        // Can the dashboard make edits to the project file system?
-        'dashboard_editor' => true,
+            // Can the dashboard make edits to the project file system?
+            'interactive' => true,
 
-        // Should the dashboard show tips?
-        'dashboard_tips' => true,
+            // Should the dashboard show tips?
+            'tips' => true,
+        ],
 
     ],
 
