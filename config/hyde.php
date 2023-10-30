@@ -399,14 +399,33 @@ return [
     |--------------------------------------------------------------------------
     |
     | Here you can configure settings for the built-in realtime compiler server.
+    | The server also includes a magic dashboard feature that supercharges
+    | your local development! This feature can alo be customised here.
     |
     */
 
     'server' => [
+        // The default port the preview is served on
         'port' => env('SERVER_PORT', 8080),
+
+        // The default host the preview is served on
         'host' => env('SERVER_HOST', 'localhost'),
-        'dashboard' => env('SERVER_DASHBOARD', true),
+
+        // Should preview pages be saved to the output directory?
         'save_preview' => true,
+
+        // Configure the realtime compiler dashboard
+        'dashboard' => [
+            // Should the realtime compiler dashboard be enabled?
+            'enabled' => env('SERVER_DASHBOARD', true),
+
+            // Can the dashboard make edits to the project file system?
+            'interactive' => true,
+
+            // Should the dashboard show tips?
+            'tips' => true,
+        ],
+
     ],
 
     /*
