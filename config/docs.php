@@ -43,10 +43,11 @@ return [
     | default to sort alphabetically. You can reorder the page identifiers
     | in the list below, and the links will get sorted in that order.
     |
-    | Internally, the items listed will get a position priority of 500 + the order its found in the list.
-    | Link items without an entry here will have fall back to the default priority of 999, putting them last.
+    | The items will get a priority of 500 plus the order its found in the list.
+    | Pages without a priority will fall back to the default priority of 999.
     |
-    | You can also set explicit priorities in front matter.
+    | You can also set explicit priorities in front matter or by specifying
+    | a value to the array key in the list to override the inferred value.
     |
     */
 

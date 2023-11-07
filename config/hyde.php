@@ -300,13 +300,17 @@ return [
     |
     | If you are looking to customize the main navigation menu, this is the place!
     |
+    | All these settings uses Route Keys to identify the page you want to configure.
+    | A route key is simply the URL path to the page, without the file extension.
+    | So `_site/posts/hello-world.html` has the route key 'posts/hello-world'.
+    |
     */
 
     'navigation' => [
         // This configuration sets the priorities used to determine the order of the menu.
         // The default values have been added below for reference and easy editing.
-        // The array key should match the page's route key (slug).
-        // Lower values show up first in the menu.
+        // The array key is the page's route key, the value is the priority.
+        // Lower values show up first in the menu. The default is 999.
         'order' => [
             'index' => 0,
             'posts' => 10,
@@ -314,13 +318,13 @@ return [
         ],
 
         // In case you want to customize the labels for the menu items, you can do so here.
-        // Simply add the route key (slug) as the key, and the label as the value.
+        // Simply add the route key as the array key, and the label as the value.
         'labels' => [
             'index' => 'Home',
             'docs/index' => 'Docs',
         ],
 
-        // These are the pages that should not show up in the navigation menu.
+        // These are the route keys of pages that should not show up in the navigation menu.
         'exclude' => [
             '404',
         ],
