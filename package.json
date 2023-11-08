@@ -5,30 +5,6 @@
         "prod": "mix --production",
         "watch": "mix watch"
     },
-    "name": "hyde",
-    "description": "Elegant and Powerful Static App Builder",
-    "version": "1.1.0",
-    "main": "hyde",
-    "directories": {
-        "test": "tests"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/hydephp/hyde.git"
-    },
-    "keywords": [
-        "hydephp",
-        "hyde",
-        "static",
-        "site",
-        "generator"
-    ],
-    "author": "Caen De Silva",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/hydephp/hyde/issues"
-    },
-    "homepage": "https://hydephp.com",
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.2",
         "autoprefixer": "^10.4.5",
