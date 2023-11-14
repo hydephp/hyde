@@ -418,6 +418,9 @@ return [
         // Should preview pages be saved to the output directory?
         'save_preview' => true,
 
+        // Should the live edit feature be enabled?
+        'live_edit' => env('SERVER_LIVE_EDIT', true),
+
         // Configure the realtime compiler dashboard
         'dashboard' => [
             // Should the realtime compiler dashboard be enabled?
