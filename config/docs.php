@@ -30,7 +30,8 @@ return [
         // When using a grouped sidebar, should the groups be collapsible?
         'collapsible' => true,
 
-        // Should the sidebar footer be shown?
+        // Should the sidebar footer be shown? You can also set this to a string
+        // of Markdown to show in the footer. Set to `false` to disable.
         'footer' => true,
     ],
 
