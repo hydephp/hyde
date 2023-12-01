@@ -10,24 +10,8 @@ on:
     branches: [ "master", "develop" ]
   pull_request:
     branches: [ "master", "develop" ]
-  create:
 
 jobs:
-  setup-template-repository:
-    runs-on: ubuntu-latest
-    name: Setup repository
-    if: github.ref == 'refs/heads/master' && github.event.repository.full_name != 'hydephp/hyde'
-    steps:
-      - uses: actions/checkout@v3
-      - name: Remove workflows from template repository
-        run: rm -rf .github/workflows
-
-      - name: Commit changed files
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Setup repository"
-
-
   hyde-tests-master:
     strategy:
       fail-fast: false
