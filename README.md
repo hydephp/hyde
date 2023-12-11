@@ -93,7 +93,8 @@ Development is made in the HydePHP Monorepo, which you can find here https://git
 
 ### Security
 
-If you discover any security-related issues, please email caen@desilva.se instead of using the issue tracker.
+If you discover any security-related issues, please email caen@desilva.se instead of using the issue tracker,
+or use the GitHub [Security Advisory](https://github.com/hydephp/develop/security/advisories) page.
 All vulnerabilities will be promptly addressed.
 
 ### Credits
