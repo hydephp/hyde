@@ -8,7 +8,7 @@ use Hyde\Testing\TestCase;
 
 class HydeCLITest extends TestCase
 {
-    public function test_can_show_hyde_console()
+    public function testCanShowHydeConsole()
     {
         $this->artisan('list')
             ->expectsOutputToContain('hyde')

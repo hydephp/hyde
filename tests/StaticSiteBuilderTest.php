@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File;
 
 class StaticSiteBuilderTest extends TestCase
 {
-    public function test_can_build_static_site()
+    public function testCanBuildStaticSite()
     {
         File::cleanDirectory(Hyde::path('_site'));
 

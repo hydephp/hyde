@@ -14,7 +14,7 @@ class DefaultContentTest extends UnitTestCase
         self::needsKernel();
     }
 
-    public function test_default_pages_are_present()
+    public function testDefaultPagesArePresent()
     {
         $this->assertFileExists(Hyde::path('_pages/index.blade.php'));
         $this->assertFileExists(Hyde::path('_pages/404.blade.php'));
@@ -30,7 +30,7 @@ class DefaultContentTest extends UnitTestCase
         );
     }
 
-    public function test_default_compiled_stylesheet_is_present()
+    public function testDefaultCompiledStylesheetIsPresent()
     {
         $this->assertFileExists(Hyde::path('_media/app.css'));
 
@@ -40,7 +40,7 @@ class DefaultContentTest extends UnitTestCase
         );
     }
 
-    public function test_laravel_mix_resources_are_present()
+    public function testLaravelMixResourcesArePresent()
     {
         $this->assertFileExists(Hyde::path('resources/assets/app.css'));
         $this->assertFileExists(Hyde::path('resources/assets/app.js'));

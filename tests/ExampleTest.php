@@ -8,7 +8,7 @@ use Hyde\Testing\UnitTestCase;
 
 class ExampleTest extends UnitTestCase
 {
-    public function test_example()
+    public function testExample()
     {
         $this->assertTrue(true);
     }
