@@ -23,7 +23,7 @@
 */
 
 use Hyde\Facades\Author;
-use Hyde\Facades\Features;
+use Hyde\Enums\Feature;
 use Hyde\Facades\Meta;
 
 return [
@@ -254,18 +254,18 @@ return [
 
     'features' => [
         // Page Modules
-        Features::htmlPages(),
-        Features::markdownPosts(),
-        Features::bladePages(),
-        Features::markdownPages(),
-        Features::documentationPages(),
+        Feature::HtmlPages,
+        Feature::MarkdownPosts,
+        Feature::BladePages,
+        Feature::MarkdownPages,
+        Feature::DocumentationPages,
 
         // Frontend Features
-        Features::darkmode(),
-        Features::documentationSearch(),
+        Feature::Darkmode,
+        Feature::DocumentationSearch,
 
         // Integrations
-        Features::torchlight(),
+        Feature::Torchlight,
     ],
 
     /*
