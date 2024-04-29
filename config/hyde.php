@@ -483,4 +483,7 @@ return [
     'hydefront_version' => \Hyde\Framework\Services\AssetService::HYDEFRONT_VERSION,
     'hydefront_cdn_url' => \Hyde\Framework\Services\AssetService::HYDEFRONT_CDN_URL,
 
+    // Should the theme toggle buttons be displayed in the layouts?
+    'theme_toggle_buttons' => true,
+
 ];
