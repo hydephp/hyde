@@ -1,0 +1,48 @@
+# When using the Repository Template feature on GitHub, it does not follow the same rules as Composer create-project or ZIP downloads.
+# For this reason, we have this script which will configure the repository the first time it is set up in order to normalize it.
+name: Configure template repository
+
+on:
+  # Run when branch is created (when the repository is generated from the template)
+  create:
+
+# Only keep latest run of this workflow and cancel any previous runs
+concurrency:
+  group: first-time-setup
+  cancel-in-progress: true
+
+permissions: 
+  actions: write
+  checks: write
+  contents: write
+  
+jobs:
+  first-time-setup:
+    runs-on: ubuntu-latest
+
+    # Ensure is is only run once, when the repository is generated
+    if: github.run_number == 1
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Remove files in export-ignore
+        run: |
+          # Read the .gitattributes file line by line
+          while IFS= read -r line; do
+              # Check if the line contains 'export-ignore'
+              if [[ $line == *"export-ignore"* ]]; then
+                  # Extract the path from the line
+                  path=$(echo "$line" | awk '{print $1}')
+                  rm -rf "$path"
+              fi
+          done < ".gitattributes"
+
+      - name: Commit changed files
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Configure template repository"
+          git push
