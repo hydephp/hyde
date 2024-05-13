@@ -29,9 +29,6 @@ jobs:
 
       - name: Remove files in export-ignore
         run: |
-          # Define the path to the .gitattributes file
-          gitattributes=".gitattributes"
-
           # Read the .gitattributes file line by line
           while IFS= read -r line; do
               # Check if the line contains 'export-ignore'
@@ -40,7 +37,7 @@ jobs:
                   path=$(echo "$line" | awk '{print $1}')
                   rm -rf "$path"
               fi
-          done < "$gitattributes"
+          done < ".gitattributes"
 
       - name: Commit changed files
         run: |
