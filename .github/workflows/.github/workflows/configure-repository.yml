@@ -32,25 +32,13 @@ jobs:
           # Define the path to the .gitattributes file
           gitattributes=".gitattributes"
 
-          # Check if the .gitattributes file exists
-          if [ ! -f "$gitattributes" ]; then
-              echo "Error: .gitattributes file not found."
-              exit 1
-          fi
-
           # Read the .gitattributes file line by line
           while IFS= read -r line; do
               # Check if the line contains 'export-ignore'
               if [[ $line == *"export-ignore"* ]]; then
                   # Extract the path from the line
                   path=$(echo "$line" | awk '{print $1}')
-                  # Check if the path exists and delete it
-                  if [ -e "$path" ]; then
-                      echo "Deleting path: $path"
-                      rm -rf "$path"
-                  else
-                      echo "Path does not exist: $path"
-                  fi
+                  rm -rf "$path"
               fi
           done < "$gitattributes"
 
