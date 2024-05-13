@@ -27,9 +27,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Remove workflow files
-        run: rm -rf .github/workflows
-       
       - name: Remove files in export-ignore
         run: |
           # Define the path to the .gitattributes file
