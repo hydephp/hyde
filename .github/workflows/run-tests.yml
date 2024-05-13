@@ -1,8 +1,3 @@
-# README: This workflow runs some tests intended to make sure that the package works smoothly.
-#         This file is not included when you install Hyde normally, however it is present
-#         when you create a project by using the GitHub template. Unless you want to
-#         contribute to the project, there's no reason for you to keep this file.
-
 name: Hyde Tests
 
 on:
