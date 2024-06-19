@@ -20,8 +20,8 @@ jobs:
   first-time-setup:
     runs-on: ubuntu-latest
 
-    # Ensure is is only run once, when the repository is generated
-    if: github.run_number == 1
+    # Ensure is is only run once, when the repository is generated, with a check to ensure it's the master branch
+    if: github.run_number == 1 && github.ref == 'refs/heads/master'
 
     steps:
       - name: Checkout code
