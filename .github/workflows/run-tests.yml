@@ -16,14 +16,14 @@ jobs:
         php: [8.1, 8.2, 8.3]
 
     runs-on: ${{ matrix.os }}
-    name: Hyde tests - ${{ matrix.os }} (${{ matrix.dependency-version }})
+    name: Hyde tests - ${{ matrix.os }} ${{ matrix.php }} (${{ matrix.dependency-version }})
     if: github.ref == 'refs/heads/master' && github.event.repository.full_name == 'hydephp/hyde'
 
     steps:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: fileinfo
+          extensions: fileinfo, zip
 
       - uses: actions/checkout@v3
 
