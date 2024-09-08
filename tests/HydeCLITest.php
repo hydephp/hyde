@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hyde\Testing\Hyde;
-
-use Hyde\Testing\TestCase;
+namespace Hyde\Testing;
 
 class HydeCLITest extends TestCase
 {

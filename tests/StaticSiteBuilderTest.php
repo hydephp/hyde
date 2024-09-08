@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Hyde\Testing\Hyde;
+namespace Hyde\Testing;
 
 use Hyde\Hyde;
-use Hyde\Testing\TestCase;
 use Illuminate\Support\Facades\File;
 
 class StaticSiteBuilderTest extends TestCase
