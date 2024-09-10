@@ -10,7 +10,7 @@ class DefaultContentTest extends UnitTestCase
 {
     public static function setUpBeforeClass(): void
     {
-        self::needsKernel();
+        self::resetKernel();
     }
 
     public function testDefaultPagesArePresent()
