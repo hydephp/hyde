@@ -9,10 +9,7 @@ use Hyde\Testing\UnitTestCase;
 
 class DefaultContentTest extends UnitTestCase
 {
-    public static function setUpBeforeClass(): void
-    {
-        self::needsKernel();
-    }
+    protected static bool $needsKernel = true;
 
     public function testDefaultPagesArePresent()
     {
