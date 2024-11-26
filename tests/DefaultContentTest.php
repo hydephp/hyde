@@ -8,7 +8,10 @@ use Hyde\Hyde;
 
 class DefaultContentTest extends UnitTestCase
 {
-    protected static bool $needsKernel = true;
+    public static function setUpBeforeClass(): void
+    {
+        self::resetKernel();
+    }
 
     public function testDefaultPagesArePresent()
     {
