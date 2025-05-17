@@ -2,14 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Hyde\Testing\Hyde;
+namespace Hyde\Testing;
 
 use Hyde\Hyde;
-use Hyde\Testing\UnitTestCase;
 
 class DefaultContentTest extends UnitTestCase
 {
-    protected static bool $needsKernel = true;
+    public static function setUpBeforeClass(): void
+    {
+        self::resetKernel();
+    }
 
     public function testDefaultPagesArePresent()
     {

@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hyde\Testing\Hyde;
-
-use Hyde\Testing\UnitTestCase;
+namespace Hyde\Testing;
 
 class ExampleTest extends UnitTestCase
 {
