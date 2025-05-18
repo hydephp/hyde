@@ -95,4 +95,22 @@ return [
     */
 
     'prose_classes' => 'prose dark:prose-invert',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Heading Permalinks Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here you can specify which page classes should have heading permalinks.
+    | By default, only documentation pages have permalinks enabled, but you
+    | are free to enable it for any kind of page by adding the page class.
+    |
+    */
+
+    'permalinks' => [
+        'pages' => [
+            \Hyde\Pages\DocumentationPage::class,
+        ],
+    ],
+
 ];

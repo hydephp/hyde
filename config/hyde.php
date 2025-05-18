@@ -23,8 +23,9 @@
 */
 
 use Hyde\Facades\Author;
-use Hyde\Enums\Feature;
 use Hyde\Facades\Meta;
+use Hyde\Enums\Feature;
+use Hyde\Facades\Navigation;
 
 return [
 
@@ -248,7 +249,6 @@ return [
     |
     | Some of Hyde's features are optional. Feel free to disable the features
     | you don't need by removing or commenting them out from this array.
-    | This config concept is directly inspired by Laravel Jetstream.
     |
     */
 
@@ -278,17 +278,26 @@ return [
     | However, it's tedious to have to add those to each and every
     | post you make, and keeping them updated is even harder.
     |
-    | Here you can add predefined authors. When writing posts,
-    | just specify the username in the front matter, and the
-    | rest of the data will be pulled from a matching entry.
+    | To solve this problem, you can add predefined authors with this setting.
+    | When writing posts just specify the author's username (the array key).
+    | Hyde will pull the matching data from here and fill in the blanks.
     |
     */
 
     'authors' => [
-        Author::create(
-            'mr_hyde', // Required username
-            'Mr. Hyde', // Optional display name
-            'https://hydephp.com' // Optional website URL
+        'mr_hyde' => Author::create(
+            // The following settings are used in the default blog post template.
+            name: 'Mr. Hyde', // Optional display name
+            website: 'https://hydephp.com', // Optional website URL
+
+            // The following settings are not used in the bundled templates,
+            // but you can use them in your own custom views, for example.
+            // bio: 'The mysterious author of HydePHP',
+            // avatar: 'avatar.png',
+            // socials: [
+            //     'twitter' => 'HydeFramework',
+            //     'github' => 'hydephp',
+            // ],
         ),
     ],
 
@@ -350,12 +359,12 @@ return [
         // To get started quickly, you can uncomment the defaults here.
         // See the documentation link above for more information.
         'custom' => [
-            // NavItem::forLink('https://github.com/hydephp/hyde', 'GitHub', 200),
+            // Navigation::item('https://github.com/hydephp/hyde', 'GitHub', 200),
         ],
 
         // How should pages in subdirectories be displayed in the menu?
         // You can choose between 'dropdown', 'flat', and 'hidden'.
-        'subdirectories' => 'hidden',
+        'subdirectory_display' => 'hidden',
     ],
 
     /*
@@ -363,18 +372,16 @@ return [
     | Cache Busting
     |--------------------------------------------------------------------------
     |
-    | Any assets loaded using the Asset::mediaLink() helper will automatically
-    | have a cache busting query string appended to the URL. This is useful
+    | Any assets loaded using the Hyde Asset helpers will automatically have
+    | a "cache busting" query string appended to the URL. This is useful
     | when you want to force browsers to load a new version of an asset.
+    | All included Blade templates use this feature to load assets.
     |
-    | The mediaLink helper is used in the built-in views to load the
-    | default stylesheets and scripts, and thus use this feature.
-    |
-    | To disable cache busting, set this setting to false.
+    | To disable the cache busting, set this setting to false.
     |
     */
 
-    'enable_cache_busting' => true,
+    'cache_busting' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -433,7 +440,7 @@ return [
         'host' => env('SERVER_HOST', 'localhost'),
 
         // Should preview pages be saved to the output directory?
-        'save_preview' => true,
+        'save_preview' => env('SERVER_SAVE_PREVIEW', false),
 
         // Should the live edit feature be enabled?
         'live_edit' => env('SERVER_LIVE_EDIT', true),
@@ -476,11 +483,6 @@ return [
 
     // Where should the build manifest be saved? (Relative to project root, for example _site/build-manifest.json)
     'build_manifest_path' => 'app/storage/framework/cache/build-manifest.json',
-
-    // Here you can specify HydeFront version and URL for when loading app.css from the CDN.
-    // Only change these if you know what you're doing as some versions may be incompatible with your Hyde version.
-    'hydefront_version' => \Hyde\Framework\Services\AssetService::HYDEFRONT_VERSION,
-    'hydefront_cdn_url' => \Hyde\Framework\Services\AssetService::HYDEFRONT_CDN_URL,
 
     // Should the theme toggle buttons be displayed in the layouts?
     'theme_toggle_buttons' => true,

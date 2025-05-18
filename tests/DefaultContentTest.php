@@ -33,10 +33,10 @@ class DefaultContentTest extends UnitTestCase
     {
         $this->assertFileExists(Hyde::path('_media/app.css'));
 
-        $this->assertStringContainsString(
-            'https://tailwindcss.com',
-            file_get_contents(Hyde::path('_media/app.css'))
-        );
+        $contents = file_get_contents(Hyde::path('_media/app.css'));
+
+        $this->assertStringContainsString('--tw-', $contents);
+        $this->assertStringContainsString('--tw-prose-', $contents);
     }
 
     public function testLaravelMixResourcesArePresent()
@@ -44,10 +44,7 @@ class DefaultContentTest extends UnitTestCase
         $this->assertFileExists(Hyde::path('resources/assets/app.css'));
         $this->assertFileExists(Hyde::path('resources/assets/app.js'));
 
-        $this->assertFileContainsString('@tailwind base;', Hyde::path('resources/assets/app.css'));
-        $this->assertFileContainsString('@tailwind components;', Hyde::path('resources/assets/app.css'));
-        $this->assertFileContainsString('@tailwind utilities;', Hyde::path('resources/assets/app.css'));
-
+        $this->assertFileContainsString("@import 'tailwindcss'", Hyde::path('resources/assets/app.css'));
         $this->assertFileContainsString('This is the main JavaScript', Hyde::path('resources/assets/app.js'));
     }
 
