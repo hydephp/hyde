@@ -30,49 +30,49 @@ return [
         // When using a grouped sidebar, should the groups be collapsible?
         'collapsible' => true,
 
-        // Should the sidebar footer be shown? You can also set this to a string
-        // of Markdown to show in the footer. Set to `false` to disable.
-        'footer' => true,
-    ],
+        // A string of Markdown to show in the footer. Set to `false` to disable.
+        'footer' => '[Back to home page](../)',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Sidebar Page Order
-    |--------------------------------------------------------------------------
-    |
-    | In the generated Documentation pages the navigation links in the sidebar
-    | default to sort alphabetically. You can reorder the page identifiers
-    | in the list below, and the links will get sorted in that order.
-    |
-    | The items will get a priority of 500 plus the order its found in the list.
-    | Pages without a priority will fall back to the default priority of 999.
-    |
-    | You can also set explicit priorities in front matter or by specifying
-    | a value to the array key in the list to override the inferred value.
-    |
-    */
+        /*
+        |--------------------------------------------------------------------------
+        | Sidebar Page Order
+        |--------------------------------------------------------------------------
+        |
+        | In the generated Documentation pages the navigation links in the sidebar
+        | default to sort alphabetically. You can reorder the page identifiers
+        | in the list below, and the links will get sorted in that order.
+        |
+        | The items will get a priority of 500 plus the order its found in the list.
+        | Pages without a priority will fall back to the default priority of 999.
+        |
+        | You can also set explicit priorities in front matter or by specifying
+        | a value to the array key in the list to override the inferred value.
+        |
+        */
 
-    'sidebar_order' => [
-        'readme',
-        'installation',
-        'getting-started',
-    ],
+        'order' => [
+            'readme',
+            'installation',
+            'getting-started',
+        ],
 
-    /*
-    |--------------------------------------------------------------------------
-    | Table of Contents Settings
-    |--------------------------------------------------------------------------
-    |
-    | The Hyde Documentation Module comes with a fancy Sidebar that, by default,
-    | has a Table of Contents included. Here, you can configure its behavior,
-    | content, look and feel. You can also disable the feature completely.
-    |
-    */
+        /*
+        |--------------------------------------------------------------------------
+        | Table of Contents Settings
+        |--------------------------------------------------------------------------
+        |
+        | The Hyde Documentation Module comes with a fancy Sidebar that, by default,
+        | has a Table of Contents included. Here, you can configure its behavior,
+        | content, look and feel. You can also disable the feature completely.
+        |
+        */
 
-    'table_of_contents' => [
-        'enabled' => true,
-        'min_heading_level' => 2,
-        'max_heading_level' => 4,
+        'table_of_contents' => [
+            'enabled' => true,
+            'min_heading_level' => 2,
+            'max_heading_level' => 4,
+        ],
+
     ],
 
     /*
