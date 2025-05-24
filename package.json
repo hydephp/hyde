@@ -9,7 +9,7 @@
         "@tailwindcss/typography": "^0.5.15",
         "@tailwindcss/vite": "^4.1.4",
         "autoprefixer": "^10.4.20",
-        "hyde-vite-plugin": "^0.1.0",
+        "hyde-vite-plugin": "^1.0.0-RC.3",
         "hydefront": "^3.4.1",
         "postcss": "^8.4.49",
         "prettier": "3.3.3",
