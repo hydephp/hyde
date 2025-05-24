@@ -6,14 +6,14 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "@tailwindcss/typography": "^0.5.15",
-        "@tailwindcss/vite": "^4.1.4",
-        "autoprefixer": "^10.4.20",
+        "@tailwindcss/typography": "^0.5.16",
+        "@tailwindcss/vite": "^4.1.7",
+        "autoprefixer": "^10.4.21",
         "hyde-vite-plugin": "^1.0.0-RC.4",
-        "hydefront": "^3.4.1",
+        "hydefront": "^4.0.0-RC.1",
         "postcss": "^8.4.49",
-        "prettier": "3.3.3",
+        "prettier": "3.5.3",
         "tailwindcss": "^4.1.4",
-        "vite": "^5.4.19"
+        "vite": "^6.3.5"
     }
 }
