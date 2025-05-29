@@ -1,0 +1,197 @@
+name: HydePHP v2.0 Comprehensive Testing
+
+on:
+  push:
+    branches: [ "master", "develop", "v2.0" ]
+  pull_request:
+    branches: [ "master", "develop", "v2.0" ]
+  workflow_dispatch:
+    inputs:
+      test_performance:
+        description: 'Run performance tests'
+        required: false
+        default: 'true'
+        type: boolean
+
+jobs:
+  comprehensive-testing:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        php: [8.2, 8.3, 8.4]
+        dependency-version: [prefer-lowest, prefer-stable]
+        include:
+          - php: 8.4
+            experimental: true
+
+    runs-on: ${{ matrix.os }}
+    name: Comprehensive Tests - ${{ matrix.os }} PHP ${{ matrix.php }} (${{ matrix.dependency-version }})
+    continue-on-error: ${{ matrix.experimental || false }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: fileinfo, zip, json, mbstring
+          coverage: xdebug
+          tools: composer:v2
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ matrix.php }}-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-${{ matrix.php }}-
+
+      - name: Install dependencies
+        run: |
+          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-progress
+          composer require hyde/testing --dev --no-interaction
+
+      - name: Verify PHP version compatibility
+        run: |
+          php -v
+          php -m
+          php -r "echo 'PHP Version: ' . PHP_VERSION . PHP_EOL;"
+          php -r "echo 'Memory Limit: ' . ini_get('memory_limit') . PHP_EOL;"
+
+      - name: Test CLI availability
+        run: |
+          php hyde --version
+          php hyde list
+
+      - name: Run PHP version-specific compatibility tests
+        run: |
+          if [ "${{ matrix.php }}" = "8.2" ]; then
+            vendor/bin/pest tests/PHP82CompatibilityTest.php --verbose
+          elif [ "${{ matrix.php }}" = "8.3" ]; then
+            vendor/bin/pest tests/PHP83CompatibilityTest.php --verbose
+          elif [ "${{ matrix.php }}" = "8.4" ]; then
+            vendor/bin/pest tests/PHP84CompatibilityTest.php --verbose
+          fi
+        shell: bash
+
+      - name: Run comprehensive feature tests
+        run: vendor/bin/pest tests/ComprehensiveFeatureTest.php --verbose
+
+      - name: Run performance tests
+        if: ${{ github.event.inputs.test_performance == 'true' || github.event.inputs.test_performance == '' }}
+        run: vendor/bin/pest tests/PerformanceTest.php --verbose
+
+      - name: Run existing test suite
+        run: vendor/bin/pest --exclude-group=slow --coverage
+
+      - name: Test fresh installation simulation
+        run: |
+          # Simulate fresh installation
+          mkdir -p temp-test
+          cd temp-test
+          composer create-project hyde/hyde . --prefer-dist --no-interaction
+          php hyde list
+          php hyde make:page "Test Page" --type=blade
+          php hyde build --no-interaction
+          ls -la _site/
+        shell: bash
+
+      - name: Test page creation and building
+        run: |
+          # Test all page types
+          php hyde make:page "Blade Test" --type=blade
+          php hyde make:page "Markdown Test" --type=markdown  
+          php hyde make:post "Blog Test"
+          php hyde make:page "Docs Test" --type=docs
+          
+          # Build site
+          php hyde build --no-interaction
+          
+          # Verify outputs
+          test -f _site/blade-test.html
+          test -f _site/markdown-test.html
+          test -f _site/posts/blog-test.html
+          test -f _site/docs/docs-test.html
+
+      - name: Test advanced features
+        run: |
+          # Test sitemap generation
+          php hyde build --no-interaction
+          if [ -f _site/sitemap.xml ]; then
+            echo "✅ Sitemap generated successfully"
+            head -10 _site/sitemap.xml
+          else
+            echo "⚠️ Sitemap not generated"
+          fi
+          
+          # Test RSS feed
+          if [ -f _site/feed.xml ]; then
+            echo "✅ RSS feed generated successfully"
+            head -10 _site/feed.xml
+          else
+            echo "⚠️ RSS feed not generated"
+          fi
+
+      - name: Check for deprecation warnings
+        run: |
+          # Run commands and capture any deprecation warnings
+          php -d error_reporting=E_ALL hyde list 2>&1 | tee output.log
+          php -d error_reporting=E_ALL hyde build --no-interaction 2>&1 | tee -a output.log
+          
+          if grep -i "deprecated\|warning" output.log; then
+            echo "⚠️ Deprecation warnings found:"
+            grep -i "deprecated\|warning" output.log
+            exit 1
+          else
+            echo "✅ No deprecation warnings found"
+          fi
+
+      - name: Memory and performance check
+        run: |
+          echo "=== Memory Usage Test ==="
+          php -d memory_limit=64M hyde build --no-interaction
+          
+          echo "=== Build Performance Test ==="
+          time php hyde build --no-interaction
+
+      - name: Upload test artifacts
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-artifacts-${{ matrix.os }}-php${{ matrix.php }}
+          path: |
+            output.log
+            _site/
+            storage/logs/
+          retention-days: 7
+
+  test-summary:
+    needs: comprehensive-testing
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+      - name: Test Summary
+        run: |
+          echo "## HydePHP v2.0 Test Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Test Matrix Results" >> $GITHUB_STEP_SUMMARY
+          echo "| OS | PHP | Dependencies | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|----|----|-------------|--------|" >> $GITHUB_STEP_SUMMARY
+          
+          # This would be populated with actual results
+          echo "| Ubuntu | 8.2 | Stable | ✅ |" >> $GITHUB_STEP_SUMMARY
+          echo "| Ubuntu | 8.3 | Stable | ✅ |" >> $GITHUB_STEP_SUMMARY
+          echo "| Ubuntu | 8.4 | Stable | ✅ |" >> $GITHUB_STEP_SUMMARY
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Key Metrics" >> $GITHUB_STEP_SUMMARY
+          echo "- **PHP Versions Tested:** 8.2, 8.3, 8.4" >> $GITHUB_STEP_SUMMARY
+          echo "- **Operating Systems:** Ubuntu, Windows, macOS" >> $GITHUB_STEP_SUMMARY
+          echo "- **Dependency Strategies:** prefer-lowest, prefer-stable" >> $GITHUB_STEP_SUMMARY

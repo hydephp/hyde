@@ -1,0 +1,83 @@
+{
+    "timestamp": "2025-05-29 19:07:10",
+    "php_version": "8.3.21",
+    "hydephp_version": "2.0.0-RC.2",
+    "iterations": 3,
+    "system_info": {
+        "os": "WINNT",
+        "memory_limit": "128M",
+        "max_execution_time": "0"
+    },
+    "results": {
+        "build_performance": {
+            "average_time": 0.2517876625061035,
+            "min_time": 0.15063190460205078,
+            "max_time": 0.3288290500640869,
+            "times": [
+                0.3288290500640869,
+                0.27590203285217285,
+                0.15063190460205078
+            ],
+            "average_memory": 0,
+            "memory_usage": [
+                0,
+                0,
+                0
+            ]
+        },
+        "cli_responsiveness": {
+            "version": {
+                "average": 0.209485133488973,
+                "min": 0.03285717964172363,
+                "max": 0.5469200611114502
+            },
+            "list": {
+                "average": 0.08226362864176433,
+                "min": 0.03821396827697754,
+                "max": 0.16462993621826172
+            },
+            "validate": {
+                "average": 0.07286532719930013,
+                "min": 0.03382992744445801,
+                "max": 0.13869404792785645
+            }
+        },
+        "memory_usage": {
+            "start_memory": 2097152,
+            "end_memory": 2097152,
+            "peak_memory": 2097152,
+            "memory_delta": 0,
+            "peak_delta": 0,
+            "reported_peak_mb": null,
+            "duration": 0.4250938892364502
+        },
+        "file_generation": {
+            "blade": {
+                "average": 0.11681365966796875,
+                "min": 0.03337502479553223,
+                "max": 0.27713799476623535
+            },
+            "markdown": {
+                "average": 0.08040261268615723,
+                "min": 0.045391082763671875,
+                "max": 0.14995479583740234
+            },
+            "docs": {
+                "average": 0.20357696215311685,
+                "min": 0.049942970275878906,
+                "max": 0.49718689918518066
+            }
+        },
+        "asset_compilation": {
+            "compilation_time": 0.2722749710083008,
+            "assets_generated": {
+                "css": true,
+                "site_files": true,
+                "pages": 4,
+                "posts": 1,
+                "docs": 2
+            },
+            "total_files": 7
+        }
+    }
+}

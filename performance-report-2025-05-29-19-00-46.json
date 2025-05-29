@@ -1,0 +1,83 @@
+{
+    "timestamp": "2025-05-29 19:00:46",
+    "php_version": "8.3.21",
+    "hydephp_version": "2.0.0-RC.2",
+    "iterations": 3,
+    "system_info": {
+        "os": "WINNT",
+        "memory_limit": "128M",
+        "max_execution_time": "0"
+    },
+    "results": {
+        "build_performance": {
+            "average_time": 0.3885006109873454,
+            "min_time": 0.037877798080444336,
+            "max_time": 1.0678269863128662,
+            "times": [
+                1.0678269863128662,
+                0.037877798080444336,
+                0.059797048568725586
+            ],
+            "average_memory": 0,
+            "memory_usage": [
+                0,
+                0,
+                0
+            ]
+        },
+        "cli_responsiveness": {
+            "version": {
+                "average": 0.08561094601949056,
+                "min": 0.04513192176818848,
+                "max": 0.12761306762695312
+            },
+            "list": {
+                "average": 0.2280109723409017,
+                "min": 0.05188298225402832,
+                "max": 0.35785794258117676
+            },
+            "validate": {
+                "average": 0.09591809908548991,
+                "min": 0.04391312599182129,
+                "max": 0.1962871551513672
+            }
+        },
+        "memory_usage": {
+            "start_memory": 2097152,
+            "end_memory": 2097152,
+            "peak_memory": 2097152,
+            "memory_delta": 0,
+            "peak_delta": 0,
+            "reported_peak_mb": null,
+            "duration": 0.2857248783111572
+        },
+        "file_generation": {
+            "blade": {
+                "average": 0.07721678415934245,
+                "min": 0.05377602577209473,
+                "max": 0.11786413192749023
+            },
+            "markdown": {
+                "average": 0.12009199460347493,
+                "min": 0.05139613151550293,
+                "max": 0.19368600845336914
+            },
+            "docs": {
+                "average": 0.16452765464782715,
+                "min": 0.04833102226257324,
+                "max": 0.35739803314208984
+            }
+        },
+        "asset_compilation": {
+            "compilation_time": 0.27758193016052246,
+            "assets_generated": {
+                "css": true,
+                "site_files": true,
+                "pages": 4,
+                "posts": 1,
+                "docs": 2
+            },
+            "total_files": 7
+        }
+    }
+}

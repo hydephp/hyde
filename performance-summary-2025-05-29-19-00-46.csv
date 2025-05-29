@@ -1,0 +1,10 @@
+Metric,Value,Unit
+PHP Version,8.3.21,
+Average Build Time,0.39,seconds
+Min Build Time,0.04,seconds
+Max Build Time,1.07,seconds
+Peak Memory,2097152,bytes
+Files Generated,7,count
+CLI version,0.086,seconds
+CLI list,0.228,seconds
+CLI validate,0.096,seconds
