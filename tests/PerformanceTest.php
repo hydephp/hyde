@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 
 /**
  * Performance Test Suite
- * 
+ *
  * Tests performance characteristics across different PHP versions
  * and identifies potential performance regressions.
  */
@@ -59,10 +59,10 @@ class PerformanceTest extends TestCase
         $start = microtime(true);
         $callback();
         $end = microtime(true);
-        
+
         $duration = $end - $start;
         $this->performanceMetrics[$operation] = $duration;
-        
+
         return $duration;
     }
 
@@ -82,7 +82,7 @@ class PerformanceTest extends TestCase
     public function testSinglePageBuildPerformance()
     {
         // Create a test page
-        File::put(Hyde::path('_pages/perf-test-single.blade.php'), 
+        File::put(Hyde::path('_pages/perf-test-single.blade.php'),
             '@extends("hyde::layouts.app")
             @section("content")
             <h1>Performance Test Page</h1>
@@ -104,7 +104,7 @@ class PerformanceTest extends TestCase
     {
         // Create multiple test pages
         for ($i = 1; $i <= 10; $i++) {
-            File::put(Hyde::path("_pages/perf-test-multi-{$i}.blade.php"), 
+            File::put(Hyde::path("_pages/perf-test-multi-{$i}.blade.php"),
                 "@extends('hyde::layouts.app')
                 @section('content')
                 <h1>Performance Test Page {$i}</h1>
@@ -120,7 +120,7 @@ class PerformanceTest extends TestCase
 
         // Assert reasonable performance
         $this->assertLessThan(60.0, $duration, 'Multiple pages build took too long');
-        
+
         // Verify all pages were built
         for ($i = 1; $i <= 10; $i++) {
             $this->assertFileExists(Hyde::path("_site/perf-test-multi-{$i}.html"));
@@ -155,8 +155,8 @@ class PerformanceTest extends TestCase
 
         // Create several test files
         for ($i = 1; $i <= 5; $i++) {
-            File::put(Hyde::path("_posts/perf-test-post-{$i}.md"), 
-                "---\ntitle: Performance Test Post {$i}\ndate: 2024-01-01\n---\n\n# Test Post {$i}\n\nContent for post {$i}."
+            File::put(Hyde::path("_posts/perf-test-post-{$i}.md"),
+                "---\ntitle: Performance Test Post {$i}\ndate: '2024-01-01'\n---\n\n# Test Post {$i}\n\nContent for post {$i}."
             );
         }
 
@@ -182,7 +182,7 @@ class PerformanceTest extends TestCase
     {
         $commands = [
             'list',
-            'about',
+            'validate --help',
             'build --help',
             'make:page --help',
             'make:post --help'
@@ -208,8 +208,8 @@ class PerformanceTest extends TestCase
                 File::put(Hyde::path('_pages/perf-concurrent-2.md'), '# Concurrent Test 2');
             },
             function () {
-                File::put(Hyde::path('_posts/perf-concurrent-post.md'), 
-                    "---\ntitle: Concurrent Post\ndate: 2024-01-01\n---\n\n# Concurrent Post"
+                File::put(Hyde::path('_posts/perf-concurrent-post.md'),
+                    "---\ntitle: Concurrent Post\ndate: '2024-01-01'\n---\n\n# Concurrent Post"
                 );
             }
         ];
@@ -218,7 +218,7 @@ class PerformanceTest extends TestCase
             foreach ($operations as $operation) {
                 $operation();
             }
-            
+
             $this->artisan('build', ['--no-interaction' => true])
                 ->assertExitCode(0);
         });
