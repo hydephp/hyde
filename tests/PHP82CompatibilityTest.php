@@ -47,6 +47,15 @@ class PHP82CompatibilityTest extends TestCase
 
     public function testPhp82DeprecationHandling()
     {
+        // Mock console output to handle any askQuestion calls
+        $mockOutput = \Mockery::mock(\Illuminate\Console\OutputStyle::class);
+        $mockOutput->shouldReceive('askQuestion')
+            ->zeroOrMoreTimes()
+            ->andReturn('default-answer');
+
+        // Set the mock to be used within the test
+        $this->app->instance(\Illuminate\Console\OutputStyle::class, $mockOutput);
+
         // Capture any deprecation warnings
         $errorHandler = set_error_handler(function ($severity, $message, $file, $line) {
             if ($severity === E_DEPRECATED) {
@@ -58,10 +67,12 @@ class PHP82CompatibilityTest extends TestCase
         try {
             // Test core functionality
             $this->artisan('list')->assertExitCode(0);
-            
-            // Test page creation
-            $this->artisan('make:page', ['title' => 'test-php82'])
-                ->assertExitCode(0);
+
+            // Test page creation with proper mocking
+            $this->artisan('make:page', [
+                'title' => 'test-php82',
+                '--no-interaction' => true
+            ])->assertExitCode(0);
                 
             // Clean up
             if (File::exists(Hyde::path('_pages/test-php82.blade.php'))) {
