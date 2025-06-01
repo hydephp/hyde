@@ -1,106 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="C:\Users\CHUBBI\Desktop\hyde\phpunit.xml" tests="47" assertions="102" errors="0" failures="0" skipped="17" time="44.835505">
-    <testsuite name="Test Suite" tests="47" assertions="102" errors="0" failures="0" skipped="17" time="44.835505">
-      <testsuite name="Hyde\Testing\HydeCLITest" file="Hyde CLI (Hyde\Testing\HydeCLI)" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="1.330986">
-        <testcase name="Can show hyde console" file="Hyde CLI (Hyde\Testing\HydeCLI)::Can show hyde console" class="Hyde\Testing\HydeCLITest" classname="Hyde.Testing.HydeCLITest" assertions="2" time="1.330986"/>
-      </testsuite>
-      <testsuite name="Hyde\Testing\StaticSiteBuilderTest" file="Static Site Builder (Hyde\Testing\StaticSiteBuilder)" tests="1" assertions="2" errors="0" failures="0" skipped="0" time="0.954603">
-        <testcase name="Can build static site" file="Static Site Builder (Hyde\Testing\StaticSiteBuilder)::Can build static site" class="Hyde\Testing\StaticSiteBuilderTest" classname="Hyde.Testing.StaticSiteBuilderTest" assertions="2" time="0.954603"/>
-      </testsuite>
-      <testsuite name="Hyde\Testing\PHP82CompatibilityTest" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)" tests="7" assertions="0" errors="0" failures="0" skipped="7" time="0.000000">
-        <testcase name="Php 82 deprecation handling" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)::Php 82 deprecation handling" class="Hyde\Testing\PHP82CompatibilityTest" classname="Hyde.Testing.PHP82CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-        <testcase name="Php 82 file system operations" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)::Php 82 file system operations" class="Hyde\Testing\PHP82CompatibilityTest" classname="Hyde.Testing.PHP82CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-        <testcase name="Php 82 string function compatibility" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)::Php 82 string function compatibility" class="Hyde\Testing\PHP82CompatibilityTest" classname="Hyde.Testing.PHP82CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-        <testcase name="Php 82 readonly classes compatibility" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)::Php 82 readonly classes compatibility" class="Hyde\Testing\PHP82CompatibilityTest" classname="Hyde.Testing.PHP82CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-        <testcase name="Php 82 disjunctive normal form types" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)::Php 82 disjunctive normal form types" class="Hyde\Testing\PHP82CompatibilityTest" classname="Hyde.Testing.PHP82CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-        <testcase name="Php 82 json handling" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)::Php 82 json handling" class="Hyde\Testing\PHP82CompatibilityTest" classname="Hyde.Testing.PHP82CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-        <testcase name="Php 82 array function compatibility" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)::Php 82 array function compatibility" class="Hyde\Testing\PHP82CompatibilityTest" classname="Hyde.Testing.PHP82CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-      </testsuite>
-      <testsuite name="Hyde\Testing\ExampleTest" file="Example (Hyde\Testing\Example)" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.693644">
-        <testcase name="Example" file="Example (Hyde\Testing\Example)::Example" class="Hyde\Testing\ExampleTest" classname="Hyde.Testing.ExampleTest" assertions="1" time="0.693644"/>
-      </testsuite>
-      <testsuite name="Hyde\Testing\PHP84CompatibilityTest" file="PHP84Compatibility (Hyde\Testing\PHP84Compatibility)" tests="9" assertions="0" errors="0" failures="0" skipped="9" time="0.000000">
-        <testcase name="Php 84 error handling" file="PHP84Compatibility (Hyde\Testing\PHP84Compatibility)::Php 84 error handling" class="Hyde\Testing\PHP84CompatibilityTest" classname="Hyde.Testing.PHP84CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-        <testcase name="Php 84 jit improvements" file="PHP84Compatibility (Hyde\Testing\PHP84Compatibility)::Php 84 jit improvements" class="Hyde\Testing\PHP84CompatibilityTest" classname="Hyde.Testing.PHP84CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-        <testcase name="Php 84 deprecation handling" file="PHP84Compatibility (Hyde\Testing\PHP84Compatibility)::Php 84 deprecation handling" class="Hyde\Testing\PHP84CompatibilityTest" classname="Hyde.Testing.PHP84CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-        <testcase name="Php 84 implicit nullability" file="PHP84Compatibility (Hyde\Testing\PHP84Compatibility)::Php 84 implicit nullability" class="Hyde\Testing\PHP84CompatibilityTest" classname="Hyde.Testing.PHP84CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-        <testcase name="Php 84 asymmetric visibility" file="PHP84Compatibility (Hyde\Testing\PHP84Compatibility)::Php 84 asymmetric visibility" class="Hyde\Testing\PHP84CompatibilityTest" classname="Hyde.Testing.PHP84CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-        <testcase name="Php 84 memory usage" file="PHP84Compatibility (Hyde\Testing\PHP84Compatibility)::Php 84 memory usage" class="Hyde\Testing\PHP84CompatibilityTest" classname="Hyde.Testing.PHP84CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-        <testcase name="Php 84 new array functions" file="PHP84Compatibility (Hyde\Testing\PHP84Compatibility)::Php 84 new array functions" class="Hyde\Testing\PHP84CompatibilityTest" classname="Hyde.Testing.PHP84CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-        <testcase name="Php 84 property hooks" file="PHP84Compatibility (Hyde\Testing\PHP84Compatibility)::Php 84 property hooks" class="Hyde\Testing\PHP84CompatibilityTest" classname="Hyde.Testing.PHP84CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-        <testcase name="Php 84 new string functions" file="PHP84Compatibility (Hyde\Testing\PHP84Compatibility)::Php 84 new string functions" class="Hyde\Testing\PHP84CompatibilityTest" classname="Hyde.Testing.PHP84CompatibilityTest" assertions="0" time="0.000000">
-          <skipped/>
-        </testcase>
-      </testsuite>
-      <testsuite name="Hyde\Testing\DefaultContentTest" file="Default Content (Hyde\Testing\DefaultContent)" tests="3" assertions="11" errors="0" failures="0" skipped="0" time="3.014213">
-        <testcase name="Default compiled stylesheet is present" file="Default Content (Hyde\Testing\DefaultContent)::Default compiled stylesheet is present" class="Hyde\Testing\DefaultContentTest" classname="Hyde.Testing.DefaultContentTest" assertions="3" time="2.605969"/>
-        <testcase name="Default pages are present" file="Default Content (Hyde\Testing\DefaultContent)::Default pages are present" class="Hyde\Testing\DefaultContentTest" classname="Hyde.Testing.DefaultContentTest" assertions="4" time="0.003678"/>
-        <testcase name="Laravel mix resources are present" file="Default Content (Hyde\Testing\DefaultContent)::Laravel mix resources are present" class="Hyde\Testing\DefaultContentTest" classname="Hyde.Testing.DefaultContentTest" assertions="4" time="0.404567"/>
-      </testsuite>
-      <testsuite name="Hyde\Testing\ComprehensiveFeatureTest" file="Comprehensive Feature (Hyde\Testing\ComprehensiveFeature)" tests="11" assertions="40" errors="0" failures="0" skipped="1" time="12.973098">
-        <testcase name="Markdown page creation and compilation" file="Comprehensive Feature (Hyde\Testing\ComprehensiveFeature)::Markdown page creation and compilation" class="Hyde\Testing\ComprehensiveFeatureTest" classname="Hyde.Testing.ComprehensiveFeatureTest" assertions="5" time="3.035091"/>
-        <testcase name="Data collections" file="Comprehensive Feature (Hyde\Testing\ComprehensiveFeature)::Data collections" class="Hyde\Testing\ComprehensiveFeatureTest" classname="Hyde.Testing.ComprehensiveFeatureTest" assertions="2" time="0.111306"/>
-        <testcase name="Blog post creation and compilation" file="Comprehensive Feature (Hyde\Testing\ComprehensiveFeature)::Blog post creation and compilation" class="Hyde\Testing\ComprehensiveFeatureTest" classname="Hyde.Testing.ComprehensiveFeatureTest" assertions="5" time="0.835693"/>
-        <testcase name="Rss feed generation" file="Comprehensive Feature (Hyde\Testing\ComprehensiveFeature)::Rss feed generation" class="Hyde\Testing\ComprehensiveFeatureTest" classname="Hyde.Testing.ComprehensiveFeatureTest" assertions="5" time="0.556203"/>
-        <testcase name="Asset compilation" file="Comprehensive Feature (Hyde\Testing\ComprehensiveFeature)::Asset compilation" class="Hyde\Testing\ComprehensiveFeatureTest" classname="Hyde.Testing.ComprehensiveFeatureTest" assertions="3" time="0.376313"/>
-        <testcase name="Sitemap generation" file="Comprehensive Feature (Hyde\Testing\ComprehensiveFeature)::Sitemap generation" class="Hyde\Testing\ComprehensiveFeatureTest" classname="Hyde.Testing.ComprehensiveFeatureTest" assertions="5" time="0.382760"/>
-        <testcase name="Documentation page creation and compilation" file="Comprehensive Feature (Hyde\Testing\ComprehensiveFeature)::Documentation page creation and compilation" class="Hyde\Testing\ComprehensiveFeatureTest" classname="Hyde.Testing.ComprehensiveFeatureTest" assertions="5" time="2.062014"/>
-        <testcase name="Realtime compiler integration" file="Comprehensive Feature (Hyde\Testing\ComprehensiveFeature)::Realtime compiler integration" class="Hyde\Testing\ComprehensiveFeatureTest" classname="Hyde.Testing.ComprehensiveFeatureTest" assertions="1" time="0.145908"/>
-        <testcase name="Torchlight integration" file="Comprehensive Feature (Hyde\Testing\ComprehensiveFeature)::Torchlight integration" class="Hyde\Testing\ComprehensiveFeatureTest" classname="Hyde.Testing.ComprehensiveFeatureTest" assertions="0" time="0.103204">
-          <skipped/>
-        </testcase>
-        <testcase name="Blade page creation and compilation" file="Comprehensive Feature (Hyde\Testing\ComprehensiveFeature)::Blade page creation and compilation" class="Hyde\Testing\ComprehensiveFeatureTest" classname="Hyde.Testing.ComprehensiveFeatureTest" assertions="6" time="2.095871"/>
-        <testcase name="Documentation search" file="Comprehensive Feature (Hyde\Testing\ComprehensiveFeature)::Documentation search" class="Hyde\Testing\ComprehensiveFeatureTest" classname="Hyde.Testing.ComprehensiveFeatureTest" assertions="3" time="3.268734"/>
-      </testsuite>
-      <testsuite name="Hyde\Testing\PHP83CompatibilityTest" file="PHP83Compatibility (Hyde\Testing\PHP83Compatibility)" tests="8" assertions="13" errors="0" failures="0" skipped="0" time="3.937712">
-        <testcase name="Php 83 performance improvements" file="PHP83Compatibility (Hyde\Testing\PHP83Compatibility)::Php 83 performance improvements" class="Hyde\Testing\PHP83CompatibilityTest" classname="Hyde.Testing.PHP83CompatibilityTest" assertions="2" time="1.859878"/>
-        <testcase name="Php 83 deprecation handling" file="PHP83Compatibility (Hyde\Testing\PHP83Compatibility)::Php 83 deprecation handling" class="Hyde\Testing\PHP83CompatibilityTest" classname="Hyde.Testing.PHP83CompatibilityTest" assertions="2" time="0.992236"/>
-        <testcase name="Php 83 array find functions" file="PHP83Compatibility (Hyde\Testing\PHP83Compatibility)::Php 83 array find functions" class="Hyde\Testing\PHP83CompatibilityTest" classname="Hyde.Testing.PHP83CompatibilityTest" assertions="0" time="0.123147"/>
-        <testcase name="Php 83 string functions" file="PHP83Compatibility (Hyde\Testing\PHP83Compatibility)::Php 83 string functions" class="Hyde\Testing\PHP83CompatibilityTest" classname="Hyde.Testing.PHP83CompatibilityTest" assertions="3" time="0.089943"/>
-        <testcase name="Php 83 anonymous readonly classes" file="PHP83Compatibility (Hyde\Testing\PHP83Compatibility)::Php 83 anonymous readonly classes" class="Hyde\Testing\PHP83CompatibilityTest" classname="Hyde.Testing.PHP83CompatibilityTest" assertions="1" time="0.079122"/>
-        <testcase name="Php 83 override attribute" file="PHP83Compatibility (Hyde\Testing\PHP83Compatibility)::Php 83 override attribute" class="Hyde\Testing\PHP83CompatibilityTest" classname="Hyde.Testing.PHP83CompatibilityTest" assertions="1" time="0.577619"/>
-        <testcase name="Php 83 typed class constants" file="PHP83Compatibility (Hyde\Testing\PHP83Compatibility)::Php 83 typed class constants" class="Hyde\Testing\PHP83CompatibilityTest" classname="Hyde.Testing.PHP83CompatibilityTest" assertions="2" time="0.097693"/>
-        <testcase name="Php 83 json validate" file="PHP83Compatibility (Hyde\Testing\PHP83Compatibility)::Php 83 json validate" class="Hyde\Testing\PHP83CompatibilityTest" classname="Hyde.Testing.PHP83CompatibilityTest" assertions="2" time="0.118074"/>
-      </testsuite>
-      <testsuite name="Hyde\Testing\PerformanceTest" file="Performance (Hyde\Testing\Performance)" tests="6" assertions="33" errors="0" failures="0" skipped="0" time="21.931248">
-        <testcase name="Single page build performance" file="Performance (Hyde\Testing\Performance)::Single page build performance" class="Hyde\Testing\PerformanceTest" classname="Hyde.Testing.PerformanceTest" assertions="3" time="3.939324"/>
-        <testcase name="Command response time" file="Performance (Hyde\Testing\Performance)::Command response time" class="Hyde\Testing\PerformanceTest" classname="Hyde.Testing.PerformanceTest" assertions="10" time="1.317360"/>
-        <testcase name="Memory usage during build" file="Performance (Hyde\Testing\Performance)::Memory usage during build" class="Hyde\Testing\PerformanceTest" classname="Hyde.Testing.PerformanceTest" assertions="3" time="3.768698"/>
-        <testcase name="Multiple pages build performance" file="Performance (Hyde\Testing\Performance)::Multiple pages build performance" class="Hyde\Testing\PerformanceTest" classname="Hyde.Testing.PerformanceTest" assertions="12" time="7.020763"/>
-        <testcase name="Large markdown file processing" file="Performance (Hyde\Testing\Performance)::Large markdown file processing" class="Hyde\Testing\PerformanceTest" classname="Hyde.Testing.PerformanceTest" assertions="3" time="2.264876"/>
-        <testcase name="Concurrent operations" file="Performance (Hyde\Testing\Performance)::Concurrent operations" class="Hyde\Testing\PerformanceTest" classname="Hyde.Testing.PerformanceTest" assertions="2" time="3.620228"/>
-      </testsuite>
-    </testsuite>
+  <testsuite name="Hyde\Testing\PHP82CompatibilityTest" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)" tests="7" assertions="0" errors="0" failures="0" skipped="7" time="0.000000">
+    <testcase name="Php 82 json handling" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)::Php 82 json handling" class="Hyde\Testing\PHP82CompatibilityTest" classname="Hyde.Testing.PHP82CompatibilityTest" assertions="0" time="0.000000">
+      <skipped/>
+    </testcase>
+    <testcase name="Php 82 string function compatibility" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)::Php 82 string function compatibility" class="Hyde\Testing\PHP82CompatibilityTest" classname="Hyde.Testing.PHP82CompatibilityTest" assertions="0" time="0.000000">
+      <skipped/>
+    </testcase>
+    <testcase name="Php 82 file system operations" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)::Php 82 file system operations" class="Hyde\Testing\PHP82CompatibilityTest" classname="Hyde.Testing.PHP82CompatibilityTest" assertions="0" time="0.000000">
+      <skipped/>
+    </testcase>
+    <testcase name="Php 82 disjunctive normal form types" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)::Php 82 disjunctive normal form types" class="Hyde\Testing\PHP82CompatibilityTest" classname="Hyde.Testing.PHP82CompatibilityTest" assertions="0" time="0.000000">
+      <skipped/>
+    </testcase>
+    <testcase name="Php 82 deprecation handling" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)::Php 82 deprecation handling" class="Hyde\Testing\PHP82CompatibilityTest" classname="Hyde.Testing.PHP82CompatibilityTest" assertions="0" time="0.000000">
+      <skipped/>
+    </testcase>
+    <testcase name="Php 82 array function compatibility" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)::Php 82 array function compatibility" class="Hyde\Testing\PHP82CompatibilityTest" classname="Hyde.Testing.PHP82CompatibilityTest" assertions="0" time="0.000000">
+      <skipped/>
+    </testcase>
+    <testcase name="Php 82 readonly classes compatibility" file="PHP82Compatibility (Hyde\Testing\PHP82Compatibility)::Php 82 readonly classes compatibility" class="Hyde\Testing\PHP82CompatibilityTest" classname="Hyde.Testing.PHP82CompatibilityTest" assertions="0" time="0.000000">
+      <skipped/>
+    </testcase>
   </testsuite>
 </testsuites>
