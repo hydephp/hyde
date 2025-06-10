@@ -51,6 +51,22 @@ See the documentation and learn more at https://hydephp.com/docs
 - Hyde ships with precompiled and minified TailwindCSS styles in the app.css file, you can also load them through the CDN.
 - This means that all the styles you need are already installed. However, if you want to customize the included Tailwind config, or if you add new Tailwind classes through Blade files, you can simply run the `npm run build` command to recompile the styles using the pre-configured Tailwind and Vite setup.
 
+#### Development with Vite
+
+Hyde includes Vite for an enhanced development experience. Here are some common commands:
+
+```bash
+# Start the development server with Vite hot-reloading
+php hyde serve --vite
+
+# If you need to reinstall Node dependencies
+rm -rf node_modules
+npm install
+
+# Build assets for production
+npm run build
+```
+
 ### Customization
 
 - You don't need to configure anything as Hyde is shipped with sensible defaults.
