@@ -90,7 +90,7 @@ return [
     |
     | Example: https://github.com/hydephp/docs/blob/master
     |          Do not specify the filename or extension, Hyde will do that for you.
-    | Setting the setting to null will disable the feature.
+    |          Setting this to null will disable the feature.
     |
     */
 
