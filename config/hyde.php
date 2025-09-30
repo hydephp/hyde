@@ -138,7 +138,7 @@ return [
     | Site Output Directory
     |--------------------------------------------------------------------------
     |
-    | This setting specifies the output path for your site, useful to for
+    | This setting specifies the output path for your site, useful to, for
     | example, store the site in the docs/ directory for GitHub Pages.
     | The path is relative to the root of your project.
     |
@@ -308,7 +308,7 @@ return [
     |
     | Here you can customize the footer Markdown text for your site.
     |
-    | If you don't want to write Markdown here, you use a Markdown include.
+    | If you don't want to write Markdown here, you can use a Markdown include.
     | You can also customize the Blade view if you want a more complex footer.
     | You can disable it completely by changing the setting to `false`.
     |
@@ -428,7 +428,7 @@ return [
     |
     | Here you can configure settings for the built-in realtime compiler server.
     | The server also includes a magic dashboard feature that supercharges
-    | your local development! This feature can alo be customised here.
+    | your local development! This feature can also be customised here.
     |
     */
 

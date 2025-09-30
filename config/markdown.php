@@ -71,7 +71,7 @@ return [
     |
     | This feature allows you to use basic Laravel Blade in Markdown files.
     |
-    | It's disabled by default since can be a security risk as it allows
+    | It's disabled by default since it can be a security risk as it allows
     | arbitrary PHP to run. But if your Markdown is trusted, try it out!
     |
     | To see the syntax and usage, see the documentation:
