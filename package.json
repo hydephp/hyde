@@ -10,7 +10,7 @@
         "@tailwindcss/vite": "^4.1.13",
         "autoprefixer": "^10.4.21",
         "hyde-vite-plugin": "^1.0.0-RC.5",
-        "hydefront": "^4.0.0-RC.1",
+        "hydefront": "^4.0.0",
         "postcss": "^8.5.6",
         "tailwindcss": "^4.1.13",
         "vite": "^7.1.7"
