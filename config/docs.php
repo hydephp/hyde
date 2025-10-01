@@ -58,6 +58,20 @@ return [
 
         /*
         |--------------------------------------------------------------------------
+        | Sidebar Labels
+        |--------------------------------------------------------------------------
+        |
+        | Define custom labels for sidebar items. The array key should be the
+        | page identifier, and the value should be the display label.
+        |
+        */
+
+        'labels' => [
+            \Hyde\Pages\DocumentationPage::homeRouteName() => 'Docs',
+        ],
+
+        /*
+        |--------------------------------------------------------------------------
         | Table of Contents Settings
         |--------------------------------------------------------------------------
         |
