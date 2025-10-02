@@ -99,7 +99,7 @@ All vulnerabilities will be promptly addressed.
 
 ### Credits
 
--   [Emma De Silva](https://github.com/emmadesilva), feel free to buy me a coffee! https://www.buymeacoffee.com/caen
+-   [Emma De Silva](https://github.com/emmadesilva), feel free to buy me a coffee! https://www.buymeacoffee.com/emmads
 -   [All Contributors](../../contributors)
 
 ### License
