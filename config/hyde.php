@@ -313,7 +313,7 @@ return [
     | You can disable it completely by changing the setting to `false`.
     |
     | To read about the many configuration options here, visit:
-    | https://hydephp.com/docs/1.x/customization#footer
+    | https://hydephp.com/docs/2.x/customization#footer
     |
     */
 

@@ -62,7 +62,7 @@ See the documentation and learn more at https://hydephp.com/docs
 
 ## Getting Started - High-level overview
 
-> See [Installation Guide](https://hydephp.com/docs/1.x/installation) and [Getting Started](https://hydephp.com/docs/1.x/getting-started) for the full details.
+> See [Installation Guide](https://hydephp.com/docs/2.x/installation) and [Getting Started](https://hydephp.com/docs/2.x/getting-started) for the full details.
 
 It's a breeze to get started with Hyde. Create a new Hyde project using Composer:
 
