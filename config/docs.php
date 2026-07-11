@@ -14,6 +14,26 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Documentation Versions
+    |--------------------------------------------------------------------------
+    |
+    | Each version maps `_docs/<version>` to `docs/<version>`.
+    | Leave this empty to disable versioning. When enabled, documentation
+    | files outside registered version directories are ignored.
+    |
+    | The default version defaults to the last entry in the list.
+    |
+    */
+
+    'versions' => [
+        // '1.x',
+        // '2.x',
+    ],
+
+    'default_version' => null,
+
+    /*
+    |--------------------------------------------------------------------------
     | Sidebar Settings
     |--------------------------------------------------------------------------
     |
