@@ -44,9 +44,10 @@ Development happens in the [HydePHP/Develop](https://github.com/hydephp/develop)
 
 ## Which Branch?
 
-- **Bug fixes** should be sent to the latest stable branch (currently 1.x)
-- **Minor features** that are fully backward compatible should go to the latest stable branch
-- **Major features** or breaking changes should be sent to the master branch
+- **Bug fixes for the current stable release** should be sent to `2.x`
+- **Fixes for the supported v1 release line** should be sent to `1.x`
+- **Minor features** that are fully backward compatible with v2 should be sent to `2.x`
+- **Major features** or breaking changes for v3 should be sent to `master`
 
 ## Project Goals
 
