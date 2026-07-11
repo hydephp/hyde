@@ -6,6 +6,10 @@ Having this document in code lets us know the devlopment state at any given poin
 
 - Change all HydePHP reposotiries to use `main` instead of `master` as the default branch. This change will be executed around the time of the release.
 
+## Checklist before release:
+
+- Publish new major version of the Vite plugin (due to Vite 8 upgrade) then revert the monorepo loading the local file https://github.com/hydephp/develop/pull/2414/changes/42e745675c0eec12b42376dcb445f592bbd0d650
+
 ## Changes requires to this branch
 
 ## Changes required to the v2 branch
