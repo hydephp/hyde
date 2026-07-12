@@ -85,6 +85,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Redirects
+    |--------------------------------------------------------------------------
+    |
+    | Here you may define redirects as source and destination path pairs. Hyde
+    | will register them as pages and generate them as part of the site build.
+    |
+    */
+
+    'redirects' => [
+        // 'old-page' => 'new-page',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Sitemap Generation
     |--------------------------------------------------------------------------
     |
