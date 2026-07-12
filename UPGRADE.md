@@ -52,17 +52,18 @@ Then run `npm install` (or your package manager's equivalent) to pick up the upd
 
 If you have a custom `vite.config.js` that overrides `build.rollupOptions`, note that Vite 8 builds with Rolldown by default. The `hyde-vite-plugin` now configures its own build options under `build.rolldownOptions` rather than `build.rollupOptions` — if your custom config only sets `rollupOptions`, double check your output still ends up where you expect after upgrading.
 
-## Step 2: Review the Blade in Markdown Default
+## Step 2: Review the Markdown Trust Defaults
 
-HydePHP v3 enables Blade in Markdown by default. The existing `markdown.enable_blade` setting now controls both
+HydePHP v3 enables both raw HTML and Blade in Markdown by default. The existing `markdown.enable_blade` setting controls both
 `[Blade]:` directives and the new executable `blade render` and `blade component(name)` fenced code blocks. New
-projects and projects without an explicit setting can execute PHP from either syntax during a build.
+projects and projects without explicit settings can render arbitrary HTML and execute PHP during a build.
 
 Existing projects normally keep their published `config/markdown.php` file during a dependency update. If yours
-currently sets `enable_blade` to `false`, both forms will remain disabled until you change it:
+currently sets either option to `false`, that behavior remains disabled until you change it:
 
 ```php
 // filepath: config/markdown.php
+'allow_html' => true,
 'enable_blade' => true,
 ```
 
@@ -72,16 +73,17 @@ code sample.
 - `blade render`
 - `blade component(name)`
 
-The v3 default is intended for sites where Markdown is part of the trusted, reviewed project source. If you ingest
-Markdown from users or another untrusted source, or your CI builds pull requests before review, keep all Blade in
-Markdown disabled:
+The v3 defaults are intended for sites where Markdown is part of the trusted, reviewed project source. If you ingest
+Markdown from users or another untrusted source, or your CI builds pull requests before review, disable raw HTML and
+Blade in Markdown:
 
 ```php
 // filepath: config/markdown.php
+'allow_html' => false,
 'enable_blade' => false,
 ```
 
-This setting is not a security boundary for contributors who can add arbitrary project files, since they could add a
+These settings are not a security boundary for contributors who can add arbitrary project files, since they could add a
 malicious `.blade.php` file instead. Review source changes before building them in a privileged environment.
 
 ## Step 3: Replace the Removed `rebuild` Command
@@ -168,7 +170,7 @@ from navigation menus and the sitemap. Redirect pages always include a visible f
 
 Use this checklist to track your upgrade progress:
 
-- [ ] Reviewed `markdown.enable_blade` and explicitly selected the appropriate trust policy
+- [ ] Reviewed `markdown.allow_html` and `markdown.enable_blade` and explicitly selected the appropriate trust policy
 - [ ] Replaced any `php hyde rebuild <path>` usage with `StaticPageBuilder::handle()` or a full `php hyde build`
 - [ ] Moved calls to `Redirect::create()` or `Redirect::store()` into the `hyde.redirects` configuration array
 

@@ -56,13 +56,13 @@ return [
     |--------------------------------------------------------------------------
     |
     | HydePHP uses the GitHub Flavored Markdown extension to convert Markdown.
-    | This, by default strips out some HTML tags. If you want to allow all
-    | arbitrary HTML tags, and understand the risks involved, you can
-    | use this config setting to enable all HTML tags.
+    | Raw HTML is enabled by default because source files in Hyde projects are
+    | generally trusted and reviewed. Disable this when compiling untrusted or
+    | unreviewed Markdown to strip potentially unsafe HTML tags.
     |
     */
 
-    'allow_html' => false,
+    'allow_html' => true,
 
     /*
     |--------------------------------------------------------------------------
