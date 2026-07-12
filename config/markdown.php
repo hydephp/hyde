@@ -69,9 +69,10 @@ return [
     | Blade-supported Markdown
     |--------------------------------------------------------------------------
     |
-    | This feature allows you to use basic Laravel Blade in Markdown files.
+    | This feature allows you to use Laravel Blade in Markdown files through
+    | both [Blade]: directives and executable fenced Blade blocks.
     |
-    | BladeDown is enabled by default because source files in Hyde projects are
+    | Blade support is enabled by default because source files in Hyde projects are
     | generally trusted and reviewed. Since Blade can execute arbitrary PHP,
     | disable this when compiling untrusted or unreviewed Markdown.
     |

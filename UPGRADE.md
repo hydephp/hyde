@@ -52,29 +52,36 @@ Then run `npm install` (or your package manager's equivalent) to pick up the upd
 
 If you have a custom `vite.config.js` that overrides `build.rollupOptions`, note that Vite 8 builds with Rolldown by default. The `hyde-vite-plugin` now configures its own build options under `build.rolldownOptions` rather than `build.rollupOptions` — if your custom config only sets `rollupOptions`, double check your output still ends up where you expect after upgrading.
 
-## Step 2: Review the BladeDown Default
+## Step 2: Review the Blade in Markdown Default
 
-HydePHP v3 enables BladeDown (Blade in Markdown) by default. New projects and projects without an explicit
-`markdown.enable_blade` setting will render `[Blade]:` directives and can execute PHP from them during a build.
+HydePHP v3 enables Blade in Markdown by default. The existing `markdown.enable_blade` setting now controls both
+`[Blade]:` directives and the new executable `blade render` and `blade component(name)` fenced code blocks. New
+projects and projects without an explicit setting can execute PHP from either syntax during a build.
 
 Existing projects normally keep their published `config/markdown.php` file during a dependency update. If yours
-currently sets `enable_blade` to `false`, it will remain disabled until you change it:
+currently sets `enable_blade` to `false`, both forms will remain disabled until you change it:
 
 ```php
 // filepath: config/markdown.php
 'enable_blade' => true,
 ```
 
+When enabled, the following fences are executable. A fence using only `blade` remains an ordinary syntax-highlighted
+code sample.
+
+- `blade render`
+- `blade component(name)`
+
 The v3 default is intended for sites where Markdown is part of the trusted, reviewed project source. If you ingest
-Markdown from users or another untrusted source, or your CI builds pull requests before review, keep the setting
-disabled:
+Markdown from users or another untrusted source, or your CI builds pull requests before review, keep all Blade in
+Markdown disabled:
 
 ```php
 // filepath: config/markdown.php
 'enable_blade' => false,
 ```
 
-BladeDown is not a security boundary for contributors who can add arbitrary project files, since they could add a
+This setting is not a security boundary for contributors who can add arbitrary project files, since they could add a
 malicious `.blade.php` file instead. Review source changes before building them in a privileged environment.
 
 ## Step 3: Replace the Removed `rebuild` Command
