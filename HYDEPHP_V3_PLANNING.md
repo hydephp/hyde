@@ -29,6 +29,8 @@ Having this document in code lets us know the devlopment state at any given poin
 
 - Blade in Markdown is now enabled by default. The `markdown.enable_blade` option controls both `[Blade]:` directives and executable Blade Blocks. Hyde sites generally treat project content as trusted and reviewed; sites that compile untrusted or unreviewed Markdown can disable both forms with this option.
 - Raw HTML in Markdown is now enabled by default. Hyde sites generally treat project content as trusted and reviewed; sites that compile untrusted or unreviewed Markdown can set `markdown.allow_html` to `false` to strip potentially unsafe HTML tags.
+- `InMemoryPage` contents now accept lazy closures in addition to literal strings. Closures are invoked each time contents are requested with the current page as their first argument, without being rebound.
+- `InMemoryPage` callers now select either literal/lazy `contents` or a Blade `view`. Supplying both throws an `InvalidArgumentException` instead of silently giving contents precedence.
 
 ### Minor Changes and Cleanup
 
@@ -41,6 +43,8 @@ Having this document in code lets us know the devlopment state at any given poin
 ### Breaking Changes
 
 - Removed `Redirect::create()`, `Redirect::store()`, and the `Redirect` constructor's `showText` argument. Redirects must now be declared in `hyde.redirects`, keeping all generated output inside the kernel-owned build graph. Redirect routes are intrinsically excluded from navigation menus and sitemaps, and always include an accessible fallback link.
+- Removed the `InMemoryPage` instance macro API. Dynamic contents should now be supplied with a closure, while custom methods and other behavior belong in an `InMemoryPage` subclass.
+- Removed `InMemoryPage` content-source precedence. Calls that previously supplied both `contents` and `view` must retain only the intended source; positional view calls that used an empty-string contents placeholder must use `null` instead.
 
 - Removed the `rebuild` command (`RebuildPageCommand`). It was originally added to build a single file to disk before the realtime compiler existed, and later used internally by the RC to build-and-serve a path, but the RC now renders everything in-memory, leaving `rebuild` with no remaining consumer. It also had no safe user-facing use case: a single-page build only produces a correct `_site` when the page is self-contained, while a page change routinely invalidates aggregate outputs (sitemap, RSS, search index, post listings, navigation), so single-path building could silently leave a stale output directory that looked complete. The underlying single-page build capability remains available internally via the `StaticPageBuilder` action. ([#2490](https://github.com/hydephp/develop/pull/2490))
 
@@ -52,3 +56,20 @@ Please fill in UPGRADE.md as you make changes.
 - Raw HTML in Markdown is now enabled by default. Existing projects with a published `config/markdown.php` retain their current `markdown.allow_html` setting; set it to `true` to adopt the v3 default, or keep it `false` when compiling untrusted or unreviewed Markdown.
 - The `rebuild` command has been removed. If you need to build a single page programmatically, use `Hyde\Framework\Actions\StaticPageBuilder::handle()` instead.
 - Move any calls to `Redirect::create()` or `Redirect::store()` into the `redirects` array in `config/hyde.php`, using the old path as the key and the destination as the value.
+- Move `InMemoryPage` `compile` macro callbacks into the contents argument, and replace other instance macros with methods on an `InMemoryPage` subclass.
+- Update `InMemoryPage` calls to supply only `contents` or `view`. Replace an empty-string positional contents placeholder with `null`, or use the named `view` argument.
+
+## `InMemoryPage` content-source motivation
+
+The earlier v3 redesign allowed a page to receive both `contents` and `view`, then resolved the invalid state by giving
+contents precedence. This made the configured view silently irrelevant and required special handling for empty strings
+and closures returning empty strings. It also left the caller's intent unclear.
+
+The v3 API keeps both constructor arguments because they express distinct, useful strategies and preserve readable
+named-argument calls. It does not infer registered views from strings passed as contents, since doing so would make a
+literal string change meaning based on the application's registered views. Instead, `contents` and `view` are explicit,
+mutually exclusive alternatives and ambiguous construction fails immediately.
+
+Both arguments use `null` as the omission sentinel so an explicitly empty literal remains distinguishable from an
+omitted contents argument. Their names and order remain unchanged to keep the upgrade mechanical: existing named calls
+are unaffected, while positional view calls replace their old `''` placeholder with `null`.
