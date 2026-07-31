@@ -55,7 +55,7 @@ If you have a custom `vite.config.js` that overrides `build.rollupOptions`, note
 ## Step 2: Review the Markdown Trust Defaults
 
 HydePHP v3 enables both raw HTML and Blade in Markdown by default. The existing `markdown.enable_blade` setting controls both
-`[Blade]:` directives and the new executable `blade render` and `blade component(name)` fenced code blocks. New
+`[Blade]:` directives and the new executable `blade render` and `blade component="name"` fenced code blocks. New
 projects and projects without explicit settings can render arbitrary HTML and execute PHP during a build.
 
 Existing projects normally keep their published `config/markdown.php` file during a dependency update. If yours
@@ -71,7 +71,7 @@ When enabled, the following fences are executable. A fence using only `blade` re
 code sample.
 
 - `blade render`
-- `blade component(name)`
+- `blade component="name"`
 
 The v3 defaults are intended for sites where Markdown is part of the trusted, reviewed project source. If you ingest
 Markdown from users or another untrusted source, or your CI builds pull requests before review, disable raw HTML and
