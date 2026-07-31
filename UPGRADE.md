@@ -302,17 +302,17 @@ new InMemoryPage('example', view: '');
 new InMemoryPage('example', view: null);
 ```
 
-## Review Blog Posts Dated in the Future
+## Review Drafts and Future-Dated Blog Posts
 
-HydePHP v3 treats a blog post whose date is set in the future as a scheduled draft. When you build the site, such posts are skipped during auto-discovery, so they get no route, are not compiled to `_site`, and are left out of post listings, the sitemap, and the RSS feed. This applies to both front matter dates and filename date prefixes.
+HydePHP v3 keeps two kinds of blog post out of your built site: those marked `draft: true` in front matter, and those whose date is set in the future. Drafts and scheduled posts are skipped during auto-discovery, so they get no route, are not compiled to `_site`, and are left out of post listings, the sitemap, and the RSS feed. The date rule applies to both front matter dates and filename date prefixes.
 
-Scheduled posts are still included by `php hyde serve`, which is treated as an authoring preview, so you can keep writing and previewing them at their normal URL.
+Drafts and scheduled posts are still included by `php hyde serve`, which is treated as an authoring preview, so you can keep writing and previewing them at their normal URL.
 
-In v2 these posts were built like any other. If your site has posts dated ahead of the build time — whether deliberately or because of a typo — they will disappear from your site after upgrading.
+In v2 both kinds of post were built like any other. Hyde assigned no built-in publication behavior to `draft`, although custom templates or extensions may already have read the property. In v3, `draft: true` excludes the post from site builds. So if your site has posts dated ahead of the build time, or posts already carrying a `draft: true` annotation, they will disappear from your site after upgrading.
 
-To find affected posts, check your `_posts` directory for dates ahead of the build time, in both front matter and filename prefixes. If a post disappears after upgrading but remains visible through `php hyde serve`, check whether its date was accidentally set in the future.
+To find affected posts, search `_posts` for `draft: true`, and check for dates ahead of the build time in both front matter and filename prefixes. If a post disappears after upgrading but remains visible through `php hyde serve`, one of these two states is the reason.
 
-If a post that was supposed to be published turns out to have a future date, correct the date. If you actually want to schedule posts, remember that **Hyde is a static site generator**: a scheduled post does not publish itself when its date passes. It is included in the first site build that runs after that point, so you need recurring builds for a post to go live on its own, for example a cron-scheduled GitHub Actions workflow.
+If a post that was supposed to be published turns out to be excluded, remove the `draft` property or correct the date. If you actually want to schedule posts, remember that **Hyde is a static site generator**: a scheduled post does not publish itself when its date passes. It is included in the first site build that runs after that point, so you need recurring builds for a post to go live on its own, for example a cron-scheduled GitHub Actions workflow.
 
 ## Migration Checklist
 
@@ -323,7 +323,7 @@ Use this checklist to track your upgrade progress:
 - [ ] Moved calls to `Redirect::create()` or `Redirect::store()` into the `hyde.redirects` configuration array
 - [ ] Moved `InMemoryPage` `compile` macro callbacks into the contents argument and replaced other macros with subclass methods
 - [ ] Updated `InMemoryPage` calls to supply only one of `contents` and `view`
-- [ ] Checked `_posts` for blog posts dated in the future, and set up recurring builds if scheduling posts
+- [ ] Checked `_posts` for drafts and blog posts dated in the future, and set up recurring builds if scheduling posts
 
 ## Troubleshooting
 
