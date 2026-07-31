@@ -24,7 +24,7 @@ Having this document in code lets us know the devlopment state at any given poin
 - Redirects can now be declared as source and destination path pairs in the `hyde.redirects` configuration array. Hyde registers them with the kernel, includes them in `route:list`, and generates them through the normal site build.
 - Blog posts can now be kept out of the published site through two zero-configuration publication states. Setting `draft: true` in front matter excludes a post indefinitely, until the property is removed or set to `false`, which suits content that is unfinished or awaiting approval. Setting a date in the future schedules a post, excluding it until that date has passed. Drafts and scheduled posts are skipped during auto-discovery when building the site: they get no route, are not present in the kernel's page and route collections, and are left out of post listings, the sitemap, and the RSS feed. The date rule supports both front matter dates and filename date prefixes, and an explicit draft outranks the date, so a draft stays excluded even after its date passes. Posts are published by default, making `draft: false` a no-op. Both states remain served by the realtime compiler, which is treated as an authoring preview, so posts can be written and proofread at their normal URL without editing their front matter: `serve` shows everything you are working on, while `build` publishes only what is eligible. Since Hyde is a static site generator, a scheduled post does not publish itself once its date passes: it is included in the first site build run after that point, so recurring builds (for example a cron-scheduled GitHub Actions workflow) are needed for a post to go live on its own. The new `MarkdownPost::isDraft()` and `MarkdownPost::isScheduled()` methods expose the checks. ([#2441](https://github.com/hydephp/develop/issues/2441), [#2572](https://github.com/hydephp/develop/pull/2572))
 - Added Blade Blocks for rendering Blade and Blade components from fenced code blocks in Markdown pages. The supported directives are `blade render` and `blade component="name"`, and the feature is controlled by `markdown.enable_blade`. ([#2504](https://github.com/hydephp/develop/pull/2504))
-- Added built-in terminal code blocks using the `terminal` fence language. Command prompts are styled for selection-free copying, and `terminal xml` supports four Symfony-style Console formatter tags. ([#2188](https://github.com/hydephp/develop/issues/2188), [#2485](https://github.com/hydephp/develop/issues/2485))
+- Added built-in terminal code blocks using the `terminal` fence language. Command prompts are styled for selection-free copying, and `terminal xml` supports four Symfony-style Console formatter tags. The window's title bar can be titled per block with `terminal title="Installing Hyde"`, which the terminal view receives as a `$title` variable, falling back to the `Terminal` label when a block sets no title. The modifiers are order-independent, so they can be combined as either `terminal xml title="Build output"` or `terminal title="Build output" xml`. ([#2188](https://github.com/hydephp/develop/issues/2188), [#2485](https://github.com/hydephp/develop/issues/2485))
 
 ### Feature Changes
 
@@ -92,3 +92,34 @@ Double quotes are canonical, since that is the prevailing convention in both HTM
 quotes are accepted as an equivalent alternative, matching HTML's tolerance for either, while an unquoted or partially
 quoted value is rejected rather than guessed at. The name may not contain whitespace, keeping the info string
 parseable as space-separated tokens for the extensibility noted above.
+
+## Terminal block title syntax motivation
+
+The terminal block title uses the same attribute syntax as the Blade Block component directive, `title="Build output"`,
+which is what the extensibility argument above anticipated: the info string grammar is now `terminal [xml] [title="…"]`,
+with the title sitting next to the existing modifier instead of replacing or reshaping it.
+
+Beyond the internal consistency, `title="…"` is the established convention for this exact thing elsewhere. Docusaurus
+uses it for titled fenced code blocks, and Expressive Code uses it specifically for terminal window titles, so readers
+coming from other documentation generators recognize it without being taught. It also fits CommonMark, which treats the
+first word of the info string as the language and deliberately leaves the rest for implementations to interpret.
+
+Modifiers are order-independent, since there is no reason for one arbitrary order to be correct when both read equally
+well, and an author combining two independent options should not have to remember which came first. Quoting follows the
+component directive: double quotes canonical, single quotes equivalent (useful when the title itself contains a double
+quote), and an unquoted or unterminated value rejected rather than guessed at. Unlike a component name, a title may
+contain whitespace, which is exactly why it is quoted; the quotes keep the rest of the info string parseable as
+space-separated tokens.
+
+Rejecting a malformed title departs from how the block treats an unknown modifier, which is ignored so that a modifier
+added in a future version does not break a page rendered by an older one. The asymmetry is deliberate: `title=Build` is
+not a modifier this version doesn't know about, it is one it does know about, written wrong, and silently discarding it
+would leave an author looking at a window still labelled `Terminal` with nothing to explain why. Malformed forms such
+as `title`, `title=Build`, and `title = "Build"` are rejected explicitly because they are recognizable attempts to use
+a supported modifier. Tokens are also matched only at whitespace boundaries, preventing a modifier from being
+recognized inside a larger malformed token such as `title="One"xml`.
+
+The title is passed to the view verbatim as a nullable string rather than pre-resolved to the default label, so that a
+published view can define its own fallback for untitled blocks, which the shipped view demonstrates with
+`{{ $title ?? 'Terminal' }}`. An explicitly empty title is therefore distinguishable from an omitted one, and renders
+an empty title bar as written.
