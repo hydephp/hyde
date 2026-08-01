@@ -123,3 +123,30 @@ The title is passed to the view verbatim as a nullable string rather than pre-re
 published view can define its own fallback for untitled blocks, which the shipped view demonstrates with
 `{{ $title ?? 'Terminal' }}`. An explicitly empty title is therefore distinguishable from an omitted one, and renders
 an empty title bar as written.
+
+## Terminal block view model motivation
+
+The data handed to the terminal view is assembled by a class, `TerminalBlockViewModel`, rather than by a renderer
+building an array inline. This is purely an internal cleanup: the shape of that data was agreed on in three places with
+nothing enforcing it, and a typo in any of them was a runtime surprise. A typed class means the PHP-side view-data
+assembly and types are centralized, and the transformer and renderer are checked against it. Nothing about the feature
+changes, and the view is given exactly the variables it was given before.
+
+It is a plain class rather than an `Illuminate\View\Component`. The component base class was tried first, since these
+blocks do render Blade views, but nothing it offers is used for an internal class: there are no attributes to merge, no
+slot, and no tag to register. What it does bring is reflection-based view data, which passes a component's public
+methods to the view alongside its properties, so the exact thing the class exists to pin down would have been the one
+thing left implicit. A declared `viewData()` is both smaller and stricter.
+
+The syntax tree node holds the view model rather than restating its properties, which keeps one source of truth for the
+block's shape and leaves the node and renderer as the thin CommonMark adapters they should be. The view model is built
+while transforming the document, so the parsed block and its data are created together. Nothing is rendered early by
+this, as the formatting is string work without invoking Blade or rendering the outer view early.
+
+Ideas that came up while doing this, and were deliberately left out because the feature was not wrong and this change
+is meant to be invisible: passing the finished body as an `HtmlString` so a view can echo it with either syntax,
+passing the unrendered output alongside it for views that want a copy button, and exposing the class publicly so a
+terminal window could be rendered from PHP without writing Markdown. Each is a feature change and belongs in its own
+change, judged on its own merits.
+
+More blocks may gain the same backing later, which is also a separate change; terminal blocks are the only one today.
