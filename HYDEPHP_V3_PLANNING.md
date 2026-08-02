@@ -5,6 +5,7 @@ Having this document in code lets us know the devlopment state at any given poin
 ## Planned features
 
 - Change all HydePHP reposotiries to use `main` instead of `master` as the default branch. This change will be executed around the time of the release.
+- Ship an upgrade script that migrates v2 source files to the v3 syntax. It needs to convert code block `// filepath:` comments to the `title="…"` fence modifier, following the rules in [Dropping the filepath comment syntax](#dropping-the-filepath-comment-syntax). The upgrade guide currently describes that conversion as a manual step, and should point at the script once it exists.
 
 ## Checklist before release:
 
@@ -28,6 +29,8 @@ Having this document in code lets us know the devlopment state at any given poin
 
 ### Feature Changes
 
+- Fenced code blocks are now rendered through a publishable Blade view, `components/markdown/code-block.blade.php`, in the same way terminal blocks are. The view receives the rendered code block markup as `$contents`, along with `$language` and `$label`, and decides what goes around it, so changing what surrounds a code block is a view change instead of a framework change. Highlighting itself is unaffected: the fence stays in the syntax tree as the wrapper's child, and is rendered by whichever renderer the environment already had for it, be it Torchlight, a third-party extension, or CommonMark's own.
+- Code block labels are now set with a `title="…"` modifier on the fence, using the same attribute syntax as terminal block titles, such as ` ```php title="app/Model.php" `. The language is optional, so ` ``` title=".env" ` labels a block that declares none, which is then treated as `plaintext`. The label is no longer tied to file paths, so a block can be titled with anything. The v2 `// filepath:` comment syntax is removed.
 - Blade in Markdown is now enabled by default. The `markdown.enable_blade` option controls both `[Blade]:` directives and executable Blade Blocks. Hyde sites generally treat project content as trusted and reviewed; sites that compile untrusted or unreviewed Markdown can disable both forms with this option.
 - Raw HTML in Markdown is now enabled by default. Hyde sites generally treat project content as trusted and reviewed; sites that compile untrusted or unreviewed Markdown can set `markdown.allow_html` to `false` to strip potentially unsafe HTML tags.
 - `InMemoryPage` contents now accept lazy closures in addition to literal strings. Closures are invoked each time contents are requested with the current page as their first argument, without being rebound.
@@ -36,6 +39,9 @@ Having this document in code lets us know the devlopment state at any given poin
 ### Minor Changes and Cleanup
 
 - The `Redirect` page class constructor now accepts an optional `$matter` parameter, used by the framework to hide the generated documentation root redirect from navigation menus. Existing usages are unaffected.
+
+- Removed `Hyde\Markdown\Processing\CodeblockFilepathProcessor`, along with the `<!-- HYDE[Filepath] -->` marker comments it passed between its own pre- and post-processing steps. Both were internal implementation details: the processor list is hardcoded in an internal trait, so there was no supported way to register the class, and the markers only ever existed part-way through a single conversion. Neither is documented in the changelog or upgrade guide for that reason. Labels are now resolved on the syntax tree by `PrepareCodeBlocks`.
+- Changed the generated HTML for fenced code blocks, which now comes from the Blade view. Site output is not part of the backward compatibility promise, so this is noted for awareness rather than as a breaking change. The `hyde-code-block` and `hyde-code-block-label` classes are stable hooks for projects styling code blocks from their own CSS.
 
 - Removed the legacy `checkForDeprecatedRunMixCommandUsage` check and the placeholder `--run-dev`/`--run-prod` options from the `build` command, which were kept in v2 only to surface a helpful error message. ([#2461](https://github.com/hydephp/develop/pull/2461))
 - Removed the deprecated `hyde.server.dashboard` boolean config check from `DashboardController::enabled()`, which was kept in v2 for backwards compatibility but had since then been replaced with `hyde.server.dashboard.enabled`. ([#2461](https://github.com/hydephp/develop/pull/2462))
@@ -47,6 +53,8 @@ Having this document in code lets us know the devlopment state at any given poin
 - Removed the `InMemoryPage` instance macro API. Dynamic contents should now be supplied with a closure, while custom methods and other behavior belong in an `InMemoryPage` subclass.
 - Removed `InMemoryPage` content-source precedence. Calls that previously supplied both `contents` and `view` must retain only the intended source; positional view calls that used an empty-string contents placeholder must use `null` instead.
 
+- Removed the `// filepath:` code block comment syntax, along with its `#`, `/* */`, and `<!-- -->` variants. Labels are set with the `title="…"` modifier instead. A comment left behind is no longer recognized, so it stays in the code as an ordinary first line rather than being silently dropped.
+- Removed the `components/filepath-label.blade.php` view. The label markup now lives in `components/markdown/code-block.blade.php` alongside the rest of what surrounds the code. **A published copy of the old view is ignored after upgrading**, and the site renders with the shipped label until the customizations are ported over. That is the intended outcome: published views take precedence over the framework's own, and a copy written for the label's old position inside `<code>` places it outside the code block entirely, so keeping the view in use could have produced incorrect layouts for those customized copies.
 - Removed the `rebuild` command (`RebuildPageCommand`). It was originally added to build a single file to disk before the realtime compiler existed, and later used internally by the RC to build-and-serve a path, but the RC now renders everything in-memory, leaving `rebuild` with no remaining consumer. It also had no safe user-facing use case: a single-page build only produces a correct `_site` when the page is self-contained, while a page change routinely invalidates aggregate outputs (sitemap, RSS, search index, post listings, navigation), so single-path building could silently leave a stale output directory that looked complete. The underlying single-page build capability remains available internally via the `StaticPageBuilder` action. ([#2490](https://github.com/hydephp/develop/pull/2490))
 
 ### Upgrade guide
@@ -60,6 +68,9 @@ Please fill in UPGRADE.md as you make changes.
 - Move any calls to `Redirect::create()` or `Redirect::store()` into the `redirects` array in `config/hyde.php`, using the old path as the key and the destination as the value.
 - Move `InMemoryPage` `compile` macro callbacks into the contents argument, and replace other instance macros with methods on an `InMemoryPage` subclass.
 - Update `InMemoryPage` calls to supply only `contents` or `view`. Replace an empty-string positional contents placeholder with `null`, or use the named `view` argument.
+- Replace `// filepath:` code block comments with the `title="…"` fence modifier, including the `#`, `/* */`, and `<!-- -->` comment variants.
+- Compare a few pages against your old site if you have custom CSS for code blocks or their labels, since the generated markup changed. The `hyde-code-block` and `hyde-code-block-label` classes are stable hooks to target instead of the markup structure.
+- Port any customizations from a published `filepath-label.blade.php` to `markdown/code-block.blade.php`. The old file is ignored after upgrading, so the site renders with the shipped label until they are moved.
 
 ## `InMemoryPage` content-source motivation
 
@@ -150,3 +161,142 @@ terminal window could be rendered from PHP without writing Markdown. Each is a f
 change, judged on its own merits.
 
 More blocks may gain the same backing later, which is also a separate change; terminal blocks are the only one today.
+
+## Composable code block motivation
+
+Code blocks were the last Markdown construct still assembled by string manipulation. A pre-processor rewrote filepath
+comments into `<!-- HYDE[Filepath] -->` markers, and a post-processor spliced the rendered label back into the finished
+HTML with a regex matching `<pre><code class="language-…">`. That approach limited what the feature could ever be: the
+label could only be a fragment placed inside the `<code>` element, because that was the only place a string
+replacement could reach. There was nowhere to put a copy button, a header bar, or a collapsed state.
+
+Rendering the whole block through a Blade view removes that limit. The view owns the markup around the code, so
+changing what surrounds a code block becomes a view change instead of a framework change, which is what terminal
+blocks already offer.
+
+The view is given the rendered code block markup rather than the raw code, which is what keeps highlighting working.
+Torchlight highlights through its API, so Hyde cannot render the code itself without replacing the highlighter.
+
+Getting hold of that markup is the whole design problem, because the highlighter is another renderer registered for
+the same node, and CommonMark's registry is not a middleware chain. The document renderer owns the iteration, asking
+each renderer in priority order and stopping at the first non-null result, and a node renderer only ever receives a
+`ChildNodeRendererInterface`, which renders child nodes and offers no way to call the next renderer.
+
+Three attempts are worth recording, because each one failed for a reason that shaped the next.
+
+The first reached back into the environment with `getRenderersForClass()` and called the renderers below itself,
+replaying the dispatcher by hand with no cursor for which renderers had already been tried.
+
+The second named Torchlight directly and injected it, with a fallback to CommonMark's renderer. That only worked for
+the highlighter we happen to ship with: a project using any other one got its code rendered by the fallback instead.
+
+The third rendered the node through a second converter built from the same extensions but without Hyde's renderer.
+That was highlighter-agnostic on the surface and wrong underneath. Registering an extension with two environments
+calls `register()` twice, so an extension that creates state there — a listener and a renderer sharing a collection,
+which is the ordinary way to write a highlighter — ends up with the document populating one copy and the renderer
+reading the other. It also invoked any renderer above Hyde's twice for the same block, once per environment, and
+skipped the document render events that `renderDocument()` dispatches but `renderNodes()` does not.
+
+What it settled on is structural rather than a second dispatch. Once the document is parsed and every listener has
+seen it, each remaining `FencedCode` is wrapped in a `CodeBlock` node of Hyde's own, and it is that wrapper the
+renderer is registered for. The fence is still in the tree, as the wrapper's only child, and rendering it through the
+`ChildNodeRendererInterface` the renderer is handed dispatches it back through the same environment — where Hyde is
+not a candidate, because Hyde renders `CodeBlock`, not `FencedCode`.
+
+One environment, one registration per extension, and each fence rendered exactly once by whoever the environment
+already had for it. Priority stops being part of the contract: a highlighter renders inside the view whether it
+registers above or below anything of ours. A block is only taken over completely by replacing the node itself, which
+is a deliberate act rather than a side effect of picking a number.
+
+Wrapping happens on `DocumentPreRenderEvent` at the lowest priority, so every parse-time listener has already run
+against a tree shaped the way it expects. The label is resolved separately, on `DocumentParsedEvent`, above the
+priority listeners register at by default, so a highlighter collects fences that have already had the Hyde syntax
+taken out of them. The old pre-processor achieved the same thing by running before the parser.
+
+The title modifier is taken out of the info string once it has been read: CommonMark treats the first info word as the
+language, so a fence that sets only a title would otherwise hand `title="foo.php"` to the highlighter as one. Other
+modifiers are left alone, since a highlighter may read its own from there, as Torchlight does with `theme:`.
+
+The syntax is `title="…"`, the terminal block title modifier applied to code blocks, which is the kind of reuse the
+extensibility argument for that syntax anticipated. It also matches what Docusaurus and Expressive Code call the same
+thing, so readers coming from other documentation generators will recognize it.
+
+A fence may set a title without a language, which the terminal block case never had to consider, since its first word
+is always `terminal`. The first info token is therefore only taken as the language when it does not look like a title
+modifier. That also keeps the error for a malformed title consistent, so ` ```title=Foo ` is rejected the same way
+` ```php title=Foo ` is, rather than being quietly read as a language named `title=Foo`.
+
+A `blade` fence carrying a title is a labelled code sample rather than a block to execute, so the Blade block
+extractor leaves it to the code block pipeline instead of reporting an unknown directive. It reads the fence through
+the same tokenizer the code block parser uses, so modifier order does not matter and a `title=` written inside another
+modifier's quoted value is not read as one. Splitting the info string on whitespace instead would accept
+` ```blade meta='a title="x" b' ` as a code sample rather than reporting the unknown directive it is.
+
+The label markup lives in the code block view rather than a view of its own. It is a single element with no logic to
+reuse, and the code block view is short enough that anyone changing its markup can edit it in place, while anyone only
+restyling it has the `hyde-code-block-label` class hook. A second view would have added a public view name, another
+publishable file, and another migration target, for no customization that is not already possible.
+
+The v2 `filepath-label.blade.php` view is therefore removed rather than kept. Published views take precedence over the
+framework's own, so keeping it would have left every customized copy in use, and a copy written for the old position
+can float the label outside the code block once the label is no longer inside the `<code>` element. Removing the view
+means such a copy is ignored instead, costing the customization rather than the page.
+
+`CodeBlockViewModel` is internal, matching `TerminalBlockViewModel`. It exists to type the view data and document its
+shape in one place, not to be an entry point: a code block is rendered by writing Markdown, and the interface projects
+work against is the Blade view, not the class that feeds it. Exposing it publicly was considered and dropped, since
+nothing needs it yet and a public class is much harder to take back than to add.
+
+The wrapper carries the block's vertical margins and zeroes the fence's own. The prose stylesheet resets the top
+margin of whatever follows a heading or opens the container, and those selectors now match the wrapper rather than the
+`<pre>`. Leaving the margin on the fence would collapse it straight back out through the border-less wrapper, putting a
+gap after every heading that v2 never had.
+
+The view is given a `$language` variable it does not currently use, because it is intrinsic to the block and views
+building their own header bars want it. It was not given a flag for whether Torchlight produced the markup. The v2
+label needed one to offset its position, but the wrapper makes that offset uniform, so the flag would have been view
+data that nothing reads, and it would have named a specific highlighter in the view contract.
+
+The extension registration model is unchanged by all of this. Torchlight is registered by class name exactly as it was
+in v2, each extension is constructed once for one environment, and the code block wiring sits alongside the heading
+renderer in the converter setup, where the rest of Hyde's own rendering already lives.
+
+The preparation listener is the one piece registered out of line: it goes on before any extension, at the highest
+priority, because listeners sharing a priority run in registration order and a third-party listener is free to claim
+the same number. Wrapping is the mirror of that, registered afterwards at the lowest priority, so it happens once
+every other listener has had the document in the shape it expects.
+
+## Dropping the filepath comment syntax
+
+An intermediate v3 branch supported both syntaxes, with the modifier winning when a block set both. That was dropped in
+favour of one syntax, and the comment removed entirely.
+
+The comment's one real advantage was portability. `// filepath: app/Model.php` still conveys the file when the same
+Markdown is read somewhere that knows nothing about Hyde, such as a GitHub pull request. That is not worth what it
+costs: it says the label must be a file path when the label is really a title, it puts presentation metadata inside
+the displayed code, it needs a comment variant per language, it makes Hyde delete a line that could be legitimate
+first-line code, and it doubles the syntax, documentation, and tests for a small feature. Two syntaxes also need
+precedence rules, and precedence rules need explaining. Degrading to a plain code block elsewhere is acceptable for
+framework-specific presentation metadata, which is how `title="…"` already behaves for terminal blocks.
+
+Keeping the comment working at runtime was rejected as well. Nothing on the v3 branch is released, so the only
+compatibility question is with v2, and that is a one-time migration rather than a permanent second syntax. Recognizing
+the comment only to warn about it would have kept every cost above, minus the label.
+
+The migration is mechanical and belongs in the v3 upgrade script rather than in the framework. It should work on parsed
+fenced blocks rather than a document-wide regex, so it should:
+
+- only inspect the first line of a fenced code block;
+- accept every comment form v2 documented, including the closing delimiters of `/* */` and `<!-- -->` comments;
+- preserve the language and any other fence modifiers, and add no second title when the fence already has one;
+- take the blank line separating the old comment from the code with it;
+- quote the title with single quotes when the label contains a double quote;
+- leave anything it cannot express unchanged and report it for manual migration, which is what a label containing both
+  quote characters needs.
+
+The framework's own documentation was migrated the same way, and every label in it converted cleanly, which is the
+evidence that the mechanical rules above cover realistic usage.
+
+The v2 option gating the feature, `markdown.features.codeblock_filepaths`, is dropped rather than renamed. It was
+absent from the published `config/markdown.php` and was never documented, and titles are opt-in syntax already, so
+there is nothing for a global switch to do that leaving `title="…"` off the fence does not.

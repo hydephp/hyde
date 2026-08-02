@@ -302,6 +302,54 @@ new InMemoryPage('example', view: '');
 new InMemoryPage('example', view: null);
 ```
 
+## Replace Your Code Block Filepath Comments
+
+Code block labels are now set with a `title="…"` modifier on the fence, and the `// filepath:` comment is no longer
+recognized. A comment left behind stays in the code as written, where it renders as an ordinary first line.
+
+A block written like this:
+
+````markdown
+```php
+// filepath: app/Models/Post.php
+echo 'Hello World!';
+```
+````
+
+Becomes:
+
+````markdown
+```php title="app/Models/Post.php"
+echo 'Hello World!';
+```
+````
+
+Search your source files for `filepath` to find the blocks to convert. All the documented comment forms are affected,
+so also check for `#`, `/* */`, and `<!-- -->` comments. A blank line left between the old comment and the code can be
+removed with it.
+
+## Move Your Filepath Label Customizations
+
+Fenced code blocks are now rendered through the `components/markdown/code-block.blade.php` view, which also holds the
+label markup. The `components/filepath-label.blade.php` view is gone.
+
+If you never published the label view, there is nothing to do here.
+
+If you did publish and customize it, your copy is no longer used, and your site renders with Hyde's default label
+until you move your changes over. Publish the code block view, choosing it individually so your other published views
+are left alone, then re-apply your changes and delete the old file:
+
+```bash
+php hyde publish:views
+```
+
+Do not pass the group name, as in `php hyde publish:views components`, since that publishes the whole group and
+overwrites every component view you have already customized.
+
+The markup around code blocks has also changed, so compare a few pages against your old site if you have custom CSS
+for them. The `hyde-code-block` and `hyde-code-block-label` classes are stable hooks you can target instead of
+matching the markup structure. Syntax highlighting is unaffected.
+
 ## Review Drafts and Future-Dated Blog Posts
 
 HydePHP v3 keeps two kinds of blog post out of your built site: those marked `draft: true` in front matter, and those whose date is set in the future. Drafts and scheduled posts are skipped during auto-discovery, so they get no route, are not compiled to `_site`, and are left out of post listings, the sitemap, and the RSS feed. The date rule applies to both front matter dates and filename date prefixes.
@@ -324,6 +372,9 @@ Use this checklist to track your upgrade progress:
 - [ ] Moved `InMemoryPage` `compile` macro callbacks into the contents argument and replaced other macros with subclass methods
 - [ ] Updated `InMemoryPage` calls to supply only one of `contents` and `view`
 - [ ] Checked `_posts` for drafts and blog posts dated in the future, and set up recurring builds if scheduling posts
+- [ ] Replaced `// filepath:` code block comments with the `title="…"` fence modifier
+- [ ] Ported any `filepath-label.blade.php` customizations to `markdown/code-block.blade.php`, and deleted the old file
+- [ ] Compared pages against your old site if you have custom CSS for code blocks or their labels
 
 ## Troubleshooting
 
