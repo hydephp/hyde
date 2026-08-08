@@ -25,7 +25,7 @@ Having this document in code lets us know the devlopment state at any given poin
 - Redirects can now be declared as source and destination path pairs in the `hyde.redirects` configuration array. Hyde registers them with the kernel, includes them in `route:list`, and generates them through the normal site build.
 - Blog posts can now be kept out of the published site through two zero-configuration publication states. Setting `draft: true` in front matter excludes a post indefinitely, until the property is removed or set to `false`, which suits content that is unfinished or awaiting approval. Setting a date in the future schedules a post, excluding it until that date has passed. Drafts and scheduled posts are skipped during auto-discovery when building the site: they get no route, are not present in the kernel's page and route collections, and are left out of post listings, the sitemap, and the RSS feed. The date rule supports both front matter dates and filename date prefixes, and an explicit draft outranks the date, so a draft stays excluded even after its date passes. Posts are published by default, making `draft: false` a no-op. Both states remain served by the realtime compiler, which is treated as an authoring preview, so posts can be written and proofread at their normal URL without editing their front matter: `serve` shows everything you are working on, while `build` publishes only what is eligible. Since Hyde is a static site generator, a scheduled post does not publish itself once its date passes: it is included in the first site build run after that point, so recurring builds (for example a cron-scheduled GitHub Actions workflow) are needed for a post to go live on its own. The new `MarkdownPost::isDraft()` and `MarkdownPost::isScheduled()` methods expose the checks. ([#2441](https://github.com/hydephp/develop/issues/2441), [#2572](https://github.com/hydephp/develop/pull/2572))
 - Added Blade Blocks for rendering Blade and Blade components from fenced code blocks in Markdown pages. The supported directives are `blade render` and `blade component="name"`, and the feature is controlled by `markdown.enable_blade`. ([#2504](https://github.com/hydephp/develop/pull/2504))
-- Added built-in terminal code blocks using the `terminal` fence language. Command prompts are styled for selection-free copying, and `terminal xml` supports four XML style formatter tags. The window's title bar can be titled per block with `terminal title="Installing Hyde"`, which the terminal view receives as a `$title` variable, falling back to the `Terminal` label when a block sets no title. The modifiers are order-independent, so they can be combined as either `terminal xml title="Build output"` or `terminal title="Build output" xml`. ([#2188](https://github.com/hydephp/develop/issues/2188), [#2485](https://github.com/hydephp/develop/issues/2485))
+- Added built-in terminal code blocks using the `terminal` fence language. Command prompts are styled for selection-free copying, and terminal formatting tags are rendered as styled output: the named `<info>`, `<comment>`, `<question>`, and `<error>` styles, and colors and text formatting set with `fg`, `bg`, and `options` attributes, closed with `</>`. Unsupported syntax stays literal text, and a leading backslash escapes a tag. The window's title bar can be titled per block with `terminal title="Installing Hyde"`, which the terminal view receives as a `$title` variable, falling back to the `Terminal` label when a block sets no title. ([#2188](https://github.com/hydephp/develop/issues/2188), [#2485](https://github.com/hydephp/develop/issues/2485))
 
 ### Feature Changes
 
@@ -115,10 +115,9 @@ uses it for titled fenced code blocks, and Expressive Code uses it specifically 
 coming from other documentation generators recognize it without being taught. It also fits CommonMark, which treats the
 first word of the info string as the language and deliberately leaves the rest for implementations to interpret.
 
-Modifiers are order-independent, since there is no reason for one arbitrary order to be correct when both read equally
-well, and an author combining two independent options should not have to remember which came first. Quoting follows the
-component directive: double quotes canonical, single quotes equivalent (useful when the title itself contains a double
-quote), and an unquoted or unterminated value rejected rather than guessed at. Unlike a component name, a title may
+Quoting follows the component directive: double quotes canonical, single quotes equivalent
+(useful when the title itself contains a double quote), and an unquoted or unterminated value rejected rather than
+guessed at. Unlike a component name, a title may
 contain whitespace, which is exactly why it is quoted; the quotes keep the rest of the info string parseable as
 space-separated tokens.
 
@@ -128,12 +127,45 @@ not a modifier this version doesn't know about, it is one it does know about, wr
 would leave an author looking at a window still labelled `Terminal` with nothing to explain why. Malformed forms such
 as `title`, `title=Build`, and `title = "Build"` are rejected explicitly because they are recognizable attempts to use
 a supported modifier. Tokens are also matched only at whitespace boundaries, preventing a modifier from being
-recognized inside a larger malformed token such as `title="One"xml`.
+recognized inside a larger malformed token such as `title="One"more`.
 
 The title is passed to the view verbatim as a nullable string rather than pre-resolved to the default label, so that a
 published view can define its own fallback for untitled blocks, which the shipped view demonstrates with
 `{{ $title ?? 'Terminal' }}`. An explicitly empty title is therefore distinguishable from an omitted one, and renders
 an empty title bar as written.
+
+## Terminal formatting tag motivation
+
+Hyde's terminal formatting syntax is inspired by the console formatter syntax used by Symfony Console and Laravel, so
+the markup is the one an author already writes in their own commands instead of a second vocabulary invented for
+documentation. It is intentionally Hyde-specific and does not aim to provide compatibility with Symfony's formatter:
+Hyde supports the subset useful for documentation and may evolve it independently. The tags are written by hand to
+annotate output pasted as plain text, since a formatter turns them into escape codes before anything a reader could
+copy ever reaches the terminal.
+
+The syntax is the four named styles, the `fg`, `bg`, and `options` attributes separated by semicolons, and the `</>`
+shorthand closing tag. The colors are the sixteen ANSI colors, taken from the Material Palenight palette the terminal
+view already uses. That is where `gray` comes from: the muted gray that console output leans on for secondary detail.
+
+The tags are interpreted automatically, without a modifier opting into them, since they are part of what a terminal
+block is. Unsupported syntax stays literal text, and a leading backslash escapes a tag, but only where the tag would
+otherwise be styled, since `\<` is ordinary shell and regular expression syntax that a terminal block has to leave
+alone. An attribute tag is only a style tag when the whole of it is a semicolon-separated list of attribute pairs, so
+a stray word does not make the rest of a malformed tag take effect.
+
+The supported set is deliberate. `strikethrough` is a Hyde addition, having an obvious rendering on a page and an
+obvious use in documentation. Options with no sound rendering on a page, such as blinking, reversing, and concealing,
+are not supported, nor are hyperlink or default-color attributes, since each would amount to a tag that is recognized
+and then does nothing. They stay literal text, as unknown colors, options, and attributes already do.
+
+Tags nest, so a tag written inside another adds its styling to it. A terminal instead resets whatever the inner style
+does not set, which means an `fg` nested inside a `bg` keeps the background here where a terminal would drop it.
+Composition is what an author writing `<info>… <options=bold>…` expects, and the resetting rule exists because of how
+ANSI escape codes stack, which markup is not constrained by.
+
+The formatter emits semantic `hyde-terminal-*` classes, with their default styling provided by the HydeFront terminal
+component stylesheet. This keeps terminal styling independent of Tailwind's source scanning and provides stable hooks
+for customization.
 
 ## Terminal block view model motivation
 

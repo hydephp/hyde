@@ -12,6 +12,7 @@
 */
 
 @import 'hydefront/components/torchlight.css' layer(base);
+@import 'hydefront/components/terminal.css' layer(base);
 
 @import 'tailwindcss';
 
