@@ -2,7 +2,18 @@
 
 ## Overview
 
-//
+HydePHP v3 infers an `InMemoryPage` output extension from its identifier. Identifiers that already have an extension keep
+it, while identifiers without an extension compile to `.html`:
+
+```php
+use Hyde\Pages\InMemoryPage;
+
+InMemoryPage::make('about', contents: $html);
+// _site/about.html
+
+InMemoryPage::make('robots.txt', contents: $text);
+// _site/robots.txt
+```
 
 ## Before You Begin
 
@@ -192,8 +203,7 @@ $page->macro(
 ```php
 $page = new InMemoryPage(
     'sitemap.xml',
-    ['navigation' => ['hidden' => true]],
-    fn (): string => app(SitemapGenerator::class)->generate()->getXml(),
+    contents: fn (): string => app(SitemapGenerator::class)->generate()->getXml(),
 );
 ```
 
@@ -302,7 +312,64 @@ new InMemoryPage('example', view: '');
 new InMemoryPage('example', view: null);
 ```
 
-## Replace Your Code Block Filepath Comments
+## Step 6: Review Non-HTML Navigation Visibility
+
+Non-HTML pages are excluded from automatic navigation by default. If you want one to appear, add
+`navigation.visible: true` or `navigation.hidden: false` to its front matter.
+
+Explicit navigation front matter now overrides Hyde's automatic exclusions. Review `navigation.visible: true` and
+`navigation.hidden: false` on blog posts, routes listed in `hyde.navigation.exclude`, and pages in hidden subdirectories,
+as those settings were previously ignored.
+
+## Step 7: Review Sitemap and RSS Feed Customizations
+
+Sites that only use the built-in sitemap and RSS configuration need no changes. The `GenerateSitemap` and `GenerateRssFeed`
+post-build task classes have been removed, so update code that referenced or overrode them.
+
+Replace a custom sitemap task with a `SitemapGenerator` implementation bound in the `register()` method of a service
+provider. Replace a custom RSS task with a bound `RssFeedGenerator` implementation. The framework registers the
+generated pages; the generator bindings control their contents.
+
+The `build:sitemap` and `build:rss` commands still work, but now fail when their corresponding page is not registered.
+
+## Step 8: Rename Page File Extension References
+
+The static page class property `$fileExtension` has been renamed to `$sourceExtension`, along with the
+`fileExtension()` and `setFileExtension()` methods, which are now `sourceExtension()` and `setSourceExtension()`.
+The new name makes it explicit that these APIs describe the extension of source files.
+
+This only affects projects with custom page classes or code calling these APIs. Update property declarations,
+call sites, and any methods that override `fileExtension()` or `setFileExtension()` — the methods are public
+and non-final, and an un-renamed override silently stops being called now that the framework calls
+`sourceExtension()`:
+
+**Before:**
+
+```php
+class CustomPage extends HydePage
+{
+    public static string $fileExtension = '.md';
+}
+
+$extension = MarkdownPage::fileExtension();
+```
+
+**After:**
+
+```php
+class CustomPage extends HydePage
+{
+    public static string $sourceExtension = '.md';
+}
+
+$extension = MarkdownPage::sourceExtension();
+```
+
+The automated upgrade script will handle this rename for ordinary property declarations, property accesses,
+method calls, and overridden method declarations. Dynamic references — variable method or property names,
+reflection, and string-based access — must be updated manually.
+
+## Step 9: Replace Your Code Block Filepath Comments
 
 Code block labels are now set with a `title="…"` modifier on the fence, and the `// filepath:` comment is no longer
 recognized. A comment left behind stays in the code as written, where it renders as an ordinary first line.
@@ -328,7 +395,7 @@ Search your source files for `filepath` to find the blocks to convert. All the d
 so also check for `#`, `/* */`, and `<!-- -->` comments. A blank line left between the old comment and the code can be
 removed with it.
 
-## Move Your Filepath Label Customizations
+## Step 10: Move Your Filepath Label Customizations
 
 Fenced code blocks are now rendered through the `components/markdown/code-block.blade.php` view, which also holds the
 label markup. The `components/filepath-label.blade.php` view is gone.
@@ -350,7 +417,7 @@ The markup around code blocks has also changed, so compare a few pages against y
 for them. The `hyde-code-block` and `hyde-code-block-label` classes are stable hooks you can target instead of
 matching the markup structure. Syntax highlighting is unaffected.
 
-## Review Drafts and Future-Dated Blog Posts
+## Step 11: Review Drafts and Future-Dated Blog Posts
 
 HydePHP v3 keeps two kinds of blog post out of your built site: those marked `draft: true` in front matter, and those whose date is set in the future. Drafts and scheduled posts are skipped during auto-discovery, so they get no route, are not compiled to `_site`, and are left out of post listings, the sitemap, and the RSS feed. The date rule applies to both front matter dates and filename date prefixes.
 
@@ -371,10 +438,13 @@ Use this checklist to track your upgrade progress:
 - [ ] Moved calls to `Redirect::create()` or `Redirect::store()` into the `hyde.redirects` configuration array
 - [ ] Moved `InMemoryPage` `compile` macro callbacks into the contents argument and replaced other macros with subclass methods
 - [ ] Updated `InMemoryPage` calls to supply only one of `contents` and `view`
-- [ ] Checked `_posts` for drafts and blog posts dated in the future, and set up recurring builds if scheduling posts
+- [ ] Explicitly opted in any non-HTML pages that should remain in automatic navigation
+- [ ] Replaced any references to the removed `GenerateSitemap` and `GenerateRssFeed` build tasks with generator implementations bound in a service provider
+- [ ] Renamed `$fileExtension`, `fileExtension()`, and `setFileExtension()` to `$sourceExtension`, `sourceExtension()`, and `setSourceExtension()` in custom page classes and call sites
 - [ ] Replaced `// filepath:` code block comments with the `title="…"` fence modifier
 - [ ] Ported any `filepath-label.blade.php` customizations to `markdown/code-block.blade.php`, and deleted the old file
 - [ ] Compared pages against your old site if you have custom CSS for code blocks or their labels
+- [ ] Checked `_posts` for drafts and blog posts dated in the future, and set up recurring builds if scheduling posts
 
 ## Troubleshooting
 

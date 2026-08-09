@@ -375,4 +375,3 @@ The standard is not “can this be made more robust?”
 The standard is:
 
 > **Is this the simplest implementation that correctly preserves the intended public contract and realistic user behavior?**
-
