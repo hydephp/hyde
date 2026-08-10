@@ -85,18 +85,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Code Block Label Style
-    |--------------------------------------------------------------------------
-    |
-    | Titled code blocks display their label in a responsive header by default.
-    | Set this to "badge" to use the top-right badge presentation.
-    |
-    */
-
-    'code_block_label_style' => 'header',
-
-    /*
-    |--------------------------------------------------------------------------
     | Tailwind Typography Prose Classes
     |--------------------------------------------------------------------------
     |
