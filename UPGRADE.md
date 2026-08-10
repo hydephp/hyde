@@ -395,6 +395,13 @@ Search your source files for `filepath` to find the blocks to convert. All the d
 so also check for `#`, `/* */`, and `<!-- -->` comments. A blank line left between the old comment and the code can be
 removed with it.
 
+HydePHP v3 displays code block labels in a responsive header instead of the v2 top-right badge. To retain the previous
+appearance, add this option to `config/markdown.php`:
+
+```php
+'code_block_label_style' => 'badge',
+```
+
 ## Step 10: Move Your Filepath Label Customizations
 
 Fenced code blocks are now rendered through the `components/markdown/code-block.blade.php` view, which also holds the
@@ -442,6 +449,7 @@ Use this checklist to track your upgrade progress:
 - [ ] Replaced any references to the removed `GenerateSitemap` and `GenerateRssFeed` build tasks with generator implementations bound in a service provider
 - [ ] Renamed `$fileExtension`, `fileExtension()`, and `setFileExtension()` to `$sourceExtension`, `sourceExtension()`, and `setSourceExtension()` in custom page classes and call sites
 - [ ] Replaced `// filepath:` code block comments with the `title="…"` fence modifier
+- [ ] Set `markdown.code_block_label_style` to `badge` if retaining the v2 code block label presentation
 - [ ] Ported any `filepath-label.blade.php` customizations to `markdown/code-block.blade.php`, and deleted the old file
 - [ ] Compared pages against your old site if you have custom CSS for code blocks or their labels
 - [ ] Checked `_posts` for drafts and blog posts dated in the future, and set up recurring builds if scheduling posts
