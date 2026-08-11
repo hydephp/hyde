@@ -431,6 +431,14 @@ To find affected posts, search `_posts` for `draft: true`, and check for dates a
 
 If a post that was supposed to be published turns out to be excluded, remove the `draft` property or correct the date. If you actually want to schedule posts, remember that **Hyde is a static site generator**: a scheduled post does not publish itself when its date passes. It is included in the first site build that runs after that point, so you need recurring builds for a post to go live on its own, for example a cron-scheduled GitHub Actions workflow.
 
+## Step 12: Move Manually Maintained Output Files Into `_static`
+
+HydePHP v3 empties the entire output directory before every build. In v2 the build only removed HTML and JSON files along with the media directory, so anything else you put in `_site` stayed there between builds. Files like `CNAME`, `.nojekyll`, and search engine verification files were commonly committed straight into the output directory for that reason.
+
+Move those files into the `_static` directory, which is copied verbatim to the site root on every build, so `_static/CNAME` becomes `_site/CNAME`.
+
+The `hyde.safe_output_directories` option no longer exists, and the build no longer asks for confirmation before emptying an unfamiliar output directory. Delete the entry from your `config/hyde.php`. Take the chance to double-check your `hyde.output_directory` if you build somewhere other than `_site`, since everything in that directory is now removed on every build.
+
 ## Migration Checklist
 
 Use this checklist to track your upgrade progress:
@@ -447,6 +455,7 @@ Use this checklist to track your upgrade progress:
 - [ ] Ported any `filepath-label.blade.php` customizations to `markdown/code-block.blade.php`, and deleted the old file
 - [ ] Compared pages against your old site if you have custom CSS for code blocks or their labels
 - [ ] Checked `_posts` for drafts and blog posts dated in the future, and set up recurring builds if scheduling posts
+- [ ] Moved manually maintained files out of the output directory and into `_static`
 
 ## Troubleshooting
 
