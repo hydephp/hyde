@@ -22,7 +22,7 @@ Before starting the upgrade process, it's **strongly recommended** to:
 
 If you're not already using Git for version control, now is an excellent time to initialize a repository:
 
-```bash
+```terminal
 git init
 git add .
 git commit -m "Pre-upgrade backup before HydePHP v2.0"
@@ -57,7 +57,7 @@ Open your `composer.json` file and update the following dependencies:
 
 Then run:
 
-```bash
+```terminal
 composer update
 ```
 
@@ -111,7 +111,7 @@ Update the NPM scripts in your `package.json`:
 
 Then run:
 
-```bash
+```terminal
 npm install
 ```
 
@@ -170,7 +170,7 @@ Update `resources/assets/app.css`:
 
 Run the automated Tailwind upgrade tool:
 
-```bash
+```terminal
 npx @tailwindcss/upgrade
 ```
 
@@ -180,7 +180,7 @@ Review the [Tailwind v4 Upgrade Guide](https://tailwindcss.com/docs/upgrade-guid
 
 Now you can run Vite build:
 
-```bash
+```terminal
 npm run build
 ```
 
@@ -419,13 +419,13 @@ use Hyde\Support\DataCollection;
 Update any CI/CD pipelines or build scripts:
 
 **Before:**
-```bash
+```terminal
 npm run prod
 php hyde build --run-prod
 ```
 
 **After:**
-```bash
+```terminal
 npm run build
 php hyde build --vite
 ```
@@ -436,7 +436,7 @@ The `--run-dev`, `--run-prod`, and `--run-prettier` flags have been removed. Use
 
 Next, to ensure we have a clean slate, run the following commands:
 
-```bash
+```terminal
 composer dump-autoload
 php hyde cache:clear
 rm app/storage/framework/views/*.php
@@ -448,7 +448,7 @@ You may also want to republish any views you have published.
 
 After completing all the configuration updates:
 
-```bash
+```terminal
 npm run build
 
 # Build your site
