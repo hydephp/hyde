@@ -66,7 +66,7 @@ See the documentation and learn more at https://hydephp.com/docs
 
 It's a breeze to get started with Hyde. Create a new Hyde project using Composer:
 
-```bash
+```terminal
 composer create-project hyde/hyde
 ```
 
@@ -74,7 +74,7 @@ Next, place your Markdown files in one of the content directories:  `_posts`, `_
 
 When you're ready, run the build command to compile your static site which will save your HTML files in the `_site` directory.
 
-```bash
+```terminal
 php hyde build
 ```
 
