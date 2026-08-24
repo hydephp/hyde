@@ -16,6 +16,12 @@ We are developing HydePHP v3; the main branch for PRs is `2.x`.
   tests, redundant comments, duplicated documentation, obsolete release notes, and
   artefacts left over from earlier approaches.
 
+## Pull requests
+
+- When asked to create a pull request, prefix the branch name with `v3/` and the
+  title with `[3.x]` when targeting `master`; use `v2/` and `[2.x]` when targeting
+  `2.x`.
+
 ## Testing
 
 The goal is full confidence: feature tests give 100% coverage by exercising all user
