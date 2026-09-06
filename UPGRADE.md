@@ -369,6 +369,23 @@ The automated upgrade script will handle this rename for ordinary property decla
 method calls, and overridden method declarations. Dynamic references — variable method or property names,
 reflection, and string-based access — must be updated manually.
 
+### Review Exact Page-Class File Queries
+
+`FileCollection::getFiles($pageClass)` now uses the same polymorphic page-class filtering as
+`PageCollection::getPages()` and `RouteCollection::getRoutes()`. Querying a parent page class therefore includes files
+assigned to its subclasses. This only affects custom extensions that register or add files for both a parent page class
+and its subclass. If such code needs exact-class results, filter the collection explicitly:
+
+```php
+use App\Pages\CustomPage;
+use Hyde\Hyde;
+use Hyde\Support\Filesystem\SourceFile;
+
+$files = Hyde::files()->filter(
+    fn (SourceFile $file): bool => $file->pageClass === CustomPage::class,
+);
+```
+
 ## Step 9: Replace Your Code Block Filepath Comments
 
 Code block labels are now set with a `title="…"` modifier on the fence, and the `// filepath:` comment is no longer
@@ -451,6 +468,7 @@ Use this checklist to track your upgrade progress:
 - [ ] Explicitly opted in any non-HTML pages that should remain in automatic navigation
 - [ ] Replaced any references to the removed `GenerateSitemap` and `GenerateRssFeed` build tasks with generator implementations bound in a service provider
 - [ ] Renamed `$fileExtension`, `fileExtension()`, and `setFileExtension()` to `$sourceExtension`, `sourceExtension()`, and `setSourceExtension()` in custom page classes and call sites
+- [ ] Reviewed `FileCollection::getFiles()` calls that require exact page-class matching
 - [ ] Replaced `// filepath:` code block comments with the `title="…"` fence modifier
 - [ ] Ported any `filepath-label.blade.php` customizations to `markdown/code-block.blade.php`, and deleted the old file
 - [ ] Compared pages against your old site if you have custom CSS for code blocks or their labels
